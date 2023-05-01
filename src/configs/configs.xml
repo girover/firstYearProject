@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<author>
+		<name>Majed</name>
+		<email>girover.mhf@gmail.com</email>
+	</author>
+	<application>
+		<name>Application</name>
+		<key>base64:HsrNrV3HCEd3rrB46RL9JRRLdDudbl5bM3v9l3qOxcU=</key>
+	</application>
+	<server>
+		<hostname>localhost</hostname>
+		<port>1433</port>
+	</server>
+	<database>
+		<defaultConnection>sqlServer</defaultConnection>
+		<sqlServer>
+			<hostname>localhost</hostname>
+			<port>1433</port>
+			<windowsAuthentication>yes</windowsAuthentication>
+			<instanceName>SQLEXPRESS</instanceName>
+			<name>sql_injection</name>
+			<userName>userName</userName>
+			<password>1234</password>
+			<trustServerCertificate>yes</trustServerCertificate>
+			<integratedSecurity>yes</integratedSecurity>
+		</sqlServer>
+		<mysql>
+			<hostname>localhost</hostname>
+			<port>3306</port>
+			<name>sql_injection</name>
+			<userName>userName</userName>
+			<password>1234</password>
+		</mysql>
+	</database>
+	<pagination>
+		<rowsPerPage>50</rowsPerPage>
+	</pagination>
+	<gui>
+		<path>views/</path>
+	</gui>
+</configs>

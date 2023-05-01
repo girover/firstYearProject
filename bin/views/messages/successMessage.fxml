@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="428.0" styleClass="bg-success" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MessageController">
+   <children>
+      <FontIcon iconColor="#006b0e" iconLiteral="fa-check-circle-o" iconSize="100" layoutX="9.0" layoutY="100.0" text="" />
+      <Label fx:id="lblMessage" layoutX="111.0" layoutY="6.0" prefHeight="118.0" prefWidth="307.0" textFill="#014e0c" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

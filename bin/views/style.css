@@ -1,0 +1,115 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.text-danger{
+	-fx-text-fill:#f13d37;
+}
+.bg-danger{
+	-fx-background-color:#f13d37;
+}
+.bg-white{
+	-fx-background-color:#fff;
+}
+.bg-success{
+	-fx-background-color:#22c55e;
+}
+.bg-slate-50{
+	-fx-background-color:#f8fafc;
+}
+.bg-slate-100{
+	-fx-background-color:#f1f5f9;
+}
+.bg-slate-200{
+	-fx-background-color:#e2e8f0;
+}
+.bg-slate-300{
+	-fx-background-color:#cbd5e1;
+}
+.bg-slate-400{
+	-fx-background-color:#94a3b8;
+}
+.bg-slate-500{
+	-fx-background-color:#64748b;
+}
+.bg-slate-600{
+	-fx-background-color:#475569;
+}
+.bg-slate-700{
+	-fx-background-color:#334155;
+}
+.bg-slate-800{
+	-fx-background-color:#1e293b;
+}
+.bg-slate-900{
+	-fx-background-color:#0f172a;
+}
+.bg-slate-950{
+	-fx-background-color:#020617;
+}
+.bg-sky-50{
+	-fx-background-color:#f0f9ff;
+}
+.bg-sky-600{
+	-fx-background-color:#0284c7;
+}
+.btn{
+	-fx-background-radius:20px;
+	-fx-cursor:hand;
+}
+.btn-login{
+	-fx-background-color:#000;
+	-fx-text-fill:#fff;
+}
+.btn-login:hover{
+	-fx-background-color:#950500;
+	-fx-text-fill:#fff;
+}
+
+.form-control{
+	-fx-background-radius:30px;
+	-fx-text-fill:#f13d37;
+}
+
+.border-none{
+	-fx-border-width: 0px;
+}
+
+.border-color-slate-50{
+	-fx-border-color:#f8fafc;
+}
+.border-color-slate-100{
+	-fx-border-color:#f1f5f9;
+}
+.border-color-slate-200{
+	-fx-border-color:#e2e8f0;
+}
+.border-color-slate-300{
+	-fx-border-color:#cbd5e1;
+}
+.border-color-slate-400{
+	-fx-border-color:#94a3b8;
+}
+.border-color-slate-500{
+	-fx-border-color:#64748b;
+}
+.border-color-slate-600{
+	-fx-border-color:#475569;
+}
+.border-color-slate-700{
+	-fx-border-color:#334155;
+}
+.border-color-slate-800{
+	-fx-border-color:#1e293b;
+}
+.border-color-slate-900{
+	-fx-border-color:#0f172a;
+}
+.border-color-slate-950{
+	-fx-background-color:#020617;
+}
+
+.shadow{
+	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 2, 2) ;
+}
+.shadow-2{
+	-fx-effect:dropshadow(gaussian,#00000078, 10.5, 0, 0, 0) ;
+}
