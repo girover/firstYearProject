@@ -1,5 +1,6 @@
 package window;
 
+import app.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,6 +30,7 @@ public class Window extends Stage {
 			scene = new Scene(root);
 			setScene(scene);
 			setTitle(title);
+			initOwner(App.getMainStage());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +77,18 @@ public class Window extends Stage {
 		Scene scene = ((Button) event.getSource()).getScene();
 		Stage stage = (Stage) scene.getWindow();
 		stage.close();
+	}
+
+	public static void showErrorMessage(String message, String title) {
+		FlashWindow errorMessage = new FlashWindow("messages/errorMessage.fxml", title);
+		errorMessage.setMessage(message);
+		errorMessage.show();
+	}
+	
+	public static void showSuccessMessage(String message, String title) {
+		FlashWindow errorMessage = new FlashWindow("messages/successMessage.fxml", title);
+		errorMessage.setMessage(message);
+		errorMessage.show();
 	}
 	
 //	public void show() {

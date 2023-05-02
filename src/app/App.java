@@ -13,6 +13,7 @@ import database.entities.User;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import window.FlashWindow;
 import window.Window;
 
 public class App {
@@ -123,6 +124,7 @@ public class App {
 
 	public static void showLoginWindow() {
 		Window loginWindow = new Window("login.fxml", "User Login");
+		App.setMainStage(loginWindow);
 		loginWindow.show();
 	}
 	
@@ -150,6 +152,22 @@ public class App {
 			newDatabaseConnection();
 
 		return dbConnection;
+	}
+	
+	public static void flashErrorMessage(String message, String title) {
+		FlashWindow.flashErrorMessage(message, title);
+	}
+	
+	public static void flashSuccessMessage(String message, String title) {
+		FlashWindow.flashSuccessMessage(message, title);
+	}
+	
+	public static void showErrorMessage(String message, String title) {
+		Window.showErrorMessage(message, title);
+	}
+	
+	public static void showSuccessMessage(String message, String title) {
+		Window.showSuccessMessage(message, title);
 	}
 
 	public static Connection db() {

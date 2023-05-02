@@ -1,7 +1,6 @@
 package window;
 
 import javafx.animation.PauseTransition;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import presentation.MessageController;
 
@@ -34,5 +33,21 @@ public class FlashWindow extends Window{
 	public void flash() {
 		show();
 		closeAutomaticallyAfter(2);
+	}
+	
+	public static void flashErrorMessage(String message, String title) {
+		FlashWindow errorMessage = instance("messages/errorMessage.fxml", title);
+		errorMessage.setMessage(message);
+		errorMessage.flash();
+	}
+	
+	public static void flashSuccessMessage(String message, String title) {
+		FlashWindow errorMessage = instance("messages/sucessMessage.fxml", title);
+		errorMessage.setMessage(message);
+		errorMessage.show();
+	}
+	
+	private static FlashWindow instance(String fxml, String title) {
+		return new FlashWindow(fxml, title);
 	}
 }
