@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 
 import app.App;
+import configs.Config;
 
 public abstract class Repository {
 
@@ -15,9 +16,11 @@ public abstract class Repository {
 
 	protected String table;
 	protected String primaryKey = "id";
+	protected int rowsPerPage;
 
 	protected Repository() {
 		dbConnection = App.getDBConnection();
+		rowsPerPage = Integer.parseInt(Config.get("pagination.rowsPerPage"));
 	}
 
 	protected String getTable() {

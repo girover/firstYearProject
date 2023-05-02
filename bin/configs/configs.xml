@@ -17,18 +17,20 @@
 		<sqlServer>
 			<hostname>localhost</hostname>
 			<port>1433</port>
-			<windowsAuthentication>yes</windowsAuthentication>
 			<instanceName>SQLEXPRESS</instanceName>
-			<name>sql_injection</name>
+			<dbName>ferrari</dbName>
+			<testDbName>ferrari_testing</testDbName>
 			<userName>userName</userName>
 			<password>1234</password>
+			<windowsAuthentication>yes</windowsAuthentication>
 			<trustServerCertificate>yes</trustServerCertificate>
 			<integratedSecurity>yes</integratedSecurity>
 		</sqlServer>
 		<mysql>
 			<hostname>localhost</hostname>
 			<port>3306</port>
-			<name>sql_injection</name>
+			<dbName>sql_injection</dbName>
+			<testDbName>sql_injection</testDbName>
 			<userName>userName</userName>
 			<password>1234</password>
 		</mysql>
@@ -39,4 +41,9 @@
 	<gui>
 		<path>views/</path>
 	</gui>
+	<auth>
+		<idField>userName</idField>
+		<idFieldType>string</idFieldType>
+		<passwordField>password</passwordField>
+	</auth>
 </configs>

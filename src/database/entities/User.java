@@ -8,24 +8,24 @@ import authentication.Authenticatable;
 
 public class User extends Auth implements Authenticatable{
 
-	private int id;
-	private String name;
-	private String email;
-	private String password;
-	
-	@Override
-	public void login(Authenticatable user) {
-
-		
+	public User() {
+		super();
 	}
+
+	private int id;
+	private int employeeId;
+	private String userName;
+	private String password;
+	private Employee employee;
+
 
 	@Override
 	public boolean makeFromResultSet(ResultSet result) {
 		
 		try {
 			id = result.getInt("id");
-			name = result.getString("name");
-			email = result.getString("email");
+			employeeId = result.getInt("employeeId");
+			userName = result.getString("name");
 			password = result.getString("password");
 			
 			return true;
@@ -34,10 +34,50 @@ public class User extends Auth implements Authenticatable{
 		}
 		return false;
 	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+	
+	public Employee getEmployee() {
+		return employee;
+	}
 
 	@Override
 	public boolean login(String firstCredential, String secondCredential) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 	

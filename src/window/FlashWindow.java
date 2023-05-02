@@ -14,15 +14,14 @@ public class FlashWindow extends Window{
 	
 	/**
 	 * Used for showing Success or Error messages
-	 * Those messages will disappear automatically after given milliseconds. 
+	 * Those messages will disappear automatically after given seconds. 
 	 * @param stage
 	 * @param miliseconds
 	 */
-//	private void closeAutomatically(Stage stage, int seconds) {
-	private void closeAutomaticallyAfter(int milliseconds) {
+	private void closeAutomaticallyAfter(int seconds) {
 
-		PauseTransition delay = new PauseTransition(Duration.seconds(milliseconds));
-//		delay.setOnFinished(event -> stage.close());
+		PauseTransition delay = new PauseTransition(Duration.seconds(seconds));
+		
 		delay.setOnFinished(event -> this.close());
 		delay.play();
 	}
@@ -31,14 +30,9 @@ public class FlashWindow extends Window{
 		MessageController mController = (MessageController)getController();
 		mController.setMessage(message);
 	}
-	
-//	@Override
-//	public void show() {
-//		stage.show();
-//		closeAutomatically(stage, 2);
-//	}
+
 	public void flash() {
 		show();
-		closeAutomaticallyAfter(2000);
+		closeAutomaticallyAfter(2);
 	}
 }

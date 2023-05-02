@@ -3,6 +3,7 @@ package database.repositories;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import authentication.Auth;
 import database.entities.User;
 
 public class UserRepository extends Repository {
@@ -16,13 +17,61 @@ public class UserRepository extends Repository {
 	 * @param id : the id of the user
 	 * @return User entity
 	 */
-	public User getUserById(int id) {
+	public User getById(int id) {
 		
 		User user = null;
-		String sql = "SELECT * FROM [" + table + "] WHERE [" + primaryKey + "] = ?";
+//		String sql = "SELECT * FROM [" + table + "] WHERE [" + primaryKey + "] = ?";
 		
 		try {
-			ResultSet result = select(sql, id);
+//			ResultSet result = select(sql, id);
+			ResultSet result = find(id);
+			
+			if(result.next()) {
+				user = new User();
+				user.makeFromResultSet(result);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+	
+	/**
+	 * Get user by its primaryKey's value
+	 * @param id : the id of the user
+	 * @return User entity
+	 */
+	public User getById(String id) {
+		
+		User user = null;
+		
+		try {
+			ResultSet result = getByACondition(primaryKey, "=", id);
+			
+			if(result.next()) {
+				user = new User();
+				user.makeFromResultSet(result);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+	
+	/**
+	 * Get user by its primaryKey's value
+	 * @param value : the id of the user
+	 * @return User entity
+	 */
+	public User getByAuthenticationField(String field, String value) {
+		
+		User user = null;
+		
+		try {
+			ResultSet result = getByACondition(field, "=", value);
+			
 			if(result.next()) {
 				user = new User();
 				user.makeFromResultSet(result);
