@@ -10,6 +10,8 @@ public class User extends Auth implements Authenticatable{
 
 	public User() {
 		super();
+		setTable("user");
+		setPrimaryKey("id");
 	}
 
 	private int id;

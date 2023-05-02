@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import authentication.Auth;
+import database.entities.Entity;
 import database.entities.User;
 
 public class UserRepository extends Repository {
@@ -11,80 +12,143 @@ public class UserRepository extends Repository {
 	public UserRepository() {
 		setTable("user");
 	}
-	
+
 	/**
 	 * Get user by its primaryKey's value
+	 * 
 	 * @param id : the id of the user
 	 * @return User entity
 	 */
 	public User getById(int id) {
-		
+
 		User user = null;
 //		String sql = "SELECT * FROM [" + table + "] WHERE [" + primaryKey + "] = ?";
-		
+
 		try {
 //			ResultSet result = select(sql, id);
 			ResultSet result = find(id);
-			
-			if(result.next()) {
+
+			if (result.next()) {
 				user = new User();
 				user.makeFromResultSet(result);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return user;
 	}
-	
+
 	/**
 	 * Get user by its primaryKey's value
+	 * 
 	 * @param id : the id of the user
 	 * @return User entity
 	 */
 	public User getById(String id) {
-		
+
 		User user = null;
-		
+
 		try {
 			ResultSet result = getByACondition(primaryKey, "=", id);
-			
-			if(result.next()) {
+
+			if (result.next()) {
 				user = new User();
 				user.makeFromResultSet(result);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return user;
 	}
-	
+
 	/**
 	 * Get user by its primaryKey's value
+	 * 
 	 * @param value : the id of the user
 	 * @return User entity
 	 */
 	public User getByAuthenticationField(String field, String value) {
-		
+
 		User user = null;
-		
+
 		try {
 			ResultSet result = getByACondition(field, "=", value);
-			
-			if(result.next()) {
+
+			if (result.next()) {
 				user = new User();
 				user.makeFromResultSet(result);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return user;
 	}
-	
+
+	/**
+	 * Delete the given user from database table.
+	 * 
+	 * @param Entity entity
+	 * @return boolean
+	 */
+	@Override
+	public boolean delete(Entity entity) {
+
+		String sql = "DELETE FROM [" + entity.getTable() + "] WHERE " + entity.getPrimaryKey() + " = ?";
+
+		return delete(sql, ((User) entity).getId());
+	}
+
+	/**
+	 * Update the given user in database table.
+	 * 
+	 * @param Entity entity
+	 * @return boolean
+	 */
+	@Override
+	public boolean update(Entity entity) {
+		
+		User user = (User)entity;
+		
+		String sql = "UPDATE [" +table+ "] SET [userName] = ?, [password] = ?, "
+				   + "[employeeId] = ? "
+				   + "WHERE " + primaryKey + " = ?";
+		
+		return update(sql, user.getUserName(), user.getPassword(), user.getEmployeeId(), user.getId());
+	}
+
+	/**
+	 * Insert the given user into database table.
+	 * 
+	 * @param Entity entity
+	 * @return boolean
+	 */
+	@Override
+	public int add(Entity entity) {
+		
+		User user = (User)entity;
+		
+		String sql = "INSERT INTO [" + table + "] "
+				+ "([employeeId], [userName], [password]) VALUES "
+				+ "(?, ?, ?)";
+		
+		int id = insertAndGetGeneratedId(sql, user.getEmployeeId(), user.getUserName(), user.getPassword());
+		
+		if(id > 0) {
+			user.setId(id);
+			user.setExist(true);
+			
+			return id;
+		}
+		
+		return 0;
+	}
+
 	/**
 	 * Get first user in the database
+	 * 
 	 * @return User entity
 	 */
 //	public User getFirst() {
@@ -103,9 +167,10 @@ public class UserRepository extends Repository {
 //		
 //		return user;
 //	}
-	
+
 	/**
 	 * Get user by its email
+	 * 
 	 * @param id : the id of the user
 	 * @return User
 	 */
@@ -126,9 +191,10 @@ public class UserRepository extends Repository {
 //		
 //		return user;
 //	}
-	
+
 	/**
 	 * Retrieve all users from database
+	 * 
 	 * @return ArrayList<User>
 	 */
 //	public ArrayList<User> getAllUsers(){
@@ -148,9 +214,10 @@ public class UserRepository extends Repository {
 //		
 //		return users;
 //	}
-	
+
 	/**
 	 * Retrieve all users from database
+	 * 
 	 * @return ArrayList<User>
 	 */
 //	public ArrayList<User> getAllUsersWithAdmins(){
@@ -187,7 +254,7 @@ public class UserRepository extends Repository {
 //		
 //		return users;
 //	}
-	
+
 //	public ArrayList<User> getClientsHowHasNotAssignment(Assignment assignment){
 //		
 //		ArrayList<User> clients = new ArrayList<>();

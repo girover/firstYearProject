@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import app.App;
 import configs.Config;
+import database.entities.Entity;
 
 public abstract class Repository {
 
@@ -152,9 +153,8 @@ public abstract class Repository {
 	 * @return boolean : entity deleted or not.
 	 */
 	protected boolean delete(String sql, Object... bindings) {
+		
 		try {
-			System.out.println(sql);
-
 			PreparedStatement statement = preparedStatement(sql, bindings);
 
 			int affectedRows = statement.executeUpdate();
@@ -342,4 +342,24 @@ public abstract class Repository {
 		}
 	}
 
+	/**
+	 * Delete the specified entity from database
+	 * @param entity
+	 * @return
+	 */
+	public abstract boolean delete(Entity entity);
+	
+	/**
+	 * Updates the specified entity in the database with the latest changes.
+	 * @param entity
+	 * @return
+	 */
+	public abstract boolean update(Entity entity);
+	
+	/**
+	 * Inserts the specified entity to the database.
+	 * @param entity
+	 * @return integer
+	 */
+	public abstract int add(Entity entity);
 }

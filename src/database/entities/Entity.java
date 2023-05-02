@@ -9,7 +9,7 @@ public abstract class Entity {
 	// Determines if the entity is retrieved from database
 	protected boolean exist = false;
 	
-	protected String getTable() {
+	public String getTable() {
 		return table;
 	}
 
@@ -17,7 +17,7 @@ public abstract class Entity {
 		this.table = table;
 	}
 	
-	protected String getPrimaryKey() {
+	public String getPrimaryKey() {
 		return primaryKey;
 	}
 
