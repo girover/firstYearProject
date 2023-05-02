@@ -30,18 +30,18 @@ public class AuthService {
 	/**
 	 * Log the User in the system using the provided credentials.
 	 * 
-	 * @param id
-	 * @param passowrd
+	 * @param userID
+	 * @param userPassowrd
 	 * @return
 	 */
-	public boolean login(String id, String passowrd) {
+	public boolean login(String userID, String userPassowrd) {
 		
 		UserRepository userRepo = new UserRepository();
 		User user = null;
 		
-		user = userRepo.getByAuthenticationField(userIdField, id);
+		user = userRepo.getByAuthenticationField(userIdField, userID);
 		
-		if(user != null && user.getPassword().equals(passowrd)) {
+		if(user != null && user.getPassword().equals(userPassowrd)) {
 			
 			EmployeeRepositroy employeeRepo = new EmployeeRepositroy();
 			Employee employee = employeeRepo.getById(user.getEmployeeId());
