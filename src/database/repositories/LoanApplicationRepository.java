@@ -89,7 +89,8 @@ public class LoanApplicationRepository extends Repository {
 				loanApplication.getInterestRate(),
 		        loanApplication.getMonthlyPayment(),
 		        loanApplication.getStatus(),
-		        loanApplication.getNote());
+		        loanApplication.getNote(),
+		        loanApplication.getId());
 	}
 
 	/**
@@ -118,7 +119,7 @@ public class LoanApplicationRepository extends Repository {
 				   + "[note] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				   + "(customerID, salesPersonID, carID, applicationDate, loanAmount, payment, months, interestRate, monthlyPayment, status, note)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				loanApplication.getCustomerID(), 

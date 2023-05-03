@@ -71,7 +71,8 @@ public class SellerApprovalLimitsRepository extends Repository {
 		
 		return update(sql, 
 				sellerApprovalLimits.getEmployeeID(),
-				sellerApprovalLimits.getMaxApprovalLimit());
+				sellerApprovalLimits.getMaxApprovalLimit(),
+				sellerApporvalLimits.getId());
 	}
 
 	/**
@@ -91,7 +92,7 @@ public class SellerApprovalLimitsRepository extends Repository {
 				   + "[maxApprovelLimit] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				   + "(employeeID, maxApprovedLimit)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				sellerApprovalLimits.getEmployeeID(),

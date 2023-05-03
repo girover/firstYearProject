@@ -69,9 +69,10 @@ public class CarImageRepository extends Repository {
 				   + "[image] = ?, "
 				   + "WHERE " + primaryKey + " = ?";
 		
-		return update(sql, 
+		return update(sql,
 				carImage.getCarID(),
-				carImage.getImage());
+				carImage.getImage(),
+				carImage.getId());
 	}
 
 	/**
@@ -91,7 +92,7 @@ public class CarImageRepository extends Repository {
 				   + "[image] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				   + "(carId, image)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				carImage.getCarID(),

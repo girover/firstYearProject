@@ -17,7 +17,7 @@ public class ApplicationAnswer extends Entity {
 	
 	
 	public ApplicationAnswer() {
-		setTable("applicationanswer");
+		setTable("applicationAnswer");
 	}
 	
 	
@@ -82,9 +82,9 @@ public class ApplicationAnswer extends Entity {
 			id = result.getInt("id");
 			applicationID = result.getInt("applicationID");
 			userID = result.getInt("userID");
-			answerDate = result.getString("phone");
-			accepted = result.getString("email");
-			note = result.getString("address");
+			answerDate = result.getString("answerDate");
+			accepted = result.getString("accepted");
+			note = result.getString("note");
 			
 			
 			

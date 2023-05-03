@@ -90,7 +90,8 @@ public class CarRepository extends Repository {
 		        car.getHorsepower(),
 		        car.getSeats(),
 		        car.getDoors(),
-		        car.getPrice());
+		        car.getPrice(),
+		        car.getId());
 	}
 
 	/**
@@ -120,7 +121,7 @@ public class CarRepository extends Repository {
 				   + "[price] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				   + "(brand, model, year, color, mileage, transmission, fueltype, engineSize, horsepower, seats, doors, price)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				car.getBrand(), 

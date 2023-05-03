@@ -132,7 +132,7 @@ public class UserRepository extends Repository {
 		
 		String sql = "INSERT INTO [" + table + "] "
 				+ "([employeeId], [userName], [password]) VALUES "
-				+ "(?, ?, ?)";
+				+ "(employeeId, userName, password)";
 		
 		int id = insertAndGetGeneratedId(sql, user.getEmployeeId(), user.getUserName(), user.getPassword());
 		

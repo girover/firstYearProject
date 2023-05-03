@@ -67,7 +67,7 @@ public class ApplicationAnswerRepository extends Repository {
 				   + "[applicationID] = ?, "
 				   + "[userID] = ?, "
 				   + "[answerDate] = ?, "
-				   + "[accpted] = ?, "
+				   + "[accepted] = ?, "
 				   + "[note] = ?, "
 				   + "WHERE " + primaryKey + " = ?";
 		
@@ -76,7 +76,8 @@ public class ApplicationAnswerRepository extends Repository {
 				applicationAnswer.getUserID(), 
 				applicationAnswer.getAnswerDate(),
 				applicationAnswer.getAccepted(),
-				applicationAnswer.getNote());
+				applicationAnswer.getNote(),
+				applicationAnswer.getId());
 	}
 
 	/**
@@ -95,11 +96,11 @@ public class ApplicationAnswerRepository extends Repository {
 				   + "[applicationID] = ?, "
 				   + "[userID] = ?, "
 				   + "[answerDate] = ?, "
-				   + "[accpted] = ?, "
+				   + "[accepted] = ?, "
 				   + "[note] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				   + "(applicationID, userID, answerDate, accepted, note)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				applicationAnswer.getApplicationID(), 

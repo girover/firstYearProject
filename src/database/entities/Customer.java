@@ -19,7 +19,7 @@ public class Customer extends Entity {
 	private String email;
 	private String address;
 	private String city;
-	private int zipCode;
+	private String zipCode;
 	private String creditworthiness;
 	
 	
@@ -128,14 +128,14 @@ public class Customer extends Entity {
 
 
 
-	public int getZipCode() {
+	public String getZipCode() {
 		return zipCode;
 	}
 
 
 
 
-	public void setZipCode(int zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 	
@@ -164,7 +164,7 @@ public class Customer extends Entity {
 			email = result.getString("email");
 			address = result.getString("address");
 			city = result.getString("city");
-			zipCode = result.getInt("zipCode");
+			zipCode = result.getString("zipCode");
 			creditworthiness = result.getString("creditworthiness");
 			
 			
