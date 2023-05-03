@@ -12,7 +12,7 @@ public class Employee extends Entity {
 	private String phone;
 	private String address;
 	private String city;
-	private String postNumber;
+	private String zipCode;
 	private String hireDate;
 	private String department;
 	private String role;
@@ -78,11 +78,11 @@ public class Employee extends Entity {
 	}
 
 	public String getPostNumber() {
-		return postNumber;
+		return zipCode;
 	}
 
 	public void setPostNumber(String postNumber) {
-		this.postNumber = postNumber;
+		this.zipCode = postNumber;
 	}
 
 	public String getHireDate() {
@@ -119,7 +119,7 @@ public class Employee extends Entity {
 			phone = result.getString("phone");
 			address = result.getString("address");
 			city = result.getString("city");
-			postNumber = result.getString("postNumber");
+			zipCode = result.getString("zipCode");
 			hireDate = result.getString("hireDate");
 			department = result.getString("department");
 			role = result.getString("role");
