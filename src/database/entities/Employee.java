@@ -77,11 +77,11 @@ public class Employee extends Entity {
 		this.city = city;
 	}
 
-	public String getPostNumber() {
+	public String getZipCode() {
 		return zipCode;
 	}
 
-	public void setPostNumber(String postNumber) {
+	public void setZipCode(String postNumber) {
 		this.zipCode = postNumber;
 	}
 
