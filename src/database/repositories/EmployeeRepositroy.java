@@ -5,8 +5,26 @@ import java.sql.SQLException;
 
 import database.entities.Employee;
 import database.entities.Entity;
-import database.entities.User;
 
+/**
+ * This class is a part of Data Access Layer. 
+ * A class that represents a repository responsible for basic CRUD (Create, Read, Update,
+ * Delete) operations on a database table [employee].
+ *
+ * This class provides a set of methods that can be used to perform common database operations,
+ * such as retrieving all records, retrieving a single record by ID, updating a record, and deleting a
+ * record.
+ * 
+ * @version 1.0
+ * @author Rasmus Lysgaard Villadsen
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussen Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/EmployeeRepository.java">Class Code On Github</a>
+ */
 public class EmployeeRepositroy extends Repository {
 
 	public EmployeeRepositroy() {
@@ -80,7 +98,7 @@ public class EmployeeRepositroy extends Repository {
 						employee.getPhone(), 
 						employee.getAddress(), 
 						employee.getCity(), 
-						employee.getPostNumber(), 
+						employee.getZipCode(), 
 						employee.getHireDate(), 
 						employee.getDepartment(), 
 						employee.getRole(), 
@@ -121,7 +139,7 @@ public class EmployeeRepositroy extends Repository {
 						employee.getPhone(),
 						employee.getAddress(),
 						employee.getCity(),
-						employee.getPostNumber(),
+						employee.getZipCode(),
 						employee.getHireDate(),
 						employee.getDepartment(),
 						employee.getRole()

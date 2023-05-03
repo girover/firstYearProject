@@ -2,25 +2,27 @@ package database.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 /**
- * This class is a part of Data Access Layer.
- * This class represents a Data Access Object for the ApplicationAnswer table in the database.
+ * This class is a part of Data Access Layer. This class represents a Data
+ * Access Object for the ApplicationAnswer table in the database.
  *
+ * @version 1.0
  * @author Rasmus Lysgaard Villadsen
- * @email mrmaklie@gmail.com
- * @see <a href="https://github.com/MrMaklie">https://github.com/MrMaklie</a>
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussen Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/ApplicationAnswer.java">Class Code On Github</a>
  */
 public class ApplicationAnswer extends Entity {
-	
-	
-	
-	
-	
+
 	public ApplicationAnswer() {
 		setTable("applicationAnswer");
 	}
-	
-	
+
 	private int id;
 	private int applicationID;
 	private int userID;
@@ -85,11 +87,9 @@ public class ApplicationAnswer extends Entity {
 			answerDate = result.getString("answerDate");
 			accepted = result.getString("accepted");
 			note = result.getString("note");
-			
-			
-			
+
 			return true;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

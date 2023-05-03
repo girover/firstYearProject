@@ -2,16 +2,23 @@ package database.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 /**
- * This class is a part of Data Access Layer.
- * This class represents a Data Access Object for the Customer table in the database.
+ * This class is a part of Data Access Layer. This class represents a Data
+ * Access Object for the Customer table in the database.
  *
+ * @version 1.0
  * @author Rasmus Lysgaard Villadsen
- * @email mrmaklie@gmail.com
- * @see <a href="https://github.com/MrMaklie">https://github.com/MrMaklie</a>
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussen Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/Customer.java">Class Code On Github</a>
  */
 public class Customer extends Entity {
-	
+
 	private int id;
 	private String name;
 	private String lastName;
@@ -21,138 +28,82 @@ public class Customer extends Entity {
 	private String city;
 	private String zipCode;
 	private String creditworthiness;
-	
-	
-	
+
 	public Customer() {
-		setTable("payment");
+		setTable("customer");
 	}
 
-	
-	
 	public int getId() {
 		return id;
 	}
-
-
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-
-
 	public String getName() {
 		return name;
 	}
-
-
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-
-
 	public String getLastName() {
 		return lastName;
 	}
-
-
-
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-
-
-
 	public String getPhone() {
 		return phone;
 	}
-
-
-
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
-
-
 	public String getAddress() {
 		return address;
 	}
-
-
-
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-
-
-
 	public String getCity() {
 		return city;
 	}
-
-
-
 
 	public void setCity(String city) {
 		this.city = city;
 	}
 
-
-
-
 	public String getZipCode() {
 		return zipCode;
 	}
 
-
-
-
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-	
-	
-
 
 	public String getCreditworthiness() {
 		return creditworthiness;
 	}
 
-
-
 	public void setCreditworthiness(String creditworthiness) {
 		this.creditworthiness = creditworthiness;
 	}
-
-
 
 	@Override
 	public boolean makeFromResultSet(ResultSet result) {
@@ -166,10 +117,9 @@ public class Customer extends Entity {
 			city = result.getString("city");
 			zipCode = result.getString("zipCode");
 			creditworthiness = result.getString("creditworthiness");
-			
-			
+
 			return true;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import authentication.Auth;
 import authentication.Authenticatable;
 
-public class User extends Auth implements Authenticatable{
+public class User extends Auth implements Authenticatable {
 
 	public User() {
 		super();
@@ -20,23 +20,6 @@ public class User extends Auth implements Authenticatable{
 	private String password;
 	private Employee employee;
 
-
-	@Override
-	public boolean makeFromResultSet(ResultSet result) {
-		
-		try {
-			id = result.getInt("id");
-			employeeId = result.getInt("employeeId");
-			userName = result.getString("name");
-			password = result.getString("password");
-			
-			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -68,19 +51,35 @@ public class User extends Auth implements Authenticatable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
+
 	public Employee getEmployee() {
 		return employee;
 	}
 
 	@Override
 	public boolean login(String firstCredential, String secondCredential) {
-		
+
 		return false;
 	}
+
+	@Override
+	public boolean makeFromResultSet(ResultSet result) {
 	
+		try {
+			id = result.getInt("id");
+			employeeId = result.getInt("employeeId");
+			userName = result.getString("name");
+			password = result.getString("password");
+	
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

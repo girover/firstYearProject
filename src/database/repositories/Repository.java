@@ -11,6 +11,23 @@ import app.App;
 import configs.Config;
 import database.entities.Entity;
 
+/**
+ * An abstract class that represents a repository responsible for basic CRUD (Create, Read, Update,
+ * Delete) operations on a database.
+ *
+ * This abstract class provides a set of methods that can be used to perform common database operations,
+ * such as retrieving all records, retrieving a single record by ID, updating a record, and deleting a
+ * record. Concrete repository classes can extend this class and provide their own implementation of
+ * the abstract methods to interact with a specific database.
+ *
+ * @version 1.0
+ * 
+ * @author Majed Hussen Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github Profile</a>
+ * 
+ * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/Repository.java">Class Code On Github</a>
+ */
 public abstract class Repository {
 
 	protected Connection dbConnection;
@@ -78,7 +95,6 @@ public abstract class Repository {
 	 */
 	protected boolean update(String sql, Object... bindings) {
 		try {
-			System.out.println(sql);
 
 			PreparedStatement statement = preparedStatement(sql, bindings);
 
@@ -101,7 +117,6 @@ public abstract class Repository {
 	 */
 	protected int insertAndGetGeneratedId(String sql, Object... bindings) {
 		try {
-			System.out.println(sql);
 
 			PreparedStatement statement = preparedStatement(sql, bindings);
 
@@ -131,7 +146,6 @@ public abstract class Repository {
 	 */
 	protected boolean insert(String sql, Object... bindings) {
 		try {
-			System.out.println(sql);
 
 			PreparedStatement statement = preparedStatementWithoutGeneratedKeys(sql, bindings);
 

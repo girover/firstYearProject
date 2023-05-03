@@ -7,12 +7,23 @@ import java.sql.SQLException;
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
 /**
- * This class is a part of Data Access Layer.
- * This class represents a Data Access Object for the SellerApprovalLimits table in the database.
+ * This class is a part of Data Access Layer. 
+ * A class that represents a repository responsible for basic CRUD (Create, Read, Update,
+ * Delete) operations on a database table [sellerApprovalLimit].
  *
+ * This class provides a set of methods that can be used to perform common database operations,
+ * such as retrieving all records, retrieving a single record by ID, updating a record, and deleting a
+ * record.
+ * 
+ * @version 1.0
  * @author Rasmus Lysgaard Villadsen
- * @email mrmaklie@gmail.com
- * @see <a href="https://github.com/MrMaklie">https://github.com/MrMaklie</a>
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussen Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/SellerApprovalLimitsRepository.java">Class Code On Github</a>
  */
 public class SellerApprovalLimitsRepository extends Repository {
 	
@@ -72,7 +83,7 @@ public class SellerApprovalLimitsRepository extends Repository {
 		return update(sql, 
 				sellerApprovalLimits.getEmployeeID(),
 				sellerApprovalLimits.getMaxApprovalLimit(),
-				sellerApporvalLimits.getId());
+				sellerApprovalLimits.getId());
 	}
 
 	/**
