@@ -46,4 +46,8 @@
 		<idFieldType>string</idFieldType>
 		<passwordField>password</passwordField>
 	</auth>
+	<log>
+		<driver>database</driver><!-- file|database -->
+		<file>src/log/log.txt</file>
+	</log>
 </configs>

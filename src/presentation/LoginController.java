@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import log.Log;
 
 public class LoginController extends ValidateableController {
 
@@ -50,8 +51,10 @@ public class LoginController extends ValidateableController {
     	
     	if(authenticated) {
     		App.flashSuccessMessage("You are logged in now.", "Logged in");
+    		Log.information("Loged in the system");
     	}else {
     		App.flashErrorMessage("Please provide correct data.", "validation error");
+    		Log.information("Failed to login into the system");
     	}
     }
 
