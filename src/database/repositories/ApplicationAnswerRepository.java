@@ -100,7 +100,7 @@ public class ApplicationAnswerRepository extends Repository {
 				   + "[note] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(applicationID, userID, answerDate, accepted, note)";
+				   + "(?, ?, ?, ?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				applicationAnswer.getApplicationID(), 

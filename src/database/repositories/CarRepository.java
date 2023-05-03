@@ -121,7 +121,7 @@ public class CarRepository extends Repository {
 				   + "[price] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(brand, model, year, color, mileage, transmission, fueltype, engineSize, horsepower, seats, doors, price)";
+				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				car.getBrand(), 

@@ -106,7 +106,7 @@ public class CustomerRepository extends Repository {
 				   + "[zipCode], "
 				   + ") "
 				   + "VALUES "
-				   + "(name, lastName, email, phone, address, city, zipCode)";
+				   + "(?, ?, ?, ?, ?, ?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				customer.getName(), 

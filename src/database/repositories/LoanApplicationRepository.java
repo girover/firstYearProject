@@ -119,7 +119,7 @@ public class LoanApplicationRepository extends Repository {
 				   + "[note] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(customerID, salesPersonID, carID, applicationDate, loanAmount, payment, months, interestRate, monthlyPayment, status, note)";
+				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				loanApplication.getCustomerID(), 

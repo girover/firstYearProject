@@ -92,7 +92,7 @@ public class SellerApprovalLimitsRepository extends Repository {
 				   + "[maxApprovelLimit] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(employeeID, maxApprovedLimit)";
+				   + "(?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				sellerApprovalLimits.getEmployeeID(),

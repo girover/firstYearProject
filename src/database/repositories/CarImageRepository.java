@@ -92,7 +92,7 @@ public class CarImageRepository extends Repository {
 				   + "[image] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(carId, image)";
+				   + "(?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				carImage.getCarID(),

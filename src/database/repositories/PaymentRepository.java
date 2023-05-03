@@ -120,7 +120,7 @@ public class PaymentRepository extends Repository {
 				   + "[updatedAt] = ?, "
 				   + ") "
 				   + "VALUES "
-				   + "(applicationID, paymentDate, amount, principal, interest, remainingBlance, lateFee, paymenMethod, note, createdAt, updatedAt)";
+				   + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 				payment.getApplicationID(), 
