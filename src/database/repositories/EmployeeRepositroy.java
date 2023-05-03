@@ -67,7 +67,7 @@ public class EmployeeRepositroy extends Repository {
 				   + "[phone] = ?, "
 				   + "[address] = ?, "
 				   + "[city] = ?, "
-				   + "[postNumber] = ?, "
+				   + "[zipCode] = ?, "
 				   + "[hireDate] = ?, "
 				   + "[department] = ?, "
 				   + "[role] = ?, "
@@ -106,13 +106,13 @@ public class EmployeeRepositroy extends Repository {
 				+ "[phone], "
 				+ "[address], "
 				+ "[city], "
-				+ "[postNumber], "
+				+ "[zipCode], "
 				+ "[hireDate], "
 				+ "[department], "
 				+ "[role], "
 				+ ") "
 				+ "VALUES "
-				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		int id = insertAndGetGeneratedId(sql, 
 						employee.getFirstName(), 

@@ -2,127 +2,171 @@ package database.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-public class Employee extends Entity {
-
+/**
+ * This class is a part of Data Access Layer.
+ * This class represents a Data Access Object for the Customer table in the database.
+ *
+ * @author Rasmus Lysgaard Villadsen
+ * @email mrmaklie@gmail.com
+ * @see <a href="https://github.com/MrMaklie">https://github.com/MrMaklie</a>
+ */
+public class Customer extends Entity {
+	
 	private int id;
-	private String firstName;
+	private String name;
 	private String lastName;
-	private String email;
 	private String phone;
+	private String email;
 	private String address;
 	private String city;
 	private String zipCode;
-	private String hireDate;
-	private String department;
-	private String role;
+	private String creditworthiness;
 	
-	public Employee() {
-		setTable("employee");
+	
+	
+	public Customer() {
+		setTable("payment");
 	}
+
+	
 	
 	public int getId() {
 		return id;
 	}
 
+
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+
+
+
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
+
+
 
 	public String getLastName() {
 		return lastName;
 	}
 
+
+
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 
 	public String getPhone() {
 		return phone;
 	}
 
+
+
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
 
 	public String getAddress() {
 		return address;
 	}
 
+
+
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+
+
 
 	public String getCity() {
 		return city;
 	}
 
+
+
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
+
+
 
 	public String getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String postNumber) {
-		this.zipCode = postNumber;
+
+
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+	
+	
+
+
+	public String getCreditworthiness() {
+		return creditworthiness;
 	}
 
-	public String getHireDate() {
-		return hireDate;
+
+
+	public void setCreditworthiness(String creditworthiness) {
+		this.creditworthiness = creditworthiness;
 	}
 
-	public void setHireDate(String hireDate) {
-		this.hireDate = hireDate;
-	}
 
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
 
 	@Override
 	public boolean makeFromResultSet(ResultSet result) {
 		try {
 			id = result.getInt("id");
-			firstName = result.getString("firstName");
+			name = result.getString("name");
 			lastName = result.getString("lastName");
-			email = result.getString("email");
 			phone = result.getString("phone");
+			email = result.getString("email");
 			address = result.getString("address");
 			city = result.getString("city");
 			zipCode = result.getString("zipCode");
-			hireDate = result.getString("hireDate");
-			department = result.getString("department");
-			role = result.getString("role");
+			creditworthiness = result.getString("creditworthiness");
+			
 			
 			return true;
 			
