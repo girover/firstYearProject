@@ -1,6 +1,8 @@
 package presentation;
 
+import java.net.URL;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 import app.App;
 import business.AuthService;
@@ -72,6 +74,11 @@ public class LoginController extends ValidateableController {
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		btnLogin.setText(translate("login"));
 	}
 
 }

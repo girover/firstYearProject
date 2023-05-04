@@ -20,6 +20,10 @@ public class Config {
 		return c != null ? c : defaultValue;
 	}
 	
+	public static String set(String key, String value) {
+		return configs.put(key,value);
+	}
+	
 	public static HashMap<String, String> getAll() {
 		return configs;
 	}

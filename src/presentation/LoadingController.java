@@ -1,6 +1,8 @@
 package presentation;
 
+import java.net.URL;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,5 +35,10 @@ public class LoadingController extends BaseController {
 	public void update(Observable o, Object arg) {
 		if(arg instanceof String)
 			setProcess((String)arg);
+	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 }

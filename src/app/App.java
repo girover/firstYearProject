@@ -13,6 +13,7 @@ import database.entities.User;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import translate.Translator;
 import window.FlashWindow;
 import window.Window;
 
@@ -22,6 +23,7 @@ public class App {
 	private static Auth authenticatedUser;
 	private static Stage mainStage;
 	private static String guiPath;
+	private static Translator translator;
 
 	/**
 	 * Start point for the application
@@ -37,6 +39,7 @@ public class App {
 		initOnCloseApplication();
 		initWindowsPath();
 		initAuthFields();
+		initLocaleLanguage();
 		newDatabaseConnection();
 		
 		guiPath = Config.get("gui.path");
@@ -45,6 +48,10 @@ public class App {
 		if (authenticatedUser == null) {
 			showLoginWindow();
 		}
+	}
+
+	private static void initLocaleLanguage() {
+		translator = new Translator(Config.get("locale"));
 	}
 
 	private static void initAuthFields() {
@@ -210,6 +217,14 @@ public class App {
 	 */
 	public static void setMainStage(Stage stage) {
 		mainStage = stage;
+	}
+	
+	public static void setTranslator(Translator translatorInstance) {
+		translator = translatorInstance;
+	}
+	
+	public static Translator getTranslator() {
+		return translator;
 	}
 	
 	/**

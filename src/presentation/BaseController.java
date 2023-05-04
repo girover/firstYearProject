@@ -3,7 +3,24 @@ package presentation;
 import java.util.Observable;
 import java.util.Observer;
 
-public abstract class BaseController extends Observable implements Observer {
+import app.App;
+import javafx.fxml.Initializable;
+import translate.Translator;
+
+
+/**
+ * This class is a part of Presentation Layer. 
+ * This abstract class provides a set of of methods that can be used
+ * in derived classes.
+ *
+ *   
+ * @version 1.0
+ * 
+ * @author Majed Hussen Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ */
+public abstract class BaseController extends Observable implements Observer, Initializable {
 
 	/**
 	 * The controller that makes request to this controller.
@@ -11,6 +28,15 @@ public abstract class BaseController extends Observable implements Observer {
 	 */
 	protected BaseController sender;
 	
+	protected static Translator translator;
+	
+	public BaseController() {
+		translator = App.getTranslator();
+	}
+	
+	public String translate(String translateableText) {
+		return translator.translate(translateableText);
+	}
 	public void setSenderController(BaseController controller) {
 		sender = controller;
 		addObserver(controller);

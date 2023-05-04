@@ -3,11 +3,26 @@
 .text-danger{
 	-fx-text-fill:#f13d37;
 }
+.text-yellow-300{
+	-fx-text-fill:#fde047;
+}
+.text-yellow-400{
+	-fx-text-fill:#facc15;
+}
+.text-yellow-500{
+	-fx-text-fill:#eab308;
+}
 .bg-danger{
 	-fx-background-color:#f13d37;
 }
 .bg-white{
 	-fx-background-color:#fff;
+}
+.bg-yellow-300{
+	-fx-background-color:#fde047;
+}
+.bg-yellow-400{
+	-fx-background-color:#facc15;
 }
 .bg-success{
 	-fx-background-color:#22c55e;
@@ -110,6 +125,15 @@
 .shadow{
 	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 2, 2) ;
 }
+.shadow-r{
+	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 1, 6) ;
+}
+.shadow-b{
+	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 6, 0) ;
+}
 .shadow-2{
 	-fx-effect:dropshadow(gaussian,#00000078, 10.5, 0, 0, 0) ;
+}
+.round{
+	-fx-background-radius: 20px;
 }
