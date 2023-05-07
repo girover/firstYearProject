@@ -23,8 +23,4 @@ public class Dk extends Locale {
 		list.put("login", "Log ind");
 		list.put("logout", "Log ud");
 	}
-	
-	public String get(String translatable) {
-		return list.get(translatable);
-	}
 }

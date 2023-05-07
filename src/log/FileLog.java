@@ -10,6 +10,8 @@ public class FileLog extends BaseLog implements Logger {
 
 	private String filePath;
 	private FileWriter fileWriter;
+	
+	private static FileLog instance = null;
 
 	private FileLog() {
 		try {
@@ -21,10 +23,13 @@ public class FileLog extends BaseLog implements Logger {
 	}
 	
 	public static FileLog instance() {
-		if(instance != null)
-			return (FileLog)instance;
 		
-		return new FileLog();
+		if(instance != null)
+			return instance;
+		
+		instance = new FileLog();
+		
+		return instance;
 	}
 
 	@Override
@@ -50,7 +55,7 @@ public class FileLog extends BaseLog implements Logger {
 	private void register(String type, String message) {
 
 		try {
-			String user = App.getAuthenticatedUser() == null ? "unknown" : App.getAuthenticatedUser().getUserName();
+			String user = getAuthenticatedUser() == null ? "unknown" : getAuthenticatedUser().getUserName();
 			String msg = String.format("%s : %s : %s : User = %s\n", 
 								type,
 								getCurrentDateTime(),

@@ -42,7 +42,7 @@ public class FlashWindow extends Window{
 	}
 	
 	public static void flashSuccessMessage(String message, String title) {
-		FlashWindow errorMessage = instance("messages/sucessMessage.fxml", title);
+		FlashWindow errorMessage = instance("messages/successMessage.fxml", title);
 		errorMessage.setMessage(message);
 		errorMessage.show();
 	}

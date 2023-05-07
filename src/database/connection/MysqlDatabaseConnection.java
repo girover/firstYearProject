@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import configs.Config;
 
-public class MysqlDatabaseConnection implements IDatabaseConnection {
+public class MysqlDatabaseConnection implements DatabaseConnection {
 
 	private Connection connection;
 

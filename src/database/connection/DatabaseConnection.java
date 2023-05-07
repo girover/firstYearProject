@@ -2,7 +2,7 @@ package database.connection;
 
 import java.sql.Connection;
 
-public interface IDatabaseConnection {
+public interface DatabaseConnection {
 
 	public Connection getConnection();
 	

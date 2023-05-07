@@ -26,8 +26,29 @@ public class Translator {
 		}
 	}
 	
+	/**
+	 * Translate the specified text to the specified language
+	 * in the configs file.
+	 * 
+	 * @param translatableText
+	 * @return
+	 */
 	public String translate(String translatableText) {
 		
 		return local.get(translatableText);
+	}
+	
+	/**
+	 * Translate the specified text to the specified language
+	 * in the configs file. If the text not found in the dictionary
+	 * then return the specified defaultText.
+	 * 
+	 * @param translatableText
+	 * @param defaultText
+	 * @return
+	 */
+	public String translate(String translatableText, String defaultText) {
+		
+		return local.get(translatableText, defaultText);
 	}
 }

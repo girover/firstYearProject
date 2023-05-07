@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="959.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane fx:id="mainView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="mainView" prefHeight="200.0" prefWidth="200.0" styleClass="bg-gray-100" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="70.0" prefWidth="959.0" BorderPane.alignment="CENTER">
                <children>
@@ -73,7 +73,7 @@
                   </Pane>
                </children>
                <styleClass>
-                  <String fx:value="bg-slate-200" />
+                  <String fx:value="bg-white" />
                   <String fx:value="shadow-bb" />
                </styleClass>
             </AnchorPane>
@@ -81,32 +81,7 @@
          <left>
             <AnchorPane prefHeight="581.0" prefWidth="253.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="58.0" prefWidth="251.0" AnchorPane.bottomAnchor="0.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
-                           <children>
-                              <Button fx:id="btnLogout" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnLogout" prefHeight="35.0" prefWidth="226.0" text="Logout">
-                                 <HBox.margin>
-                                    <Insets right="-43.0" />
-                                 </HBox.margin>
-                                 <styleClass>
-                                    <String fx:value="bg-danger" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon-danger">
-                                 <children>
-                                    <FontIcon iconColor="#333333" iconLiteral="fa-sign-out" iconSize="18" layoutX="11.0" layoutY="27.0" />
-                                 </children>
-                              </Pane>
-                           </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox prefWidth="254.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
@@ -254,9 +229,34 @@
                         <Insets />
                      </opaqueInsets>
                   </VBox>
+                  <Pane prefHeight="58.0" prefWidth="251.0" AnchorPane.bottomAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnLogout" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnLogout" prefHeight="35.0" prefWidth="226.0" text="Logout">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-danger" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon-danger">
+                                 <children>
+                                    <FontIcon iconColor="#333333" iconLiteral="fa-sign-out" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
                </children>
                <styleClass>
-                  <String fx:value="bg-slate-200" />
+                  <String fx:value="bg-white" />
                   <String fx:value="shadow-rr" />
                </styleClass>
             </AnchorPane>

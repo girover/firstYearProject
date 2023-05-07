@@ -36,7 +36,7 @@ public abstract class Repository {
 	protected String primaryKey = "id";
 	protected int rowsPerPage;
 
-	protected Repository() {
+	public Repository() {
 		dbConnection = App.getDBConnection();
 		rowsPerPage = Integer.parseInt(Config.get("pagination.rowsPerPage"));
 	}
@@ -187,7 +187,7 @@ public abstract class Repository {
 	 * 
 	 * @return Integer
 	 */
-	protected int count() {
+	public int count() {
 		String sql = "SELECT COUNT(*) AS [total] FROM [" + getTable() + "]";
 
 		try {
@@ -208,7 +208,7 @@ public abstract class Repository {
 	 * @param id
 	 * @return ResultSet
 	 */
-	protected ResultSet find(int id) {
+	public ResultSet find(int id) {
 		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + getPrimaryKey() + "] = ?";
 
 		return select(sql, id);
@@ -220,7 +220,7 @@ public abstract class Repository {
 	 * @param id
 	 * @return ResultSet
 	 */
-	protected ResultSet first() {
+	public ResultSet first() {
 		String sql = "SELECT TOP 1 * FROM [" + table + "] ORDER BY " + primaryKey;
 
 		return select(sql);
@@ -232,7 +232,7 @@ public abstract class Repository {
 	 * @param id
 	 * @return ResultSet
 	 */
-	protected ResultSet getAll() {
+	public ResultSet getAll() {
 		String sql = "SELECT * FROM [" + getTable() + "]";
 
 		return select(sql);
@@ -245,17 +245,29 @@ public abstract class Repository {
 	 * @param Integer limit
 	 * @return ResultSet
 	 */
-	protected ResultSet get(int offset, int limit) {
+	public ResultSet getPage(int page) {
+		int offset = (page - 1) * rowsPerPage;
 		String sql = "SELECT TOP * FROM [" + getTable() + "] " + "ORDER BY [" + getPrimaryKey() + "] " + "OFFSET "
-				+ offset + " ROWS " + "FETCH NEXT " + limit + " ROWS ONLY";
+				+ offset + " ROWS " + "FETCH NEXT " + rowsPerPage + " ROWS ONLY";
 
 		return select(sql);
 	}
 
-	protected ResultSet getByACondition(String column, String operation, String value) {
+	public ResultSet getByACondition(String column, String operation, String value) {
 		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + column + "] " + operation + " ?";
 
 		return select(sql, value);
+	}
+	
+	/**
+	 * Delete the entity that has the specified id from database.
+	 * @param id
+	 * @return
+	 */
+	public boolean delete(int id) {
+		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + primaryKey + "] = ?";
+
+		return delete(sql, id);
 	}
 
 	/**
@@ -354,6 +366,17 @@ public abstract class Repository {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	/**
+	 * if the specified is less that 1 then an exception will be thrown
+	 * 
+	 * @param int page
+	 * @throws RuntimeException
+	 */
+	protected void validatePage(int page) {
+		if(page < 1)
+			throw new RuntimeException("Page cannot be less than 1.");
 	}
 
 	/**

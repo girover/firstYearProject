@@ -7,13 +7,18 @@ public class DatabaseLog extends BaseLog implements Logger {
 
 	private LogRepository logRepo = new LogRepository();
 	
+	private static DatabaseLog instance = null;
+	
 	private DatabaseLog() {}
 	
 	public static DatabaseLog instance() {
-		if(instance != null)
-			return (DatabaseLog)instance;
 		
-		return new DatabaseLog();
+		if(instance != null)
+			return instance;
+		
+		instance = new DatabaseLog();
+		
+		return instance;
 	}
 	
 	@Override
@@ -39,7 +44,7 @@ public class DatabaseLog extends BaseLog implements Logger {
 	private void register(String type, String message) {
 
 		try {
-			User user = App.getAuthenticatedUser();
+			User user = getAuthenticatedUser();
 			int userId = user != null ? user.getId() : 0;
 			
 			LogEntity logEntity = new LogEntity();

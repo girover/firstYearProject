@@ -1,5 +1,8 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
+.text-white{
+	-fx-text-fill:#ffffff;
+}
 .text-danger{
 	-fx-text-fill:#f13d37;
 }
@@ -66,8 +69,58 @@
 .bg-sky-600{
 	-fx-background-color:#0284c7;
 }
-.btn{
+.bg-gray-50{
+	-fx-background-color:#f9fafb;
+}
+.bg-gray-100{
+	-fx-background-color:#f3f4f6;
+}
+.bg-gray-200{
+	-fx-background-color:#e5e7eb;
+}
+.bg-gray-300{
+	-fx-background-color:#d1d5db;
+}
+.bg-gray-400{
+	-fx-background-color:#9ca3af;
+}
+.bg-gray-500{
+	-fx-background-color:#6b7280;
+}
+.bg-gray-600{
+	-fx-background-color:#4b5563;
+}
+.bg-gray-700{
+	-fx-background-color:#374151;
+}
+.bg-gray-800{
+	-fx-background-color:#1f2937;
+}
+.bg-gray-900{
+	-fx-background-color:#111827;
+}
+.round-1{
+	-fx-background-radius:1px;
+}
+.round-2{
+	-fx-background-radius:2px;
+}
+.round-4{
+	-fx-background-radius:4px;
+}
+.round-6{
+	-fx-background-radius:6px;
+}
+.round-8{
+	-fx-background-radius:8px;
+}
+.round-10{
 	-fx-background-radius:20px;
+}
+.round-20{
+	-fx-background-radius:20px;
+}
+.btn{
 	-fx-cursor:hand;
 }
 .btn-login{

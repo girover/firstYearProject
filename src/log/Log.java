@@ -8,7 +8,6 @@ public class Log {
 	 * A singleton instance of Log.
 	 */
 	private static Logger inst = null;
-//	private static boolean closed = false;
 
 	public static Logger instance() {
 

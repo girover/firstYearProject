@@ -1,6 +1,5 @@
 package authentication;
 
-import configs.Config;
 import database.entities.Entity;
 
 public abstract class Auth extends Entity {

@@ -6,12 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import presentation.BaseController;
+import presentation.ConfirmDialogController;
 
 public class Window extends Stage {
 
-	protected Stage stage;
 	protected Scene scene;
 	protected BaseController controller;
 	protected static String fxmlFolderPath;
@@ -31,6 +32,7 @@ public class Window extends Stage {
 			setScene(scene);
 			setTitle(title);
 			initOwner(App.getMainStage());
+			initModality(Modality.APPLICATION_MODAL);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -89,6 +91,22 @@ public class Window extends Stage {
 		FlashWindow errorMessage = new FlashWindow("messages/successMessage.fxml", title);
 		errorMessage.setMessage(message);
 		errorMessage.show();
+	}
+	
+	/**
+	 * This method uses to show dialog box to the user to confirm an action
+	 * or cancel it.
+	 * 
+	 * @param String title
+	 * @param String message
+	 * @return boolean
+	 */
+	public static boolean showCinformDialog(String title, String message) {
+		Window w = new Window("messages/ConfirmationDialog.fxml", title);
+		ConfirmDialogController controller = (ConfirmDialogController)w.getController();
+		controller.setMessage(message);
+		w.showAndWait();
+		return controller.getUserAction();
 	}
 	
 //	public void show() {

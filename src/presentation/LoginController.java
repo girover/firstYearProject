@@ -5,7 +5,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import app.App;
-import business.AuthService;
+import app.FormData;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Rules;
 import javafx.event.ActionEvent;
@@ -16,19 +16,21 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import log.Log;
+import services.AuthService;
+import window.Window;
 
-public class LoginController extends ValidateableController {
+public class LoginController extends ValidatableController {
 
     @FXML
     private Button btnLogin;
 
     @FXML
-    @Rules(field="password", rules="required|alphaDash")
-    private PasswordField inputPassword;
+    @Rules(field="user name", rules="required|alpha")
+    private TextField inputUserID;
 
     @FXML
-    @Rules(field="user name", rules="required|alphaDash")
-    private TextField inputUserID;
+    @Rules(field="password", rules="required|alphaDash")
+    private PasswordField inputPassword;
 
     @FXML
     private Label labelMessage;
@@ -45,18 +47,21 @@ public class LoginController extends ValidateableController {
 		validate();
 		
 		if(!validator.passes()) {
-			App.showErrorMessage(validator.getErrorMessages().toString(), "Validation Failed");
+			App.showErrorMessage(validator.getErrorMessagesAsString(), "Validation Failed");
 			return;
 		}
+		boolean b =Window.showCinformDialog("Test", "Are you sure");
 		
-    	boolean authenticated = authService.login(inputUserID.getText(), inputPassword.getText());
-    	
-    	if(authenticated) {
+		FormData fromData = new FormData();
+		fromData.setData("userId", inputUserID.getText())
+				.setData("userPassword", inputPassword.getText());
+		
+    	if(authService.login(fromData)) {
     		App.flashSuccessMessage("You are logged in now.", "Logged in");
     		Log.information("Loged in the system");
     	}else {
     		App.flashErrorMessage("Please provide correct data.", "validation error");
-    		Log.information("Failed to login into the system");
+    		Log.warning("Failed login attempt into the system");
     	}
     }
 

@@ -7,7 +7,7 @@ import ExceptionHandler.ExceptionHandler;
 import authentication.Auth;
 import configs.Config;
 import configs.XMLConfigsReader;
-import database.connection.IDatabaseConnection;
+import database.connection.DatabaseConnection;
 import database.connection.SqlServerDatabaseConnection;
 import database.entities.User;
 import javafx.event.EventHandler;
@@ -99,7 +99,7 @@ public class App {
 	 */
 	private static void newDatabaseConnection() {
 		
-		IDatabaseConnection con = null;
+		DatabaseConnection con = null;
 		
 		String databaseServer = Config.get("database.defaultConnection");
 		
@@ -131,7 +131,7 @@ public class App {
 
 	public static void showLoginWindow() {
 		Window loginWindow = new Window("login.fxml", "User Login");
-		App.setMainStage(loginWindow);
+		setMainStage(loginWindow);
 		loginWindow.show();
 	}
 	
@@ -199,8 +199,7 @@ public class App {
 	}
 
 	public static User getAuthenticatedUser() {
-//		return authenticatedUser;
-		return null;
+		return (User)authenticatedUser;
 	}
 
 	/**

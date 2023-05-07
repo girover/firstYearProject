@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="506.0" styleClass="bg-white" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MessageController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <FontIcon iconColor="#00bcff" iconLiteral="fa-info-circle" iconSize="75" wrappingWidth="80.91429901123047">
+               <HBox.margin>
+                  <Insets left="10.0" top="3.0" />
+               </HBox.margin>
+            </FontIcon>
+            <AnchorPane prefHeight="363.0" prefWidth="406.0" styleClass="bg-gray-100" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="lblMessage" alignment="TOP_CENTER" onDragDetected="#handleLblClick" prefHeight="262.0" prefWidth="418.0" textFill="#7b0404" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="4.0" top="12.0" />
+               </padding>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

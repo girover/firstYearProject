@@ -3,15 +3,20 @@ package log;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import app.App;
+import database.entities.User;
+
 public abstract class BaseLog {
 	
-	protected static final String INFORMATION = "Infromation";
-	protected static final String ERROR = "Error";
-	protected static final String WARNING = "Warning";
-	protected static final String DEBUGGING = "Debugging";
+	public static final String INFORMATION = "Infromation";
+	public static final String ERROR = "Error";
+	public static final String WARNING = "Warning";
+	public static final String DEBUGGING = "Debugging";
 	
-	protected static BaseLog instance;
-
+	protected User getAuthenticatedUser() {
+		return App.getAuthenticatedUser();
+	}
+	
 	protected String getCurrentDateTime() {
 
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
