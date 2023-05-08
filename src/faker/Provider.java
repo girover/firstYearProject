@@ -71,4 +71,8 @@ public abstract class Provider {
 	protected static String getRandomElementFromArrayList(ArrayList<String> list) {
 		return list.get(getRandomInteger(0, list.size()));
 	}
+	
+	protected static String getRandomElementFromArray(String[] array) {
+		return array[getRandomInteger(0, array.length)];
+	}
 }

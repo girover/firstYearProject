@@ -25,7 +25,7 @@ public class ApplicationAnswer extends Entity {
 
 	private int id;
 	private int applicationID;
-	private int userID;
+	private int employeeID;
 	private String answerDate;
 	private String accepted;
 	private String note;
@@ -46,12 +46,12 @@ public class ApplicationAnswer extends Entity {
 		this.applicationID = applicationID;
 	}
 
-	public int getUserID() {
-		return userID;
+	public int getEmployeeID() {
+		return employeeID;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setEmployeeID(int userID) {
+		this.employeeID = userID;
 	}
 
 	public String getAnswerDate() {
@@ -83,7 +83,7 @@ public class ApplicationAnswer extends Entity {
 		try {
 			id = result.getInt("id");
 			applicationID = result.getInt("applicationID");
-			userID = result.getInt("userID");
+			employeeID = result.getInt("employeeID");
 			answerDate = result.getString("answerDate");
 			accepted = result.getString("accepted");
 			note = result.getString("note");
