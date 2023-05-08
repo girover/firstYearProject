@@ -1,0 +1,115 @@
+package services;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import app.FormData;
+
+import database.entities.Entity;
+import database.entities.LoanApplication;
+import database.repositories.LoanApplicationRepository;
+
+
+/**
+ * This class is a part of Service Layer (Business Logic Layer). 
+ *
+ * This class provides a set of methods that can be used to deal with loanApplications.
+ * such as retrieving all loanApplication, retrieving a set of loanApplications, 
+ * retrieving a single loanApplication by ID, updating a loanApplication, 
+ * and deleting a loanApplication.
+ * 
+ * @version 1.0
+ * 
+ * @author Rasmus Lysgaard Villadsen
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ */
+public class LoanApplicationService extends BaseResourceService {
+
+	public LoanApplicationService() {
+		repository = new LoanApplicationRepository();
+	}
+
+	@Override
+	public LoanApplication find(int id) {
+		LoanApplication loanApplication = (LoanApplication) repository.find(id);
+		return loanApplication;
+	}
+
+	@Override
+	public ArrayList<LoanApplication> getAll() {
+		
+		ArrayList<LoanApplication> loanApplications = new ArrayList<>();
+		
+		ResultSet result = repository.getAll();
+		
+		try {
+			while (result.next()) {
+				LoanApplication loanApplication = new LoanApplication();
+				if (loanApplication.makeFromResultSet(result))
+					loanApplications.add(loanApplication);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return loanApplications;
+	}
+
+	@Override
+	public ArrayList<LoanApplication> getPage(int page) {
+
+		
+		ArrayList<LoanApplication> loanApplications = new ArrayList<>();
+		
+		ResultSet result = repository.getPage(page);
+		try {
+			while (result.next()) {
+				LoanApplication loanApplication = new LoanApplication();
+				if (loanApplication.makeFromResultSet(result))
+					loanApplications.add(loanApplication);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return loanApplications;
+	}
+
+	@Override
+	public LoanApplication create(FormData data) {
+		
+		LoanApplication loanApplication = new LoanApplication();
+		
+		loanApplication.setCustomerID((int)data.input("customerId"));
+		loanApplication.setSalesPersonID((int)data.input("salesPersonId"));
+		loanApplication.setCarID((int)data.input("carId"));
+		loanApplication.setApplicationDate((String)data.input("applicationDate"));
+		loanApplication.setLoanAmount((int)data.input("loanAmount"));
+		loanApplication.setPayment((float)data.input("payment"));
+		loanApplication.setMonths((int)data.input("months"));
+		loanApplication.setInterestRate((float)data.input("interestRate"));
+		loanApplication.setMonthlyPayment((float)data.input("monthlyPayment"));
+		loanApplication.setStatus((String)data.input("status"));
+		loanApplication.setNote((String)data.input("note"));
+
+		repository.add(loanApplication);
+
+		return loanApplication;
+	}
+
+	@Override
+	public LoanApplication update(Entity entity) {
+		if (repository.update((LoanApplication) entity))
+			return ((LoanApplication) entity);
+		
+		return null;
+	}
+
+	@Override
+	public boolean delete(Entity entity) {
+		return repository.delete((LoanApplication) entity);
+	}
+
+}

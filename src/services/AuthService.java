@@ -5,7 +5,7 @@ import app.FormData;
 import authentication.Auth;
 import database.entities.Employee;
 import database.entities.User;
-import database.repositories.EmployeeRepositroy;
+import database.repositories.EmployeeRepository;
 import database.repositories.UserRepository;
 
 /**
@@ -44,7 +44,7 @@ public class AuthService {
 
 		if (user != null && user.getPassword().equals((String)formData.input("userPassword"))) {
 
-			EmployeeRepositroy employeeRepo = new EmployeeRepositroy();
+			EmployeeRepository employeeRepo = new EmployeeRepository();
 			Employee employee = employeeRepo.getById(user.getEmployeeId());
 
 			user.setEmployee(employee);

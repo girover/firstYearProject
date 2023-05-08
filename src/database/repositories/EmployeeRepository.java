@@ -25,9 +25,9 @@ import database.entities.Entity;
  *       - <a href="https://github.com/girover">Github</a>
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/EmployeeRepository.java">Class Code On Github</a>
  */
-public class EmployeeRepositroy extends Repository {
+public class EmployeeRepository extends Repository {
 
-	public EmployeeRepositroy() {
+	public EmployeeRepository() {
 		setTable("employee");
 	}
 	
