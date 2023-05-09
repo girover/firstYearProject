@@ -44,7 +44,7 @@
                         <HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
                            <children>
                               <FontIcon iconLiteral="fa-user" iconSize="30" />
-                              <Label fx:id="lblUserName" text="Majed Hussein Farhan">
+                              <Label fx:id="lblUserName" text="user">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -85,7 +85,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnDashboard" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnDashBoard" prefHeight="35.0" prefWidth="226.0" text="Dashboard">
+                              <Button fx:id="btnDashboard" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnDashBoard" prefHeight="35.0" prefWidth="226.0" text="Messages">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
@@ -125,29 +125,6 @@
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
                                     <FontIcon iconColor="#fff600" iconLiteral="fa-car" iconSize="18" layoutX="11.0" layoutY="27.0" />
-                                 </children>
-                              </Pane>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
-                           <children>
-                              <Button fx:id="btnTeams" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnTeams" prefHeight="35.0" prefWidth="226.0" text="Employees">
-                                 <HBox.margin>
-                                    <Insets right="-43.0" />
-                                 </HBox.margin>
-                                 <styleClass>
-                                    <String fx:value="bg-slate-950" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
-                                    <String fx:value="round" />
-                                 </styleClass>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
-                                 <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-users" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
