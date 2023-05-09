@@ -3,7 +3,7 @@ package faker;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Email {
+public class Email extends Provider {
 
 	private static ArrayList<String> domains = new ArrayList<>(Arrays.asList(
 
@@ -16,9 +16,9 @@ public class Email {
 			"messages.to", "money.net"));
 	
 	public static String getRandomEmail() {
-		String dom = Generator.getRandomElementFromArrayList(domains);
-		String name = Generator.getRandomElementFromArrayList(Person.names());
+		String domain = getRandomElementFromArrayList(domains);
+		String name = getRandomElementFromArrayList(Person.names());
 		
-		return name + "@" +dom;
+		return name + "@" +domain;
 	}
 }

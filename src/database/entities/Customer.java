@@ -20,7 +20,7 @@ import java.sql.SQLException;
 public class Customer extends Entity {
 
 	private int id;
-	private String name;
+	private String firstName;
 	private String lastName;
 	private String phone;
 	private String email;
@@ -42,11 +42,11 @@ public class Customer extends Entity {
 	}
 
 	public String getName() {
-		return name;
+		return firstName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.firstName = name;
 	}
 
 	public String getLastName() {
@@ -109,7 +109,7 @@ public class Customer extends Entity {
 	public boolean makeFromResultSet(ResultSet result) {
 		try {
 			id = result.getInt("id");
-			name = result.getString("name");
+			firstName = result.getString("firstName");
 			lastName = result.getString("lastName");
 			phone = result.getString("phone");
 			email = result.getString("email");

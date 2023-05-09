@@ -11,55 +11,99 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/jar/mssql-jdbc-11.2.1.jre17.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.base.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.base.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.controls.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.controls.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.fxml.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.fxml.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.graphics.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.graphics.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.media.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.media.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.swing.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.swing.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx.web.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.web.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/javafx-sdk-19/lib/javafx-swt.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx-swt.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Skole/JARS/mssql-jdbc-11.2.1.jre17.jar">
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/Dependencies JAR/ikonli-12.3.1/ikonli-bootstrapicons-pack/ikonli-bootstrapicons-pack-12.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/Dependencies JAR/ikonli-12.3.1/ikonli-core/ikonli-core-12.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/Dependencies JAR/ikonli-12.3.1/ikonli-fontawesome5-pack/ikonli-fontawesome5-pack-12.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/Dependencies JAR/ikonli-12.3.1/ikonli-fotawesome-pack/ikonli-fontawesome-pack-12.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/45911/Desktop/stuff/Dependencies JAR/ikonli-12.3.1/ikonli-javaFx/ikonli-javafx-12.3.1.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Dependencies_JAR/Dependencies JAR/ikonli-12.3.1/ikonli-bootstrapicons-pack/ikonli-bootstrapicons-pack-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Dependencies_JAR/Dependencies JAR/ikonli-12.3.1/ikonli-core/ikonli-core-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Dependencies_JAR/Dependencies JAR/ikonli-12.3.1/ikonli-fontawesome5-pack/ikonli-fontawesome5-pack-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Dependencies_JAR/Dependencies JAR/ikonli-12.3.1/ikonli-fotawesome-pack/ikonli-fontawesome-pack-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mrmak/OneDrive/Skrivebord/Dependencies_JAR/Dependencies JAR/ikonli-12.3.1/ikonli-javaFx/ikonli-javafx-12.3.1.jar"/>
+>>>>>>> 5553102c3fc21e79cb63d29af9e5e62d2648d728
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -77,7 +77,7 @@ public class ApplicationAnswerRepository extends Repository {
 
 		String sql = "UPDATE [" + table + "] SET " 
 					+ "[applicationID] = ?, " 
-					+ "[userID] = ?, " 
+					+ "[emlpoyeeID] = ?, " 
 					+ "[answerDate] = ?, "
 					+ "[accepted] = ?, " 
 					+ "[note] = ?, " 
@@ -85,7 +85,7 @@ public class ApplicationAnswerRepository extends Repository {
 
 		return update(sql, 
 				applicationAnswer.getApplicationID(), 
-				applicationAnswer.getUserID(),
+				applicationAnswer.getEmployeeID(),
 				applicationAnswer.getAnswerDate(), 
 				applicationAnswer.getAccepted(), 
 				applicationAnswer.getNote(),
@@ -113,7 +113,7 @@ public class ApplicationAnswerRepository extends Repository {
 
 		int id = insertAndGetGeneratedId(sql, 
 					applicationAnswer.getApplicationID(), 
-					applicationAnswer.getUserID(),
+					applicationAnswer.getEmployeeID(),
 					applicationAnswer.getAnswerDate(), 
 					applicationAnswer.getAccepted(), 
 					applicationAnswer.getNote());

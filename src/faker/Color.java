@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public final class Color {
+public final class Color extends Provider {
 
-	private ArrayList<String> safeColorNames = new ArrayList<>(Arrays.asList("black", "maroon", "green", "navy",
+	private static ArrayList<String> safeColorNames = new ArrayList<>(Arrays.asList("black", "maroon", "green", "navy",
 			"olive", "purple", "teal", "lime", "blue", "silver", "gray", "yellow", "fuchsia", "aqua", "white"));
 
-	private ArrayList<String> allColorNames = new ArrayList<>(Arrays.asList("AliceBlue", "AntiqueWhite", "Aqua",
+	private static ArrayList<String> allColorNames = new ArrayList<>(Arrays.asList("AliceBlue", "AntiqueWhite", "Aqua",
 			"Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown",
 			"BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson",
 			"Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGreen", "DarkKhaki", "DarkMagenta",
@@ -32,7 +32,7 @@ public final class Color {
 	/**
 	 * @example "#fa3cc2"
 	 */
-	public String hexColor() {
+	public static String hexColor() {
 		Random random = new Random();
 		// generate three random numbers between 0 and 255
 		int r = random.nextInt(256);
@@ -48,7 +48,7 @@ public final class Color {
 	 *
 	 * @return int[]
 	 */
-	public int[] rgbColorAsArray() {
+	public static int[] rgbColorAsArray() {
 		Random random = new Random();
 		int[] colors = new int[3];
 
@@ -63,10 +63,10 @@ public final class Color {
 	/**
 	 * @example "0,255,122"
 	 */
-	public String rgbColor() {
+	public static String rgbColor() {
 		StringBuilder sb = new StringBuilder();
 
-		for (int value : this.rgbColorAsArray()) {
+		for (int value : rgbColorAsArray()) {
 			sb.append(value).append(",");
 		}
 		String result = sb.toString();
@@ -82,14 +82,14 @@ public final class Color {
 	/**
 	 * @example "rgb(0,255,122)"
 	 */
-	public String rgbCssColor() {
+	public static String rgbCssColor() {
 		return String.format("rgb(%s)", rgbColor());
 	}
 
 	/**
 	 * @example "rgba(0,255,122,0.8)"
 	 */
-	public String rgbaCssColor() {
+	public static String rgbaCssColor() {
 		Number number = new Number();
 
 		return String.format("rgba(%s,%s)", rgbColor(), number.randomFloat(0, 1));
@@ -98,7 +98,7 @@ public final class Color {
 	/**
 	 * @example "blue"
 	 */
-	public String safeColorName() {
+	public static String safeColorName() {
 		Number number = new Number();
 		int n = number.numberBetween(0, safeColorNames.size());
 
@@ -108,7 +108,7 @@ public final class Color {
 	/**
 	 * @example "NavajoWhite"
 	 */
-	public String colorName() {
+	public static String colorName() {
 		Number number = new Number();
 		int n = number.numberBetween(0, allColorNames.size());
 
@@ -118,7 +118,7 @@ public final class Color {
 	/**
 	 * @example "340,50,20"
 	 */
-	public String hslColor() {
+	public static String hslColor() {
 		Number number = new Number();
 
 		return String.format("%s,%s,%s", number.numberBetween(0, 360), number.numberBetween(0, 100),
@@ -130,7 +130,7 @@ public final class Color {
 	 *
 	 * @return int[]
 	 */
-	public int[] hslColorAsArray() {
+	public static int[] hslColorAsArray() {
 		Number number = new Number();
 		int[] colors = new int[3];
 
