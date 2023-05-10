@@ -84,7 +84,7 @@ public class ApplicationAnswerService extends BaseResourceService {
 		
 		applicationAnswer.setApplicationID((int)data.input("applicationId"));
 		applicationAnswer.setUserID((int)data.input("userId"));
-		applicationAnswer.setAnswerDate((String)data.input("anserDate"));
+		applicationAnswer.setAnswerDate((String)data.input("answerDate"));
 		applicationAnswer.setAccepted((String)data.input("accepted"));
 		applicationAnswer.setNote((String)data.input("note"));
 		
