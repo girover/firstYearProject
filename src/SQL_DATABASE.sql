@@ -13,8 +13,8 @@ USE ferrari;
 
 -- Employee Table
 
-CREATE TABLE employee (
-  id INT PRIMARY KEY IDENTITY(1000,1),
+CREATE TABLE [employee] (
+  id int PRIMARY KEY IDENTITY(1000,1),
   firstName nvarchar(50) NOT NULL,
   lastName nvarchar(50) NOT NULL,
   email nvarchar(100) NOT NULL UNIQUE,
@@ -51,7 +51,7 @@ CREATE TABLE [user] (
   id INT PRIMARY KEY IDENTITY(1000,1),
   userName nvarchar(50) NOT NULL UNIQUE,
   [password] nvarchar(50) NOT NULL,
-  employeeId INT NOT NULL FOREIGN KEY REFERENCES employee(id) ON DELETE CASCADE ON UPDATE CASCADE
+  employeeId int NOT NULL FOREIGN KEY REFERENCES employee(id) ON DELETE CASCADE ON UPDATE CASCADE
   --CONSTRAINT FK_User_Employee_EmployeeID FOREIGN KEY (employeeId)
   --      REFERENCES employee (id)
   --      ON DELETE CASCADE
@@ -60,8 +60,7 @@ CREATE TABLE [user] (
 
 INSERT INTO [user] ([userName], [password], [employeeId]) VALUES 
 ('majed', '1234', 1000),
-('employee1', '1234', 1001),
-('employee2', '1234', 1002);
+('employee1', '1234', 1001);
 
 -- Log Table
 
@@ -94,13 +93,13 @@ CREATE TABLE [customer] (
   [address] nvarchar(255) NOT NULL,
   zipCode nvarchar(6) NOT NULL,
   city nvarchar(50) NOT NULL,
-  creditWorthiness nvarchar(1) NOT NULL CHECK (creditWorthiness IN ('A', 'B', 'C', 'D'))
+  --creditWorthiness nvarchar(1) NOT NULL CHECK (creditWorthiness IN ('A', 'B', 'C', 'D'))
 );
 
-INSERT INTO [customer] ([firstName], lastName, email, phone, [address], [zipCode], [city], [creditworthiness]) VALUES
-('Customer1', 'lastName1', 'customer1@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast', 'A'),
-('Customer2', 'lastName2', 'customer2@gmail.com', '87654321', 'gade 16, 1. th', '8000', 'Herning', 'B'),
-('Customer3', 'lastName3', 'customer3@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast', 'A');
+INSERT INTO [customer] ([firstName], lastName, email, phone, [address], [zipCode], [city]) VALUES
+('Customer1', 'lastName1', 'customer1@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast'),--, 'A'),
+('Customer2', 'lastName2', 'customer2@gmail.com', '87654321', 'gade 16, 1. th', '8000', 'Herning'),--, 'B'),
+('Customer3', 'lastName3', 'customer3@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast');--, 'A');
 
 
 -- Car Table
@@ -113,21 +112,22 @@ CREATE TABLE car (
   [mileage] int NOT NULL,
   transmission nvarchar(20) NOT NULL CHECK ([transmission] IN ('manual', 'automatic')),
   fuelType nvarchar(50) NOT NULL CHECK (fuelType IN ('benzin', 'diesel', 'biodiesel', 'hybrid', 'el')),
-  engineSize decimal(2,2) NOT NULL,
+  engineSize decimal(2,1) NOT NULL,
   horsePower int NOT NULL,
   seats int NOT NULL,
   doors int NOT NULL,
+  sold tinyint NOT NULL DEFAULT 0 CHECK(sold IN(0, 1)),
   price decimal(9,2) NOT NULL,
   description text
 );
 
-INSERT INTO car (brand, model, [year], color, [mileage], transmission, fuelType, engineSize, horsePower, seats, doors, price, description)
+INSERT INTO car (brand, model, [year], color, [mileage], transmission, fuelType, engineSize, horsePower, seats, doors, price, [description])
 VALUES 
 ('Ferrari', '488 GTB', 2022, 'Red', 0, 'Automatic', 'benzin', 3.9, 660, 2, 2, 400000.00, 'New Ferrari 488 GTB for sale.'),
-('Ferrari', '488 GTB', 2019, 'Red', 5000, 'automatic', 'benzin', 3.9, 661, 2, 2, 300000, 'Beautiful car in excellent condition.'),
-('Ferrari', '812 Superfast', 2022, 'Red', 5000, 'automatic', 'benzin', 6.5, 789, 2, 2, 350000, 'Brand new car'),
-('Ferrari', 'SF90 Stradale', 2021, 'Yellow', 8000, 'automatic', 'hybrid', 4.0, 986, 2, 2, 500000, 'Like-new car'),
-('Ferrari', 'Roma', 2021, 'White', 3000, 'automatic', 'benzin', 3.9, 612, 2, 2, 250000, 'Used car in excellent condition'),
+('Ferrari', '488 GTB', 2019, 'Red', 5000, 'automatic', 'benzin', 3.9, 661, 2, 2, 300000.00, 'Beautiful car in excellent condition.'),
+('Ferrari', '812 Superfast', 2022, 'Red', 5000, 'automatic', 'benzin', 6.5, 789, 2, 2, 350000.00, 'Brand new car'),
+('Ferrari', 'SF90 Stradale', 2021, 'Yellow', 8000, 'automatic', 'hybrid', 4.0, 986, 2, 2, 500000.00, 'Like-new car'),
+('Ferrari', 'Roma', 2021, 'White', 3000, 'automatic', 'benzin', 3.9, 612, 2, 2, 250000.00, 'Used car in excellent condition'),
 ('Ferrari', 'Portofino', 2020, 'Black', 12000, 'automatic', 'benzin', 3.9, 592, 2, 2, 200000, 'Pre-owned car with low mileage'),
 ('Ferrari', '488 Pista', 2019, 'Blue', 15000, 'manual', 'benzin', 3.9, 711, 2, 2, 450000, 'Rare supercar'),
 ('Ferrari', 'LaFerrari', 2016, 'Red', 20000, 'automatic', 'hybrid', 6.3, 950, 2, 2, 5000000, 'Limited edition hypercar');
@@ -154,7 +154,7 @@ INSERT INTO [carImage] ([carId], [image]) VALUES
 
 CREATE TABLE [loanApplication]
 (
-	id int PRIMARY KEY IDENTITY(1000, 1);
+	id int PRIMARY KEY IDENTITY(1000, 1),
 	[customerID] int FOREIGN KEY REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[sellerID] int FOREIGN KEY REFERENCES employee(id) ON DELETE SET NULL ON UPDATE CASCADE,
 	[carID] int FOREIGN KEY REFERENCES car(id) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -177,7 +177,7 @@ CREATE TABLE [applicationAnswer]
 (
 	[id] int PRIMARY KEY IDENTITY(1000,1),
 	[applicationID] int FOREIGN KEY REFERENCES loanApplication(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	[employeeID] int int FOREIGN KEY REFERENCES employee(id) ON DELETE SET NULL ON UPDATE CASCADE,
+	[employeeID] int DEFAULT NULL FOREIGN KEY REFERENCES [employee]([id]) ON DELETE SET NULL ON UPDATE CASCADE,
 	[answerDate] datetime DEFAULT GETDATE(),
 	[accepted] nvarchar(3) NOT NULL DEFAULT 'no' CHECK(accepted IN ('yes', 'no')),
 	[note] text
@@ -185,15 +185,15 @@ CREATE TABLE [applicationAnswer]
 
 -- Payment Table
 
-CREATE TABLE [payment]
-(
-	[id] int PRIMARY KEY IDENTITY(1000,1),
-	[applicationID] int FOREIGN KEY REFERENCES loanApplication(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	[employeeID] int int FOREIGN KEY REFERENCES employee(id) ON DELETE SET NULL ON UPDATE CASCADE,
-	[answerDate] datetime DEFAULT GETDATE(),
-	[accepted] nvarchar(3) NOT NULL DEFAULT 'no' CHECK(accepted IN ('yes', 'no')),
-	[note] text
-);
+--CREATE TABLE [payment]
+--(
+--	[id] int PRIMARY KEY IDENTITY(1000,1),
+--	[applicationID] int FOREIGN KEY REFERENCES loanApplication(id) ON DELETE CASCADE ON UPDATE CASCADE,
+--	[employeeID] int int FOREIGN KEY REFERENCES employee(id) ON DELETE SET NULL ON UPDATE CASCADE,
+--	[answerDate] datetime DEFAULT GETDATE(),
+--	[accepted] nvarchar(3) NOT NULL DEFAULT 'no' CHECK(accepted IN ('yes', 'no')),
+--	[note] text
+--);
 
 
 -- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

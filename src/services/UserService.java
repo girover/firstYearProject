@@ -3,12 +3,12 @@ package services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import app.FormData;
-import configs.Config;
+import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.User;
+import database.repositories.EmployeeRepository;
 import database.repositories.UserRepository;
 
 /**
@@ -105,4 +105,19 @@ public class UserService extends BaseResourceService {
 		return repository.delete((User) entity);
 	}
 
+	public Employee getAsEmployee(User user) throws SQLException {
+		
+		EmployeeRepository repo = new EmployeeRepository();
+		
+		ResultSet result = repo.find(user.getId());
+		
+		Employee employee = null;
+		
+		if (result.next()){
+			employee = new Employee();
+			employee.makeFromResultSet(result);
+		}
+		
+		return employee;
+	}
 }

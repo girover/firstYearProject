@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import log.Log;
 
 public class ExceptionHandlerController {
 
@@ -28,6 +29,7 @@ public class ExceptionHandlerController {
     
     public void writeExceptionDeatails(String text) {
     	textArea.setText(text);
+    	Log.debugging(text);
     }
 
 }

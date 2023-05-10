@@ -3,10 +3,12 @@ package services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import app.FormData;
 
+import app.FormData;
 import database.entities.Car;
+import database.entities.CarImage;
 import database.entities.Entity;
+import database.repositories.CarImageRepository;
 import database.repositories.CarRepository;
 
 
@@ -112,6 +114,12 @@ public class CarService extends BaseResourceService {
 	@Override
 	public boolean delete(Entity entity) {
 		return repository.delete((Car) entity);
+	}
+	
+	public ArrayList<CarImage> getImages(Car car) throws SQLException{
+		CarImageRepository repo = new CarImageRepository();
+		
+		return repo.getByCar(car);
 	}
 
 }

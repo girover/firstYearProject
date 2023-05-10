@@ -34,6 +34,9 @@ public class ExplicitRule extends Rule {
 		case "alpha": {
 			return Matchers::alpha;
 		}
+		case "alphaSpace": {
+			return Matchers::alphaSpace;
+		}
 		case "alphaNumeric": {
 			return Matchers::alphaNumeric;
 		}

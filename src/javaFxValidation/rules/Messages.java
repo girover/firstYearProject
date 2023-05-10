@@ -16,6 +16,7 @@ public class Messages {
 			explicitRulesMessages.put("notEmpty", "The %s field can not be empty.");
 			explicitRulesMessages.put("email", "The %s must be a valid email address.");
 			explicitRulesMessages.put("alpha", "The %s must only contain letters.");
+			explicitRulesMessages.put("alphaSpace", "The %s must only contain letters and spaces.");
 			explicitRulesMessages.put("alphaDash", "The %s must only contain letters, numbers, dashes and underscores.");
 			explicitRulesMessages.put("alphaNumeric", "The %s must only contain letters and numbers.");
 			explicitRulesMessages.put("uppercase", "The %s must be uppercase.");

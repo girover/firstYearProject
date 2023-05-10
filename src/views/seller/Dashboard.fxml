@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="959.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane fx:id="mainView" prefHeight="200.0" prefWidth="200.0" styleClass="bg-gray-100" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="70.0" prefWidth="959.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="122.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="261.0">
+                           <children>
+                              <ImageView fitHeight="78.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/images/app/ferrariLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="349.0" prefHeight="70.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
+                           <children>
+                              <FontIcon iconLiteral="fa-user" iconSize="30" />
+                              <Label fx:id="lblUserName" text="Majed Hussein Farhan">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="26.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <FontIcon iconColor="#d9d9d9" iconLiteral="fa-sign-out" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="bg-danger" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+               <styleClass>
+                  <String fx:value="bg-white" />
+                  <String fx:value="shadow-bb" />
+               </styleClass>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="581.0" prefWidth="253.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefWidth="254.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnDashboard" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnDashBoard" prefHeight="35.0" prefWidth="226.0" text="Dashboard">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="text-yellow-400" />
+                                    <String fx:value="round" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="round">
+                                 <children>
+                                    <FontIcon iconColor="#fff600" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnUsers" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnUsers" prefHeight="35.0" prefWidth="226.0" text="Cars">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="text-yellow-300" />
+                                    <String fx:value="round" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
+                                 <children>
+                                    <FontIcon iconColor="#fff600" iconLiteral="fa-car" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnTeams" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnTeams" prefHeight="35.0" prefWidth="226.0" text="Employees">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="text-yellow-300" />
+                                    <String fx:value="round" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
+                                 <children>
+                                    <FontIcon iconColor="#fff600" iconLiteral="fa-users" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnAssignments" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnAssignments" prefHeight="35.0" prefWidth="226.0" text="Loan Applications">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="text-yellow-300" />
+                                    <String fx:value="round" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
+                                 <children>
+                                    <FontIcon iconColor="#fff600" iconLiteral="fa-list-alt" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnTags" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnTags" prefHeight="35.0" prefWidth="226.0" text="Customers">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="text-yellow-300" />
+                                    <String fx:value="round" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
+                                 <children>
+                                    <FontIcon iconColor="#fff600" iconLiteral="fa-tags" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnMyProfile" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#showMyProfilePage" prefHeight="35.0" prefWidth="226.0" text="My Profile">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="text-yellow-300" />
+                                    <String fx:value="round" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
+                                 <children>
+                                    <FontIcon iconColor="#fff600" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+                  <Pane prefHeight="58.0" prefWidth="251.0" AnchorPane.bottomAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
+                           <children>
+                              <Button fx:id="btnLogout" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnLogout" prefHeight="35.0" prefWidth="226.0" text="Logout">
+                                 <HBox.margin>
+                                    <Insets right="-43.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="bg-danger" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon-danger">
+                                 <children>
+                                    <FontIcon iconColor="#333333" iconLiteral="fa-sign-out" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+               <styleClass>
+                  <String fx:value="bg-white" />
+                  <String fx:value="shadow-rr" />
+               </styleClass>
+            </AnchorPane>
+         </left>
+         <center>
+            <ImageView fitHeight="454.0" fitWidth="474.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../resources/images/app/ferrariLogo.png" />
+               </image>
+            </ImageView>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

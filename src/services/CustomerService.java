@@ -82,18 +82,19 @@ public class CustomerService extends BaseResourceService {
 		
 		Customer customer = new Customer();
 		
-		customer.setName((String)data.input("name"));
+		customer.setName((String)data.input("firstName"));
 		customer.setLastName((String)data.input("lastName"));
 		customer.setPhone((String)data.input("phone"));
 		customer.setEmail((String)data.input("email"));
 		customer.setAddress((String)data.input("address"));
 		customer.setCity((String)data.input("city"));
 		customer.setZipCode((String)data.input("zipCode"));
-		customer.setCreditworthiness((String)data.input("creditworthiness"));
+//		customer.setCreditworthiness((String)data.input("creditworthiness"));
 
-		repository.add(customer);
-
-		return customer;
+		if(repository.add(customer) > 0)
+			return customer;
+		
+		return null;
 	}
 
 	@Override
