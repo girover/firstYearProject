@@ -45,11 +45,11 @@ public class App {
 		guiPath = Config.get("gui.path");
 		
 		
-		Window window = new Window("customer/NewCustomer.fxml", "Add New Customer");
-		window.show();
+//		Window window = new Window("customer/NewCustomer.fxml", "Add New Customer");
+//		window.show();
 		
 		if (authenticatedUser == null) {
-//			showLoginWindow();
+			showLoginWindow();
 		}
 	}
 

@@ -7,10 +7,10 @@ import java.util.Base64;
 
 public class PasswordEncryptor {
     private static final String ALGORITHM = "AES";
-    private static final String KEY = "mybase64key"; // Replace with your own base64 key
+    private static final String KEY = "12345678"; // Replace with your own base64 key
 
 
-    private static String encryptPassword(String password) {
+    public static String encryptPassword(String password) {
         try {
             byte[] keyBytes = Base64.getDecoder().decode(KEY);
             Key key = new SecretKeySpec(keyBytes, ALGORITHM);
@@ -24,7 +24,7 @@ public class PasswordEncryptor {
         }
     }
     
-    private static String decryptPassword(String encryptedPassword) {
+    public static String decryptPassword(String encryptedPassword) {
         try {
             byte[] keyBytes = Base64.getDecoder().decode(KEY);
             Key key = new SecretKeySpec(keyBytes, ALGORITHM);
