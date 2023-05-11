@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="187.0" layoutY="7.0" prefHeight="48.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="223.0" layoutY="9.0" text="LoanApplication" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="9.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="200.0" layoutY="100.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="679.0" prefWidth="882.0">
+               <children>
+                  <VBox layoutX="14.0" layoutY="117.0" prefHeight="400.0" prefWidth="202.0">
+                     <children>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="name">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Last name">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="CPR-Number">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Phone">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Email">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Address">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="City">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="CPR-nummer">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label layoutX="14.0" layoutY="14.0" text="EmployeeID" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="85.0" text="Customer" AnchorPane.leftAnchor="67.0">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="292.0" layoutY="117.0" prefHeight="554.0" prefWidth="202.0">
+                     <children>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Frame Number">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Model">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Year">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Color">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Transmission">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Fuel type">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Engine size">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="km/l">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Horsepower">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Seats">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Doors">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Price">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label layoutX="377.0" layoutY="85.0" text="Car">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="566.0" layoutY="117.0" prefHeight="554.0" prefWidth="202.0">
+                     <children>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="157.0" text="Loan amount">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="157.0" text="Down payment">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="157.0" text="Months">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="157.0" text="Interest rate">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="112.0" text="Label">
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="157.0" text="Monthly payment">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="157.0" text="Salary">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="26.0" prefWidth="131.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label layoutX="582.0" layoutY="85.0" text="Loan information">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
