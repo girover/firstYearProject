@@ -22,7 +22,7 @@ import database.entities.Entity;
  *
  * @version 1.0
  * 
- * @author Majed Hussen Farhan
+ * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github Profile</a>
  * 

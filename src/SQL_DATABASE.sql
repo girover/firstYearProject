@@ -36,7 +36,7 @@ INSERT INTO [employee] ([firstName], lastName, email, phone, [address], [zipCode
 CREATE TABLE [sellerApprovalLimit]
 (
 	[id] int PRIMARY KEY IDENTITY(1000,1),
-	[employeeID] int FOREIGN KEY REFERENCES employee(id),
+	[employeeID] int FOREIGN KEY REFERENCES employee(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[maxApprovalLimit] decimal(9,2) NOT NULL
 );
 
@@ -91,15 +91,16 @@ CREATE TABLE [customer] (
   email nvarchar(100) NOT NULL UNIQUE,
   phone nvarchar(20) NOT NULL,
   [address] nvarchar(255) NOT NULL,
+  CPRHash nvarchar(64) NOT NULL,
   zipCode nvarchar(6) NOT NULL,
   city nvarchar(50) NOT NULL,
   --creditWorthiness nvarchar(1) NOT NULL CHECK (creditWorthiness IN ('A', 'B', 'C', 'D'))
 );
 
-INSERT INTO [customer] ([firstName], lastName, email, phone, [address], [zipCode], [city]) VALUES
-('Customer1', 'lastName1', 'customer1@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast'),--, 'A'),
-('Customer2', 'lastName2', 'customer2@gmail.com', '87654321', 'gade 16, 1. th', '8000', 'Herning'),--, 'B'),
-('Customer3', 'lastName3', 'customer3@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast');--, 'A');
+INSERT INTO [customer] ([firstName], lastName, email, phone, [address], CPRHash, [zipCode], [city]) VALUES
+('Customer1', 'lastName1', 'customer1@gmail.com', '12345678', 'Soenderparken 17, 1. th', 'kjfjshfdwrwer544564646asda', '7430', 'Ikast'),--, 'A'),
+('Customer2', 'lastName2', 'customer2@gmail.com', '87654321', 'gade 16, 1. th', 'kjfjs45454wer544564646asda', '8000', 'Herning'),--, 'B'),
+('Customer3', 'lastName3', 'customer3@gmail.com', '12345678', 'Soenderparken 17, 1. th', 'kjf454545wrwer544564646asda', '7430', 'Ikast');--, 'A');
 
 
 -- Car Table
@@ -113,24 +114,26 @@ CREATE TABLE car (
   transmission nvarchar(20) NOT NULL CHECK ([transmission] IN ('manual', 'automatic')),
   fuelType nvarchar(50) NOT NULL CHECK (fuelType IN ('benzin', 'diesel', 'biodiesel', 'hybrid', 'el')),
   engineSize decimal(2,1) NOT NULL,
+  kmPerLiter int,
   horsePower int NOT NULL,
   seats int NOT NULL,
   doors int NOT NULL,
+  VIN nvarchar(20),
   sold tinyint NOT NULL DEFAULT 0 CHECK(sold IN(0, 1)),
   price decimal(9,2) NOT NULL,
-  description text
+  [description] text
 );
 
-INSERT INTO car (brand, model, [year], color, [mileage], transmission, fuelType, engineSize, horsePower, seats, doors, price, [description])
+INSERT INTO car (brand, model, [year], color, [mileage], transmission, fuelType, engineSize, kmPerLiter, horsePower, seats, doors, VIN, sold, price, [description])
 VALUES 
-('Ferrari', '488 GTB', 2022, 'Red', 0, 'Automatic', 'benzin', 3.9, 660, 2, 2, 400000.00, 'New Ferrari 488 GTB for sale.'),
-('Ferrari', '488 GTB', 2019, 'Red', 5000, 'automatic', 'benzin', 3.9, 661, 2, 2, 300000.00, 'Beautiful car in excellent condition.'),
-('Ferrari', '812 Superfast', 2022, 'Red', 5000, 'automatic', 'benzin', 6.5, 789, 2, 2, 350000.00, 'Brand new car'),
-('Ferrari', 'SF90 Stradale', 2021, 'Yellow', 8000, 'automatic', 'hybrid', 4.0, 986, 2, 2, 500000.00, 'Like-new car'),
-('Ferrari', 'Roma', 2021, 'White', 3000, 'automatic', 'benzin', 3.9, 612, 2, 2, 250000.00, 'Used car in excellent condition'),
-('Ferrari', 'Portofino', 2020, 'Black', 12000, 'automatic', 'benzin', 3.9, 592, 2, 2, 200000, 'Pre-owned car with low mileage'),
-('Ferrari', '488 Pista', 2019, 'Blue', 15000, 'manual', 'benzin', 3.9, 711, 2, 2, 450000, 'Rare supercar'),
-('Ferrari', 'LaFerrari', 2016, 'Red', 20000, 'automatic', 'hybrid', 6.3, 950, 2, 2, 5000000, 'Limited edition hypercar');
+('Ferrari', '488 GTB', 2022, 'Red', 0, 'Automatic', 'benzin', 3.9, 12, 660, 2, 2, 'HFHFHFHDJSK454DDDD', 0, 400000.00, 'New Ferrari 488 GTB for sale.'),
+('Ferrari', '488 GTB', 2019, 'Red', 5000, 'automatic', 'benzin', 3.9, 13, 661, 2, 2, 'HFSSSSFHDJSK454DDDD', 0, 300000.00, 'Beautiful car in excellent condition.'),
+('Ferrari', '812 Superfast', 2022, 'Red', 5000, 'automatic', 'benzin', 6.5, 14, 789, 2, 2, 'AAAAFHFHDJSK454DDDD', 0, 350000.00, 'Brand new car'),
+('Ferrari', 'SF90 Stradale', 2021, 'Yellow', 8000, 'automatic', 'hybrid', 4.0, 10, 986, 2, 2, 'NBBBBFHFHDJSK454DDDD', 0, 500000.00, 'Like-new car'),
+('Ferrari', 'Roma', 2021, 'White', 3000, 'automatic', 'benzin', 3.9, 20, 612, 2, 2, 'XXXXCCFHDJSK454DDDD', 0, 250000.00, 'Used car in excellent condition'),
+('Ferrari', 'Portofino', 2020, 'Black', 12000, 'automatic', 'benzin', 3.9, 15, 592, 2, 2, 'VVVVVVHFHDJSK454DDDD', 0, 200000, 'Pre-owned car with low mileage'),
+('Ferrari', '488 Pista', 2019, 'Blue', 15000, 'manual', 'benzin', 3.9, 16, 711, 2, 2, 'MMMMMMMHDJSK454DDDD', 0, 450000, 'Rare supercar'),
+('Ferrari', 'LaFerrari', 2016, 'Red', 20000, 'automatic', 'hybrid', 6.3, 17, 950, 2, 2, 'DDDDDDDJSK454DDDD', 0, 5000000, 'Limited edition hypercar');
 
 
 -- CarImage Table
@@ -176,7 +179,7 @@ CREATE TABLE [loanApplication]
 CREATE TABLE [applicationAnswer]
 (
 	[id] int PRIMARY KEY IDENTITY(1000,1),
-	[applicationID] int FOREIGN KEY REFERENCES loanApplication(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	[applicationID] int,-- FOREIGN KEY REFERENCES loanApplication(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[employeeID] int DEFAULT NULL FOREIGN KEY REFERENCES [employee]([id]) ON DELETE SET NULL ON UPDATE CASCADE,
 	[answerDate] datetime DEFAULT GETDATE(),
 	[accepted] nvarchar(3) NOT NULL DEFAULT 'no' CHECK(accepted IN ('yes', 'no')),

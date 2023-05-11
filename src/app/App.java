@@ -31,7 +31,7 @@ public class App {
 	 * @throws Exception 
 	 */
 	public static void run(Stage primaryStage) throws Exception {
-
+		
 		mainStage = primaryStage;
 		
 		initExceptionHandler();
@@ -130,8 +130,8 @@ public class App {
 	 */
 	public static void setTestingDatabaseConnection() {
 		String databaseDriver = Config.get("database.defaultConnection");
-		if(databaseDriver.equals("sqlserver"))
-			Config.set("database.sqlserver.dbName", Config.get("database.sqlserver.testDbName"));
+		if(databaseDriver.equals("sqlServer"))
+			Config.set("database.sqlServer.dbName", Config.get("database.sqlServer.testDbName"));
 		else
 			Config.set("database.mysql.dbName", Config.get("database.mysql.testDbName"));
 		
@@ -242,22 +242,22 @@ public class App {
 	public static void test() {
 		//Test test = new Test();
 		//test.run();
-		runForTest();
+		runInTestEnvironment();
 	}
 
-	private static void runForTest() {
+	/**
+	 * Configure the application for the test environment
+	 * There is no need for launching any graphical objects
+	 */
+	public static void runInTestEnvironment() {
 		try {
-//			initExceptionHandler();
 			loadConfigs();
-//			initOnCloseApplication();
 			initWindowsPath();
 			initAuthFields();
-//			initLocaleLanguage();
 			setTestingDatabaseConnection();
 			
 			guiPath = Config.get("gui.path");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
