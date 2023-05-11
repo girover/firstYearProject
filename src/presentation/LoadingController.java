@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import window.Window;
 
-public class LoadingController extends BaseController {
+public class LoadingController extends ValidatableController {
 
 	@FXML
     private Button btnShowMessage;

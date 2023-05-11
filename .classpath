@@ -11,56 +11,56 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/sqljdbc_11.2.1.0_enu/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre17.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.base.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.base.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.controls.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.controls.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.fxml.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.fxml.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.graphics.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.graphics.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.media.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.media.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.swing.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.swing.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx.web.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx.web.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/javafx-sdk-19/lib/javafx-swt.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/javafx-sdk-19/lib/javafx-swt.jar">
+	<classpathentry kind="lib" path="C:/projectDependencies/sqljdbc_11.2.1.0_enu/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre17.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Java Libraries/ikonli-12.3.1-2/ikonli-bootstrapicons-pack-12.3.1.jar"/>
-	<classpathentry kind="lib" path="D:/Java Libraries/ikonli-12.3.1-2/ikonli-core-12.3.1.jar"/>
-	<classpathentry kind="lib" path="D:/Java Libraries/ikonli-12.3.1-2/ikonli-fontawesome5-pack-12.3.1.jar"/>
-	<classpathentry kind="lib" path="D:/Java Libraries/ikonli-12.3.1-2/ikonli-fontawesome-pack-12.3.1.jar"/>
-	<classpathentry kind="lib" path="D:/Java Libraries/ikonli-12.3.1-2/ikonli-javafx-12.3.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/projectDependencies/ikonli-12.3.1-2/ikonli-bootstrapicons-pack-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/projectDependencies/ikonli-12.3.1-2/ikonli-core-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/projectDependencies/ikonli-12.3.1-2/ikonli-fontawesome5-pack-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/projectDependencies/ikonli-12.3.1-2/ikonli-fontawesome-pack-12.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/projectDependencies/ikonli-12.3.1-2/ikonli-javafx-12.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
