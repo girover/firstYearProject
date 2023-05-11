@@ -32,6 +32,7 @@ public class Car extends Entity {
 	private int seats;
 	private int doors;
 	private int price;
+	private byte sold;
 	private String description;
 
 	public Car() {
@@ -134,6 +135,14 @@ public class Car extends Entity {
 		this.doors = doors;
 	}
 
+	public byte getSold() {
+		return sold;
+	}
+
+	public void setSold(byte sold) {
+		this.sold = sold;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -166,6 +175,7 @@ public class Car extends Entity {
 			horsepower = result.getInt("horsepower");
 			seats = result.getInt("seats");
 			doors = result.getInt("doors");
+			price = result.getByte("sold");
 			price = result.getInt("price");
 			description = result.getString("description");
 

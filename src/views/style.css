@@ -1,5 +1,14 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
+.text-gray-700{
+	-fx-text-fill:#374151;
+}
+.text-gray-800{
+	-fx-text-fill:#1f2937;
+}
+.text-gray-900{
+	-fx-text-fill:#111827;
+}
 .text-white{
 	-fx-text-fill:#ffffff;
 }
@@ -14,6 +23,9 @@
 }
 .text-yellow-500{
 	-fx-text-fill:#eab308;
+}
+.font-weight-bold{
+	-fx-font-weight: bold;
 }
 .bg-danger{
 	-fx-background-color:#f13d37;
@@ -115,10 +127,22 @@
 	-fx-background-radius:8px;
 }
 .round-10{
-	-fx-background-radius:20px;
+	-fx-background-radius:10px;
+}
+.round-16{
+	-fx-background-radius:16px;
 }
 .round-20{
 	-fx-background-radius:20px;
+}
+.round-24{
+	-fx-background-radius:24px;
+}
+.round-28{
+	-fx-background-radius:28px;
+}
+.round-32{
+	-fx-background-radius:32px;
 }
 .btn{
 	-fx-cursor:hand;

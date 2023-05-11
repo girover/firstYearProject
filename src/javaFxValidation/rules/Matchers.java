@@ -27,6 +27,10 @@ public class Matchers {
 		return isAlpha(value);
 	}
 	
+	public static boolean alphaSpace(String value, ArrayList<String> ruleParameters) {
+		return isAlphaSpace(value);
+	}
+	
 	public static boolean alphaNumeric(String value, ArrayList<String> ruleParameters) {
 		return isAlphaNumeric(value);
 	}

@@ -31,7 +31,7 @@ public class App {
 	 * @throws Exception 
 	 */
 	public static void run(Stage primaryStage) throws Exception {
-
+		
 		mainStage = primaryStage;
 		
 		initExceptionHandler();
@@ -45,8 +45,11 @@ public class App {
 		guiPath = Config.get("gui.path");
 		
 		
+		Window window = new Window("customer/NewCustomer.fxml", "Add New Customer");
+		window.show();
+		
 		if (authenticatedUser == null) {
-			showLoginWindow();
+//			showLoginWindow();
 		}
 	}
 
@@ -97,7 +100,7 @@ public class App {
 	 * Get a new database connection from Data Access Layer.
 	 * @param databaseName
 	 */
-	private static void newDatabaseConnection() {
+	public static void newDatabaseConnection() {
 		
 		DatabaseConnection con = null;
 		
@@ -126,6 +129,12 @@ public class App {
 	 * @param databaseName
 	 */
 	public static void setTestingDatabaseConnection() {
+		String databaseDriver = Config.get("database.defaultConnection");
+		if(databaseDriver.equals("sqlServer"))
+			Config.set("database.sqlServer.dbName", Config.get("database.sqlServer.testDbName"));
+		else
+			Config.set("database.mysql.dbName", Config.get("database.mysql.testDbName"));
+		
 		newDatabaseConnection();
 	}
 
@@ -233,6 +242,24 @@ public class App {
 	public static void test() {
 		//Test test = new Test();
 		//test.run();
+		runInTestEnvironment();
+	}
+
+	/**
+	 * Configure the application for the test environment
+	 * There is no need for launching any graphical objects
+	 */
+	public static void runInTestEnvironment() {
+		try {
+			loadConfigs();
+			initWindowsPath();
+			initAuthFields();
+			setTestingDatabaseConnection();
+			
+			guiPath = Config.get("gui.path");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

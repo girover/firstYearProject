@@ -17,6 +17,7 @@ public class RuleFactory {
 			"required",
 			"notEmpty",
 			"alpha",
+			"alphaSpace",
 			"alphaNumeric",
 			"alphaDash",
 			"numeric",

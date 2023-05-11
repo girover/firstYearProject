@@ -22,7 +22,7 @@ import database.entities.Entity;
  *
  * @version 1.0
  * 
- * @author Majed Hussen Farhan
+ * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github Profile</a>
  * 
@@ -57,9 +57,14 @@ public abstract class Repository {
 		this.primaryKey = primaryKey;
 	}
 
+	/**
+	 * Closing the database connection
+	 * 
+	 */
 	protected void closeDbConnection() {
 		try {
-			dbConnection.close();
+			if(dbConnection != null && !dbConnection.isClosed())
+				dbConnection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -133,8 +138,8 @@ public abstract class Repository {
 		} catch (SQLException e) {
 			System.out.println("executeInsert(): Error");
 			e.printStackTrace();
-
-			return 0;
+			throw new RuntimeException("SQLException: "+e.getMessage());
+//			return 0;
 		}
 	}
 
@@ -377,6 +382,15 @@ public abstract class Repository {
 	protected void validatePage(int page) {
 		if(page < 1)
 			throw new RuntimeException("Page cannot be less than 1.");
+	}
+	
+	/**
+	 * Destructor
+	 * To release database connection used by the object 
+	 * before its removal from the memory. 
+	 */
+	protected void finalize() {
+		closeDbConnection();
 	}
 
 	/**

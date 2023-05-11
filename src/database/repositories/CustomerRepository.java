@@ -106,7 +106,7 @@ public class CustomerRepository extends Repository {
 		Customer customer = (Customer) entity;
 
 		String sql = "INSERT INTO [" + table + "] (" 
-				+ "[name], " 
+				+ "[firstName], " 
 				+ "[lastName], " 
 				+ "[email], " 
 				+ "[phone], "

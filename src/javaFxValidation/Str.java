@@ -58,6 +58,16 @@ public abstract class Str {
 
 		return Regex.matches(string, "^[\\pL\\pM]+$");
 	}
+	
+	/**
+	 * Determines if a string only contains letters.
+	 * @param string
+	 * @return
+	 */
+	public static boolean isAlphaSpace(String string) {
+		
+		return Regex.matches(string, "^[\\pL\\pM\\pZs]+$");
+	}
 
 	/**
 	 * Determine if a string only contains letters and numbers.

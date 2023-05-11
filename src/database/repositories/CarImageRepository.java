@@ -2,7 +2,9 @@ package database.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import database.entities.Car;
 import database.entities.CarImage;
 import database.entities.Entity;
 
@@ -108,5 +110,21 @@ public class CarImageRepository extends Repository {
 		}
 
 		return 0;
+	}
+	
+	public ArrayList<CarImage> getByCar(Car car) throws SQLException{
+		String sql = "SELECT * FROM [carImage] WHERE [carID] = ?";
+		
+		ResultSet result = select(sql, car.getId());
+		
+		ArrayList<CarImage> list = new ArrayList<>();
+		
+		while(result.next()) {
+			CarImage carImage = new CarImage();
+			carImage.makeFromResultSet(result);
+			list.add(carImage);
+		}
+		
+		return list;
 	}
 }
