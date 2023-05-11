@@ -14,8 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import services.CustomerService;
+import window.Window;
 
-public class AddCustomerController extends ValidatableController {
+public class NewCustomerController extends ValidatableController {
 
     @FXML
     private Button btnAdd;
@@ -23,6 +24,10 @@ public class AddCustomerController extends ValidatableController {
     @FXML
     private Button btnCancle;
 
+    @FXML
+    @Rules(field = "cpr number", rules = "required|numeric|length:10")
+    private TextField inputCPR;
+    
     @FXML
     @Rules(field="first name", rules="required|alphaSpace")
     private TextField inputFirstName;
@@ -40,7 +45,7 @@ public class AddCustomerController extends ValidatableController {
     private TextField inputEmail;
     
     @FXML
-    @Rules(field="address", rules="required|regex:^[\\p{L}\\p{M}\\p{N}\\s\\.]+$")
+    @Rules(field="persons address", rules="required|regex:^[\\p{L}\\p{M}\\p{N}\\s\\.]+$")
     @Msg(rule="regex", message="Please provide a valid address.")
     private TextField inputAddress;
 
@@ -87,7 +92,7 @@ public class AddCustomerController extends ValidatableController {
 
     @FXML
     void handleBtnCancleClick(ActionEvent event) {
-
+    	closeWindow(event);
     }
 
 	@Override

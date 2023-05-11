@@ -11,9 +11,9 @@ import app.App;
 import junit.framework.TestCase;
 
 /**
- * This abstract class is the base test case class. All test classes should
- * extend this abstract class. This class is responsible for initializing test
- * environment.
+ * This abstract class serves as the base test case for 
+ * all test classes to extend from. 
+ * Its primary responsibility is to setup the test environment.
  * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
@@ -52,28 +52,19 @@ public abstract class BaseTestCase extends TestCase {
 	 * This method is invoked after all methods in test classes.
 	 */
 	@AfterEach
-	public void tearDown() {
-		System.out.println("TearDown is called.");
-		
+	public void tearDown() {		
 		// Truncating database tables after each test method.
 		truncateDatabaseTables();
 	}
 	
 	/**
 	 * This method will truncate all tables in the database.
+	 * Here we use built in stored procedure 'sp_MSforeachtable'
 	 */
 	private void truncateDatabaseTables() {
 		
-		String sql = "" 
-				+ "TRUNCATE TABLE [log];"
-				+ "TRUNCATE TABLE [carImage];"
-				+ "TRUNCATE TABLE [car];"
-				+ "TRUNCATE TABLE [sellerApprovalLimit];"
-				+ "TRUNCATE TABLE [applicationAnswer];"
-				+ "TRUNCATE TABLE [loanApplication];"
-				+ "TRUNCATE TABLE [customer];"
-				+ "TRUNCATE TABLE [user];"
-				+ "TRUNCATE TABLE [employee];";
+		String sql = "EXEC sp_MSforeachtable 'DELETE FROM ?';";
+		
 		Statement stm;
 		
 		try {

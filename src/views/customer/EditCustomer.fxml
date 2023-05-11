@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="743.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.NewCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="743.0" styleClass="bg-dark" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.EditCustomerController">
    <children>
       <AnchorPane prefHeight="70.0" prefWidth="598.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <styleClass>
@@ -21,12 +21,12 @@
             <String fx:value="shadow" />
          </styleClass>
          <children>
-            <Label styleClass="text-gray-800" text="Add New Customer" textFill="#999999" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="16.0">
+            <Label styleClass="text-gray-800" text="Edit Customer" textFill="#999999" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="16.0">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <FontIcon iconColor="#616161" iconLiteral="fa-user-plus" iconSize="40" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0" />
+            <FontIcon iconColor="#616161" iconLiteral="fa-edit" iconSize="40" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0" />
          </children>
       </AnchorPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
@@ -40,7 +40,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputCPR" prefHeight="45.0" prefWidth="258.0" promptText="CPR" styleClass="round-32">
+                        <TextField fx:id="inputCPR" prefHeight="45.0" prefWidth="258.0" promptText="Post number" styleClass="round-32" text="CPR">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -179,9 +179,9 @@
       </BorderPane>
       <AnchorPane prefHeight="67.0" prefWidth="598.0" styleClass="bg-gray-200" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnAdd" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="38.0" prefWidth="96.0" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="btnUpdate" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnUpdateClick" prefHeight="38.0" prefWidth="132.0" text="Update" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-user-plus" iconSize="25" />
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="25" />
                </graphic>
                <font>
                   <Font size="14.0" />
@@ -210,8 +210,4 @@
          </children>
       </AnchorPane>
    </children>
-   <styleClass>
-      <String fx:value="bg-dark" />
-      <String fx:value="round-32" />
-   </styleClass>
 </AnchorPane>

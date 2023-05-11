@@ -91,7 +91,7 @@ public class CarService extends BaseResourceService {
 		car.setMileage((int)data.input("mileage"));
 		car.setTransmission((String)data.input("transmission"));
 		car.setFuelType((String)data.input("fuelType"));
-		car.setEngineSize((String)data.input("engineSize"));
+		car.setEngineSize((float)data.input("engineSize"));
 		car.setHorsepower((int)data.input("horsepower"));
 		car.setSeats((int)data.input("seats"));
 		car.setDoors((int)data.input("doors"));
@@ -104,11 +104,8 @@ public class CarService extends BaseResourceService {
 	}
 
 	@Override
-	public Car update(Entity entity) {
-		if (repository.update((Car) entity))
-			return ((Car) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((Car) entity);
 	}
 
 	@Override

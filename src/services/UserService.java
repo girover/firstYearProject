@@ -93,11 +93,8 @@ public class UserService extends BaseResourceService {
 	}
 
 	@Override
-	public User update(Entity entity) {
-		if (repository.update((User) entity))
-			return ((User) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((User) entity);
 	}
 
 	@Override

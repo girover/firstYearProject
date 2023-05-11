@@ -91,11 +91,8 @@ public class CarImageService extends BaseResourceService {
 	}
 
 	@Override
-	public CarImage update(Entity entity) {
-		if (repository.update((CarImage) entity))
-			return ((CarImage) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((CarImage) entity);
 	}
 
 	@Override

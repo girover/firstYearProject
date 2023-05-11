@@ -20,6 +20,7 @@ import java.sql.SQLException;
 public class Customer extends Entity {
 
 	private int id;
+	private String CPRHash;
 	private String firstName;
 	private String lastName;
 	private String phone;
@@ -27,7 +28,7 @@ public class Customer extends Entity {
 	private String address;
 	private String city;
 	private String zipCode;
-	private String creditworthiness;
+//	private String creditworthiness;
 
 	public Customer() {
 		setTable("customer");
@@ -40,13 +41,21 @@ public class Customer extends Entity {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getCPRHash() {
+		return CPRHash;
+	}
 
-	public String getName() {
+	public void setCPRHash(String cPRHash) {
+		CPRHash = cPRHash;
+	}
+
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setName(String name) {
-		this.firstName = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -97,13 +106,13 @@ public class Customer extends Entity {
 		this.zipCode = zipCode;
 	}
 
-	public String getCreditworthiness() {
-		return creditworthiness;
-	}
-
-	public void setCreditworthiness(String creditworthiness) {
-		this.creditworthiness = creditworthiness;
-	}
+//	public String getCreditworthiness() {
+//		return creditworthiness;
+//	}
+//
+//	public void setCreditworthiness(String creditworthiness) {
+//		this.creditworthiness = creditworthiness;
+//	}
 
 	@Override
 	public boolean makeFromResultSet(ResultSet result) {
@@ -116,7 +125,8 @@ public class Customer extends Entity {
 			address = result.getString("address");
 			city = result.getString("city");
 			zipCode = result.getString("zipCode");
-			creditworthiness = result.getString("creditworthiness");
+			CPRHash = result.getString("CPRHash");
+//			creditworthiness = result.getString("creditworthiness");
 
 			return true;
 

@@ -57,7 +57,7 @@ public interface ResourceServiceInterface {
 	 * @param Entity entity
 	 * @return Entity
 	 */
-	public Entity update(Entity entity);
+	public boolean update(Entity entity);
 	
 	/**
 	 * Delete the specified resource from database.

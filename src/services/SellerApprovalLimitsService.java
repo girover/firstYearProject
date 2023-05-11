@@ -91,11 +91,8 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 	}
 
 	@Override
-	public SellerApprovalLimits update(Entity entity) {
-		if (repository.update((SellerApprovalLimits) entity))
-			return ((SellerApprovalLimits) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((SellerApprovalLimits) entity);
 	}
 
 	@Override

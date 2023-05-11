@@ -2,6 +2,12 @@ package faker;
 
 import java.util.HashMap;
 
+/**
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ *
+ */
 public class City extends Provider {
 
 	private static HashMap<String, String> cities = new HashMap<>();

@@ -1,15 +1,17 @@
 package faker;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-
+/**
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ *
+ */
 public final class Color extends Provider {
 
-	private static ArrayList<String> safeColorNames = new ArrayList<>(Arrays.asList("black", "maroon", "green", "navy",
-			"olive", "purple", "teal", "lime", "blue", "silver", "gray", "yellow", "fuchsia", "aqua", "white"));
+	private static final String[] safeColorNames = {"black", "maroon", "green", "navy",
+			"olive", "purple", "teal", "lime", "blue", "silver", "gray", "yellow", "fuchsia", "aqua", "white"};
 
-	private static ArrayList<String> allColorNames = new ArrayList<>(Arrays.asList("AliceBlue", "AntiqueWhite", "Aqua",
+	private static final String[] allColorNames = {"AliceBlue", "AntiqueWhite", "Aqua",
 			"Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown",
 			"BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson",
 			"Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGreen", "DarkKhaki", "DarkMagenta",
@@ -27,117 +29,21 @@ public final class Color extends Provider {
 			"Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon",
 			"SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "Snow",
 			"SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White",
-			"WhiteSmoke", "Yellow", "YellowGreen"));
+			"WhiteSmoke", "Yellow", "YellowGreen"};
 
-	/**
-	 * @example "#fa3cc2"
-	 */
-	public static String hexColor() {
-		Random random = new Random();
-		// generate three random numbers between 0 and 255
-		int r = random.nextInt(256);
-		int g = random.nextInt(256);
-		int b = random.nextInt(256);
 
-		// convert the numbers to their hexadecimal representation
-		return String.format("#%02x%02x%02x", r, g, b);
-	}
-
-	/**
-	 * @example "[0,255,122]"
-	 *
-	 * @return int[]
-	 */
-	public static int[] rgbColorAsArray() {
-		Random random = new Random();
-		int[] colors = new int[3];
-
-		// generate three random numbers between 0 and 255
-		colors[0] = random.nextInt(256);
-		colors[1] = random.nextInt(256);
-		colors[2] = random.nextInt(256);
-
-		return colors;
-	}
-
-	/**
-	 * @example "0,255,122"
-	 */
-	public static String rgbColor() {
-		StringBuilder sb = new StringBuilder();
-
-		for (int value : rgbColorAsArray()) {
-			sb.append(value).append(",");
-		}
-		String result = sb.toString();
-
-		// removing the last comma
-		if (result.length() > 0) {
-			result = result.substring(0, result.length() - 1);
-		}
-
-		return result;
-	}
-
-	/**
-	 * @example "rgb(0,255,122)"
-	 */
-	public static String rgbCssColor() {
-		return String.format("rgb(%s)", rgbColor());
-	}
-
-	/**
-	 * @example "rgba(0,255,122,0.8)"
-	 */
-	public static String rgbaCssColor() {
-		Number number = new Number();
-
-		return String.format("rgba(%s,%s)", rgbColor(), number.randomFloat(0, 1));
-	}
-
-	/**
-	 * @example "blue"
-	 */
-	public static String safeColorName() {
-		Number number = new Number();
-		int n = number.numberBetween(0, safeColorNames.size());
-
-		return safeColorNames.get(n);
-	}
 
 	/**
 	 * @example "NavajoWhite"
 	 */
-	public static String colorName() {
-		Number number = new Number();
-		int n = number.numberBetween(0, allColorNames.size());
-
-		return allColorNames.get(n);
+	public static String color() {
+		
+		return allColorNames[getRandomInteger(0, allColorNames.length)];
+	}
+	
+	public static String safeColor() {
+		
+		return safeColorNames[getRandomInteger(0, safeColorNames.length)];
 	}
 
-	/**
-	 * @example "340,50,20"
-	 */
-	public static String hslColor() {
-		Number number = new Number();
-
-		return String.format("%s,%s,%s", number.numberBetween(0, 360), number.numberBetween(0, 100),
-				number.numberBetween(0, 100));
-	}
-
-	/**
-	 * @example array(340, 50, 20)
-	 *
-	 * @return int[]
-	 */
-	public static int[] hslColorAsArray() {
-		Number number = new Number();
-		int[] colors = new int[3];
-
-		colors[0] = number.numberBetween(0, 360);
-		colors[1] = number.numberBetween(0, 100);
-		colors[2] = number.numberBetween(0, 100);
-
-		return colors;
-	}
 }

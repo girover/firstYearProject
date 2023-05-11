@@ -84,7 +84,7 @@ public class CustomerRepository extends Repository {
 				+ "WHERE [" + primaryKey + "] = ?";
 
 		return update(sql, 
-				customer.getName(), 
+				customer.getFirstName(), 
 				customer.getLastName(), 
 				customer.getEmail(), 
 				customer.getPhone(),
@@ -116,7 +116,7 @@ public class CustomerRepository extends Repository {
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		int id = insertAndGetGeneratedId(sql, 
-				customer.getName(), 
+				customer.getFirstName(), 
 				customer.getLastName(), 
 				customer.getEmail(),
 				customer.getPhone(), 

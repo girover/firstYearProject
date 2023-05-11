@@ -10,9 +10,11 @@ import configs.XMLConfigsReader;
 import database.connection.DatabaseConnection;
 import database.connection.SqlServerDatabaseConnection;
 import database.entities.User;
+import faker.Faker;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import presentation.customer.EditCustomerController;
 import translate.Translator;
 import window.FlashWindow;
 import window.Window;
@@ -45,12 +47,13 @@ public class App {
 		guiPath = Config.get("gui.path");
 		
 		
-//		Window window = new Window("customer/NewCustomer.fxml", "Add New Customer");
-//		window.show();
+		Window window = new Window("customer/EditCustomer.fxml", "Add New Customer");
+		((EditCustomerController)window.getController()).setCustomer(Faker.customer());
+		window.show();
 		
-		if (authenticatedUser == null) {
-			showLoginWindow();
-		}
+//		if (authenticatedUser == null) {
+//			showLoginWindow();
+//		}
 	}
 
 	private static void initLocaleLanguage() {

@@ -100,11 +100,8 @@ public class LoanApplicationService extends BaseResourceService {
 	}
 
 	@Override
-	public LoanApplication update(Entity entity) {
-		if (repository.update((LoanApplication) entity))
-			return ((LoanApplication) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((LoanApplication) entity);
 	}
 
 	@Override

@@ -101,11 +101,8 @@ public class EmployeeService extends BaseResourceService {
 	}
 
 	@Override
-	public Employee update(Entity entity) {
-		if (repository.update((Employee) entity))
-			return ((Employee) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((Employee) entity);
 	}
 
 	@Override

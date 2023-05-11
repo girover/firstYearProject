@@ -23,7 +23,7 @@ CREATE TABLE [employee] (
   zipCode nvarchar(6) NOT NULL,
   city nvarchar(50) NOT NULL,
   hireDate datetime NOT NULL,
-  department nvarchar(50) NOT NULL,
+  department nvarchar(50) NOT NULL CHECK (department IN ('administration', 'sales', 'finance', 'service', 'marketing', 'parts', 'IT')),
   [role] nvarchar(50) NOT NULL CHECK ([role] IN ('admin', 'seller'))
 );
 

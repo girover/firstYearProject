@@ -82,7 +82,7 @@ public class CustomerService extends BaseResourceService {
 		
 		Customer customer = new Customer();
 		
-		customer.setName((String)data.input("firstName"));
+		customer.setFirstName((String)data.input("firstName"));
 		customer.setLastName((String)data.input("lastName"));
 		customer.setPhone((String)data.input("phone"));
 		customer.setEmail((String)data.input("email"));
@@ -98,11 +98,12 @@ public class CustomerService extends BaseResourceService {
 	}
 
 	@Override
-	public Customer update(Entity entity) {
-		if (repository.update((Customer) entity))
-			return ((Customer) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		Customer customer = (Customer)entity;
+		// Expecting hashing CPR number here
+		// .....   code ....
+//		customer.setCPRHash(null);
+		return repository.update(customer);
 	}
 
 	@Override

@@ -27,11 +27,12 @@ public class Car extends Entity {
 	private int mileage;
 	private String transmission;
 	private String fuelType;
-	private String engineSize;
+	private float engineSize;
 	private int horsepower;
 	private int seats;
 	private int doors;
 	private int price;
+	private String vin;
 	private byte sold;
 	private String description;
 
@@ -103,11 +104,11 @@ public class Car extends Entity {
 		this.fuelType = fuelType;
 	}
 
-	public String getEngineSize() {
+	public float getEngineSize() {
 		return engineSize;
 	}
 
-	public void setEngineSize(String engineSize) {
+	public void setEngineSize(float engineSize) {
 		this.engineSize = engineSize;
 	}
 
@@ -150,6 +151,14 @@ public class Car extends Entity {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public String getVin() {
+		return vin;
+	}
+
+	public void setVin(String vin) {
+		this.vin = vin;
+	}
 
 	public String getDescription() {
 		return description;
@@ -171,7 +180,7 @@ public class Car extends Entity {
 			mileage = result.getInt("mileage");
 			transmission = result.getString("transmission");
 			fuelType = result.getString("fuelType");
-			engineSize = result.getString("engineSize");
+			engineSize = result.getFloat("engineSize");
 			horsepower = result.getInt("horsepower");
 			seats = result.getInt("seats");
 			doors = result.getInt("doors");
@@ -185,6 +194,27 @@ public class Car extends Entity {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Car:\n");
+		sb.append(String.format("brand : %s\n",getBrand()));
+		sb.append(String.format("model : %s\n", getModel()));
+		sb.append(String.format("year : %s\n", getYear()));
+		sb.append(String.format("color : %s\n", getColor()));
+		sb.append(String.format("transmission : %s\n", getTransmission()));
+		sb.append(String.format("fuel type : %s\n", getFuelType()));
+		sb.append(String.format("engine size : %s\n", getEngineSize()));
+		sb.append(String.format("horsepower : %s\n", getHorsepower()));
+		sb.append(String.format("seats : %s\n", getSeats()));
+		sb.append(String.format("doors : %s\n", getDoors()));
+		sb.append(String.format("price : %s\n", getPrice()));
+		sb.append(String.format("vin : %s\n", getVin()));
+		sb.append(String.format("sold : %s\n", getSold()));
+		sb.append(String.format("description : %s\n", getDescription()));
+		
+		return sb.toString();
 	}
 
 }

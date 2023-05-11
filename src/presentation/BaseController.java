@@ -5,8 +5,10 @@ import java.util.Observer;
 
 import app.App;
 import app.FormData;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import translate.Translator;
+import window.Window;
 
 
 /**
@@ -60,7 +62,15 @@ public abstract class BaseController extends Observable implements Observer, Ini
 		addObserver(controller);
 	}
 	
-	public void fire(Object arg) {
+	/**
+	 * To close the window when a button is clicked.
+	 * @param event
+	 */
+	protected void closeWindow(ActionEvent event) {
+		Window.closeWindow(event);
+	}
+	
+	protected void fire(Object arg) {
 		setChanged();
 		if(arg == null)
 			notifyObservers();

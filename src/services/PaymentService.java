@@ -100,11 +100,8 @@ public class PaymentService extends BaseResourceService {
 	}
 
 	@Override
-	public Payment update(Entity entity) {
-		if (repository.update((Payment) entity))
-			return ((Payment) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((Payment) entity);
 	}
 
 	@Override

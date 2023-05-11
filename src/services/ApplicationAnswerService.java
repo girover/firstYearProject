@@ -95,11 +95,8 @@ public class ApplicationAnswerService extends BaseResourceService {
 	}
 
 	@Override
-	public ApplicationAnswer update(Entity entity) {
-		if (repository.update((ApplicationAnswer) entity))
-			return ((ApplicationAnswer) entity);
-		
-		return null;
+	public boolean update(Entity entity) {
+		return repository.update((ApplicationAnswer) entity);
 	}
 
 	@Override
