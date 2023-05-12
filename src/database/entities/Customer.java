@@ -106,14 +106,6 @@ public class Customer extends Entity {
 		this.zipCode = zipCode;
 	}
 
-//	public String getCreditworthiness() {
-//		return creditworthiness;
-//	}
-//
-//	public void setCreditworthiness(String creditworthiness) {
-//		this.creditworthiness = creditworthiness;
-//	}
-
 	@Override
 	public boolean makeFromResultSet(ResultSet result) {
 		try {
@@ -126,7 +118,6 @@ public class Customer extends Entity {
 			city = result.getString("city");
 			zipCode = result.getString("zipCode");
 			CPRHash = result.getString("CPRHash");
-//			creditworthiness = result.getString("creditworthiness");
 
 			return true;
 

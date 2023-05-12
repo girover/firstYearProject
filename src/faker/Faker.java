@@ -3,6 +3,7 @@ package faker;
 import database.entities.Car;
 import database.entities.Customer;
 import database.entities.Employee;
+import database.entities.SellerApprovalLimits;
 import database.entities.User;
 
 /**
@@ -148,6 +149,29 @@ public class Faker extends Provider {
 		customer.setZipCode(zipCode);
 		
 		return customer;
+	}
+	
+	/**
+	 * -----------------------------------------------------------------------
+	 * Generating fake SellerApprovalLimit section
+	 * -----------------------------------------------------------------------
+	 */
+	public static SellerApprovalLimits sellerApprovalLimit() {
+		return sellerApprovalLimit(1000, getRandomThousandBetween(200000, 1000000));
+	}
+	
+	public static SellerApprovalLimits sellerApprovalLimit(int employeeID) {
+		return sellerApprovalLimit(employeeID, getRandomThousandBetween(200000, 1000000));
+	}
+	
+	public static SellerApprovalLimits sellerApprovalLimit(int employeeID, int maxApprovalLimt) {
+		
+		SellerApprovalLimits sellerAppLimit = new SellerApprovalLimits();
+		
+		sellerAppLimit.setEmployeeID(employeeID);
+		sellerAppLimit.setMaxApprovalLimit(maxApprovalLimt);
+		
+		return sellerAppLimit;
 	}
 
 }

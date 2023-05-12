@@ -2,6 +2,7 @@ package database.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.entities.Car;
 import database.entities.Entity;
@@ -154,5 +155,35 @@ public class CarRepository extends Repository {
 		}
 
 		return 0;
+	}
+	
+	public ArrayList<Car> getDistinctModels() throws SQLException{
+		
+		ArrayList<Car> cars = new ArrayList<>();
+		
+		ResultSet result = getAll();
+		while(result.next()) {
+			Car car = new Car();
+			car.makeFromResultSet(result);
+			cars.add(car);
+		}
+		return cars;
+	}
+	
+	public ArrayList<Car> getByModel(String model){
+		ArrayList<Car> cars = new ArrayList<>();
+		
+		ResultSet result = getByACondition("model", "=", model);
+		try {
+			while(result.next()) {
+				Car car = new Car();
+				car.makeFromResultSet(result);
+				cars.add(car);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cars;
 	}
 }

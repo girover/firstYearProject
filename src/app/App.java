@@ -47,8 +47,8 @@ public class App {
 		guiPath = Config.get("gui.path");
 		
 		
-		Window window = new Window("customer/EditCustomer.fxml", "Add New Customer");
-		((EditCustomerController)window.getController()).setCustomer(Faker.customer());
+		Window window = new Window("car/Cars.fxml", "ALL Cars");
+//		((EditCustomerController)window.getController()).setCustomer(Faker.customer());
 		window.show();
 		
 //		if (authenticatedUser == null) {

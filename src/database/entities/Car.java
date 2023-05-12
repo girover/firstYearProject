@@ -33,6 +33,7 @@ public class Car extends Entity {
 	private int doors;
 	private int price;
 	private String vin;
+	private float kmPerLiter;
 	private byte sold;
 	private String description;
 
@@ -143,6 +144,14 @@ public class Car extends Entity {
 	public void setSold(byte sold) {
 		this.sold = sold;
 	}
+	
+	public float getKmPerLiter() {
+		return kmPerLiter;
+	}
+
+	public void setKmPerLiter(float kmPerLiter) {
+		this.kmPerLiter = kmPerLiter;
+	}
 
 	public int getPrice() {
 		return price;
@@ -196,23 +205,26 @@ public class Car extends Entity {
 		return false;
 	}
 	
+	private String formatString(String key, Object value) {
+		return String.format("%-20s : %-20s\n", key, value);
+	}
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Car:\n");
-		sb.append(String.format("brand : %s\n",getBrand()));
-		sb.append(String.format("model : %s\n", getModel()));
-		sb.append(String.format("year : %s\n", getYear()));
-		sb.append(String.format("color : %s\n", getColor()));
-		sb.append(String.format("transmission : %s\n", getTransmission()));
-		sb.append(String.format("fuel type : %s\n", getFuelType()));
-		sb.append(String.format("engine size : %s\n", getEngineSize()));
-		sb.append(String.format("horsepower : %s\n", getHorsepower()));
-		sb.append(String.format("seats : %s\n", getSeats()));
-		sb.append(String.format("doors : %s\n", getDoors()));
-		sb.append(String.format("price : %s\n", getPrice()));
-		sb.append(String.format("vin : %s\n", getVin()));
-		sb.append(String.format("sold : %s\n", getSold()));
-		sb.append(String.format("description : %s\n", getDescription()));
+		sb.append(formatString("brand", getBrand()));
+		sb.append(formatString("model", getModel()));
+		sb.append(formatString("year", getYear()));
+		sb.append(formatString("color", getColor()));
+		sb.append(formatString("transmission", getTransmission()));
+		sb.append(formatString("fuel type", getFuelType()));
+		sb.append(formatString("engine size", getEngineSize()));
+		sb.append(formatString("horsepower", getHorsepower()));
+		sb.append(formatString("seats", getSeats()));
+		sb.append(formatString("doors", getDoors()));
+		sb.append(formatString("price", getPrice()));
+		sb.append(formatString("VIN", getVin()));
+		sb.append(formatString("sold", getSold()));
+		sb.append(formatString("description", getDescription()));
 		
 		return sb.toString();
 	}

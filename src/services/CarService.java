@@ -118,5 +118,22 @@ public class CarService extends BaseResourceService {
 		
 		return repo.getByCar(car);
 	}
+	
+	public ArrayList<String> getDistintModels() throws SQLException{
+		ArrayList<String> models = new ArrayList<>();
+		
+		ArrayList<Car> carsWithDistintModels = ((CarRepository)repository).getDistinctModels();
+		for (Car car : carsWithDistintModels) {
+			models.add(car.getModel());
+		}
+		
+		return models;
+	}
+	
+	public ArrayList<Car> getByModel(String model){
+		
+		return ((CarRepository)repository).getByModel(model);
+	}
+	
 
 }
