@@ -1,5 +1,6 @@
 package javaFxValidation;
 
+import java.lang.reflect.Constructor;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -30,35 +31,50 @@ public class Validator {
 	 * Only fields annotated by 'Validate' will be validated
 	 */
 	private Object controllerUnderValidation;
-	private RuleMessagesBag messagesBag;
+	private RuleMessagesBag messagesBag = new RuleMessagesBag();
 	
-	private ArrayList<Field> fieldsUnderValidation;
-	private ArrayList<Field> failedFields;
+	private ArrayList<Field> fieldsUnderValidation = new ArrayList<>();;
+	private ArrayList<Field> failedFields = new ArrayList<>();;
 	/**
 	 * If only some of annotated field will be validated.
 	 * These fields pass to the method validate(String[]...fieldNames)
 	 */
-	private ArrayList<String> selectedFields;
+	private ArrayList<String> selectedFields = new ArrayList<>();;
 	
-	public Validator(Object controller) throws ValidationException {
+	/**
+	 * @param controller The object whose annotated properties must be validated
+	 * @throws ValidationException
+	 */
+	public Validator(Object controller) {
 		controllerUnderValidation = controller;
-		messagesBag  = new RuleMessagesBag();
-		fieldsUnderValidation = new ArrayList<>();
-		failedFields = new ArrayList<>();
-		selectedFields = new ArrayList<>();
-		
 	}
 	
 	public void validate() throws ValidationException {
+		
+		clearValidator();
+		
 		makeFields();
 	}
 
 	public void validate(String...fields) throws ValidationException {
+		
+		clearValidator();
+		
 		for (String fieldName : fields) {
 			selectedFields.add(fieldName);
 		}
 		
 		validate();
+	}
+	
+	/**
+	 * Here we clear validator to be used again.
+	 */
+	private void clearValidator() {
+		messagesBag.clear();
+		fieldsUnderValidation.clear();
+		failedFields.clear();
+		selectedFields.clear();
 	}
 
 	/**
@@ -260,7 +276,7 @@ public class Validator {
 	}
 
 	private String getValueOfJavaFxControl(Control control) {
-		System.out.println(control);
+		
 		if (control instanceof TextInputControl) {
 	        return ((TextInputControl) control).getText();
 	    } else if (control instanceof ComboBox) {

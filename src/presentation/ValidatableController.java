@@ -18,7 +18,7 @@ import javaFxValidation.Validator;
  */
 public abstract class ValidatableController extends BaseController {
 
-	protected Validator validator = null;
+	protected Validator validator = new Validator(this);
 	
 
 	/**
@@ -27,7 +27,7 @@ public abstract class ValidatableController extends BaseController {
 	 * @throws ValidationException
 	 */
 	protected void validate() throws ValidationException {
-		validator = new Validator(this);
+//		validator = new Validator(this);
 		validator.validate();
 	}
 
@@ -39,7 +39,7 @@ public abstract class ValidatableController extends BaseController {
 	 * @throws ValidationException
 	 */
 	protected void validate(String... fields) throws ValidationException {
-		validator = new Validator(this);
+//		validator = new Validator(this);
 		validator.validate(fields);
 	}
 	

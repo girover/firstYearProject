@@ -74,6 +74,7 @@ public class CustomerRepository extends Repository {
 		Customer customer = (Customer) entity;
 
 		String sql = "UPDATE [" + table + "] SET " 
+				+ "[CPRHash] = ?," 
 				+ "[nameame] = ?," 
 				+ "[lastName] = ?," 
 				+ "[email] = ?,"
@@ -84,6 +85,7 @@ public class CustomerRepository extends Repository {
 				+ "WHERE [" + primaryKey + "] = ?";
 
 		return update(sql, 
+				customer.getCPRHash(), 
 				customer.getFirstName(), 
 				customer.getLastName(), 
 				customer.getEmail(), 
@@ -106,16 +108,18 @@ public class CustomerRepository extends Repository {
 		Customer customer = (Customer) entity;
 
 		String sql = "INSERT INTO [" + table + "] (" 
-				+ "[firstName], " 
-				+ "[lastName], " 
-				+ "[email], " 
-				+ "[phone], "
-				+ "[address], " 
-				+ "[city], " 
+				+ "[CPRHash],"
+				+ "[firstName]," 
+				+ "[lastName]," 
+				+ "[email]," 
+				+ "[phone],"
+				+ "[address]," 
+				+ "[city]," 
 				+ "[zipCode]) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-		int id = insertAndGetGeneratedId(sql, 
+		int id = insertAndGetGeneratedId(sql,
+				customer.getCPRHash(),
 				customer.getFirstName(), 
 				customer.getLastName(), 
 				customer.getEmail(),

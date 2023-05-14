@@ -148,6 +148,8 @@ public class Payment extends Entity {
 			createdAt = result.getString("createdAt");
 			updatedAt = result.getString("updatedAt");
 
+			setExist(true);
+			
 			return true;
 
 		} catch (SQLException e) {

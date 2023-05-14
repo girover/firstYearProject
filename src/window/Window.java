@@ -65,7 +65,7 @@ public class Window extends Stage {
 	}
 	
 	public void setSenderController(BaseController controller) {
-		getController().setSenderController(controller);
+		getController().setObserverController(controller);
 	}
 	
 

@@ -148,6 +148,8 @@ public class LoanApplication extends Entity {
 			status = result.getString("status");
 			note = result.getString("note");
 
+			setExist(true);
+			
 			return true;
 
 		} catch (SQLException e) {

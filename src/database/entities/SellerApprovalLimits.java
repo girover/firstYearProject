@@ -58,6 +58,8 @@ public class SellerApprovalLimits extends Entity {
 			employeeID = result.getInt("employeeID");
 			maxApprovalLimit = result.getInt("maxApprovalLimit");
 
+			setExist(true);			
+			
 			return true;
 
 		} catch (SQLException e) {

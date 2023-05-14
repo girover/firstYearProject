@@ -3,6 +3,7 @@ package test;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,17 +29,10 @@ public abstract class BaseTestCase extends TestCase {
 		 * 
 		 * This piece of code will run only one time when the class is loaded to memory.
 		 */
+		System.out.println("Setting up test environment...");
 		App.runInTestEnvironment();
-		System.out.println("Application Testing Environment Is Configured Now.");
+		System.out.println("Testing environment ready.");
 	};
-
-	/**
-	 * This method is called once before all methods in this test class.
-	 */
-	@BeforeAll
-	public static void setUpApplication() {
-		System.out.println("BeforeAll is called.");
-	}
 
 	/**
 	 * This method is invoked before every method in the test is invoked.
@@ -55,6 +49,15 @@ public abstract class BaseTestCase extends TestCase {
 	public void tearDown() {		
 		// Truncating database tables after each test method.
 		truncateDatabaseTables();
+	}
+	
+	@AfterAll
+	public static void afterAll() {
+		try {
+			App.getDBConnection().close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

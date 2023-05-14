@@ -1,11 +1,14 @@
 package database.repositories;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import app.App;
 import database.entities.Car;
 import database.entities.Entity;
+import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -77,17 +80,17 @@ public class CarRepository extends Repository {
 		Car car = (Car) entity;
 
 		String sql = "UPDATE [" + table + "] SET " 
-				+ "[brand] = ?," 
-				+ "[model] = ?," 
+				+ "[brand] = ?,"
+				+ "[model] = ?,"
 				+ "[year] = ?,"
-				+ "[color] = ?," 
-				+ "[mileage] = ?," 
-				+ "[transmission] = ?," 
+				+ "[color] = ?,"
+				+ "[mileage] = ?,"
+				+ "[transmission] = ?,"
 				+ "[fuelType] = ?,"
 				+ "[engineSize] = ?," 
-				+ "[horsepower] = ?," 
-				+ "[seats] = ?," 
-				+ "[doors] = ?," 
+				+ "[horsepower] = ?,"
+				+ "[seats] = ?,"
+				+ "[doors] = ?,"
 				+ "[price] = ? "
 				+ "WHERE [" + primaryKey + "] = ?";
 
@@ -130,8 +133,11 @@ public class CarRepository extends Repository {
 				+ "[horsepower]," 
 				+ "[seats]," 
 				+ "[doors]," 
-				+ "[price]"
-				+ ") VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "[kmPerLiter]," 
+				+ "[VIN]," 
+				+ "[price],"
+				+ "[description]"
+				+ ") VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		int id = insertAndGetGeneratedId(sql, 
 				car.getBrand(), 
@@ -145,7 +151,10 @@ public class CarRepository extends Repository {
 				car.getHorsepower(),
 				car.getSeats(), 
 				car.getDoors(), 
-				car.getPrice());
+				car.getKmPerLiter(), 
+				car.getVin(), 
+				car.getPrice(), 
+				car.getDescription());
 
 		if (id > 0) {
 			car.setId(id);
@@ -156,7 +165,7 @@ public class CarRepository extends Repository {
 
 		return 0;
 	}
-	
+
 	public ArrayList<Car> getDistinctModels() throws SQLException{
 		
 		ArrayList<Car> cars = new ArrayList<>();

@@ -6,9 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import app.App;
 import configs.Config;
+import database.entities.Car;
 import database.entities.Entity;
 
 /**
@@ -413,4 +415,41 @@ public abstract class Repository {
 	 * @return integer
 	 */
 	public abstract int add(Entity entity);
+	
+	/**
+	 * Inserts a list of entities to the database.
+	 * @param entity
+	 * @return integer
+	 */
+	public <T extends Entity> int addAll(ArrayList<T> entities) {
+		
+		if(entities.size() == 0)
+			return 0;
+		
+		try(Connection dbConnection = App.getDBConnection()){
+			
+			dbConnection.setAutoCommit(false);
+			
+			Class<? extends Entity> cls = entities.get(0).getClass();
+			
+			for (Entity entity : entities) {
+				if(add(cls.cast(entity)) == 0)
+					throw new SQLException(getClass().getName() + " . addAll() method. Failed to create Car.");
+			}
+			
+			dbConnection.commit();
+			
+			return entities.size();
+			
+		}catch(SQLException e){
+			try {
+				dbConnection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }

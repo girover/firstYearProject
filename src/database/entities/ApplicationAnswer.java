@@ -87,7 +87,9 @@ public class ApplicationAnswer extends Entity {
 			answerDate = result.getString("answerDate");
 			accepted = result.getString("accepted");
 			note = result.getString("note");
-
+			
+			setExist(true);
+			
 			return true;
 
 		} catch (SQLException e) {

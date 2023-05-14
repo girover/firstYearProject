@@ -1,8 +1,12 @@
 package database.repositories;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import app.App;
+import database.entities.Car;
 import database.entities.Entity;
 import database.entities.User;
 

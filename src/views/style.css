@@ -27,6 +27,9 @@
 .font-weight-bold{
 	-fx-font-weight: bold;
 }
+.bg-transparent{
+	-fx-background-color:transparent;
+}
 .bg-danger{
 	-fx-background-color:#f13d37;
 }

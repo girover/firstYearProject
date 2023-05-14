@@ -74,7 +74,9 @@ public class User extends Auth implements Authenticatable {
 			userName = result.getString("userName");
 			password = result.getString("password");
 			employeeId = result.getInt("employeeId");
-	
+
+			setExist(true);
+			
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

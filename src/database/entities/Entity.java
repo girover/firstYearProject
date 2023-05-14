@@ -1,19 +1,18 @@
 package database.entities;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.HashMap;
+
+import database.entities.factory.EntityFactory;
+import database.entities.factory.Factory;
 
 public abstract class Entity {
 
 	protected String table;
 	protected String primaryKey = "id";
 	// Determines if the entity is retrieved from database
-	protected boolean exist = false;
-	
-//	protected HashMap<String, Object> attributes = new HashMap<>();
+	protected boolean exists = false;
 
+	
 	public String getTable() {
 		return table;
 	}
@@ -30,12 +29,17 @@ public abstract class Entity {
 		this.primaryKey = primaryKey;
 	}
 
-	public boolean isExist() {
-		return exist;
+	/**
+	 * determine if this entity is retrieved from database.
+	 * It exists in database.
+	 * @return
+	 */
+	public boolean exists() {
+		return exists;
 	}
 
 	public void setExist(boolean exist) {
-		this.exist = exist;
+		this.exists = exist;
 	}
 // ********************************[ New Implementation ]********************************
 	
@@ -66,4 +70,14 @@ public abstract class Entity {
 //********************************************************************************
 
 	public abstract boolean makeFromResultSet(ResultSet result);
+	
+//	/**
+//	 * This method will return instance of EntityFactory.
+//	 * @return
+//	 */
+	public static EntityFactory of(Class<? extends Entity> cls) {
+		return Factory.of(cls);
+	}
+	
+
 }

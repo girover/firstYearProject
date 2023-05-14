@@ -3,13 +3,13 @@ package faker;
 import database.entities.Car;
 import database.entities.Customer;
 import database.entities.Employee;
+import database.entities.LoanApplication;
 import database.entities.SellerApprovalLimits;
 import database.entities.User;
 
 /**
- * @author Majed Hussein Farhan
- * 		 - <b style="color:red">girover.mhf@gmail.com</b>
- *       - <a href="https://github.com/girover">Github</a>
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github</a>
  *
  */
 public class Faker extends Provider {
@@ -127,6 +127,7 @@ public class Faker extends Provider {
 
 		return car;
 	}
+
 	/**
 	 * -----------------------------------------------------------------------
 	 * Generating fake Customer section
@@ -135,9 +136,11 @@ public class Faker extends Provider {
 	public static Customer customer() {
 		return generateCustomer();
 	}
-	
+
 	private static Customer generateCustomer() {
+
 		Customer customer = new Customer();
+
 		customer.setCPRHash(getAlphaNumericString(64));
 		customer.setFirstName(Person.firstName());
 		customer.setLastName(Person.lastName());
@@ -147,10 +150,10 @@ public class Faker extends Provider {
 		String zipCode = City.getZipCode();
 		customer.setCity(City.getCity(zipCode));
 		customer.setZipCode(zipCode);
-		
+
 		return customer;
 	}
-	
+
 	/**
 	 * -----------------------------------------------------------------------
 	 * Generating fake SellerApprovalLimit section
@@ -159,19 +162,41 @@ public class Faker extends Provider {
 	public static SellerApprovalLimits sellerApprovalLimit() {
 		return sellerApprovalLimit(1000, getRandomThousandBetween(200000, 1000000));
 	}
-	
+
 	public static SellerApprovalLimits sellerApprovalLimit(int employeeID) {
 		return sellerApprovalLimit(employeeID, getRandomThousandBetween(200000, 1000000));
 	}
-	
+
 	public static SellerApprovalLimits sellerApprovalLimit(int employeeID, int maxApprovalLimt) {
-		
+
 		SellerApprovalLimits sellerAppLimit = new SellerApprovalLimits();
-		
+
 		sellerAppLimit.setEmployeeID(employeeID);
 		sellerAppLimit.setMaxApprovalLimit(maxApprovalLimt);
-		
+
 		return sellerAppLimit;
+	}
+
+	/**
+	 * -----------------------------------------------------------------------
+	 * LoanApplication Section
+	 * -----------------------------------------------------------------------
+	 */
+	public static LoanApplication loanApplication() {
+		LoanApplication loanApplication = new LoanApplication();
+
+		loanApplication.setCarID(0);
+		loanApplication.setCustomerID(0);
+		loanApplication.setInterestRate(getRandomFloat(3, 7));
+		loanApplication.setLoanAmount(getRandomThousandBetween(200000, 2000000));
+		loanApplication.setMonths(getRandomInteger(36, 288));
+		loanApplication.setPayment(getRandomFloat(200000, 500000));
+		loanApplication.setApplicationDate(DateTime.dateBetween(2021, 2024));
+		loanApplication.setMonthlyPayment(getRandomFloat(3000, 26000));
+		loanApplication.setNote(text(getRandomInteger(100, 200)));
+		loanApplication.setStatus(getOneOf("pending", "processing", "approved", "rejected"));
+		
+		return loanApplication;
 	}
 
 }

@@ -28,7 +28,6 @@ public class Customer extends Entity {
 	private String address;
 	private String city;
 	private String zipCode;
-//	private String creditworthiness;
 
 	public Customer() {
 		setTable("customer");
@@ -119,6 +118,8 @@ public class Customer extends Entity {
 			zipCode = result.getString("zipCode");
 			CPRHash = result.getString("CPRHash");
 
+			setExist(true);
+			
 			return true;
 
 		} catch (SQLException e) {

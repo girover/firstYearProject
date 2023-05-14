@@ -3,6 +3,8 @@ package database.entities;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import database.entities.factory.EntityFactory;
+
 /**
  * This class is a part of Data Access Layer. This class represents a Data
  * Access Object for the Car table in the database.
@@ -197,6 +199,8 @@ public class Car extends Entity {
 			price = result.getInt("price");
 			description = result.getString("description");
 
+			setExist(true);
+			
 			return true;
 
 		} catch (SQLException e) {
@@ -228,5 +232,4 @@ public class Car extends Entity {
 		
 		return sb.toString();
 	}
-
 }

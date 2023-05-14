@@ -29,7 +29,7 @@ public abstract class BaseController extends Observable implements Observer, Ini
 	 * The controller that makes request to this controller.
 	 * It is important for transferring data between controllers. 
 	 */
-	protected BaseController sender;
+	protected BaseController observerController;
 	
 	protected static Translator translator;
 	
@@ -57,8 +57,8 @@ public abstract class BaseController extends Observable implements Observer, Ini
 		App.flashSuccessMessage(message, title);
 	}
 	
-	public void setSenderController(BaseController controller) {
-		sender = controller;
+	public void setObserverController(BaseController controller) {
+		observerController = controller;
 		addObserver(controller);
 	}
 	

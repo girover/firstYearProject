@@ -123,6 +123,8 @@ public class Employee extends Entity {
 			hireDate = result.getString("hireDate");
 			department = result.getString("department");
 			role = result.getString("role");
+
+			setExist(true);
 			
 			return true;
 			

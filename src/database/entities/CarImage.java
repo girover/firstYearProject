@@ -59,6 +59,8 @@ public class CarImage extends Entity {
 			carID = result.getInt("carID");
 			image = result.getString("image");
 
+			setExist(true);
+			
 			return true;
 
 		} catch (SQLException e) {

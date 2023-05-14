@@ -47,7 +47,7 @@ public class App {
 		guiPath = Config.get("gui.path");
 		
 		
-		Window window = new Window("car/Cars.fxml", "ALL Cars");
+		Window window = new Window("car/Cars2.fxml", "ALL Cars");
 //		((EditCustomerController)window.getController()).setCustomer(Faker.customer());
 		window.show();
 		
@@ -167,8 +167,12 @@ public class App {
 	}
 
 	public static Connection getDBConnection() {
-		if (dbConnection == null)
-			newDatabaseConnection();
+		try {
+			if (dbConnection == null || dbConnection.isClosed())
+				newDatabaseConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException("Failed to get database connection");
+		}
 
 		return dbConnection;
 	}
@@ -189,7 +193,7 @@ public class App {
 		Window.showSuccessMessage(message, title);
 	}
 
-	public static Connection db() {
+	public static Connection db() throws SQLException {
 		return getDBConnection();
 	}
 
