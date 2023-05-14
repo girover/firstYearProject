@@ -1,3 +1,4 @@
+package hashingUtilities;
 
 /**
  * This is a utility class providing functionalities for hashing and verifying strings. 
