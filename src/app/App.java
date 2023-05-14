@@ -3,13 +3,13 @@ package app;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import ExceptionHandler.ExceptionHandler;
 import authentication.Auth;
 import configs.Config;
 import configs.XMLConfigsReader;
 import database.connection.DatabaseConnection;
 import database.connection.SqlServerDatabaseConnection;
 import database.entities.User;
+import exceptionHandler.ExceptionHandler;
 import faker.Faker;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;

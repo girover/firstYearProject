@@ -1,4 +1,4 @@
-package ExceptionHandler;
+package exceptionHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

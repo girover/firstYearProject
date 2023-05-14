@@ -1,4 +1,4 @@
-package hashingUtilities;
+package services;
 
 /**
  * This is a utility class providing functionalities for hashing and verifying strings. 
@@ -18,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-public class HashingUtilities {
+public class HashingService {
     public static String hash(String text) {
         return hash(text, generateSalt());
     }
