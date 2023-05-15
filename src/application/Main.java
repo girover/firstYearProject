@@ -9,12 +9,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		App.run(primaryStage);
-//		CustomerService s = new CustomerService();
-//		System.out.println(s.find(1000));;
-//		System.out.println(Faker.car());
-//		System.out.println(Factory.of(Car.class).make(1000));
-//		CarRepository carRepo = new CarRepository();
-//		int generatedRows = carRepo.addAll(Factory.of(Car.class).make(100));
+		
+	}
+	
+	@Override
+	public void stop() {
+		App.terminate();
 	}
 	
 	public static void main(String[] args) {

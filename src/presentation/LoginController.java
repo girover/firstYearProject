@@ -37,8 +37,13 @@ public class LoginController extends ValidatableController {
     
     private AuthService authService;
 
-    public LoginController() throws ValidationException {
+    public LoginController() {
     	authService = new AuthService();
+    }
+    
+    @FXML
+    void handleInputOnAction(ActionEvent event) throws ValidationException {
+    	login(event);
     }
     
     @FXML
@@ -47,21 +52,19 @@ public class LoginController extends ValidatableController {
 		validate();
 		
 		if(!validator.passes()) {
-			App.showErrorMessage(validator.getErrorMessagesAsString(), "Validation Failed");
+			showErrorMessage(validator.getErrorMessagesAsString(), "Validation Failed");
 			return;
 		}
-		boolean b =Window.showCinformDialog("Test", "Are you sure");
 		
 		FormData fromData = new FormData();
+		
 		fromData.setData("userId", inputUserID.getText())
 				.setData("userPassword", inputPassword.getText());
 		
     	if(authService.login(fromData)) {
-    		App.flashSuccessMessage("You are logged in now.", "Logged in");
-    		Log.information("Loged in the system");
+    		App.showUserWindow(App.getAuthenticatedUser());
     	}else {
-    		App.flashErrorMessage("Please provide correct data.", "validation error");
-    		Log.warning("Failed login attempt into the system");
+    		flashErrorMessage("Please provide correct data.", "validation error");
     	}
     }
 
@@ -77,7 +80,6 @@ public class LoginController extends ValidatableController {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -137,4 +137,12 @@ public class CustomerRepository extends Repository {
 
 		return 0;
 	}
+	
+	public ResultSet search(String searchKey) {
+		String sql = "SELECT * FROM [" + getTable() + "] WHERE "
+				   + "firstName LIKE ? OR "
+				   + "lastName LIKE ?;";
+		
+		return select(sql, "%" + searchKey + "%", "%" + searchKey + "%");
+	}
 }

@@ -37,12 +37,16 @@ public abstract class Repository {
 
 	protected String table;
 	protected String primaryKey = "id";
-	protected int rowsPerPage;
+	protected int rowsPerPage = Integer.parseInt(Config.get("pagination.rowsPerPage"));;
 
 	public Repository() {
 		dbConnection = App.getDBConnection();
-		rowsPerPage = Integer.parseInt(Config.get("pagination.rowsPerPage"));
+//		dbConnection = App.getNewDatabaseConnection();
 	}
+	
+//	public void finalize() {
+//		closeDbConnection();
+//	}
 
 	protected String getTable() {
 		return table;
@@ -66,8 +70,10 @@ public abstract class Repository {
 	 */
 	protected void closeDbConnection() {
 		try {
-			if(dbConnection != null && !dbConnection.isClosed())
+			if(dbConnection != null && !dbConnection.isClosed()) {
 				dbConnection.close();
+				System.out.println("Database connection is closed from repo.");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -256,13 +262,13 @@ public abstract class Repository {
 	public ResultSet pagination(int currentPage) {
 		int offset = (currentPage - 1) * rowsPerPage;
 		String sql = "SELECT * FROM [" + getTable() + "] " + "ORDER BY [" + getPrimaryKey() + "] " + "OFFSET "
-				+ offset + " ROWS " + "FETCH NEXT " + rowsPerPage + " ROWS ONLY";
+				+ offset + " ROWS " + "FETCH NEXT " + rowsPerPage + " ROWS ONLY;";
 
 		return select(sql);
 	}
 	
 	public ResultSet getByACondition(String column, String operation, String value) {
-		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + column + "] " + operation + " ?";
+		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + column + "] " + operation + " ?;";
 
 		return select(sql, value);
 	}
@@ -273,7 +279,7 @@ public abstract class Repository {
 	 * @return
 	 */
 	public boolean delete(int id) {
-		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + primaryKey + "] = ?";
+		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + primaryKey + "] = ?;";
 
 		return delete(sql, id);
 	}
@@ -386,15 +392,6 @@ public abstract class Repository {
 		if(page < 1)
 			throw new RuntimeException("Page cannot be less than 1.");
 	}
-	
-	/**
-	 * Destructor
-	 * To release database connection used by the object 
-	 * before its removal from the memory. 
-	 */
-	protected void finalize() {
-		closeDbConnection();
-	}
 
 	/**
 	 * Delete the specified entity from database
@@ -427,8 +424,7 @@ public abstract class Repository {
 		if(entities.size() == 0)
 			return 0;
 		
-		try(Connection dbConnection = App.getDBConnection()){
-			
+		try{			
 			dbConnection.setAutoCommit(false);
 			
 			Class<? extends Entity> cls = entities.get(0).getClass();

@@ -9,8 +9,9 @@ import configs.XMLConfigsReader;
 import database.connection.DatabaseConnection;
 import database.connection.SqlServerDatabaseConnection;
 import database.entities.User;
-import exceptionHandler.ExceptionHandler;
+import exception.ExceptionHandler;
 import faker.Faker;
+import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -19,12 +20,21 @@ import translate.Translator;
 import window.FlashWindow;
 import window.Window;
 
+/**
+ * This class is responsible for configuring the application
+ * like loading configuration file, generating database instance,
+ * setting up the authentication fields,
+ * setting up paths for GUI files and components etc..  
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ *
+ */
 public class App {
 
 	private static Connection dbConnection;
 	private static Auth authenticatedUser;
 	private static Stage mainStage;
-	private static String guiPath;
 	private static Translator translator;
 
 	/**
@@ -35,25 +45,22 @@ public class App {
 	public static void run(Stage primaryStage) throws Exception {
 		
 		mainStage = primaryStage;
-		
+
 		initExceptionHandler();
 		loadConfigs();
 		initOnCloseApplication();
 		initWindowsPath();
 		initAuthFields();
 		initLocaleLanguage();
-		newDatabaseConnection();
+		initDatabaseConnection();
 		
-		guiPath = Config.get("gui.path");
-		
-		
-		Window window = new Window("car/Cars2.fxml", "ALL Cars");
-//		((EditCustomerController)window.getController()).setCustomer(Faker.customer());
-		window.show();
-		
-//		if (authenticatedUser == null) {
-//			showLoginWindow();
-//		}
+		if (authenticatedUser == null) {
+			showLoginWindow();
+		}
+	}
+
+	private static void initDatabaseConnection() {
+		dbConnection = getNewDatabaseConnection();
 	}
 
 	private static void initLocaleLanguage() {
@@ -75,19 +82,20 @@ public class App {
 	 * we should close the database connection
 	 */
 	private static void initOnCloseApplication() {
-			mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-			
-			@Override
-			public void handle(WindowEvent arg0) {
-				try {
-					getDBConnection().close();
-					System.out.println("Connection to databsae is closed now.");
-				} catch (SQLException e) {
-					System.out.println("Faild to close database connection.");
-					e.printStackTrace();
-				}				
-			}
-		});
+//			mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//			mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//			
+//			@Override
+//			public void handle(WindowEvent arg0) {
+//				try {
+//					getDBConnection().close();
+//					System.out.println("Connection to databsae is closed now.");
+//				} catch (SQLException e) {
+//					System.out.println("Faild to close database connection.");
+//					e.printStackTrace();
+//				}				
+//			}
+//		});
 	}
 	
 	private static void initExceptionHandler() {
@@ -103,26 +111,26 @@ public class App {
 	 * Get a new database connection from Data Access Layer.
 	 * @param databaseName
 	 */
-	public static void newDatabaseConnection() {
+	public static Connection getNewDatabaseConnection() {
 		
 		DatabaseConnection con = null;
 		
 		String databaseServer = Config.get("database.defaultConnection");
 		
 		switch (databaseServer) {
-		case "sqlServer": {
-			con = new SqlServerDatabaseConnection();
-			break;
-		}
-		case "mysql":{
-			con = new SqlServerDatabaseConnection();
-			break;
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + databaseServer);
+			case "sqlServer": {
+				con = new SqlServerDatabaseConnection();
+				break;
+			}
+			case "mysql":{
+				con = new SqlServerDatabaseConnection();
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected database server name: " + databaseServer);
 		}
 		
-		dbConnection = con.getConnection();
+		return con.getConnection();
 	}
 	
 	/**
@@ -138,11 +146,11 @@ public class App {
 		else
 			Config.set("database.mysql.dbName", Config.get("database.mysql.testDbName"));
 		
-		newDatabaseConnection();
+		dbConnection = getNewDatabaseConnection();
 	}
 
 	public static void showLoginWindow() {
-		Window loginWindow = new Window("login.fxml", "User Login");
+		Window loginWindow = new Window("Login.fxml", "User Login");
 		setMainStage(loginWindow);
 		loginWindow.show();
 	}
@@ -157,22 +165,18 @@ public class App {
 	}
 
 	public static void showAdminWindow() {
-		Window adminWindow = new Window("admin/dashboard.fxml", "Admin Dashboard");
-		adminWindow.show();
+		Window adminWindow = new Window("admin/AdminDashboard.fxml", "Admin Dashboard");
+		App.getMainStage().setScene(adminWindow.getScene());
 	}
 
 	public static void showSellerWindow() {
-		Window adminWindow = new Window("seller/dashboard.fxml", "Seller Dashboard");
-		adminWindow.show();
+		Window adminWindow = new Window("seller/SellerDashboard.fxml", "Seller Dashboard");
+		App.getMainStage().setScene(adminWindow.getScene());
 	}
 
 	public static Connection getDBConnection() {
-		try {
-			if (dbConnection == null || dbConnection.isClosed())
-				newDatabaseConnection();
-		} catch (SQLException e) {
-			throw new RuntimeException("Failed to get database connection");
-		}
+		if (dbConnection == null)
+			initDatabaseConnection();
 
 		return dbConnection;
 	}
@@ -201,9 +205,9 @@ public class App {
 	 * The path to the GUI folder
 	 * @return String
 	 */
-	public static String getGuiPath() {
-		return guiPath;
-	}
+//	public static String getGuiPath() {
+//		return guiPath;
+//	}
 
 	/**
 	 * When a user get logged in, we store this authenticated user
@@ -263,7 +267,7 @@ public class App {
 			initAuthFields();
 			setTestingDatabaseConnection();
 			
-			guiPath = Config.get("gui.path");
+//			guiPath = Config.get("gui.path");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -277,6 +281,7 @@ public class App {
 		if(dbConnection != null)
 			try {
 				dbConnection.close();
+				System.out.println("Terminating: Database connection is closed now.");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

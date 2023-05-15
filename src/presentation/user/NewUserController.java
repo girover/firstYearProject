@@ -1,4 +1,4 @@
-package presentation.customer;
+package presentation.user;
 
 import java.net.URL;
 import java.util.Observable;
@@ -16,7 +16,7 @@ import presentation.ValidatableController;
 import services.CustomerService;
 import window.Window;
 
-public class NewCustomerController extends ValidatableController {
+public class NewUserController extends ValidatableController {
 
     @FXML
     private Button btnAdd;
@@ -69,7 +69,7 @@ public class NewCustomerController extends ValidatableController {
     	
     	CustomerService customerService = new CustomerService();
     	if(customerService.create(getFormData()) != null) {
-    		flashSuccessMessage("Customer created Successfuly", "Created Customer");
+    		showSuccessMessage("Customer created Successfuly", "Created Customer");
     		return;
     	}else
     		showErrorMessage("Failed to create new customer", "Creaing Customer failed");
@@ -79,7 +79,6 @@ public class NewCustomerController extends ValidatableController {
     private FormData getFormData() {
     	FormData formData = new FormData();
     	
-    	formData.setData("cpr", inputCPR.getText());
     	formData.setData("firstName", inputFirstName.getText());
     	formData.setData("lastName", inputLastName.getText());
     	formData.setData("phone", inputPhone.getText());

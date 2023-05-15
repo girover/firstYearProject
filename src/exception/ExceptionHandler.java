@@ -1,9 +1,10 @@
-package exceptionHandler;
+package exception;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import app.App;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,11 +22,11 @@ public class ExceptionHandler {
 			Stage exceptionStage = new Stage();
 			exceptionStage.setTitle("Exception Details");
 			exceptionStage.initModality(Modality.APPLICATION_MODAL);
-			exceptionStage.initOwner(owner);
+			exceptionStage.initOwner(App.getMainStage());
 			
 			FXMLLoader loader = new FXMLLoader(ExceptionHandler.class.getResource(pathToExceptionFXMLFile));
 			Parent root = loader.load();
-			System.out.println("here");
+			
 			Scene scene = new Scene(root);
 			exceptionStage.setScene(scene);
 			exceptionStage.show();

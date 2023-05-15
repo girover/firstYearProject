@@ -36,15 +36,15 @@ public class FlashWindow extends Window{
 	}
 	
 	public static void flashErrorMessage(String message, String title) {
-		FlashWindow errorMessage = instance("messages/errorMessage.fxml", title);
+		FlashWindow errorMessage = instance("messages/flashErrorMessage.fxml", title);
 		errorMessage.setMessage(message);
 		errorMessage.flash();
 	}
 	
 	public static void flashSuccessMessage(String message, String title) {
-		FlashWindow errorMessage = instance("messages/successMessage.fxml", title);
+		FlashWindow errorMessage = instance("messages/flashSuccessMessage.fxml", title);
 		errorMessage.setMessage(message);
-		errorMessage.show();
+		errorMessage.flash();
 	}
 	
 	private static FlashWindow instance(String fxml, String title) {

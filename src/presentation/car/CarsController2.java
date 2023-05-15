@@ -76,11 +76,11 @@ public class CarsController2 extends BaseController {
 	}
 
 	private void renderCars() {
-		for (Object car : carsList) {
+		for (Car car : carsList) {
 			Component component = new Component("CarItem.fxml");
 			carsContainer.getChildren().add((VBox) component.get());
 			CarItemController controller = (CarItemController) component.getController();
-			controller.setData((Car) car);
+			controller.setData(car);
 		}
 	}
 

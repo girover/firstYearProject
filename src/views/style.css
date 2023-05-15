@@ -27,11 +27,51 @@
 .font-weight-bold{
 	-fx-font-weight: bold;
 }
+.bold{
+	-fx-font-weight: bold;
+}
+.italic{
+	-fx-font-style: italic;
+}
 .bg-transparent{
 	-fx-background-color:transparent;
 }
 .bg-danger{
 	-fx-background-color:#f13d37;
+}
+
+.bg-red-50{
+-fx-background-color:#fef2f2;
+}
+.bg-red-100{
+-fx-background-color:#fee2e2;
+}
+.bg-red-200{
+-fx-background-color:#fecaca;
+}
+.bg-red-300{
+-fx-background-color:#fca5a5;
+}
+.bg-red-400{
+-fx-background-color:#f87171;
+}
+.bg-red-500{
+-fx-background-color:#ef4444;
+}
+.bg-red-600{
+-fx-background-color:#dc2626;
+}
+.bg-red-700{
+-fx-background-color:#b91c1c;
+}
+.bg-red-800{
+-fx-background-color:#991b1b;
+}
+.bg-red-900{
+-fx-background-color:#7f1d1d;
+}
+.bg-red-950{
+-fx-background-color:#450a0a;
 }
 .bg-white{
 	-fx-background-color:#fff;
@@ -114,38 +154,106 @@
 .bg-gray-900{
 	-fx-background-color:#111827;
 }
+
+.bg-blue-50{
+-fx-background-color:#eff6ff
+}
+
+.bg-blue-100{
+-fx-background-color:#dbeafe;
+}
+.bg-blue-200{
+-fx-background-color:#bfdbfe;
+}
+.bg-blue-300{
+-fx-background-color:#93c5fd;
+}
+.bg-blue-400{
+-fx-background-color:#60a5fa;
+}
+.bg-blue-500{
+-fx-background-color:#3b82f6;
+}
+.bg-blue-600{
+-fx-background-color:#2563eb;
+}
+.bg-blue-700{
+-fx-background-color:#1d4ed8;
+}
+.bg-blue-800{
+-fx-background-color:#1e40af;
+}
+.bg-blue-900{
+-fx-background-color:#1e3a8a;
+}
+.bg-blue-950{
+-fx-background-color:#172554;
+}
+.bg-green-50{
+-fx-background-color:#f0fdf4;
+}
+.bg-green-100{
+-fx-background-color:#dcfce7;
+}
+.bg-green-200{
+-fx-background-color:#bbf7d0;
+}
+.bg-green-300{
+-fx-background-color:#86efac;
+}
+.bg-green-400{
+-fx-background-color:#4ade80;
+}
+.bg-green-500{
+-fx-background-color:#22c55e;
+}
+.bg-green-600{
+-fx-background-color:#16a34a;
+}
+.bg-green-700{
+-fx-background-color:#15803d;
+}
+.bg-green-800{
+-fx-background-color:#166534;
+}
+.bg-green-900{
+-fx-background-color:#14532d;
+}
+.bg-green-950{
+-fx-background-color:#052e16;
+}
 .round-1{
-	-fx-background-radius:1px;
+	-fx-background-radius:1.0px;
 }
 .round-2{
-	-fx-background-radius:2px;
+	-fx-background-radius:2.0px;
 }
 .round-4{
-	-fx-background-radius:4px;
+	-fx-background-radius:4.0px;
 }
 .round-6{
-	-fx-background-radius:6px;
+	-fx-background-radius:6.0px;
 }
 .round-8{
-	-fx-background-radius:8px;
+	-fx-background-radius:8.0px;
 }
 .round-10{
-	-fx-background-radius:10px;
+	-fx-background-radius:10.0px;
 }
 .round-16{
-	-fx-background-radius:16px;
+	-fx-background-radius:16.0px;
 }
 .round-20{
-	-fx-background-radius:20px;
+	-fx-background-radius:20.0px;
 }
 .round-24{
-	-fx-background-radius:24px;
+	-fx-background-radius:24.0px;
 }
 .round-28{
-	-fx-background-radius:28px;
+	-fx-background-radius:28.0px;
 }
 .round-32{
-	-fx-background-radius:32px;
+	-fx-background-radius:32.0px;
 }
 .btn{
 	-fx-cursor:hand;
@@ -160,12 +268,12 @@
 }
 
 .form-control{
-	-fx-background-radius:30px;
+	-fx-background-radius:30.0px;
 	-fx-text-fill:#f13d37;
 }
 
 .border-none{
-	-fx-border-width: 0px;
+	-fx-border-width: 0.0px;
 }
 
 .border-color-slate-50{
@@ -203,17 +311,17 @@
 }
 
 .shadow{
-	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 2, 2) ;
+	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0.0, 2.0, 2.0) ;
 }
 .shadow-r{
-	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 1, 6) ;
+	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0.0, 1.0, 6.0) ;
 }
 .shadow-b{
-	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0, 6, 0) ;
+	-fx-effect:dropshadow(gaussian,#00000078, 7.5, 0.0, 6.0, 0.0) ;
 }
 .shadow-2{
-	-fx-effect:dropshadow(gaussian,#00000078, 10.5, 0, 0, 0) ;
+	-fx-effect:dropshadow(gaussian,#00000078, 10.5, 0.0, 0.0, 0.0) ;
 }
 .round{
-	-fx-background-radius: 20px;
+	-fx-background-radius: 20.0px;
 }

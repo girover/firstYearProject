@@ -1,10 +1,11 @@
-package presentation.customer;
+package presentation.user;
 
 import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
 import app.FormData;
+import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
 import javaFxValidation.annotations.Rules;
@@ -16,10 +17,10 @@ import presentation.ValidatableController;
 import services.CustomerService;
 import window.Window;
 
-public class NewCustomerController extends ValidatableController {
+public class EditUserController extends ValidatableController {
 
     @FXML
-    private Button btnAdd;
+    private Button btnUpdate;
 
     @FXML
     private Button btnCancle;
@@ -56,9 +57,11 @@ public class NewCustomerController extends ValidatableController {
     @FXML
     @Rules(field="zip code", rules="required|numeric")
     private TextField inputZipCode;
+    
+    private Customer customerUnderEditing;
 
     @FXML
-    void handleBtnAddClick(ActionEvent event) throws ValidationException {
+    void handleBtnUpdateClick(ActionEvent event) throws ValidationException {
 
     	validate();
     	
@@ -68,27 +71,43 @@ public class NewCustomerController extends ValidatableController {
     	}
     	
     	CustomerService customerService = new CustomerService();
-    	if(customerService.create(getFormData()) != null) {
-    		flashSuccessMessage("Customer created Successfuly", "Created Customer");
+    	if(customerService.update(fillCustomerWithNewData())) {
+    		showSuccessMessage("Customer updated Successfuly", "Created Customer");
+    		
+    		// To inform the observer controller that the wanted customer is updated now
+    		fire(customerUnderEditing);
+    		
     		return;
     	}else
-    		showErrorMessage("Failed to create new customer", "Creaing Customer failed");
+    		showErrorMessage("Failed to update the customer", "Creaing Customer failed");
     		
     }
     
-    private FormData getFormData() {
-    	FormData formData = new FormData();
-    	
-    	formData.setData("cpr", inputCPR.getText());
-    	formData.setData("firstName", inputFirstName.getText());
-    	formData.setData("lastName", inputLastName.getText());
-    	formData.setData("phone", inputPhone.getText());
-    	formData.setData("email", inputEmail.getText());
-    	formData.setData("address", inputAddress.getText());
-    	formData.setData("city", inputCity.getText());
-    	formData.setData("zipCode", inputZipCode.getText());
-    	
-    	return formData;
+    public void setCustomer(Customer customer) {
+    	customerUnderEditing = customer;
+    	fillInputsWithCustomer();
+    }
+    
+    private Customer fillCustomerWithNewData() {
+    	customerUnderEditing.setCPRHash(inputCPR.getText());
+    	customerUnderEditing.setFirstName(inputFirstName.getText());
+    	customerUnderEditing.setLastName(inputLastName.getText());
+    	customerUnderEditing.setPhone(inputPhone.getText());
+    	customerUnderEditing.setEmail(inputEmail.getText());
+    	customerUnderEditing.setAddress(inputAddress.getText());
+    	customerUnderEditing.setCity(inputCity.getText());
+    	customerUnderEditing.setZipCode(inputZipCode.getText());
+    	return customerUnderEditing;
+    }
+    private void fillInputsWithCustomer() {
+    	inputCPR.setText(customerUnderEditing.getCPRHash());
+    	inputFirstName.setText(customerUnderEditing.getFirstName());
+    	inputLastName.setText(customerUnderEditing.getLastName());
+    	inputPhone.setText(customerUnderEditing.getPhone());
+    	inputEmail.setText(customerUnderEditing.getEmail());
+    	inputAddress.setText(customerUnderEditing.getAddress());
+    	inputCity.setText(customerUnderEditing.getCity());
+    	inputZipCode.setText(customerUnderEditing.getZipCode());
     }
 
     @FXML

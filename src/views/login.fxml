@@ -34,7 +34,7 @@
                         <FontIcon iconColor="#333333" iconLiteral="fa-envelope" iconSize="30" />
                      </graphic>
                   </Label>
-                  <TextField fx:id="inputUserID" onKeyReleased="#onKeyReleasedInputEmail" prefHeight="50.0" prefWidth="258.0" promptText="User ID" styleClass="form-control">
+                  <TextField fx:id="inputUserID" onAction="#handleInputOnAction" onKeyReleased="#onKeyReleasedInputEmail" prefHeight="50.0" prefWidth="258.0" promptText="User ID" styleClass="form-control">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -51,7 +51,7 @@
                         <FontIcon iconColor="#333333" iconLiteral="fa-key" iconSize="30" />
                      </graphic>
                   </Label>
-                  <PasswordField fx:id="inputPassword" onKeyReleased="#onKeyReleasedInputPassword" prefHeight="50.0" prefWidth="258.0" promptText="Password" styleClass="form-control">
+                  <PasswordField fx:id="inputPassword" onAction="#handleInputOnAction" onKeyReleased="#onKeyReleasedInputPassword" prefHeight="50.0" prefWidth="258.0" promptText="Password" styleClass="form-control">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>

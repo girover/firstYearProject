@@ -7,6 +7,7 @@ import database.entities.Employee;
 import database.entities.User;
 import database.repositories.EmployeeRepository;
 import database.repositories.UserRepository;
+import log.Log;
 
 /**
  * This class is a part of Service Layer (Business Logic Layer). It is
@@ -50,10 +51,13 @@ public class AuthService {
 			user.setEmployee(employee);
 
 			App.setAuthenticatedUser(user);
-//			App.showUserWindow(user);
-
+			
+			Log.information("Successfully logged in to the system using credentials.");
+			
 			return true;
 		}
+		
+		Log.information("Failed to log in to the system with credentials.");
 
 		return false;
 	}
@@ -61,8 +65,10 @@ public class AuthService {
 	/**
 	 * This method will Logs out the currently authenticated user.
 	 */
-	public void logout() {
-//		App.setAuthenticatedUser(null);
+	public static void logout() {
+		App.setAuthenticatedUser(null);
+		App.getMainStage().close();
+		App.showLoginWindow();
 	}
 
 	/**

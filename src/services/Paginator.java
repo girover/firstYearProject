@@ -13,10 +13,10 @@ import database.entities.Entity;
  */
 public class Paginator {
 	
-	private int totalModels;
+	private int totalRows;
 	private int totalPages;
 	private int currentPage;
-	private int totalLinks;
+	private int totalLinks; // How many buttons should be in pagination.
 	
 	private ResultSet data;
 	
@@ -32,15 +32,15 @@ public class Paginator {
 	
 	public Paginator(int totalModels, int totalPages, int currentPage) {
 		this(totalPages, currentPage);
-		this.totalModels = totalModels;
+		this.totalRows = totalModels;
 	}
 	
 	public int getTotalModels() {
-		return totalModels;
+		return totalRows;
 	}
 
 	public void setTotalModels(int totalModels) {
-		this.totalModels = totalModels;
+		this.totalRows = totalModels;
 	}
 
 	public int getTotalPages() {

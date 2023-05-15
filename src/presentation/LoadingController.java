@@ -28,17 +28,23 @@ public class LoadingController extends ValidatableController {
     	((MessageController)errorMessage.getController()).setMessage("Test Message");
     	errorMessage.show();
     }
+    @FXML
+    void handleInputOnAction(ActionEvent event) {
+
+    }
+    
 	public void setProcess(String process) {
 		lblProcess.setText(process);
 	}
+	
 	@Override
 	public void update(Observable o, Object arg) {
 		if(arg instanceof String)
 			setProcess((String)arg);
 	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 }

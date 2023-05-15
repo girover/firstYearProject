@@ -63,7 +63,10 @@ public class CustomerService extends BaseResourceService {
 	public Customer create(FormData data) {
 		
 		Customer customer = new Customer();
+		// Hashing password
+		String hashedPassword = HashingService.hash((String)data.input("cpr"));
 		
+		customer.setCPRHash(hashedPassword);
 		customer.setFirstName((String)data.input("firstName"));
 		customer.setLastName((String)data.input("lastName"));
 		customer.setPhone((String)data.input("phone"));
@@ -77,6 +80,22 @@ public class CustomerService extends BaseResourceService {
 			return customer;
 		
 		return null;
+	}
+	
+	public ArrayList<Customer> search(String searchKey) throws Exception{
+		
+		ArrayList<Customer> customers = new ArrayList<>();
+		
+		ResultSet result = ((CustomerRepository)repository).search(searchKey);
+		
+		if(result.next()) {
+			Customer customer = new Customer();
+			customer.makeFromResultSet(result);
+			customers.add(customer);
+			
+		}
+		
+		return customers;
 	}
 
 	@Override
