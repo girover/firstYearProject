@@ -36,7 +36,8 @@
 		</mysql>
 	</database>
 	<pagination>
-		<rowsPerPage>50</rowsPerPage>
+		<rowsPerPage>6</rowsPerPage>
+		<links>10</links>
 	</pagination>
 	<gui>
 		<path>views/</path>

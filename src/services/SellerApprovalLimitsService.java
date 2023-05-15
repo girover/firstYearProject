@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import app.FormData;
-
+import database.entities.Car;
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
 import database.repositories.SellerApprovalLimitsRepository;
@@ -28,6 +28,7 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 
 	public SellerApprovalLimitsService() {
 		repository = new SellerApprovalLimitsRepository();
+//		entityClass = SellerApprovalLimits.class;
 	}
 
 	@Override
@@ -53,27 +54,6 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return sellerApprovalLimitss;
-	}
-
-	@Override
-	public ArrayList<SellerApprovalLimits> getPage(int page) {
-
-		
-		ArrayList<SellerApprovalLimits> sellerApprovalLimitss = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				SellerApprovalLimits sellerApprovalLimits = new SellerApprovalLimits();
-				if (sellerApprovalLimits.makeFromResultSet(result))
-					sellerApprovalLimitss.add(sellerApprovalLimits);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return sellerApprovalLimitss;
 	}
 

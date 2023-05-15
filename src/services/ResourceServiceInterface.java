@@ -26,14 +26,15 @@ public interface ResourceServiceInterface {
 	 * 
 	 * @return ArrayList<Entity>
 	 */
-	public ArrayList<? extends Entity> getAll();
+	public <T extends Entity> ArrayList<T> getAll();
 	
 	/**
 	 * Get a specified number of resources as a list.
 	 * 
-	 * @return ArrayList<Entity>
+	 * @param int : current page number
+	 * @return services.Paginator
 	 */
-	public ArrayList<? extends Entity> getPage(int page);
+	public Paginator pagination(int currentPage);
 
 	/**
 	 * Getting the resource with specified id
@@ -41,7 +42,7 @@ public interface ResourceServiceInterface {
 	 * @param Id
 	 * @return Entity
 	 */
-	public Entity find(int Id);
+	public Entity find(int id);
 	
 	/**
 	 * This method will create a resource from specified data

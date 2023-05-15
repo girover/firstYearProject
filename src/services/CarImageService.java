@@ -3,6 +3,8 @@ package services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import app.FormData;
 
 import database.entities.CarImage;
@@ -28,6 +30,7 @@ public class CarImageService extends BaseResourceService {
 
 	public CarImageService() {
 		repository = new CarImageRepository();
+//		entityClass = CarImage.class;
 	}
 
 	@Override
@@ -53,27 +56,6 @@ public class CarImageService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return carImages;
-	}
-
-	@Override
-	public ArrayList<CarImage> getPage(int page) {
-
-		
-		ArrayList<CarImage> carImages = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				CarImage carImage = new CarImage();
-				if (carImage.makeFromResultSet(result))
-					carImages.add(carImage);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return carImages;
 	}
 

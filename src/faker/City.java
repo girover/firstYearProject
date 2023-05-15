@@ -9,6 +9,13 @@ import java.util.HashMap;
  *
  */
 public class City extends Provider {
+	
+	private static String[] zipCodes = {
+ 			"1000", "8000", "5000", "9000", "6700", "8900", "6000", "8700", "7100"
+ 			, "4000", "7400", "3000", "8600", "4700", "7000", "8800", "4600", "7500"
+ 			, "2630", "4200", "3400", "6400", "5700", "9800", "2970", "7430", "7330"
+ 			, "9900", "8300", "9990", "3700", "6950", "6900","Skjern"};
+
 
 	private static HashMap<String, String> cities = new HashMap<>();
 	static {
@@ -52,46 +59,21 @@ public class City extends Provider {
 	}
 	
 	public static String getCity() {
-		int index = getRandomInteger(0, cities.size());
-		int start = 1;
-        for (var entry : cities.entrySet()) {
-            if (start == index) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                System.out.println("Key: " + key + ", Value: " + value);
-                break;
-            }
-            start++;
-        }
-        
-        return cities.get("7400");
+		String zipCode = getRandomElementFromArray(zipCodes);
+		
+		return cities.get(zipCode);
 	}
 	
 	public static String getCityWithZipCode() {
-		int index = getRandomInteger(0, cities.size());
-		int start = 1;
-        for (var entry : cities.entrySet()) {
-            if (start == index) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                return key + " " + value;
-            }
-            start++;
-        }
-        
-        return cities.get("7400");
+		
+		String zipCode = getRandomElementFromArray(zipCodes);
+		
+		String city =  cities.get(zipCode);
+		
+		return String.format("%s %s", zipCodes, city);
 	}
 	
 	public static String getZipCode() {
-		int index = getRandomInteger(0, cities.size());
-		int start = 1;
-		for (var entry : cities.entrySet()) {
-			if (start == index) {
-				return entry.getKey();
-			}
-			start++;
-		}
-		
-		return cities.get("7400");
+		return getRandomElementFromArray(zipCodes);
 	}
 }

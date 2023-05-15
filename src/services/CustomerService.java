@@ -3,8 +3,10 @@ package services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import app.FormData;
+import java.util.HashMap;
 
+import app.FormData;
+import database.entities.Car;
 import database.entities.Customer;
 import database.entities.Entity;
 import database.repositories.CustomerRepository;
@@ -28,6 +30,7 @@ public class CustomerService extends BaseResourceService {
 
 	public CustomerService() {
 		repository = new CustomerRepository();
+//		entityClass = Customer.class;
 	}
 
 	@Override
@@ -53,27 +56,6 @@ public class CustomerService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return customers;
-	}
-
-	@Override
-	public ArrayList<Customer> getPage(int page) {
-
-		
-		ArrayList<Customer> customers = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				Customer customer = new Customer();
-				if (customer.makeFromResultSet(result))
-					customers.add(customer);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return customers;
 	}
 

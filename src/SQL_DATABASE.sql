@@ -113,14 +113,14 @@ CREATE TABLE car (
   [mileage] int NOT NULL,
   transmission nvarchar(20) NOT NULL CHECK ([transmission] IN ('manual', 'automatic')),
   fuelType nvarchar(50) NOT NULL CHECK (fuelType IN ('benzin', 'diesel', 'biodiesel', 'hybrid', 'el')),
-  engineSize decimal(2,1) NOT NULL,
+  engineSize decimal(3,2) NOT NULL,
   kmPerLiter int,
   horsePower int NOT NULL,
   seats int NOT NULL,
   doors int NOT NULL,
   VIN nvarchar(20) NOT NULL,
   sold tinyint NOT NULL DEFAULT 0 CHECK(sold IN(0, 1)),
-  price decimal(9,2) NOT NULL,
+  price decimal(11,2) NOT NULL,
   [description] text
 );
 

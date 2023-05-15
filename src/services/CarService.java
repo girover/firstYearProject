@@ -3,8 +3,10 @@ package services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import app.FormData;
+import configs.Config;
 import database.entities.Car;
 import database.entities.CarImage;
 import database.entities.Entity;
@@ -55,27 +57,6 @@ public class CarService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return cars;
-	}
-
-	@Override
-	public ArrayList<Car> getPage(int page) {
-
-		
-		ArrayList<Car> cars = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				Car car = new Car();
-				if (car.makeFromResultSet(result))
-					cars.add(car);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return cars;
 	}
 

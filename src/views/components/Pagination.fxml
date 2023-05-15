@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="paginator" alignment="CENTER" spacing="10.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.component.PaginationController">
+   <children>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="1">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="2">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="3">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="4">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-danger" />
+            <String fx:value="shadow" />
+            <String fx:value="text-white" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="5">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="6">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="7">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="8">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="9">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="10">
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="bg-yellow-400" />
+            <String fx:value="shadow" />
+            <String fx:value="text-gray-900" />
+            <String fx:value="font-weight-bold" />
+         </styleClass>
+      </Button>
+   </children>
+</HBox>

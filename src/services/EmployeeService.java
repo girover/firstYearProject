@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import app.FormData;
-
+import database.entities.Car;
 import database.entities.Employee;
 import database.entities.Entity;
 import database.repositories.EmployeeRepository;
@@ -30,6 +30,7 @@ public class EmployeeService extends BaseResourceService {
 
 	public EmployeeService() {
 		repository = new EmployeeRepository();
+//		entityClass = Employee.class;
 	}
 
 	@Override
@@ -55,27 +56,6 @@ public class EmployeeService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return employees;
-	}
-
-	@Override
-	public ArrayList<Employee> getPage(int page) {
-
-		
-		ArrayList<Employee> employees = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				Employee employee = new Employee();
-				if (employee.makeFromResultSet(result))
-					employees.add(employee);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return employees;
 	}
 

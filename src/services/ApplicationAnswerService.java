@@ -3,6 +3,8 @@ package services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import app.FormData;
 
 import database.entities.ApplicationAnswer;
@@ -28,6 +30,7 @@ public class ApplicationAnswerService extends BaseResourceService {
 
 	public ApplicationAnswerService() {
 		repository = new ApplicationAnswerRepository();
+//		entityClass = ApplicationAnswer.class;
 	}
 
 	@Override
@@ -53,27 +56,6 @@ public class ApplicationAnswerService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return applicationAnswers;
-	}
-
-	@Override
-	public ArrayList<ApplicationAnswer> getPage(int page) {
-
-		
-		ArrayList<ApplicationAnswer> applicationAnswers = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				ApplicationAnswer applicationAnswer = new ApplicationAnswer();
-				if (applicationAnswer.makeFromResultSet(result))
-					applicationAnswers.add(applicationAnswer);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return applicationAnswers;
 	}
 

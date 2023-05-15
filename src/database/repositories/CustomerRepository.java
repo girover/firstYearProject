@@ -116,7 +116,7 @@ public class CustomerRepository extends Repository {
 				+ "[address]," 
 				+ "[city]," 
 				+ "[zipCode]) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
 		int id = insertAndGetGeneratedId(sql,
 				customer.getCPRHash(),

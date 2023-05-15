@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import app.FormData;
+import database.entities.Car;
 import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.User;
@@ -29,6 +30,7 @@ public class UserService extends BaseResourceService {
 
 	public UserService() {
 		repository = new UserRepository();
+//		entityClass = User.class;
 	}
 
 	@Override
@@ -54,27 +56,6 @@ public class UserService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return users;
-	}
-
-	@Override
-	public ArrayList<User> getPage(int page) {
-
-		
-		ArrayList<User> users = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				User user = new User();
-				if (user.makeFromResultSet(result))
-					users.add(user);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return users;
 	}
 

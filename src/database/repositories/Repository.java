@@ -12,6 +12,7 @@ import app.App;
 import configs.Config;
 import database.entities.Car;
 import database.entities.Entity;
+import services.Paginator;
 
 /**
  * An abstract class that represents a repository responsible for basic CRUD (Create, Read, Update,
@@ -252,14 +253,14 @@ public abstract class Repository {
 	 * @param Integer limit
 	 * @return ResultSet
 	 */
-	public ResultSet getPage(int page) {
-		int offset = (page - 1) * rowsPerPage;
-		String sql = "SELECT TOP * FROM [" + getTable() + "] " + "ORDER BY [" + getPrimaryKey() + "] " + "OFFSET "
+	public ResultSet pagination(int currentPage) {
+		int offset = (currentPage - 1) * rowsPerPage;
+		String sql = "SELECT * FROM [" + getTable() + "] " + "ORDER BY [" + getPrimaryKey() + "] " + "OFFSET "
 				+ offset + " ROWS " + "FETCH NEXT " + rowsPerPage + " ROWS ONLY";
 
 		return select(sql);
 	}
-
+	
 	public ResultSet getByACondition(String column, String operation, String value) {
 		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + column + "] " + operation + " ?";
 
@@ -433,8 +434,10 @@ public abstract class Repository {
 			Class<? extends Entity> cls = entities.get(0).getClass();
 			
 			for (Entity entity : entities) {
-				if(add(cls.cast(entity)) == 0)
+				if(add(cls.cast(entity)) == 0) {
+					dbConnection.rollback();
 					throw new SQLException(getClass().getName() + " . addAll() method. Failed to create Car.");
+				}
 			}
 			
 			dbConnection.commit();

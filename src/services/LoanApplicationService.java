@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import app.FormData;
-
+import database.entities.Car;
 import database.entities.Entity;
 import database.entities.LoanApplication;
 import database.repositories.LoanApplicationRepository;
@@ -28,6 +28,7 @@ public class LoanApplicationService extends BaseResourceService {
 
 	public LoanApplicationService() {
 		repository = new LoanApplicationRepository();
+//		entityClass = LoanApplication.class;
 	}
 
 	@Override
@@ -53,27 +54,6 @@ public class LoanApplicationService extends BaseResourceService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return loanApplications;
-	}
-
-	@Override
-	public ArrayList<LoanApplication> getPage(int page) {
-
-		
-		ArrayList<LoanApplication> loanApplications = new ArrayList<>();
-		
-		ResultSet result = repository.getPage(page);
-		try {
-			while (result.next()) {
-				LoanApplication loanApplication = new LoanApplication();
-				if (loanApplication.makeFromResultSet(result))
-					loanApplications.add(loanApplication);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		return loanApplications;
 	}
 
