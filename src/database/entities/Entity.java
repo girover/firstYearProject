@@ -69,7 +69,7 @@ public abstract class Entity {
 //	}
 //********************************************************************************
 
-	public abstract boolean makeFromResultSet(ResultSet result);
+	public abstract boolean mapFromResultSet(ResultSet result);
 	
 //	/**
 //	 * This method will return instance of EntityFactory.

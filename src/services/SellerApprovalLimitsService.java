@@ -40,21 +40,7 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 	@Override
 	public ArrayList<SellerApprovalLimits> getAll() {
 		
-		ArrayList<SellerApprovalLimits> sellerApprovalLimitss = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				SellerApprovalLimits sellerApprovalLimits = new SellerApprovalLimits();
-				if (sellerApprovalLimits.makeFromResultSet(result))
-					sellerApprovalLimitss.add(sellerApprovalLimits);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return sellerApprovalLimitss;
+		return (ArrayList<SellerApprovalLimits>) repository.getAll();
 	}
 
 	@Override

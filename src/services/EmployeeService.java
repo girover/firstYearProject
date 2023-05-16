@@ -42,21 +42,7 @@ public class EmployeeService extends BaseResourceService {
 	@Override
 	public ArrayList<Employee> getAll() {
 		
-		ArrayList<Employee> employees = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				Employee employee = new Employee();
-				if (employee.makeFromResultSet(result))
-					employees.add(employee);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return employees;
+		return (ArrayList<Employee>) repository.getAll();
 	}
 
 	@Override

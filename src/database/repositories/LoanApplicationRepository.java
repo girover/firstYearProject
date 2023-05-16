@@ -2,9 +2,11 @@ package database.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.entities.Entity;
 import database.entities.LoanApplication;
+import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -46,7 +48,7 @@ public class LoanApplicationRepository extends Repository {
 
 			if (result.next()) {
 				loanApplication = new LoanApplication();
-				loanApplication.makeFromResultSet(result);
+				loanApplication.mapFromResultSet(result);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,14 +155,58 @@ public class LoanApplicationRepository extends Repository {
 	}
 
 	@Override
-	public Entity first() {
-		// TODO Auto-generated method stub
+	public LoanApplication first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
+
+	@Override
+	public LoanApplication find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public LoanApplication last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<LoanApplication> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<LoanApplication> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected LoanApplication mapResultSetToEntity(ResultSet result) {
+		try {
+			if(result.next()) {
+				LoanApplication loanApplication = new LoanApplication();
+				loanApplication.mapFromResultSet(result);
+				return loanApplication;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public Entity find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	protected ArrayList<LoanApplication> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<LoanApplication> loanApplications = new ArrayList<>();
+		
+		try {
+			while(result.next()) {
+				LoanApplication loanApplication = new LoanApplication();
+				loanApplication.mapFromResultSet(result);
+				loanApplications.add(loanApplication);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return loanApplications;
 	}
 }

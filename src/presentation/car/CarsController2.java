@@ -69,7 +69,7 @@ public class CarsController2 extends BaseController {
 	}
 	
 	private void loadCars(int page) {
-		Paginator p = carService.pagination(page);
+		Paginator p = carService.paginate(page);
 		ArrayList<Car> cars = p.castDataTo(Car.class);
 //		ArrayList<Car> cars = carService.getPage(page);
 		carsList.addAll(cars);

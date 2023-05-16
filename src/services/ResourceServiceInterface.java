@@ -34,7 +34,7 @@ public interface ResourceServiceInterface {
 	 * @param int : current page number
 	 * @return services.Paginator
 	 */
-	public Paginator pagination(int currentPage);
+	public Paginator paginate(int currentPage);
 
 	/**
 	 * Getting the resource with specified id

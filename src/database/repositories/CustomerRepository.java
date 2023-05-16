@@ -2,9 +2,11 @@ package database.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.entities.Customer;
 import database.entities.Entity;
+import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -29,29 +31,6 @@ public class CustomerRepository extends Repository {
 
 	public CustomerRepository() {
 		setTable("customer");
-	}
-
-	/**
-	 * Get customer by its id from database
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public Customer getById(int id) {
-		Customer customer = null;
-
-		try {
-			ResultSet result = findById(id);
-
-			if (result.next()) {
-				customer = new Customer();
-				customer.makeFromResultSet(result);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return customer;
 	}
 
 	@Override
@@ -145,16 +124,77 @@ public class CustomerRepository extends Repository {
 		
 		return select(sql, "%" + searchKey + "%", "%" + searchKey + "%");
 	}
+	
+	public Customer findByCpr(String hashedCpr) {
+		String sql = "SELECT * FROM [" + getTable() + "] WHERE "
+				   + "CPRHash = ?;";
+		
+		ResultSet result = select(sql, hashedCpr);
+		try {
+			if(result.next()) {
+				Customer customer = new Customer();
+				customer.mapFromResultSet(result);
+				return customer;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@Override
+	public Customer first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
 
 	@Override
-	public Entity first() {
-		// TODO Auto-generated method stub
+	public Customer find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public Customer last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<Customer> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<Customer> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected Customer mapResultSetToEntity(ResultSet result) {
+		try {
+			if(result.next()) {
+				Customer customer = new Customer();
+				customer.mapFromResultSet(result);
+				return customer;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public Entity find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	protected ArrayList<Customer> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<Customer> customers = new ArrayList<>();
+		
+		try {
+			while(result.next()) {
+				Customer customer = new Customer();
+				customer.mapFromResultSet(result);
+				customers.add(customer);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return customers;
 	}
 }

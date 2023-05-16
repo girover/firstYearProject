@@ -10,9 +10,7 @@ import java.util.ArrayList;
 
 import app.App;
 import configs.Config;
-import database.entities.Car;
 import database.entities.Entity;
-import services.Paginator;
 
 /**
  * An abstract class that represents a repository responsible for basic CRUD (Create, Read, Update,
@@ -224,11 +222,24 @@ public abstract class Repository implements RepositoryInterface {
 		return result;
 	}
 
-	
-	
-	protected ResultSet getFirst() {
-		String sql = "SELECT TOP 1 * FROM [" + table + "] ORDER BY " + primaryKey;
+	/**
+	 * Get the first row in the repository.
+	 * @return
+	 */
+	protected ResultSet getFirstRow() {
+		String sql = "SELECT TOP 1 * FROM [" + table + "] ORDER BY [" + primaryKey +"];";
 
+		ResultSet result = select(sql);
+		return result;
+	}
+	
+	/**
+	 * Get the last row in the repository.
+	 * @return
+	 */
+	protected ResultSet getLastRow() {
+		String sql = "SELECT TOP 1 * FROM [" + table + "] ORDER BY [" + primaryKey + "] DESC;";
+		
 		ResultSet result = select(sql);
 		return result;
 	}
@@ -239,7 +250,7 @@ public abstract class Repository implements RepositoryInterface {
 	 * @param id
 	 * @return ResultSet
 	 */
-	public ResultSet getAll() {
+	protected ResultSet getAllRows() {
 		String sql = "SELECT * FROM [" + getTable() + "]";
 
 		return select(sql);
@@ -252,7 +263,7 @@ public abstract class Repository implements RepositoryInterface {
 	 * @param Integer limit
 	 * @return ResultSet
 	 */
-	public ResultSet pagination(int currentPage) {
+	protected ResultSet getByPage(int currentPage) {
 		int offset = (currentPage - 1) * rowsPerPage;
 		String sql = "SELECT * FROM [" + getTable() + "] " + "ORDER BY [" + getPrimaryKey() + "] " + "OFFSET "
 				+ offset + " ROWS " + "FETCH NEXT " + rowsPerPage + " ROWS ONLY;";
@@ -427,4 +438,18 @@ public abstract class Repository implements RepositoryInterface {
 		
 		return 0;
 	}
+	
+	/**
+	 * To map a ResultSet to an entity. 
+	 * @param result
+	 * @return
+	 */
+	protected abstract Entity mapResultSetToEntity(ResultSet result); 
+	
+	/**
+	 * To map a ResultSet to an ArrayList of entities. 
+	 * @param result
+	 * @return
+	 */
+	protected abstract ArrayList<? extends Entity> mapResultSetToEntityList(ResultSet result); 
 }

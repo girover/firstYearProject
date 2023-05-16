@@ -49,7 +49,7 @@ public class LoginController extends ValidatableController {
     @FXML
     void login(ActionEvent event) throws ValidationException {
     	
-		validate();
+		validate("user name");
 		
 		if(!validator.passes()) {
 			showErrorMessage(validator.getErrorMessagesAsString(), "Validation Failed");

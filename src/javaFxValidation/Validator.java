@@ -58,13 +58,18 @@ public class Validator {
 
 	public void validate(String...fields) throws ValidationException {
 		
+		if(fields.length == 0) {
+			validate();
+			return;
+		}
+		
 		clearValidator();
 		
 		for (String fieldName : fields) {
 			selectedFields.add(fieldName);
 		}
 		
-		validate();
+		makeFields();
 	}
 	
 	/**

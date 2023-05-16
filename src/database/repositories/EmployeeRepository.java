@@ -2,9 +2,11 @@ package database.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.entities.Employee;
 import database.entities.Entity;
+import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -156,34 +158,58 @@ public class EmployeeRepository extends Repository {
 	}
 
 	@Override
-	public Entity first() {
-		ResultSet result = getFirst();
+	public Employee first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
+
+	@Override
+	public Employee find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public Employee last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<Employee> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<Employee> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected Employee mapResultSetToEntity(ResultSet result) {
 		try {
 			if(result.next()) {
 				Employee employee = new Employee();
-				employee.makeFromResultSet(result);
+				employee.mapFromResultSet(result);
 				return employee;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 
 	@Override
-	public Entity find(int id) {
-		Employee employee = new Employee();
-		ResultSet result = findById(id);
+	protected ArrayList<Employee> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<Employee> employees = new ArrayList<>();
+		
 		try {
-			if(result.next()) {
-				employee.makeFromResultSet(result);
-				return employee;
+			while(result.next()) {
+				Employee employee = new Employee();
+				employee.mapFromResultSet(result);
+				employees.add(employee);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		
+		return employees;
 	}
 }

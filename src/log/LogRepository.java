@@ -1,7 +1,12 @@
 package log;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import database.entities.Employee;
 import database.entities.Entity;
+import database.entities.User;
 import database.repositories.Repository;
 
 public class LogRepository extends Repository {
@@ -48,15 +53,59 @@ public class LogRepository extends Repository {
 	}
 
 	@Override
-	public Entity first() {
-		// TODO Auto-generated method stub
+	public LogEntity first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
+
+	@Override
+	public LogEntity find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public LogEntity last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<LogEntity> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<LogEntity> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected LogEntity mapResultSetToEntity(ResultSet result) {
+		try {
+			if(result.next()) {
+				LogEntity log = new LogEntity();
+				log.mapFromResultSet(result);
+				return log;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public Entity find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	protected ArrayList<LogEntity> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<LogEntity> logs = new ArrayList<>();
+		
+		try {
+			while(result.next()) {
+				LogEntity log = new LogEntity();
+				log.mapFromResultSet(result);
+				logs.add(log);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return logs;
 	}
 
 }

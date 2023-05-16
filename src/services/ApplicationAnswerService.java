@@ -42,21 +42,7 @@ public class ApplicationAnswerService extends BaseResourceService {
 	@Override
 	public ArrayList<ApplicationAnswer> getAll() {
 		
-		ArrayList<ApplicationAnswer> applicationAnswers = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				ApplicationAnswer applicationAnswer = new ApplicationAnswer();
-				if (applicationAnswer.makeFromResultSet(result))
-					applicationAnswers.add(applicationAnswer);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return applicationAnswers;
+		return (ArrayList<ApplicationAnswer>) repository.getAll();
 	}
 
 	@Override

@@ -54,7 +54,7 @@ public class LogEntity extends Entity {
 	}
 
 	@Override
-	public boolean makeFromResultSet(ResultSet result) {
+	public boolean mapFromResultSet(ResultSet result) {
 		try {
 			userId = result.getInt("userID");
 			logType = result.getString("logType");

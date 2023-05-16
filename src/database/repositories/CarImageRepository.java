@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import database.entities.Car;
 import database.entities.CarImage;
 import database.entities.Entity;
+import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -31,30 +32,6 @@ public class CarImageRepository extends Repository {
 
 	public CarImageRepository() {
 		setTable("carImage");
-	}
-
-	/**
-	 * Get CarImage by its id from database
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public CarImage getById(int id) {
-		
-		CarImage carImage = null;
-
-		try {
-			ResultSet result = findById(id);
-
-			if (result.next()) {
-				carImage = new CarImage();
-				carImage.makeFromResultSet(result);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return carImage;
 	}
 
 	@Override
@@ -121,7 +98,7 @@ public class CarImageRepository extends Repository {
 		
 		while(result.next()) {
 			CarImage carImage = new CarImage();
-			carImage.makeFromResultSet(result);
+			carImage.mapFromResultSet(result);
 			list.add(carImage);
 		}
 		
@@ -129,14 +106,58 @@ public class CarImageRepository extends Repository {
 	}
 
 	@Override
-	public Entity first() {
-		// TODO Auto-generated method stub
+	public CarImage first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
+
+	@Override
+	public CarImage find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public CarImage last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<CarImage> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<CarImage> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected CarImage mapResultSetToEntity(ResultSet result) {
+		try {
+			if(result.next()) {
+				CarImage carImage = new CarImage();
+				carImage.mapFromResultSet(result);
+				return carImage;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public Entity find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	protected ArrayList<CarImage> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<CarImage> carImages = new ArrayList<>();
+		
+		try {
+			while(result.next()) {
+				CarImage carImage = new CarImage();
+				carImage.mapFromResultSet(result);
+				carImages.add(carImage);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return carImages;
 	}
 }

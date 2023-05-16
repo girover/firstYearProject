@@ -42,21 +42,7 @@ public class CarImageService extends BaseResourceService {
 	@Override
 	public ArrayList<CarImage> getAll() {
 		
-		ArrayList<CarImage> carImages = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				CarImage carImage = new CarImage();
-				if (carImage.makeFromResultSet(result))
-					carImages.add(carImage);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return carImages;
+		return (ArrayList<CarImage>) repository.getAll();
 	}
 
 	@Override

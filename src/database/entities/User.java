@@ -67,7 +67,7 @@ public class User extends Auth implements Authenticatable {
 	}
 
 	@Override
-	public boolean makeFromResultSet(ResultSet result) {
+	public boolean mapFromResultSet(ResultSet result) {
 	
 		try {
 			id = result.getInt("id");

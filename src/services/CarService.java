@@ -43,21 +43,7 @@ public class CarService extends BaseResourceService {
 	@Override
 	public ArrayList<Car> getAll() {
 		
-		ArrayList<Car> cars = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				Car car = new Car();
-				if (car.makeFromResultSet(result))
-					cars.add(car);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return cars;
+		return (ArrayList<Car>) repository.getAll();
 	}
 
 	@Override

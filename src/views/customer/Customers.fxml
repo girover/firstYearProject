@@ -68,7 +68,7 @@
                   </Button>
                   <HBox alignment="CENTER_RIGHT" layoutX="504.0" layoutY="96.0" prefHeight="36.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0">
                      <children>
-                        <TextField fx:id="inputSearch" onKeyReleased="#handleInputSearchOnKeyReleased" prefHeight="28.0" prefWidth="255.0" promptText="Search customer" styleClass="form-control">
+                        <TextField fx:id="inputSearch" onKeyReleased="#handleInputSearchOnKeyReleased" prefHeight="28.0" prefWidth="255.0" promptText="CPR" styleClass="form-control">
                            <HBox.margin>
                               <Insets right="-46.0" />
                            </HBox.margin>

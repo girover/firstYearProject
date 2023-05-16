@@ -1,14 +1,11 @@
 package database.repositories;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import app.App;
 import database.entities.Car;
 import database.entities.Entity;
-import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -33,30 +30,6 @@ public class CarRepository extends Repository {
 
 	public CarRepository() {
 		setTable("car");
-	}
-
-	/**
-	 * Get car by its id from database
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public Car getById(int id) {
-		
-		Car car = null;
-
-		try {
-			ResultSet result = findById(id);
-
-			if (result.next()) {
-				car = new Car();
-				car.makeFromResultSet(result);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return car;
 	}
 
 	@Override
@@ -168,43 +141,76 @@ public class CarRepository extends Repository {
 
 	public ArrayList<Car> getDistinctModels() throws SQLException{
 		
-		ArrayList<Car> cars = new ArrayList<>();
+		String sql = "SELECT DISTINCT [model] FROM " + table + ";";
+		ResultSet result = select(sql);
 		
-		ResultSet result = getAll();
+		ArrayList<Car> carsModels = new ArrayList<>();
 		while(result.next()) {
 			Car car = new Car();
-			car.makeFromResultSet(result);
-			cars.add(car);
+			car.setModel(result.getString("model"));
+			carsModels.add(car);
 		}
-		return cars;
+		
+		return carsModels;
 	}
 	
 	public ArrayList<Car> getByModel(String model){
-		ArrayList<Car> cars = new ArrayList<>();
-		
-		ResultSet result = getByACondition("model", "=", model);
+		return mapResultSetToEntityList(getByACondition("model", "=", model));
+	}
+
+	@Override
+	public Car first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
+
+	@Override
+	public Car find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public Car last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<Car> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<Car> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected Car mapResultSetToEntity(ResultSet result) {
 		try {
-			while(result.next()) {
+			if(result.next()) {
 				Car car = new Car();
-				car.makeFromResultSet(result);
-				cars.add(car);
+				car.mapFromResultSet(result);
+				return car;
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	@Override
+	protected ArrayList<Car> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<Car> cars = new ArrayList<>();
+		
+		try {
+			while(result.next()) {
+				Car car = new Car();
+				car.mapFromResultSet(result);
+				cars.add(car);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return cars;
-	}
-
-	@Override
-	public Entity first() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Entity find(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

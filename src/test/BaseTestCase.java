@@ -53,11 +53,7 @@ public abstract class BaseTestCase extends TestCase {
 	
 	@AfterAll
 	public static void afterAll() {
-		try {
-			App.getDBConnection().close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
 	}
 	
 	/**

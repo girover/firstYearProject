@@ -133,7 +133,7 @@ public class LoanApplication extends Entity {
 	}
 
 	@Override
-	public boolean makeFromResultSet(ResultSet result) {
+	public boolean mapFromResultSet(ResultSet result) {
 		try {
 			id = result.getInt("id");
 			customerID = result.getInt("customerID");

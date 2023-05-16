@@ -10,6 +10,7 @@ import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.User;
 import database.repositories.EmployeeRepository;
+import database.repositories.RepositoryInterface;
 import database.repositories.UserRepository;
 
 /**
@@ -42,21 +43,7 @@ public class UserService extends BaseResourceService {
 	@Override
 	public ArrayList<User> getAll() {
 		
-		ArrayList<User> users = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				User user = new User();
-				if (user.makeFromResultSet(result))
-					users.add(user);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return users;
+		return (ArrayList<User>) repository.getAll();
 	}
 
 	@Override

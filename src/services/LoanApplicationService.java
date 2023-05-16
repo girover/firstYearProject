@@ -40,21 +40,7 @@ public class LoanApplicationService extends BaseResourceService {
 	@Override
 	public ArrayList<LoanApplication> getAll() {
 		
-		ArrayList<LoanApplication> loanApplications = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				LoanApplication loanApplication = new LoanApplication();
-				if (loanApplication.makeFromResultSet(result))
-					loanApplications.add(loanApplication);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return loanApplications;
+		return (ArrayList<LoanApplication>) repository.getAll();
 	}
 
 	@Override

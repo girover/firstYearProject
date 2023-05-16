@@ -1,4 +1,4 @@
-package services;
+ package services;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
@@ -11,6 +11,7 @@ import javax.management.RuntimeErrorException;
 import configs.Config;
 import database.entities.Entity;
 import database.repositories.Repository;
+import database.repositories.RepositoryInterface;
 
 /**
  * This abstract class is a part of Service Layer (Business Logic Layer).
@@ -26,7 +27,7 @@ import database.repositories.Repository;
  */
 public abstract class BaseResourceService implements ResourceServiceInterface {
 
-	protected Repository repository;
+	protected RepositoryInterface repository;
 //	protected Class<? extends Entity> entityClass;
 
 //	@Override
@@ -92,15 +93,15 @@ public abstract class BaseResourceService implements ResourceServiceInterface {
 	 * @return Paginator
 	 */
 	@Override
-	public Paginator pagination(int page) {
+	public Paginator paginate(int page) {
 
 		HashMap<String, Integer> info = getPaginationInfo(page);
 
-		ResultSet result = repository.pagination(page);
+		ArrayList<? extends Entity> data = repository.paginate(page);
 
 		Paginator paginator = new Paginator(info.get("totalRows"), info.get("totalPages"), page);
 
-		paginator.setData(result);
+		paginator.setData(data);
 
 		return paginator;
 	}

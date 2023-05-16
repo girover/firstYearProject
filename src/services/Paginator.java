@@ -18,7 +18,7 @@ public class Paginator {
 	private int currentPage;
 	private int totalLinks; // How many buttons should be in pagination.
 	
-	private ResultSet data;
+	private ArrayList<? extends Entity> data;
 	
 	public Paginator(){
 		totalLinks = Integer.parseInt(Config.get("pagination.links"));
@@ -59,11 +59,11 @@ public class Paginator {
 		this.currentPage = currentPage;
 	}
 
-	public ResultSet getData() {
+	public ArrayList<? extends Entity> getData() {
 		return data;
 	}
 
-	public void setData(ResultSet data) {
+	public void setData(ArrayList<? extends Entity> data) {
 		this.data = data;
 	}
 
@@ -77,20 +77,7 @@ public class Paginator {
 	
 	public <T extends Entity> ArrayList<T> castDataTo(Class<T> clazz){
 		
-		ArrayList<T> castedData = new ArrayList<>();
-		try {
-			while(data.next()) {
-				T entity = clazz.getDeclaredConstructor().newInstance();
-				entity.makeFromResultSet(data);
-				castedData.add(entity);
-			}
-			
-			return castedData;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return null;
+		return (ArrayList<T>) data;
 	}
 
 }

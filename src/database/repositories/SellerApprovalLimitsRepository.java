@@ -2,10 +2,11 @@ package database.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
+import database.entities.User;
 /**
  * This class is a part of Data Access Layer. 
  * A class that represents a repository responsible for basic CRUD (Create, Read, Update,
@@ -32,30 +33,6 @@ public class SellerApprovalLimitsRepository extends Repository {
 		setTable("sellerApprovalLimits");
 	}
 	
-	
-	/**
-	 * Get SellerApprovalLimits by its id from database
-	 * @param id
-	 * @return
-	 */
-	public SellerApprovalLimits getById(int id) {
-		SellerApprovalLimits sellerApprovalLimits = null;
-		
-		try {
-			ResultSet result = findById(id);
-			
-			if(result.next()) {
-				sellerApprovalLimits = new SellerApprovalLimits();
-				sellerApprovalLimits.makeFromResultSet(result);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return sellerApprovalLimits;
-	}
-	
-
 	@Override
 	public boolean delete(Entity entity) {
 
@@ -122,15 +99,58 @@ public class SellerApprovalLimitsRepository extends Repository {
 
 
 	@Override
-	public Entity first() {
-		// TODO Auto-generated method stub
+	public SellerApprovalLimits first() {
+		return mapResultSetToEntity(getFirstRow());
+	}
+
+	@Override
+	public SellerApprovalLimits find(int id) {
+		return mapResultSetToEntity(findById(id));
+	}
+
+	@Override
+	public SellerApprovalLimits last() {
+		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<SellerApprovalLimits> getAll() {
+		return mapResultSetToEntityList(getAllRows());
+	}
+
+	@Override
+	public ArrayList<SellerApprovalLimits> paginate(int pageNumber) {
+		return mapResultSetToEntityList(getByPage(pageNumber));
+	}
+
+	@Override
+	protected SellerApprovalLimits mapResultSetToEntity(ResultSet result) {
+		try {
+			if(result.next()) {
+				SellerApprovalLimits sellerApprovalLimit = new SellerApprovalLimits();
+				sellerApprovalLimit.mapFromResultSet(result);
+				return sellerApprovalLimit;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-
 	@Override
-	public Entity find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	protected ArrayList<SellerApprovalLimits> mapResultSetToEntityList(ResultSet result) {
+		ArrayList<SellerApprovalLimits> limits = new ArrayList<>();
+		
+		try {
+			while(result.next()) {
+				SellerApprovalLimits sellerApprovalLimit = new SellerApprovalLimits();
+				sellerApprovalLimit.mapFromResultSet(result);
+				limits.add(sellerApprovalLimit);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return limits;
 	}
 }

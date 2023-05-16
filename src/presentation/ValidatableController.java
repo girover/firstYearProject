@@ -38,7 +38,7 @@ public abstract class ValidatableController extends BaseController {
 	 * @param fields
 	 * @throws ValidationException
 	 */
-	protected void validate(String... fields) throws ValidationException {
+	protected void validate(String...fields) throws ValidationException {
 //		validator = new Validator(this);
 		validator.validate(fields);
 	}

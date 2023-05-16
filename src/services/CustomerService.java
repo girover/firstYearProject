@@ -42,21 +42,7 @@ public class CustomerService extends BaseResourceService {
 	@Override
 	public ArrayList<Customer> getAll() {
 		
-		ArrayList<Customer> customers = new ArrayList<>();
-		
-		ResultSet result = repository.getAll();
-		
-		try {
-			while (result.next()) {
-				Customer customer = new Customer();
-				if (customer.makeFromResultSet(result))
-					customers.add(customer);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return customers;
+		return (ArrayList<Customer>) repository.getAll();
 	}
 
 	@Override
@@ -90,7 +76,7 @@ public class CustomerService extends BaseResourceService {
 		
 		if(result.next()) {
 			Customer customer = new Customer();
-			customer.makeFromResultSet(result);
+			customer.mapFromResultSet(result);
 			customers.add(customer);
 			
 		}
