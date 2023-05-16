@@ -46,7 +46,7 @@ public class CarRepository extends Repository {
 		Car car = null;
 
 		try {
-			ResultSet result = find(id);
+			ResultSet result = findById(id);
 
 			if (result.next()) {
 				car = new Car();
@@ -194,5 +194,17 @@ public class CarRepository extends Repository {
 			e.printStackTrace();
 		}
 		return cars;
+	}
+
+	@Override
+	public Entity first() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Entity find(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

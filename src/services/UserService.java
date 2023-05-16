@@ -87,14 +87,9 @@ public class UserService extends BaseResourceService {
 		
 		EmployeeRepository repo = new EmployeeRepository();
 		
-		ResultSet result = repo.find(user.getId());
 		
-		Employee employee = null;
+		Employee employee = (Employee) repo.find(user.getId());;
 		
-		if (result.next()){
-			employee = new Employee();
-			employee.makeFromResultSet(result);
-		}
 		
 		return employee;
 	}

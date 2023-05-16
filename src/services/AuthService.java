@@ -46,7 +46,7 @@ public class AuthService {
 		if (user != null && user.getPassword().equals((String)formData.input("userPassword"))) {
 
 			EmployeeRepository employeeRepo = new EmployeeRepository();
-			Employee employee = employeeRepo.getById(user.getEmployeeId());
+			Employee employee = (Employee) employeeRepo.find(user.getEmployeeId());
 
 			user.setEmployee(employee);
 

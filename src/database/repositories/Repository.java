@@ -31,7 +31,7 @@ import services.Paginator;
  * 
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/Repository.java">Class Code On Github</a>
  */
-public abstract class Repository {
+public abstract class Repository implements RepositoryInterface {
 
 	protected Connection dbConnection;
 
@@ -216,28 +216,21 @@ public abstract class Repository {
 		return 0;
 	}
 
-	/**
-	 * Get by the primary key
-	 * 
-	 * @param id
-	 * @return ResultSet
-	 */
-	public ResultSet find(int id) {
+	
+	
+	protected ResultSet findById(int id) {
 		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + getPrimaryKey() + "] = ?";
-
-		return select(sql, id);
+		ResultSet result = select(sql,id);
+		return result;
 	}
 
-	/**
-	 * Get the first entity from database
-	 * 
-	 * @param id
-	 * @return ResultSet
-	 */
-	public ResultSet first() {
+	
+	
+	protected ResultSet getFirst() {
 		String sql = "SELECT TOP 1 * FROM [" + table + "] ORDER BY " + primaryKey;
 
-		return select(sql);
+		ResultSet result = select(sql);
+		return result;
 	}
 
 	/**
@@ -283,6 +276,8 @@ public abstract class Repository {
 
 		return delete(sql, id);
 	}
+	
+	
 
 	/**
 	 * Get Prepared Statement to execute it in other methods
@@ -393,26 +388,7 @@ public abstract class Repository {
 			throw new RuntimeException("Page cannot be less than 1.");
 	}
 
-	/**
-	 * Delete the specified entity from database
-	 * @param entity
-	 * @return
-	 */
-	public abstract boolean delete(Entity entity);
 	
-	/**
-	 * Updates the specified entity in the database with the latest changes.
-	 * @param entity
-	 * @return
-	 */
-	public abstract boolean update(Entity entity);
-	
-	/**
-	 * Inserts the specified entity to the database.
-	 * @param entity
-	 * @return integer
-	 */
-	public abstract int add(Entity entity);
 	
 	/**
 	 * Inserts a list of entities to the database.

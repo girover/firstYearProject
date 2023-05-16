@@ -36,22 +36,22 @@ public class EmployeeRepository extends Repository {
 	 * @param id
 	 * @return
 	 */
-	public Employee getById(int id) {
-		Employee employee = null;
-		
-		try {
-			ResultSet result = find(id);
-			
-			if(result.next()) {
-				employee = new Employee();
-				employee.makeFromResultSet(result);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return employee;
-	}
+//	public Employee getById(int id) {
+//		Employee employee = null;
+//		
+//		try {
+//			ResultSet result = findById(id);
+//			
+//			if(result.next()) {
+//				employee = new Employee();
+//				employee.makeFromResultSet(result);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return employee;
+//	}
 
 	/**
 	 * Delete the specified employee from database table.
@@ -88,7 +88,7 @@ public class EmployeeRepository extends Repository {
 				   + "[zipCode] = ?, "
 				   + "[hireDate] = ?, "
 				   + "[department] = ?, "
-				   + "[role] = ?, "
+				   + "[role] = ? "
 				   + "WHERE " + primaryKey + " = ?";
 		
 		return update(sql, 
@@ -153,5 +153,37 @@ public class EmployeeRepository extends Repository {
 		}
 		
 		return 0;
+	}
+
+	@Override
+	public Entity first() {
+		ResultSet result = getFirst();
+		try {
+			if(result.next()) {
+				Employee employee = new Employee();
+				employee.makeFromResultSet(result);
+				return employee;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Entity find(int id) {
+		Employee employee = new Employee();
+		ResultSet result = findById(id);
+		try {
+			if(result.next()) {
+				employee.makeFromResultSet(result);
+				return employee;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

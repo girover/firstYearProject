@@ -69,6 +69,8 @@ public class DashboardController extends BaseController {
 
     @FXML
     void handleBtnMyProfileClick(ActionEvent event) {
+    	Window customersWindow = new Window("profile/Profile.fxml", "Customers");
+    	customersWindow.show();
 
     }
 
