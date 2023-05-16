@@ -48,7 +48,7 @@ public class UserRepository extends Repository {
 
 		try {
 //			ResultSet result = select(sql, id);
-			ResultSet result = find(id);
+			ResultSet result = findById(id);
 
 			if (result.next()) {
 				user = new User();
@@ -166,6 +166,18 @@ public class UserRepository extends Repository {
 		}
 		
 		return 0;
+	}
+
+	@Override
+	public Entity first() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Entity find(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**

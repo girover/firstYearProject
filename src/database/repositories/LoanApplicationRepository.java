@@ -42,7 +42,7 @@ public class LoanApplicationRepository extends Repository {
 		LoanApplication loanApplication = null;
 
 		try {
-			ResultSet result = find(id);
+			ResultSet result = findById(id);
 
 			if (result.next()) {
 				loanApplication = new LoanApplication();
@@ -150,5 +150,17 @@ public class LoanApplicationRepository extends Repository {
 		}
 
 		return 0;
+	}
+
+	@Override
+	public Entity first() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Entity find(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

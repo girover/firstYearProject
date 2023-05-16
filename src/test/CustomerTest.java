@@ -33,16 +33,10 @@ class CustomerTest extends BaseTestCase {
 
 		assertTrue(repo.add(customer) > 0);
 
-		try {
-			Customer retrievedCustomer = new Customer();
-			ResultSet result = repo.find(customer.getId());
-			if (result.next())
-				retrievedCustomer.makeFromResultSet(result);
+		Customer retrievedCustomer = new Customer();
+		retrievedCustomer = (Customer) repo.find(customer.getId());
 
-			assertTrue(retrievedCustomer.getId() == customer.getId());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		assertTrue(retrievedCustomer.getId() == customer.getId());
 	}
 
 }

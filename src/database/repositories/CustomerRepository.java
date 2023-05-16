@@ -41,7 +41,7 @@ public class CustomerRepository extends Repository {
 		Customer customer = null;
 
 		try {
-			ResultSet result = find(id);
+			ResultSet result = findById(id);
 
 			if (result.next()) {
 				customer = new Customer();
@@ -144,5 +144,17 @@ public class CustomerRepository extends Repository {
 				   + "lastName LIKE ?;";
 		
 		return select(sql, "%" + searchKey + "%", "%" + searchKey + "%");
+	}
+
+	@Override
+	public Entity first() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Entity find(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -75,16 +75,10 @@ class CarRepositoryTest extends BaseTestCase {
 		assertTrue(carRepo.add(car) > 0);
 		int id = car.getId();
 		
-		try {
-			Car retrievedCar = new Car();
-			ResultSet result = carRepo.find(id);
-			if(result.next())
-				retrievedCar.makeFromResultSet(result);
-			
-			assertTrue(retrievedCar.getId() == id);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		Car retrievedCar = new Car();
+		retrievedCar = (Car) carRepo.find(id);
+		
+		assertTrue(retrievedCar.getId() == id);
 	}
 
 }
