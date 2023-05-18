@@ -52,7 +52,7 @@ public class UserRepository extends Repository {
 	 * @return User entity
 	 */
 	public User getById(String id) {
-		return mapResultSetToEntity(getByACondition(primaryKey, "=", id));
+		return mapResultSetToEntity(getRowsByACondition(primaryKey, "=", id));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class UserRepository extends Repository {
 	 * @return User entity
 	 */
 	public User getByAuthenticationField(String field, String value) {
-		return mapResultSetToEntity(getByACondition(field, "=", value));
+		return mapResultSetToEntity(getRowsByACondition(field, "=", value));
 	}
 
 	/**
@@ -137,6 +137,11 @@ public class UserRepository extends Repository {
 	@Override
 	public User last() {
 		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<User> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 
 	@Override

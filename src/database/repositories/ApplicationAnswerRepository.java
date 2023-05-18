@@ -105,6 +105,11 @@ public class ApplicationAnswerRepository extends Repository {
 	}
 
 	@Override
+	public ArrayList<ApplicationAnswer> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
+	}
+
+	@Override
 	public ArrayList<ApplicationAnswer> getAll() {
 		return mapResultSetToEntityList(getAllRows());
 	}

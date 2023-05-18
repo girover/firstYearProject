@@ -17,7 +17,7 @@ import window.Window;
 public class DashboardController extends BaseController {
 
     @FXML
-    private Button btnCars4;
+    private Button btnCars;
 
     @FXML
     private Button btnCustomers;
@@ -42,19 +42,17 @@ public class DashboardController extends BaseController {
 
     @FXML
     void handleBtnCarsClick(ActionEvent event) {
-    	Window carsWindow = new Window("car/Cars2.fxml", "Cars");
-    	carsWindow.show();
+    	openWindow("car/Cars.fxml", "Cars");
     }
 
     @FXML
     void handleBtnCustomersClick(ActionEvent event) {
-    	Window customersWindow = new Window("customer/Customers.fxml", "Customers");
-    	customersWindow.show();
+    	openWindow("customer/Customers.fxml", "Customers");
     }
 
     @FXML
     void handleBtnLoanApplicationsClick(ActionEvent event) {
-
+    	openWindow("loanApplication/LoanApplications.fxml", "Loan Applications");
     }
 
     @FXML
@@ -69,8 +67,7 @@ public class DashboardController extends BaseController {
 
     @FXML
     void handleBtnMyProfileClick(ActionEvent event) {
-    	Window customersWindow = new Window("profile/Profile.fxml", "Customers");
-    	customersWindow.show();
+    	openWindow("profile/Profile.fxml", "Customers");
 
     }
 

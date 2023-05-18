@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1160.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.car.CarsController2">
+   <children>
+      <BorderPane fx:id="mainView" prefHeight="200.0" prefWidth="200.0" styleClass="bg-gray-100" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="70.0" prefWidth="959.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="122.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="261.0">
+                           <children>
+                              <ImageView fitHeight="78.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/images/app/ferrariLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="349.0" prefHeight="70.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
+                           <children>
+                              <FontIcon iconLiteral="fa-car" iconSize="30" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+               <styleClass>
+                  <String fx:value="bg-white" />
+                  <String fx:value="shadow-bb" />
+               </styleClass>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="74.0" layoutY="23.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" styleClass="bg-transparent" VBox.vgrow="ALWAYS">
+                           <content>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" prefWidth="600.0">
+                                 <children>
+                                    <VBox layoutY="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="1118.0" spacing="10.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="42.0" text="ID">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="155.0" text="Car Brand">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="155.0" text="Car Model">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="155.0" text="Customer Name">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="155.0" text="Amount">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="155.0" text="5.5%">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="155.0" styleClass="bg-yellow-400" text="Pending">
+                                                   <padding>
+                                                      <Insets left="4.0" right="4.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="50.0" prefWidth="1118.0" />
+                                       </children>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <HBox fx:id="pagination" alignment="CENTER" prefHeight="32.0" prefWidth="876.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

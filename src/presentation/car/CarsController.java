@@ -8,128 +8,140 @@ import java.util.ResourceBundle;
 
 import database.entities.Car;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import presentation.BaseController;
+import presentation.component.CarItemController;
+import presentation.component.PaginationController;
 import services.CarService;
+import services.Paginator;
+import window.Component;
+import window.Window;
 
 public class CarsController extends BaseController {
 
 	private CarService carService = new CarService();
 
 	@FXML
-    private Button btnClose;
+	private Button btnClose;
 
-    @FXML
-    private ComboBox<String> cbModels;
+	@FXML
+	private FlowPane carsContainer;
 
-    @FXML
-    private TableColumn<Car, String> colColor;
+	@FXML
+	private ComboBox<String> cbModels;
+	
+	@FXML
+    private TextField inputSearchVIN;
 
-    @FXML
-    private TableColumn<Car, String> colDoors;
+	@FXML
+	private BorderPane mainView;
+	
+	@FXML
+    private HBox pagination;
 
-    @FXML
-    private TableColumn<Car, String> colEngineSize;
+	private ObservableList<Car> carsList = FXCollections.observableArrayList();
+	private ObservableList<String> modelsList = FXCollections.observableArrayList();
+	private Car selectedCar;
 
-    @FXML
-    private TableColumn<Car, String> colFuelType;
+	@FXML
+	void handleBtnCloseClick(ActionEvent event) {
+		closeWindow(event);
+	}
 
-    @FXML
-    private TableColumn<Car, String> colHorsepower;
+	@FXML
+	void handleSearch(ActionEvent event) {
+		String model = cbModels.getSelectionModel().getSelectedItem();
 
-    @FXML
-    private TableColumn<Car, String> colKmPerLiter;
-
-    @FXML
-    private TableColumn<Car, String> colMileage;
-
-    @FXML
-    private TableColumn<Car, String> colModel;
-
-    @FXML
-    private TableColumn<Car, String> colPrice;
-
-    @FXML
-    private TableColumn<Car, String> colSeats;
-
-    @FXML
-    private TableColumn<Car, String> colTransmission;
-
-    @FXML
-    private TableColumn<Car, String> colYear;
-
-    @FXML
-    private BorderPane mainView;
-
-    @FXML
-    private TableView<Car> tViewCars;
-    
-    private ObservableList<Car> carsList = FXCollections.observableArrayList();
-    private ObservableList<String> modelsList = FXCollections.observableArrayList();
-
-    @FXML
-    void handleBtnCloseClick(ActionEvent event) {
-    	closeWindow(event);
+		carsList.clear();
+		carsList.addAll(carService.getByModel(model));
+		renderCars();
+	}
+	
+	@FXML
+    void handleInputSearchVINOnAction(ActionEvent event) {
+		carsList.clear();
+		carsList.addAll(carService.getByVIN(inputSearchVIN.getText()));
+		renderCars();
     }
+	
+	private void loadCars(int page) {
+		Paginator p = carService.paginate(page);
+		ArrayList<Car> cars = p.castDataTo(Car.class);
+//		ArrayList<Car> cars = carService.getPage(page);
+		carsList.addAll(cars);
+	}
 
-    @FXML
-    void handleSearch(ActionEvent event) {
-    	String model = cbModels.getSelectionModel().getSelectedItem();
-    	
-    	carsList.clear();
-    	carsList.addAll(carService.getByModel(model));
-    }
-    
-    private void loadCars() {
-    	ArrayList<Car> cars = carService.getAll();
-    	carsList.addAll(cars);
-    	tViewCars.setItems(carsList);
-    }
-    
-    private void initTableColumns() {
-    	colModel.setCellValueFactory(new PropertyValueFactory<>("model"));
-		colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
-		colColor.setCellValueFactory(new PropertyValueFactory<>("color"));
-		colMileage.setCellValueFactory(new PropertyValueFactory<>("mileage"));
-		colTransmission.setCellValueFactory(new PropertyValueFactory<>("transmission"));
-		colFuelType.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
-		colEngineSize.setCellValueFactory(new PropertyValueFactory<>("engineSize"));
-		colHorsepower.setCellValueFactory(new PropertyValueFactory<>("horsepower"));
-		colSeats.setCellValueFactory(new PropertyValueFactory<>("seats"));
-		colDoors.setCellValueFactory(new PropertyValueFactory<>("doors"));
-		colKmPerLiter.setCellValueFactory(new PropertyValueFactory<>("kmPerLiter"));
-		colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-    }
-    
-    private void loadModels() throws SQLException {
-    	ArrayList<String> models = carService.getDistintModels();
-    	modelsList.addAll(models);
-    	cbModels.setItems(modelsList);
-    }
+	private void renderCars() {
+		carsContainer.getChildren().clear();
+		for (Car car : carsList) {
+			Component component = new Component("CarItem.fxml");
+			carsContainer.getChildren().add((VBox) component.get());
+			CarItemController controller = (CarItemController) component.getController();
+			controller.setData(car);
+			controller.addObserver(this);
+		}
+	}
+
+	private void loadModels() throws SQLException {
+		ArrayList<String> models = carService.getDistintModels();
+		modelsList.addAll(models);
+		cbModels.setItems(modelsList);
+	}
+	
+	private void paginate() {
+		Component pagination = new Component("Pagination.fxml");
+		PaginationController controller = (PaginationController)pagination.getController();
+		controller.setTotalPages(10);
+		controller.addObserver(this);
+		this.pagination.getChildren().add((HBox)pagination.get());
+	}
+	
+	public void setSelectedCar(Car car) {
+		selectedCar = car;
+	}
+	
+	public Car getSelectedCar() {
+		return selectedCar;
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
+		if(o instanceof PaginationController) {
+			int currentPage = (int) arg;
+			Window.showSuccessMessage(Integer.toString(currentPage), "Majed");
+		}else if(o instanceof CarItemController) {
+			setSelectedCar(((CarItemController)o).getCar());
+			fire(null);
+		}
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		initTableColumns();
+
 		try {
+			loadCars(1);
 			loadModels();
+			renderCars();
+			paginate();
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
-		loadCars();
+		modelsList.addListener(new ListChangeListener<String>() {
+            @Override
+            public void onChanged(Change<? extends String> change) {
+                System.out.println("List changed: " + change.getList());
+            }
+        });
 	}
 
 }

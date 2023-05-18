@@ -167,12 +167,13 @@ CREATE TABLE [loanApplication]
 	[months] int NOT NULL,
 	[interestRate] float NOT NULL,
 	[monthlyPayment] decimal(6,2),
-	[status] nvarchar(100) NOT NULL CHECK ([status] IN ('pending','processing','approved', 'rejected')),
+	[status] nvarchar(100) NOT NULL CHECK ([status] IN ('processing','approved', 'rejected')),
 	[note] text
 );
 
---INSERT INTO [loanApplication] (customerID, sellerID, carID, applicationDate, loanAmount, payment, [months], interestRate, monthlyPayment, [status], [note]) VALUES 
---(1000, 1000, 1000, '2023-05-01', 500000, ...... )
+INSERT INTO [loanApplication] (customerID, sellerID, carID, applicationDate, loanAmount, payment, [months], interestRate, monthlyPayment, [status], [note]) VALUES 
+(1000, 1000, 1000, '2023-05-01', 500000, 200000, 120, 5.5, 7000, 'processing', 'notes asdasdasdasd'),
+(1001, 1000, 1001, '2023-05-01', 600000, 150000, 120, 5.9, 8000, 'processing', 'notes aljlioejkds');
 
 -- ApplicationAnswer Table
 

@@ -158,6 +158,11 @@ public class CustomerRepository extends Repository {
 	}
 
 	@Override
+	public ArrayList<Customer> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
+	}
+
+	@Override
 	public ArrayList<Customer> getAll() {
 		return mapResultSetToEntityList(getAllRows());
 	}

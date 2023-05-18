@@ -114,6 +114,11 @@ public class SellerApprovalLimitsRepository extends Repository {
 	}
 
 	@Override
+	public ArrayList<SellerApprovalLimits> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
+	}
+
+	@Override
 	public ArrayList<SellerApprovalLimits> getAll() {
 		return mapResultSetToEntityList(getAllRows());
 	}

@@ -271,6 +271,13 @@
 	-fx-background-radius:30.0px;
 	-fx-text-fill:#f13d37;
 }
+.form-control-bottom{
+	-fx-background-color: transparent;
+	-fx-text-fill:#0891b2;
+	-fx-border-color: #0891b2;
+	-fx-border-width: 0 0 2px 0;
+	-fx-border-style: solid ;
+}
 
 .border-none{
 	-fx-border-width: 0.0px;
@@ -324,4 +331,7 @@
 }
 .round{
 	-fx-background-radius: 20.0px;
+}
+.cursor-hand{
+	-fx-cursor:hand;
 }

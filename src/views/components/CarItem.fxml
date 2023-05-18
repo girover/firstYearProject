@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="392.0" prefWidth="236.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.component.CarItemController">
+
+<VBox fx:id="carItem" alignment="TOP_CENTER" onMouseClicked="#handleVBoxOnMouseClicked" onMouseEntered="#handleOnMouseEntered" onMouseExited="#handleOnMouseExited" prefHeight="392.0" prefWidth="236.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.component.CarItemController">
    <children>
       <ImageView fitHeight="143.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
@@ -78,5 +79,6 @@
       <String fx:value="bg-white" />
       <String fx:value="round-8" />
       <String fx:value="shadow" />
+      <String fx:value="cursor-hand" />
    </styleClass>
 </VBox>

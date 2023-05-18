@@ -1,0 +1,66 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+* {
+	-fx-primary-color: #007acc;
+	-fx-secondary-color: #4B6EAF;
+
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.tab-header-area .tab-header-background {
+ 	-fx-background-color: #f3f4f6;
+ 	-fx-alignment: bottom-center ;
+ 	
+ 	-fx-border-color: #0891b2;
+	-fx-border-width: 0 0 3px 0;
+	-fx-border-style: solid ;
+}
+.tab-pane .tab {
+	-fx-background-color: #e2e8f0;
+	-fx-border-color: #0891b2;
+	-fx-border-width: 0 0 3px 0;
+	-fx-border-style: solid;
+	-fx-cursor: hand;
+}
+.tab-pane .tab:selected {
+	-fx-background-insets: 0 0 0 0;
+	-fx-background-radius: 0 0 0 0;
+	-fx-background-color: #0891b2;
+	-fx-text-fill: #ffffff;
+	
+	-fx-border-color: #0891b2;
+	-fx-border-width: 0 0 3px 0;
+	-fx-border-style: solid ;
+}
+.tab-pane .tab:selected .tab-label{
+	-fx-text-fill: #ffffff;	
+}
+
+.tab .tab-label { 
+ 	-fx-alignment: CENTER;
+	-fx-text-fill: #1e293b;
+	-fx-font-weight: bold;
+	-fx-padding: 0 10 0 10;
+}
+.tab-pane:top *.tab-header-area {
+	-fx-padding: 0 0 0 100;
+	
+	/* NO SPACE LEFT OF FIRST TAB */
+	/* -fx-padding: 0 0 0 30; */
+}
+.tab-pane {
+	-fx-background-color: #e2e8f0;
+	-fx-tab-min-width: 100px;
+	-fx-tab-min-height: 66px;
+	-fx-tab-max-height: 66px;
+	
+	-fx-border-color: #0891b2;
+	-fx-border-width: 0 0 3px 0;
+	-fx-border-style: solid ;
+	-fx-effect:dropshadow(gaussian,#00000078, 10.5, 0.0, 0.0, 0.0) ;
+}
+
+.tab-pane:focused .tab-header-area .headers-region .tab:selected .focus-indicator {
+ 	-fx-border-width: 0;
+	-fx-border-insets: 0 0 0 0;
+	-fx-border-radius: 0;
+}

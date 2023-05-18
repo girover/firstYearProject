@@ -93,7 +93,7 @@ public class LoanApplicationRepository extends Repository {
 
 		return update(sql, 
 				loanApplication.getCustomerID(), 
-				loanApplication.getSalesPersonID(),
+				loanApplication.getSellerID(),
 				loanApplication.getCarID(), 
 				loanApplication.getApplicationDate(), 
 				loanApplication.getLoanAmount(),
@@ -133,7 +133,7 @@ public class LoanApplicationRepository extends Repository {
 
 		int id = insertAndGetGeneratedId(sql, 
 				loanApplication.getCustomerID(), 
-				loanApplication.getSalesPersonID(),
+				loanApplication.getSellerID(),
 				loanApplication.getCarID(), 
 				loanApplication.getApplicationDate(), 
 				loanApplication.getLoanAmount(),
@@ -167,6 +167,11 @@ public class LoanApplicationRepository extends Repository {
 	@Override
 	public LoanApplication last() {
 		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<LoanApplication> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 
 	@Override

@@ -121,7 +121,7 @@ CREATE TABLE [loanApplication]
 	[months] int NOT NULL,
 	[interestRate] float NOT NULL,
 	[monthlyPayment] decimal(6,2),
-	[status] nvarchar(100) NOT NULL CHECK ([status] IN ('pending','processing','approved', 'rejected')),
+	[status] nvarchar(100) NOT NULL CHECK ([status] IN ('processing','approved', 'rejected')),
 	[note] text,
 	CONSTRAINT FK_LoanApplication_CustomerID_Customer_ID FOREIGN KEY (customerID)
         REFERENCES customer(id)

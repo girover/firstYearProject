@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1160.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loanApplication.NewLoanApplicationController">
+	<children>
+		<BorderPane prefWidth="1160.0" styleClass="bg-gray-100" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<top>
+				<AnchorPane prefHeight="49.0" prefWidth="1160.0" BorderPane.alignment="CENTER">
+					<children>
+						<Pane prefHeight="122.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="261.0">
+									<children>
+										<ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../../resources/images/app/ferrariLogo.png" />
+											</image>
+										</ImageView>
+									</children>
+									<opaqueInsets>
+										<Insets />
+									</opaqueInsets>
+									<padding>
+										<Insets left="30.0" />
+									</padding>
+								</HBox>
+							</children>
+						</Pane>
+						<Pane layoutX="349.0" prefHeight="70.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
+									<children>
+										<FontIcon iconLiteral="fa-car" iconSize="30" />
+									</children>
+									<padding>
+										<Insets left="10.0" right="10.0" />
+									</padding>
+								</HBox>
+							</children>
+						</Pane>
+					</children>
+					<styleClass>
+						<String fx:value="bg-white" />
+						<String fx:value="shadow-bb" />
+					</styleClass>
+				</AnchorPane>
+			</top>
+			<center>
+				<AnchorPane prefHeight="600.0" prefWidth="1139.0" BorderPane.alignment="CENTER">
+					<children>
+						<VBox layoutX="74.0" layoutY="23.0" prefHeight="600.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<ScrollPane fitToWidth="true" prefHeight="450.0" prefWidth="1118.0" styleClass="bg-transparent" VBox.vgrow="ALWAYS">
+									<content>
+										<AnchorPane maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" prefWidth="1104.0">
+                                 <children>
+                                    <VBox layoutY="188.0" prefWidth="1104.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TabPane minHeight="700.0" prefWidth="1104.0" styleClass="bg-blue-400" stylesheets="@../tabPane.css" tabClosingPolicy="UNAVAILABLE">
+                                            <tabs>
+                                              <Tab fx:id="tabPerson" text="Personly Information">
+                                                   <content>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                         <children>
+                                                            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <AnchorPane prefHeight="375.0" prefWidth="545.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                                           <children>
+                                                                              <Label text="Customer Information">
+                                                                                 <font>
+                                                                                    <Font name="System Bold" size="21.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <VBox layoutY="51.0" prefHeight="394.0" prefWidth="546.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                                           <children>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="CPR">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField fx:id="inputCpr" prefHeight="34.0" prefWidth="257.0" promptText="CPR">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                    <Button fx:id="btnCheckRKI" mnemonicParsing="false" onAction="#handleBtnCheckRKIClick" text="Check RKI">
+                                                                                       <styleClass>
+                                                                                          <String fx:value="btn" />
+                                                                                          <String fx:value="bg-yellow-400" />
+                                                                                          <String fx:value="shadow" />
+                                                                                          <String fx:value="bold" />
+                                                                                       </styleClass>
+                                                                                       <HBox.margin>
+                                                                                          <Insets left="10.0" />
+                                                                                       </HBox.margin>
+                                                                                    </Button>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="First Name">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="First name">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Last Name">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="last name">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Phone">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="phone">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="E-mail">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="email">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Address">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="address">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Post Code">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="post code">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="City">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="546.0" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <VBox alignment="CENTER" prefHeight="491.0" prefWidth="168.0">
+                                                                     <children>
+                                                                        <Label fx:id="lbRate" alignment="CENTER" prefHeight="68.0" prefWidth="70.0" text="?">
+                                                                           <font>
+                                                                              <Font size="46.0" />
+                                                                           </font>
+                                                                           <styleClass>
+                                                                              <String fx:value="bg-green-500" />
+                                                                              <String fx:value="text-white" />
+                                                                              <String fx:value="round-32" />
+                                                                              <String fx:value="shadow" />
+                                                                           </styleClass>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                              <Tab fx:id="tabCar" text="Car Information">
+                                                   <content>
+                                                      <AnchorPane prefHeight="208.0" prefWidth="1104.0">
+                                                         <children>
+                                                            <HBox alignment="TOP_CENTER" layoutY="142.0" prefHeight="552.0" prefWidth="1104.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <AnchorPane prefHeight="600.0" prefWidth="671.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                                           <children>
+                                                                              <Label text="Car Information">
+                                                                                 <font>
+                                                                                    <Font name="System Bold" size="21.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <VBox layoutY="51.0" prefHeight="394.0" prefWidth="546.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                                           <children>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="VIN">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="34.0" prefWidth="304.0" promptText="CPR">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                    <Button fx:id="btnSearchCar" mnemonicParsing="false" onAction="#handleBtnSearchCarClick" prefHeight="28.0" prefWidth="24.0">
+                                                                                       <styleClass>
+                                                                                          <String fx:value="btn" />
+                                                                                          <String fx:value="bg-yellow-400" />
+                                                                                          <String fx:value="shadow" />
+                                                                                          <String fx:value="bold" />
+                                                                                       </styleClass>
+                                                                                       <HBox.margin>
+                                                                                          <Insets left="10.0" />
+                                                                                       </HBox.margin>
+                                                                                       <graphic>
+                                                                                          <FontIcon iconLiteral="fa-search" iconSize="18" />
+                                                                                       </graphic>
+                                                                                    </Button>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Model">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="First name">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Year">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="last name">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Horsepower">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="phone">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Engine size">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="email">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Transmission">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="address">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Fuel type">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="post code">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Mileage">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Km / L">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Seats">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Doors">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Color">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                                 <children>
+                                                                                    <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Price">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets right="20.0" />
+                                                                                       </padding>
+                                                                                    </Label>
+                                                                                    <TextField prefHeight="38.0" prefWidth="334.0" promptText="city">
+                                                                                       <font>
+                                                                                          <Font size="14.0" />
+                                                                                       </font>
+                                                                                       <styleClass>
+                                                                                          <String fx:value="form-control-bottom" />
+                                                                                          <String fx:value="font-weight-bold" />
+                                                                                       </styleClass>
+                                                                                    </TextField>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab fx:id="tabLoan" text="Loan Information">
+                                                   <content>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                   </content>
+                                                </Tab>
+                                                <Tab fx:id="tabNote" text="Note">
+                                                   <content>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                   </content>
+                                                </Tab>
+                                            </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </VBox>
+                                 </children></AnchorPane>
+									</content>
+								</ScrollPane>
+                        <AnchorPane prefHeight="46.0" prefWidth="1118.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="95.0" text="Add" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="bg-gray-600" />
+                                    <String fx:value="text-white" />
+                                    <String fx:value="font-weight-bold" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="20" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="106.0" layoutY="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="bg-gray-600" />
+                                    <String fx:value="text-white" />
+                                    <String fx:value="font-weight-bold" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-file" iconSize="20" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="271.0" layoutY="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="104.0" text="Cancle" AnchorPane.rightAnchor="10.0">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="bg-red-600" />
+                                    <String fx:value="text-white" />
+                                    <String fx:value="font-weight-bold" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+							</children>
+							<padding>
+								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+							</padding>
+						</VBox>
+					</children>
+					<BorderPane.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</BorderPane.margin>
+				</AnchorPane>
+			</center>
+		</BorderPane>
+	</children>
+</AnchorPane>

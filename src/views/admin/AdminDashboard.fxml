@@ -97,7 +97,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnCars4" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnCarsClick" prefHeight="35.0" prefWidth="226.0" text="Cars">
+                              <Button fx:id="btnCars" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnCarsClick" prefHeight="35.0" prefWidth="226.0" text="Cars">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>

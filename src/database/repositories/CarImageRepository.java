@@ -126,6 +126,11 @@ public class CarImageRepository extends Repository {
 	}
 
 	@Override
+	public ArrayList<CarImage> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
+	}
+
+	@Override
 	public ArrayList<CarImage> paginate(int pageNumber) {
 		return mapResultSetToEntityList(getByPage(pageNumber));
 	}

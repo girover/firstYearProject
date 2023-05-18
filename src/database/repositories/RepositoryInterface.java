@@ -38,6 +38,14 @@ public interface RepositoryInterface {
 	public ArrayList<? extends Entity> getAll();
 	
 	/**
+	 * Get by the primary key
+	 * 
+	 * @param id
+	 * @return Entity
+	 */
+	public ArrayList<? extends Entity> getByCondition(String column, String operation, String value);
+	
+	/**
 	 * 
 	 */
 	public ArrayList<? extends Entity> paginate(int pageNumber);

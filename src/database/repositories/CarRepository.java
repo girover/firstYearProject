@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import database.entities.Car;
 import database.entities.Entity;
+import database.entities.User;
 
 /**
  * This class is a part of Data Access Layer. 
@@ -155,7 +156,7 @@ public class CarRepository extends Repository {
 	}
 	
 	public ArrayList<Car> getByModel(String model){
-		return mapResultSetToEntityList(getByACondition("model", "=", model));
+		return mapResultSetToEntityList(getRowsByACondition("model", "=", model));
 	}
 
 	@Override
@@ -171,6 +172,11 @@ public class CarRepository extends Repository {
 	@Override
 	public Car last() {
 		return mapResultSetToEntity(getLastRow());
+	}
+
+	@Override
+	public ArrayList<Car> getByCondition(String column, String operation, String value) {
+		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 
 	@Override

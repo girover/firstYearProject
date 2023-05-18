@@ -21,7 +21,7 @@ public class LoanApplication extends Entity {
 
 	private int id;
 	private int customerID;
-	private int salesPersonID;
+	private int sellerID;
 	private int carID;
 	private String applicationDate;
 	private int loanAmount;
@@ -52,12 +52,12 @@ public class LoanApplication extends Entity {
 		this.customerID = customerID;
 	}
 
-	public int getSalesPersonID() {
-		return salesPersonID;
+	public int getSellerID() {
+		return sellerID;
 	}
 
-	public void setSalesPersonID(int salesPersonID) {
-		this.salesPersonID = salesPersonID;
+	public void sellerID(int salesPersonID) {
+		this.sellerID = salesPersonID;
 	}
 
 	public int getCarID() {
@@ -137,7 +137,7 @@ public class LoanApplication extends Entity {
 		try {
 			id = result.getInt("id");
 			customerID = result.getInt("customerID");
-			salesPersonID = result.getInt("salesPersonID");
+			sellerID = result.getInt("sellerID");
 			carID = result.getInt("carID");
 			applicationDate = result.getString("applicationDate");
 			loanAmount = result.getInt("loanAmount");
@@ -147,6 +147,7 @@ public class LoanApplication extends Entity {
 			monthlyPayment = result.getFloat("monthlyPayment");
 			status = result.getString("status");
 			note = result.getString("note");
+			applicationDate = result.getString("applicationDate");
 
 			setExist(true);
 			

@@ -62,6 +62,11 @@ public abstract class BaseController extends Observable implements Observer, Ini
 		addObserver(controller);
 	}
 	
+	public void openWindow(String fxml, String title) {
+		Window window = new Window(fxml, title);
+		window.show();
+	}
+	
 	/**
 	 * To close the window when a button is clicked.
 	 * @param event
