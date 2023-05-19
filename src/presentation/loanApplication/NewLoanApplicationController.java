@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import database.entities.Car;
+import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Rules;
 import javafx.application.Platform;
@@ -17,6 +18,8 @@ import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import presentation.car.CarsController;
 import services.BankService;
+import services.CustomerService;
+import services.LoanApplicationService;
 import services.RKIService;
 import window.Window;
 
@@ -43,11 +46,80 @@ public class NewLoanApplicationController extends ValidatableController {
 	@FXML
 	private Tab tabNote;
 
-	private Car selectedCar;
-
+	// ====== Customer Information ================
 	@FXML
 	@Rules(field = "cpr", rules = "required|numeric|length:10")
 	private TextField inputCpr;
+
+	@FXML
+	private Label lbFirstName;
+
+	@FXML
+	private Label lbLastName;
+
+	@FXML
+	private Label lbPhone;
+
+	@FXML
+	private Label lbEmail;
+
+	@FXML
+	private Label lbAddress;
+
+	@FXML
+	private Label lbZipCode;
+
+	@FXML
+	private Label lbCity;
+
+	// =============== Car Information ====================
+	@FXML
+	@Rules(field = "vin", rules = "required|alphaNumeric")
+	private TextField inputVIN;
+	
+	@FXML
+	private Label lbModel;
+	
+	@FXML
+	private Label lbYear;
+	
+	@FXML
+	private Label lbHorsepower;
+	
+	@FXML
+	private Label lbEngineSize;
+	
+	@FXML
+	private Label lbTransmission;
+	
+	@FXML
+	private Label lbFuelType;
+	
+	@FXML
+	private Label lbMileage;
+	
+	@FXML
+	private Label lbKm;
+	
+	@FXML
+	private Label lbSeats;
+	
+	@FXML
+	private Label lbDoors;
+	
+	@FXML
+	private Label lbColor;
+    
+    @FXML
+    private Label lbPrice;
+    //==================================================
+
+	private Car selectedCar;
+	private Customer selectedCustomer;
+
+	private LoanApplicationService loanAppService = new LoanApplicationService();
+	private String rkiRate;
+	private double bankInterestRate;
 
 	@FXML
 	void handleBtnCheckRKIClick(ActionEvent event) {
@@ -61,8 +133,18 @@ public class NewLoanApplicationController extends ValidatableController {
 			e.printStackTrace();
 		}
 
-		RKIService rkiService = new RKIService(inputCpr.getText(), this);
-		rkiService.sendRequest();
+		loanAppService.SendRKIRequest(inputCpr.getText(), this);
+		
+		CustomerService service = new CustomerService();
+		selectedCustomer = service.findByCPR(inputCpr.getText());
+		
+		if(selectedCustomer == null) {
+			Window customersWindow = new Window("customer/NewCustomer.fxml", "Customer");
+			customersWindow.show();
+		}else
+			fillCustomerInfo();
+//		RKIService rkiService = new RKIService(inputCpr.getText(), this);
+//		rkiService.sendRequest();
 	}
 
 	@FXML
@@ -77,12 +159,17 @@ public class NewLoanApplicationController extends ValidatableController {
 	public void update(Observable o, Object arg) {
 
 		if (o instanceof RKIService) {
-			String rate = ((RKIService) o).getRate();
-			Platform.runLater(() -> setRate(rate));
+
+			rkiRate = ((RKIService) o).getRate();
+			Platform.runLater(() -> setRate(rkiRate));
+
 		} else if (o instanceof BankService) {
-			double interestRate = ((BankService) o).getInterestRate();
-			System.out.println(interestRate);
+
+			bankInterestRate = ((BankService) o).getInterestRate();
+			System.out.println(bankInterestRate);
+
 		} else if (o instanceof CarsController) {
+
 			selectedCar = ((CarsController) o).getSelectedCar();
 			fillCarInformation();
 		}
@@ -90,7 +177,32 @@ public class NewLoanApplicationController extends ValidatableController {
 	}
 
 	private void fillCarInformation() {
-		System.out.println("Selected Car is : " + selectedCar.getModel());
+		inputVIN.setText(selectedCar.getVin());
+		lbModel.setText(selectedCar.getModel());
+		lbYear.setText(Integer.toString(selectedCar.getYear()));
+		lbHorsepower.setText(Integer.toString(selectedCar.getHorsepower()));
+		lbEngineSize.setText(Double.toString(selectedCar.getEngineSize()));
+		lbTransmission.setText(selectedCar.getTransmission());
+		lbFuelType.setText(selectedCar.getFuelType());
+		lbMileage.setText(Integer.toString(selectedCar.getMileage()));
+		lbKm.setText(Double.toString(selectedCar.getKmPerLiter()));
+		lbSeats.setText(Integer.toString(selectedCar.getSeats()));
+		lbDoors.setText(Integer.toString(selectedCar.getDoors()));
+		lbColor.setText(selectedCar.getColor());
+		lbPrice.setText(Double.toString(selectedCar.getPrice()));
+	}
+	
+	private void fillCustomerInfo() {
+		if(selectedCustomer == null)
+			return;
+		
+		lbAddress.setText(selectedCustomer.getAddress());
+		lbFirstName.setText(selectedCustomer.getFirstName());
+		lbLastName.setText(selectedCustomer.getLastName());
+		lbCity.setText(selectedCustomer.getCity());
+		lbEmail.setText(selectedCustomer.getEmail());
+		lbPhone.setText(selectedCustomer.getPhone());
+		lbZipCode.setText(selectedCustomer.getZipCode());
 	}
 
 	@Override
@@ -100,32 +212,56 @@ public class NewLoanApplicationController extends ValidatableController {
 
 	public void setRate(String rate) {
 		lbRate.setText(rate);
-		switch (rate) {
+		styleRKILabelRate(rate);
+	}
+
+	private void styleLabelForA() {
+		lbRate.getStyleClass().add("bg-green-600");
+		lbRate.getStyleClass().add("text-white");
+	}
+
+	private void styleLabelForB() {
+		lbRate.getStyleClass().add("bg-green-300");
+		lbRate.getStyleClass().add("text-gray-900");
+	}
+
+	private void styleLabelForC() {
+		lbRate.getStyleClass().add("bg-yellow-500");
+		lbRate.getStyleClass().add("text-white");
+	}
+
+	private void styleLabelForD() {
+		lbRate.getStyleClass().add("bg-red-600");
+		lbRate.getStyleClass().add("text-white");
+		showErrorMessage("Må ikke få .......", "asdasd");
+	}
+
+	private void styleRKILabelRate(String rkiRate) {
+
+		lbRate.getStyleClass().clear();
+
+		switch (rkiRate) {
 		case "A": {
-			lbRate.setStyle("-fx-background-color: #059669;");
-			lbRate.setStyle("-fx-text-fill: #ffffff;");
-			tabCar.setDisable(false);
+			styleLabelForA();
 			break;
 		}
 		case "B": {
-			lbRate.setStyle("-fx-background-color: #bef264;");
-			lbRate.setStyle("-fx-text-fill: #000000;");
-			tabCar.setDisable(false);
+			styleLabelForB();
 			break;
 		}
 		case "C": {
-			lbRate.setStyle("-fx-background-color: #f59e0b;");
-			lbRate.setStyle("-fx-text-fill: #000000;");
-			tabCar.setDisable(false);
+			styleLabelForC();
 			break;
 		}
 		case "D": {
-			lbRate.setStyle("-fx-background-color: #dc2626;");
-			lbRate.setStyle("-fx-text-fill: #ffffff;");
-			tabCar.setDisable(true);
+			styleLabelForD();
 			break;
 		}
 		}
+
+		lbRate.getStyleClass().add("border-color-white");
+		lbRate.getStyleClass().add("round-50");
+		lbRate.getStyleClass().add("shadow-2");
 	}
 
 }

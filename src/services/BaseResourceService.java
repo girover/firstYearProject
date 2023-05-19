@@ -70,7 +70,7 @@ public abstract class BaseResourceService implements ResourceServiceInterface {
 //		return null;
 //	}
 
-	public HashMap<String, Integer> getPaginationInfo(int page) {
+	private HashMap<String, Integer> getPaginationInfo(int page) {
 
 		HashMap<String, Integer> paginationInfo = new HashMap<>();
 

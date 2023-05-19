@@ -1,5 +1,25 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-
+.text-gray-50{
+	-fx-text-fill:#f9fafb;
+}
+.text-gray-100{
+	-fx-text-fill:#f3f4f6;
+}
+.text-gray-200{
+	-fx-text-fill:#e5e7eb;
+}
+.text-gray-300{
+	-fx-text-fill:#d1d5db;
+}
+.text-gray-400{
+	-fx-text-fill:#9ca3af;
+}
+.text-gray-500{
+	-fx-text-fill:#6b7280;
+}
+.text-gray-600{
+	-fx-text-fill:#4b5563;
+}
 .text-gray-700{
 	-fx-text-fill:#374151;
 }
@@ -81,6 +101,9 @@
 }
 .bg-yellow-400{
 	-fx-background-color:#facc15;
+}
+.bg-yellow-500{
+	-fx-background-color:#eab308;
 }
 .bg-success{
 	-fx-background-color:#22c55e;
@@ -224,36 +247,50 @@
 }
 .round-1{
 	-fx-background-radius:1.0px;
+	-fx-border-radius: 1.0px;
 }
 .round-2{
 	-fx-background-radius:2.0px;
+	-fx-border-radius: 2.0px;
 }
 .round-4{
 	-fx-background-radius:4.0px;
+	-fx-border-radius: 4.0px;
 }
 .round-6{
 	-fx-background-radius:6.0px;
+	-fx-border-radius: 6.0px;
 }
 .round-8{
 	-fx-background-radius:8.0px;
 }
 .round-10{
 	-fx-background-radius:10.0px;
+	-fx-border-radius: 10.0px;
 }
 .round-16{
 	-fx-background-radius:16.0px;
+	-fx-border-radius: 16.0px;
 }
 .round-20{
 	-fx-background-radius:20.0px;
+	-fx-border-radius: 20.0px;
 }
 .round-24{
 	-fx-background-radius:24.0px;
+	-fx-border-radius: 24.0px;
 }
 .round-28{
 	-fx-background-radius:28.0px;
+	-fx-border-radius: 28.0px;
 }
 .round-32{
 	-fx-background-radius:32.0px;
+	-fx-border-radius: 32.0px;
+}
+.round-50{
+	-fx-background-radius:50%;
+	-fx-border-radius: 50%;
 }
 .btn{
 	-fx-cursor:hand;
@@ -281,6 +318,28 @@
 
 .border-none{
 	-fx-border-width: 0.0px;
+}
+
+.border-dashed{
+	-fx-border-style: dashed;
+}
+.border-solid{
+	-fx-border-style: solid;
+}
+.border-dotted{
+	-fx-border-style: dotted;
+}
+
+.border-b-1{
+	-fx-border-width: 0 0 1px 0;
+}
+
+.border-b-2{
+	-fx-border-width: 0 0 2px 0;
+}
+
+.border-b-3{
+	-fx-border-width: 0 0 3px 0;
 }
 
 .border-color-slate-50{
@@ -314,7 +373,11 @@
 	-fx-border-color:#0f172a;
 }
 .border-color-slate-950{
-	-fx-background-color:#020617;
+	-fx-border-color:#020617;
+}
+
+.border-color-white{
+	-fx-border-color:#ffffff;
 }
 
 .shadow{

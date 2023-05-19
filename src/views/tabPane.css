@@ -1,10 +1,12 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-* {
+/* * {
 	-fx-primary-color: #007acc;
 	-fx-secondary-color: #4B6EAF;
 
 	-fx-focus-color: -fx-secondary-color;
 }
+* 
+*/
 
 .tab-header-area .tab-header-background {
  	-fx-background-color: #f3f4f6;
@@ -16,10 +18,17 @@
 }
 .tab-pane .tab {
 	-fx-background-color: #e2e8f0;
-	-fx-border-color: #0891b2;
+	/*-fx-border-color: #0891b2;
 	-fx-border-width: 0 0 3px 0;
-	-fx-border-style: solid;
+	-fx-border-style: solid;*/
 	-fx-cursor: hand;
+	-fx-border-radius:50%;
+	-fx-background-radius:50%;
+	-fx-pref-width: 100px;
+	-fx-pref-height: 100px;
+	-fx-font-size: 24px;
+	-fx-gap-start-and-end: 5;
+	-fx-text-alignment: center;	
 }
 .tab-pane .tab:selected {
 	-fx-background-insets: 0 0 0 0;
@@ -30,23 +39,31 @@
 	-fx-border-color: #0891b2;
 	-fx-border-width: 0 0 3px 0;
 	-fx-border-style: solid ;
+	
+	-fx-border-radius:50%;
+	-fx-background-radius:50%;
+	-fx-pref-width: 100px;
+	-fx-pref-height: 100px;
+	-fx-font-size: 24px;
 }
 .tab-pane .tab:selected .tab-label{
-	-fx-text-fill: #ffffff;	
+	-fx-text-fill: #ffffff;
 }
 
 .tab .tab-label { 
  	-fx-alignment: CENTER;
+ 	-fx-text-alignment: center;
 	-fx-text-fill: #1e293b;
 	-fx-font-weight: bold;
 	-fx-padding: 0 10 0 10;
 }
 .tab-pane:top *.tab-header-area {
-	-fx-padding: 0 0 0 100;
+	-fx-padding: 0 0 20 100;
 	
 	/* NO SPACE LEFT OF FIRST TAB */
 	/* -fx-padding: 0 0 0 30; */
 }
+
 .tab-pane {
 	-fx-background-color: #e2e8f0;
 	-fx-tab-min-width: 100px;

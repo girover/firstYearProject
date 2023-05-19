@@ -98,4 +98,13 @@ public class CustomerService extends BaseResourceService {
 		return repository.delete((Customer) entity);
 	}
 
+	public Customer findByCPR(String cpr) {
+		ArrayList<Customer> c = (ArrayList<Customer>) repository.getByCondition("CPRHash", "=", cpr);
+		if(c.size()==0)
+			return null;
+		
+		return c.get(0);
+		
+	}
+
 }

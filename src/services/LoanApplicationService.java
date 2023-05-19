@@ -1,13 +1,13 @@
 package services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Observer;
+
 import app.FormData;
-import database.entities.Car;
 import database.entities.Entity;
 import database.entities.LoanApplication;
 import database.repositories.LoanApplicationRepository;
+import exception.LoanException;
 
 
 /**
@@ -73,6 +73,50 @@ public class LoanApplicationService extends BaseResourceService {
 	@Override
 	public boolean delete(Entity entity) {
 		return repository.delete((LoanApplication) entity);
+	}
+	
+	/**
+	 * Send request to the RKI API to check to credit rate the sent cpr number.
+	 * @param cpr
+	 * @param controller: Response will be sent to this observer controller.
+	 */
+	public void SendRKIRequest(String cpr, Observer controller) {
+		RKIService rkiService = new RKIService(cpr, controller);
+		rkiService.sendRequest();
+	}
+	
+	/**
+	 * Send request to the Bank API to get the today's bank's interest rates.
+	 * @param cpr
+	 * @param controller: Response will be sent to this observer controller.
+	 */
+	public void SendBankRequest(Observer controller) {
+		BankService bankService = new BankService(controller);
+		bankService.sendRequest();
+	}
+	
+	public double getCalculatedInterestRate(String cprCreditRate, double bankInteretRate, int months, double totalAmount, double payment) {
+		double extraInterestRate = 0;
+		switch (cprCreditRate) {
+		case "A": {
+			extraInterestRate = 1;
+			break;
+		}
+		case "B": {
+			extraInterestRate = 2;
+			break;
+		}
+		case "C": {
+			extraInterestRate = 3;
+			break;
+		}
+		case "D": {
+			throw new LoanException("D credit cpr is not acceptable for loan");
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + cprCreditRate);
+		}
+		return 0;
 	}
 
 }

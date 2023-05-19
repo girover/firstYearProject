@@ -7,14 +7,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<VBox fx:id="carItem" alignment="TOP_CENTER" onMouseClicked="#handleVBoxOnMouseClicked" onMouseEntered="#handleOnMouseEntered" onMouseExited="#handleOnMouseExited" prefHeight="392.0" prefWidth="236.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.component.CarItemController">
+<VBox fx:id="carItem" alignment="TOP_CENTER" onMouseClicked="#handleVBoxOnMouseClicked" onMouseEntered="#handleOnMouseEntered" onMouseExited="#handleOnMouseExited" prefHeight="306.0" prefWidth="204.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.component.CarItemController">
    <children>
-      <ImageView fitHeight="143.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="130.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
@@ -24,18 +23,18 @@
       </ImageView>
       <Label fx:id="carName" alignment="CENTER" prefHeight="18.0" prefWidth="271.0" text="458 MM Speciale Spider" textAlignment="CENTER">
          <font>
-            <Font name="Times New Roman Bold" size="22.0" />
+            <Font name="Times New Roman Bold" size="18.0" />
          </font>
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
          <padding>
-            <Insets bottom="10.0" top="10.0" />
+            <Insets bottom="2.0" top="2.0" />
          </padding>
       </Label>
       <Label fx:id="modelYear" alignment="CENTER" prefHeight="18.0" prefWidth="271.0" text="2021" textAlignment="CENTER">
          <font>
-            <Font name="Agency FB Bold" size="24.0" />
+            <Font name="Agency FB Bold" size="18.0" />
          </font>
          <padding>
             <Insets bottom="10.0" />
@@ -43,24 +42,23 @@
       </Label>
       <Label fx:id="mileage" alignment="CENTER" prefHeight="18.0" prefWidth="271.0" text="1000 km" textAlignment="CENTER">
          <font>
-            <Font name="Agency FB Bold" size="24.0" />
+            <Font name="Agency FB Bold" size="18.0" />
          </font>
          <padding>
             <Insets bottom="10.0" />
          </padding>
       </Label>
-      <Label fx:id="price" alignment="CENTER" prefHeight="18.0" prefWidth="271.0" text="2,500,000 $" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="price" alignment="CENTER" prefHeight="24.0" prefWidth="245.0" text="2,500,000 $" textAlignment="CENTER" textFill="RED">
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
          <padding>
-            <Insets bottom="10.0" top="10.0" />
+            <Insets bottom="2.0" top="2.0" />
          </padding>
       </Label>
-      <Pane prefHeight="0.0" prefWidth="246.0" styleClass="bg-white" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER" prefHeight="52.0" prefWidth="245.0">
          <children>
-            <Button fx:id="btnShow" mnemonicParsing="false" onAction="#handleBtnShowClick" prefHeight="30.0" prefWidth="114.0" text="Show">
+            <Button fx:id="btnShow" mnemonicParsing="false" onAction="#handleBtnShowClick" prefHeight="20.0" prefWidth="63.0" text="Show">
                <styleClass>
                   <String fx:value="bg-danger" />
                   <String fx:value="btn" />
@@ -71,6 +69,9 @@
                <font>
                   <Font size="14.0" />
                </font>
+               <HBox.margin>
+                  <Insets bottom="4.0" />
+               </HBox.margin>
             </Button>
          </children>
       </HBox>
