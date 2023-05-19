@@ -6,40 +6,56 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 /**
- * This is a utility class providing functionalities for hashing and verifying strings. 
+ * This is a utility class providing functionalities for hashing and verifying
+ * strings.
  *
- * It includes methods for hashing a string with a salt, verifying a string against a given hash, 
- * and generating a secure salt for use in the hashing process.
+ * The class includes public methods for:
+ * - Hashing a string with a salt, using the `secureHash` method.
+ * - Hashing a string without a salt, using the `deterministicHash` method.
+ * - Verifying a string against a given hash using the `verify` method.
  *
  * @version 1.0
  *
  * @author Rasmus Kortsen
- *       - Email: Rasmus.kortsen1@gmail.com
- *       - Github: https://github.com/rasm685p
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
  */
+
 public class HashingService {
 
-	public static String hash(String text) {
+	public static String secureHash(String text) {
 		return hash(text, generateSalt());
 	}
 
-	public static boolean verify(String text, String hash) {
-		if (hash.length() < 24) {
-			throw new IllegalArgumentException("Hash length is less than 24 characters");
-		}
-		String salt = hash.substring(hash.length() - 24);
-
-		return hash(text, salt).equals(hash);
+	public static String deterministicHash(String text) {
+		return hash(text, hash(text, null));
 	}
 
 	private static String hash(String text, String salt) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
-			md.update(salt.getBytes());
+			if (salt != null) {
+				md.update(salt.getBytes());
+			}
+
 			byte[] hashedString = md.digest(text.getBytes());
-			return Base64.getEncoder().encodeToString(hashedString) + salt;
+			String encodedString = Base64.getEncoder().encodeToString(hashedString);
+
+			return (salt != null) ? encodedString + salt : encodedString;
 		} catch (NoSuchAlgorithmException | NullPointerException e) {
 			throw new RuntimeException("Error during hashing", e);
+		}
+	}
+
+	public static boolean verify(String text, String hash) {
+		try {
+			if (deterministicHash(text).equals(hash)) {
+				return true;
+			}
+			String salt = hash.substring(hash.length() - 24);
+			return hash(text, salt).equals(hash);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Provided hash seems to be invalid");
 		}
 	}
 
