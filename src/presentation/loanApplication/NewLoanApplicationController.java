@@ -136,6 +136,7 @@ public class NewLoanApplicationController extends ValidatableController {
 		loanAppService.SendRKIRequest(inputCpr.getText(), this);
 		
 		CustomerService service = new CustomerService();
+		
 		selectedCustomer = service.findByCPR(inputCpr.getText());
 		
 		if(selectedCustomer == null) {

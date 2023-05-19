@@ -99,6 +99,9 @@ public class CustomerService extends BaseResourceService {
 	}
 
 	public Customer findByCPR(String cpr) {
+		
+		cpr = HashingService.deterministicHash(cpr);
+		
 		ArrayList<Customer> c = (ArrayList<Customer>) repository.getByCondition("CPRHash", "=", cpr);
 		if(c.size()==0)
 			return null;
