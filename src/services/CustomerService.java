@@ -50,7 +50,7 @@ public class CustomerService extends BaseResourceService {
 		
 		Customer customer = new Customer();
 		// Hashing password
-		String hashedPassword = HashingService.hash((String)data.input("cpr"));
+		String hashedPassword = HashingService.deterministicHash((String)data.input("cpr"));
 		
 		customer.setCPRHash(hashedPassword);
 		customer.setFirstName((String)data.input("firstName"));
