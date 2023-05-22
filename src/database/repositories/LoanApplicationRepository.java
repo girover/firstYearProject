@@ -119,9 +119,9 @@ public class LoanApplicationRepository extends Repository {
 
 		String sql = "INSERT INTO [" + table + "] " + "(" 
 				+ "[customerID]," 
-				+ "[salesPersonID],"
+				+ "[sellerID],"
 				+ "[carID]," 
-				+ "[applicationDate]," 
+//				+ "[applicationDate]," 
 				+ "[loanAmount]," 
 				+ "[payment],"
 				+ "[months]," 
@@ -129,13 +129,13 @@ public class LoanApplicationRepository extends Repository {
 				+ "[monthlyPayment]," 
 				+ "[status],"
 				+ "[note]) " 
-				+ "VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		int id = insertAndGetGeneratedId(sql, 
 				loanApplication.getCustomerID(), 
 				loanApplication.getSellerID(),
 				loanApplication.getCarID(), 
-				loanApplication.getApplicationDate(), 
+//				loanApplication.getApplicationDate(), 
 				loanApplication.getLoanAmount(),
 				loanApplication.getPayment(), 
 				loanApplication.getMonths(), 

@@ -97,6 +97,10 @@ public class CarService extends BaseResourceService {
 		return models;
 	}
 	
+	public ArrayList<Car> getFreeCars(){
+		return ((CarRepository)repository).getFreeCars();
+	}
+	
 	public ArrayList<Car> getByModel(String model){
 		
 		return ((CarRepository)repository).getByModel(model);

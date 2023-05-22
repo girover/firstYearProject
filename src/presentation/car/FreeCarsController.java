@@ -27,7 +27,7 @@ import services.Paginator;
 import window.Component;
 import window.Window;
 
-public class CarsController extends BaseController {
+public class FreeCarsController extends BaseController {
 
 	private CarService carService = new CarService();
 
@@ -74,10 +74,8 @@ public class CarsController extends BaseController {
 		renderCars();
     }
 	
-	private void loadCars(int page) {
-		Paginator p = carService.paginate(page);
-		ArrayList<Car> cars = p.castDataTo(Car.class);
-//		ArrayList<Car> cars = carService.getPage(page);
+	private void loadCars() {
+		ArrayList<Car> cars = carService.getFreeCars();
 		carsList.addAll(cars);
 	}
 
@@ -132,7 +130,7 @@ public class CarsController extends BaseController {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		try {
-			loadCars(1);
+			loadCars();
 			loadModels();
 			renderCars();
 			paginate();

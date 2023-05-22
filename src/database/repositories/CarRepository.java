@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import database.entities.Car;
 import database.entities.Entity;
+import database.entities.LoanApplication;
 import database.entities.User;
 
 /**
@@ -153,6 +154,14 @@ public class CarRepository extends Repository {
 		}
 		
 		return carsModels;
+	}
+	
+	public ArrayList<Car> getFreeCars(){
+		String sql = "SELECT * FROM [car] "
+				+ "WHERE [id] NOT IN (SELECT [carID] FROM [loanApplication] WHERE [status] = '"+LoanApplication.PROCESSING+"' or [status] = '"+LoanApplication.APPROVED+"');";
+		
+		ResultSet result = select(sql);
+		return mapResultSetToEntityList(result);
 	}
 	
 	public ArrayList<Car> getByModel(String model){

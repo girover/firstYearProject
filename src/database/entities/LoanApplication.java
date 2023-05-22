@@ -18,6 +18,10 @@ import java.sql.SQLException;
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/LoanApplication.java">Class Code On Github</a>
  */
 public class LoanApplication extends Entity {
+	
+	public static final String PROCESSING = "processing";
+	public static final String APPROVED   = "approved";
+	public static final String REJECTED   = "rejected";
 
 	private int id;
 	private int customerID;
@@ -25,10 +29,10 @@ public class LoanApplication extends Entity {
 	private int carID;
 	private String applicationDate;
 	private int loanAmount;
-	private float payment;
+	private double payment;
 	private int months;
-	private float interestRate;
-	private float monthlyPayment;
+	private double interestRate;
+	private double monthlyPayment;
 	private String status;
 	private String note;
 
@@ -84,11 +88,11 @@ public class LoanApplication extends Entity {
 		this.loanAmount = loanAmount;
 	}
 
-	public float getPayment() {
+	public double getPayment() {
 		return payment;
 	}
 
-	public void setPayment(float payment) {
+	public void setPayment(double payment) {
 		this.payment = payment;
 	}
 
@@ -100,19 +104,19 @@ public class LoanApplication extends Entity {
 		this.months = months;
 	}
 
-	public float getInterestRate() {
+	public double getInterestRate() {
 		return interestRate;
 	}
 
-	public void setInterestRate(float interestRate) {
+	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
 
-	public float getMonthlyPayment() {
+	public double getMonthlyPayment() {
 		return monthlyPayment;
 	}
 
-	public void setMonthlyPayment(float monthlyPayment) {
+	public void setMonthlyPayment(double monthlyPayment) {
 		this.monthlyPayment = monthlyPayment;
 	}
 

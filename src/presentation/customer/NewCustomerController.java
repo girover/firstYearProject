@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import app.FormData;
+import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
 import javaFxValidation.annotations.Rules;
@@ -56,6 +57,8 @@ public class NewCustomerController extends ValidatableController {
     @FXML
     @Rules(field="zip code", rules="required|numeric")
     private TextField inputZipCode;
+    
+    private Customer createdCustomer;
 
     @FXML
     void handleBtnAddClick(ActionEvent event) throws ValidationException {
@@ -68,8 +71,10 @@ public class NewCustomerController extends ValidatableController {
     	}
     	
     	CustomerService customerService = new CustomerService();
-    	if(customerService.create(getFormData()) != null) {
+    	createdCustomer = customerService.create(getFormData());
+    	if(createdCustomer != null) {
     		flashSuccessMessage("Customer created Successfuly", "Created Customer");
+    		fire(null);
     		return;
     	}else
     		showErrorMessage("Failed to create new customer", "Creaing Customer failed");
@@ -89,6 +94,10 @@ public class NewCustomerController extends ValidatableController {
     	formData.setData("zipCode", inputZipCode.getText());
     	
     	return formData;
+    }
+    
+    public Customer getCreatedCustomer() {
+    	return createdCustomer;
     }
 
     @FXML

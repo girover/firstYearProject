@@ -91,7 +91,7 @@ CREATE TABLE [customer] (
   email nvarchar(100) NOT NULL UNIQUE,
   phone nvarchar(20) NOT NULL,
   [address] nvarchar(255) NOT NULL,
-  CPRHash nvarchar(68) NOT NULL,
+  CPRHash nvarchar(100) NOT NULL,
   zipCode nvarchar(6) NOT NULL,
   city nvarchar(50) NOT NULL,
   --creditWorthiness nvarchar(1) NOT NULL CHECK (creditWorthiness IN ('A', 'B', 'C', 'D'))
@@ -166,7 +166,7 @@ CREATE TABLE [loanApplication]
 	[payment] int NOT NULL,
 	[months] int NOT NULL,
 	[interestRate] float NOT NULL,
-	[monthlyPayment] decimal(6,2),
+	[monthlyPayment] decimal(12,2),
 	[status] nvarchar(100) NOT NULL CHECK ([status] IN ('processing','approved', 'rejected')),
 	[note] text
 );

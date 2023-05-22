@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import app.Helper;
 import database.entities.Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,13 +41,11 @@ public class CarItemController extends BaseController {
 
 	public void setData(Car car) {
 		this.car = car;
-		NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
-		String formattedPrice = numberFormat.format(car.getPrice());
 
 		carName.setText(car.getModel());
 		mileage.setText(Integer.toString(car.getMileage()) + " km.");
 		modelYear.setText(Integer.toString(car.getYear()));
-		price.setText(formattedPrice + " kr.");
+		price.setText(Helper.formatCurrency(car.getPrice()));
 	}
 
 	@FXML
@@ -58,7 +57,7 @@ public class CarItemController extends BaseController {
 	void handleVBoxOnMouseClicked(MouseEvent event) {
 		
 		if (event.getClickCount() == 2) {
-			fire(null);
+			fire(2);
 		}
 	}
 

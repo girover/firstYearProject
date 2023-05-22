@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -73,7 +74,7 @@
                                  <children>
                                     <VBox layoutY="188.0" prefWidth="1104.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <TabPane minHeight="700.0" prefWidth="1104.0" styleClass="bg-blue-400" stylesheets="@../tabPane.css" tabClosingPolicy="UNAVAILABLE">
+                                          <TabPane fx:id="tabPane" minHeight="700.0" prefWidth="1104.0" styleClass="bg-blue-400" stylesheets="@../tabPane.css" tabClosingPolicy="UNAVAILABLE">
                                             <tabs>
                                               <Tab fx:id="tabCar" text="1">
                                                    <content>
@@ -105,21 +106,27 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputVIN" prefHeight="31.0" prefWidth="364.0" promptText="VIN">
+                                                                                    <Label fx:id="lbVIN" prefHeight="22.0" prefWidth="407.0">
                                                                                        <font>
-                                                                                          <Font size="14.0" />
+                                                                                          <Font name="System Bold" size="14.0" />
                                                                                        </font>
+                                                                                       <padding>
+                                                                                          <Insets left="10.0" />
+                                                                                       </padding>
                                                                                        <styleClass>
-                                                                                          <String fx:value="form-control-bottom" />
-                                                                                          <String fx:value="font-weight-bold" />
+                                                                                          <String fx:value="border-b-2" />
+                                                                                          <String fx:value="border-dotted" />
+                                                                                          <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
-                                                                                    </TextField>
+                                                                                    </Label>
                                                                                     <Button fx:id="btnSearchCar" mnemonicParsing="false" onAction="#handleBtnSearchCarClick" prefHeight="28.0" prefWidth="24.0">
                                                                                        <styleClass>
                                                                                           <String fx:value="btn" />
                                                                                           <String fx:value="bg-yellow-400" />
                                                                                           <String fx:value="shadow" />
                                                                                           <String fx:value="bold" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                        <HBox.margin>
                                                                                           <Insets left="10.0" />
@@ -151,6 +158,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -176,6 +184,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -201,6 +210,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -226,6 +236,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -251,6 +262,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -276,6 +288,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -301,6 +314,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -326,6 +340,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -351,6 +366,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -376,6 +392,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -401,6 +418,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -426,6 +444,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -440,7 +459,7 @@
                                                       </AnchorPane>
                                                    </content>
                                                 </Tab>
-                                              <Tab fx:id="tabPerson" text="2">
+                                              <Tab fx:id="tabCustomer" disable="true" text="2">
                                                    <content>
                                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                          <children>
@@ -476,6 +495,7 @@
                                                                                        <styleClass>
                                                                                           <String fx:value="form-control-bottom" />
                                                                                           <String fx:value="font-weight-bold" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </TextField>
                                                                                     <Button fx:id="btnCheckRKI" mnemonicParsing="false" onAction="#handleBtnCheckRKIClick" text="Check RKI">
@@ -512,6 +532,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
                                                                                           <String fx:value="border-dotted" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -537,6 +558,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -562,6 +584,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -587,6 +610,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -612,6 +636,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -637,6 +662,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -662,6 +688,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -692,7 +719,7 @@
                                                       </AnchorPane>
                                                    </content>
                                                 </Tab>
-                                                <Tab fx:id="tabLoan" text="3">
+                                                <Tab fx:id="tabLoan" disable="true" text="3">
                                                    <content>
                                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                          <children>
@@ -732,9 +759,10 @@
                                                                                           <String fx:value="border-color-slate-500" />
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
-                                                                                    <Button fx:id="btnCheckRKI1" mnemonicParsing="false" onAction="#handleBtnCheckRKIClick" prefHeight="26.0" prefWidth="68.0" text="fetch">
+                                                                                    <Button fx:id="btnBankFetch" mnemonicParsing="false" onAction="#handleBtnBankFetchClick" prefHeight="26.0" prefWidth="68.0" text="fetch">
                                                                                        <styleClass>
                                                                                           <String fx:value="btn" />
                                                                                           <String fx:value="bg-yellow-400" />
@@ -768,6 +796,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
                                                                                           <String fx:value="border-dotted" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -782,13 +811,17 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputDownPayment" prefHeight="28.0" prefWidth="339.0">
+                                                                                    <TextField fx:id="inputDownPayment" onAction="#handleInputDownPaymentAction" prefHeight="28.0" prefWidth="339.0">
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="bg-transparent" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
                                                                                     </TextField>
                                                                                  </children>
                                                                               </HBox>
@@ -802,14 +835,20 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputLoanAmount" prefHeight="28.0" prefWidth="339.0">
+                                                                                    <Label fx:id="lbLoanAmount" prefHeight="26.0" prefWidth="338.0">
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
+                                                                                       <padding>
+                                                                                          <Insets left="10.0" />
+                                                                                       </padding>
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
                                                                                           <String fx:value="border-dotted" />
-                                                                                          <String fx:value="bg-transparent" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
-                                                                                    </TextField>
+                                                                                    </Label>
                                                                                  </children>
                                                                               </HBox>
                                                                               <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
@@ -822,13 +861,17 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputMonths" prefHeight="28.0" prefWidth="339.0">
+                                                                                    <TextField fx:id="inputMonths" onAction="#handleInputMonthsOnAction" prefHeight="28.0" prefWidth="339.0">
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="bg-transparent" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
+                                                                                       <font>
+                                                                                          <Font name="System Bold" size="14.0" />
+                                                                                       </font>
                                                                                     </TextField>
                                                                                  </children>
                                                                               </HBox>
@@ -853,6 +896,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -878,6 +922,7 @@
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-dotted" />
                                                                                           <String fx:value="border-color-slate-400" />
+                                                                                          <String fx:value="text-danger" />
                                                                                        </styleClass>
                                                                                     </Label>
                                                                                  </children>
@@ -887,30 +932,24 @@
                                                                         </VBox>
                                                                      </children>
                                                                   </AnchorPane>
-                                                                  <Pane prefHeight="626.0" prefWidth="234.0">
-                                                                     <children>
-                                                                        <Label fx:id="lbRate1" alignment="CENTER" layoutX="24.0" layoutY="46.0" prefHeight="186.0" prefWidth="186.0" text="?">
-                                                                           <font>
-                                                                              <Font name="System Bold" size="64.0" />
-                                                                           </font>
-                                                                           <styleClass>
-                                                                              <String fx:value="text-gray-300" />
-                                                                              <String fx:value="round-50" />
-                                                                              <String fx:value="bg-slate-200" />
-                                                                              <String fx:value="shadow-2" />
-                                                                           </styleClass>
-                                                                        </Label>
-                                                                     </children>
-                                                                  </Pane>
+                                                                  <Pane prefHeight="626.0" prefWidth="234.0" />
                                                                </children>
                                                             </HBox>
                                                          </children>
                                                       </AnchorPane>
                                                    </content>
                                                 </Tab>
-                                                <Tab fx:id="tabNote" text="4">
+                                                <Tab fx:id="tabNote" disable="true" text="4">
                                                    <content>
-                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label text="Note" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="10.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextArea fx:id="textAreaNote" prefHeight="390.0" prefWidth="1024.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
+                                                         </children></AnchorPane>
                                                    </content>
                                                 </Tab>
                                             </tabs>
@@ -925,7 +964,7 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="95.0" text="Add" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="28.0" prefWidth="95.0" text="Add" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
@@ -959,6 +998,18 @@
                                  </styleClass>
                                  <graphic>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnNext" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnNextClick" prefHeight="28.0" prefWidth="97.0" text="Next" AnchorPane.rightAnchor="160.0">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="bg-green-600" />
+                                    <String fx:value="bold" />
+                                    <String fx:value="text-white" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-arrow-right" iconSize="20" />
                                  </graphic>
                               </Button>
                            </children>

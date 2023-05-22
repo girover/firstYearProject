@@ -4,8 +4,12 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import app.App;
+import app.FormData;
+import app.Helper;
 import database.entities.Car;
 import database.entities.Customer;
+import database.entities.LoanApplication;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Rules;
 import javafx.application.Platform;
@@ -14,9 +18,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import presentation.car.CarsController;
+import presentation.car.FreeCarsController;
+import presentation.customer.NewCustomerController;
 import services.BankService;
 import services.CustomerService;
 import services.LoanApplicationService;
@@ -26,10 +34,10 @@ import window.Window;
 public class NewLoanApplicationController extends ValidatableController {
 
 	@FXML
-	private Button btnCheckRKI;
-
+    private TabPane tabPane;
+	
 	@FXML
-	private Button btnSearchCar;
+	private Button btnCheckRKI;
 
 	@FXML
 	private Label lbRate;
@@ -41,7 +49,7 @@ public class NewLoanApplicationController extends ValidatableController {
 	private Tab tabLoan;
 
 	@FXML
-	private Tab tabPerson;
+	private Tab tabCustomer;
 
 	@FXML
 	private Tab tabNote;
@@ -74,8 +82,10 @@ public class NewLoanApplicationController extends ValidatableController {
 
 	// =============== Car Information ====================
 	@FXML
-	@Rules(field = "vin", rules = "required|alphaNumeric")
-	private TextField inputVIN;
+	private Button btnSearchCar;
+	
+	@FXML
+	private Label lbVIN;
 	
 	@FXML
 	private Label lbModel;
@@ -112,7 +122,45 @@ public class NewLoanApplicationController extends ValidatableController {
     
     @FXML
     private Label lbPrice;
+    //=============== Loan information =====================    
+    @FXML
+    private Button btnBankFetch;
+    
+    @FXML
+    @Rules(field = "down payment", rules = "required|numeric")
+    private TextField inputDownPayment;
+
+    @FXML
+    @Rules(field = "months", rules = "required|numeric|gt:0")
+    private TextField inputMonths;
+    
+    @FXML
+    private Label lbBankInterestRate;
+    
+    @FXML
+    private Label lbCarPrice;
+    
+    @FXML
+    private Label lbInterestRate;
+    
+    @FXML
+    private Label lbLoanAmount;
+    
+    @FXML
+    private Label lbMonthlyPayment;
+    
+    @FXML
+    private TextArea textAreaNote;
+    
+    private LoanApplication loanApplication = new LoanApplication();
+    
     //==================================================
+    
+    @FXML
+    private Button btnAdd;
+    
+    @FXML
+    private Button btnNext;
 
 	private Car selectedCar;
 	private Customer selectedCustomer;
@@ -120,6 +168,13 @@ public class NewLoanApplicationController extends ValidatableController {
 	private LoanApplicationService loanAppService = new LoanApplicationService();
 	private String rkiRate;
 	private double bankInterestRate;
+	private double totalInterestRate;
+	private double monthlyPayment;
+	
+	
+	private Tab[] tabs = new Tab[4];
+	private int currentTabIndex = 0;
+	private boolean[] completedSteps = new boolean[4];
 
 	@FXML
 	void handleBtnCheckRKIClick(ActionEvent event) {
@@ -141,6 +196,8 @@ public class NewLoanApplicationController extends ValidatableController {
 		
 		if(selectedCustomer == null) {
 			Window customersWindow = new Window("customer/NewCustomer.fxml", "Customer");
+			NewCustomerController controller = (NewCustomerController)customersWindow.getController();
+			controller.addObserver(this);
 			customersWindow.show();
 		}else
 			fillCustomerInfo();
@@ -150,10 +207,142 @@ public class NewLoanApplicationController extends ValidatableController {
 
 	@FXML
 	void handleBtnSearchCarClick(ActionEvent event) {
-		Window carsWindow = new Window("car/Cars.fxml", "Cars");
-		CarsController controller = (CarsController) carsWindow.getController();
+		Window carsWindow = new Window("car/FreeCars.fxml", "Cars");
+		FreeCarsController controller = (FreeCarsController) carsWindow.getController();
 		controller.addObserver(this);
 		carsWindow.show();
+	}
+	
+	@FXML
+    void handleBtnBankFetchClick(ActionEvent event) {
+		loanAppService.SendBankRequest(this);
+    }
+	
+	@FXML
+    void handleInputMonthsOnAction(ActionEvent event) throws ValidationException {
+
+		loanApplication.setMonths(Integer.parseInt(inputMonths.getText()));
+		calculateTotalInterestRate();
+		calculateMonthlyPayment();
+    }
+	
+	@FXML
+    void handleInputDownPaymentAction(ActionEvent event) throws ValidationException {
+		
+		int downPayment = Integer.parseInt(inputDownPayment.getText());
+		
+		if(downPayment >= selectedCar.getPrice()) {
+			showErrorMessage("Please check the down payment.", "Error");
+			return;
+		}
+		
+		loanApplication.setPayment(downPayment);
+		
+		
+		loanApplication.setLoanAmount(selectedCar.getPrice() - downPayment);
+		
+		lbLoanAmount.setText(Helper.formatCurrency(loanApplication.getLoanAmount()));
+		
+		calculateTotalInterestRate();
+		calculateMonthlyPayment();
+    }
+	
+	@FXML
+	void handleBtnNextClick(ActionEvent event) {
+		if(currentTabIndex >= 3)
+			return;
+		
+		if(currentTabIndex == 1)
+			if(!completedSteps[1] || rkiRate.equals("D")) {
+				flashErrorMessage("Please complet this step. D can not get loan", "Loan Error");
+				return;
+			}
+		
+		if(currentTabIndex == 2)
+			if(checkLoanStep())
+				completedSteps[currentTabIndex] = true;
+		if(currentTabIndex == 3)
+			completedSteps[currentTabIndex] = true;
+		
+		if(completedSteps[currentTabIndex])
+			openTab(++currentTabIndex);
+		else
+			flashErrorMessage("Please complet this step to go the next step", "Uncompleted Step");
+	}
+
+	@FXML
+	void handleBtnAddClick(ActionEvent event) {
+		
+		if(!isCompleted()) {
+			flashErrorMessage("Please Complet all steps.", "Uncompleted");
+			return;
+		}
+		
+		FormData data = new FormData();
+		data.setData("carID", selectedCar.getId());
+		data.setData("customerID", selectedCustomer.getId());
+		data.setData("sellerID", App.getAuthenticatedUser().getEmployee().getId());
+		data.setData("loanAmount", loanApplication.getLoanAmount());
+		data.setData("payment", loanApplication.getPayment());
+		data.setData("months", loanApplication.getMonths());
+		data.setData("interestRate", totalInterestRate);
+		data.setData("monthlyPayment", monthlyPayment);
+		data.setData("status", LoanApplication.PROCESSING);
+		data.setData("note", textAreaNote.getText());
+
+		LoanApplication loanApp = loanAppService.create(data);
+		if(loanApp == null) {
+			showErrorMessage("Failed to create new loan application", "Creating Failed");
+			return;
+		}
+		else
+			flashSuccessMessage("Loan application is created successfuly", "Success");
+	}
+
+	private boolean isCompleted() {
+		for(int i=0; i<4; i++)
+			if(completedSteps[i] == false)
+				return false;
+		
+		return true;
+	}
+
+	private boolean checkLoanStep() {
+		return (
+				lbBankInterestRate.getText().isBlank()|
+				inputDownPayment.getText().isBlank()|
+				lbLoanAmount.getText().isBlank()|
+				inputMonths.getText().isBlank()|
+				lbInterestRate.getText().isBlank()|
+				lbMonthlyPayment.getText().isBlank()
+		   ) ? false : true;
+	}
+	
+	private void calculateTotalInterestRate() {
+		
+		totalInterestRate = loanAppService.getCalculatedInterestRate(
+				rkiRate, 
+				bankInterestRate, 
+				loanApplication.getMonths(), 
+				selectedCar.getPrice(), 
+				loanApplication.getPayment());
+		
+		lbInterestRate.setText(Helper.formatNumber(totalInterestRate));
+	}
+	
+	private void calculateMonthlyPayment() {
+		monthlyPayment = loanAppService.getCalculatedMothlyPayment(
+				loanApplication.getLoanAmount(),
+				loanApplication.getMonths(),
+				totalInterestRate
+				);
+		
+		lbMonthlyPayment.setText(Helper.formatCurrency(monthlyPayment));
+	}
+	
+	private void openTab(int currentTabIndex) {
+		tabs[currentTabIndex].setDisable(false);
+		tabPane.getSelectionModel().select(currentTabIndex);
 	}
 
 	@Override
@@ -167,18 +356,22 @@ public class NewLoanApplicationController extends ValidatableController {
 		} else if (o instanceof BankService) {
 
 			bankInterestRate = ((BankService) o).getInterestRate();
-			System.out.println(bankInterestRate);
+			Platform.runLater(() -> setBankInterestRate(bankInterestRate));
 
-		} else if (o instanceof CarsController) {
+		} else if (o instanceof FreeCarsController) {
 
-			selectedCar = ((CarsController) o).getSelectedCar();
+			selectedCar = ((FreeCarsController) o).getSelectedCar();
 			fillCarInformation();
+		} else if (o instanceof NewCustomerController) {
+
+			selectedCustomer = ((NewCustomerController) o).getCreatedCustomer();
+			fillCustomerInfo();
 		}
 
 	}
 
 	private void fillCarInformation() {
-		inputVIN.setText(selectedCar.getVin());
+		lbVIN.setText(selectedCar.getVin());
 		lbModel.setText(selectedCar.getModel());
 		lbYear.setText(Integer.toString(selectedCar.getYear()));
 		lbHorsepower.setText(Integer.toString(selectedCar.getHorsepower()));
@@ -190,7 +383,11 @@ public class NewLoanApplicationController extends ValidatableController {
 		lbSeats.setText(Integer.toString(selectedCar.getSeats()));
 		lbDoors.setText(Integer.toString(selectedCar.getDoors()));
 		lbColor.setText(selectedCar.getColor());
-		lbPrice.setText(Double.toString(selectedCar.getPrice()));
+		lbPrice.setText(Helper.formatCurrency(selectedCar.getPrice()));
+		
+		lbCarPrice.setText(Helper.formatCurrency(selectedCar.getPrice()));
+		
+		completedSteps[0] = true;
 	}
 	
 	private void fillCustomerInfo() {
@@ -204,16 +401,35 @@ public class NewLoanApplicationController extends ValidatableController {
 		lbEmail.setText(selectedCustomer.getEmail());
 		lbPhone.setText(selectedCustomer.getPhone());
 		lbZipCode.setText(selectedCustomer.getZipCode());
+		
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		rkiRate = "D";
+		tabs[0] = tabCar;
+		tabs[1] = tabCustomer;
+		tabs[2] = tabLoan;
+		tabs[3] = tabNote;
+		
+		for(int i=0; i<4; i++)
+			completedSteps[i] = false;
+		completedSteps[3] = true;
+		
+		inputMonths.setTextFormatter(Helper.allowOnlyDigits());
+		inputDownPayment.setTextFormatter(Helper.allowOnlyDigits());
 	}
 
 	public void setRate(String rate) {
 		lbRate.setText(rate);
 		styleRKILabelRate(rate);
+		calculateTotalInterestRate();
+		completedSteps[1] = true;
+	}
+
+	private void setBankInterestRate(double bankInterestRate) {
+		lbBankInterestRate.setText(Helper.formatNumber(bankInterestRate));
+		calculateTotalInterestRate();
 	}
 
 	private void styleLabelForA() {

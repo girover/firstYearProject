@@ -37,23 +37,23 @@ public abstract class BaseController extends Observable implements Observer, Ini
 		translator = App.getTranslator();
 	}
 	
-	public String translate(String translateableText) {
+	protected String translate(String translateableText) {
 		return translator.translate(translateableText);
 	}
 	
-	public void showErrorMessage(String message, String title) {
+	protected void showErrorMessage(String message, String title) {
 		App.showErrorMessage(message, title);
 	}
 	
-	public void showSuccessMessage(String message, String title) {
+	protected void showSuccessMessage(String message, String title) {
 		App.showSuccessMessage(message, title);
 	}
 	
-	public void flashErrorMessage(String message, String title) {
+	protected void flashErrorMessage(String message, String title) {
 		App.flashErrorMessage(message, title);
 	}
 	
-	public void flashSuccessMessage(String message, String title) {
+	protected void flashSuccessMessage(String message, String title) {
 		App.flashSuccessMessage(message, title);
 	}
 	
@@ -62,7 +62,7 @@ public abstract class BaseController extends Observable implements Observer, Ini
 		addObserver(controller);
 	}
 	
-	public void openWindow(String fxml, String title) {
+	protected void openWindow(String fxml, String title) {
 		Window window = new Window(fxml, title);
 		window.show();
 	}

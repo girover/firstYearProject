@@ -195,7 +195,8 @@ public class Car extends Entity {
 			horsepower = result.getInt("horsepower");
 			seats = result.getInt("seats");
 			doors = result.getInt("doors");
-			price = result.getByte("sold");
+			sold = result.getByte("sold");
+			vin = result.getString("VIN");
 			price = result.getInt("price");
 			description = result.getString("description");
 
