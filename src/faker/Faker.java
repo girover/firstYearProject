@@ -8,6 +8,9 @@ import database.entities.SellerApprovalLimits;
 import database.entities.User;
 
 /**
+ * This static class is responsible for generating fake data.
+ * Like fake car, employee, customer, user loan application etc.
+ * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github</a>
  *
@@ -21,15 +24,20 @@ public class Faker extends Provider {
 	 */
 	public static User userMale() {
 		String name = Person.firstNameMale();
-		return user(name);
+		return generateUser(name);
 	}
 
 	public static User userFemale() {
 		String name = Person.firstNameFemale();
-		return user(name);
+		return generateUser(name);
+	}
+	
+	public static User user() {
+		String username = Person.firstName();
+		return generateUser(username);
 	}
 
-	private static User user(String name) {
+	private static User generateUser(String name) {
 
 		User user = new User();
 
@@ -179,7 +187,7 @@ public class Faker extends Provider {
 
 	/**
 	 * -----------------------------------------------------------------------
-	 * LoanApplication Section
+	 * Generating fake LoanApplication Section
 	 * -----------------------------------------------------------------------
 	 */
 	public static LoanApplication loanApplication() {

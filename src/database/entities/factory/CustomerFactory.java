@@ -21,7 +21,9 @@ public class CustomerFactory implements EntityFactory {
 
 	@Override
 	public ArrayList<Customer> make(int quantity) {
+		
 		ArrayList<Customer> customers = new ArrayList<>();
+		
 		for(int i=0; i<quantity; i++)
 			customers.add(Faker.customer());
 

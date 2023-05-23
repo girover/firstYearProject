@@ -23,13 +23,13 @@ class CustomerTest extends BaseTestCase {
 	@Test
 	void itCanAddNewCustomerToDatabase() {
 
-		Customer customer = (Customer) Factory.of(Customer.class).make();
+		Customer customer = Factory.customerFactory().make();
 		assertTrue(repo.add(customer) > 0);
 	}
 
 	@Test
 	void shouldFindCustomerInDatabaseByItsId() {
-		Customer customer = (Customer) Factory.of(Customer.class).make();
+		Customer customer = Factory.customerFactory().make();
 
 		assertTrue(repo.add(customer) > 0);
 

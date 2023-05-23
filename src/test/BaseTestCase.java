@@ -27,7 +27,7 @@ public abstract class BaseTestCase extends TestCase {
 		 * SetUp the application environment for testing. 
 		 * example: loading application's configurations, preparing testing database etc.
 		 * 
-		 * This piece of code will run only one time when the class is loaded to memory.
+		 * This piece of code will run only once when the class is loaded to memory.
 		 */
 		System.out.println("Setting up test environment...");
 		App.runInTestEnvironment();

@@ -38,13 +38,13 @@ class CarRepositoryTest extends BaseTestCase {
 	@Test
 	void testAddListOfNewCarsToDatabase() {
 		
-		int generatedRows = carRepo.addAll(Factory.of(Car.class).make(10));
+		int generatedRows = carRepo.addAll(Factory.carFactory().make(10));
 		assertTrue(generatedRows == 10);
 	}
 	
 	@Test
 	void shouldUpdateCarInDatabaseWithNewPrice() {
-		Car car = (Car) Factory.of(Car.class).make();
+		Car car = Factory.carFactory().make();
 		assertTrue(carRepo.add(car) > 0);
 		
 		car.setPrice(1120000);
@@ -53,7 +53,7 @@ class CarRepositoryTest extends BaseTestCase {
 	
 	@Test
 	void shouldDelteCarFromDatabase() {
-		Car car = (Car)Factory.of(Car.class).make();
+		Car car = Factory.carFactory().make();
 		assertTrue(carRepo.add(car) > 0);
 		
 		assertTrue(carRepo.delete(car));
@@ -62,15 +62,15 @@ class CarRepositoryTest extends BaseTestCase {
 	@Test
 	void shouldCountCarsInDatabase() {
 		
-		assertTrue(carRepo.add(Factory.of(Car.class).make()) > 0);
-		assertTrue(carRepo.add(Factory.of(Car.class).make()) > 0);
+		assertTrue(carRepo.add(Factory.carFactory().make()) > 0);
+		assertTrue(carRepo.add(Factory.carFactory().make()) > 0);
 		
 		assertTrue(carRepo.count() == 2);
 	}
 	
 	@Test
 	void shouldFindCarInDatabaseByItsId() {
-		Car car = (Car) Factory.of(Car.class).make();
+		Car car = Factory.carFactory().make();
 		
 		assertTrue(carRepo.add(car) > 0);
 		int id = car.getId();

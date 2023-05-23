@@ -70,14 +70,5 @@ public abstract class Entity {
 //********************************************************************************
 
 	public abstract boolean mapFromResultSet(ResultSet result);
-	
-//	/**
-//	 * This method will return instance of EntityFactory.
-//	 * @return
-//	 */
-	public static EntityFactory of(Class<? extends Entity> cls) {
-		return Factory.of(cls);
-	}
-	
 
 }

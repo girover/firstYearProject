@@ -19,7 +19,7 @@ import window.Window;
  * 
  * @version 1.0
  * 
- * @author Majed Hussen Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github</a>
  */
 public abstract class BaseController extends Observable implements Observer, Initializable {

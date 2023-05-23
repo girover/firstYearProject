@@ -3,6 +3,7 @@ package database.entities.factory;
 import java.util.ArrayList;
 
 import database.entities.Car;
+import database.entities.User;
 import faker.Faker;
 
 /**
@@ -11,22 +12,22 @@ import faker.Faker;
  *      - <a href="https://github.com/girover">Github Profile</a>
  *
  */
-public class CarFactory implements EntityFactory {
+public class UserFactory implements EntityFactory {
 	
 	@Override
-	public Car make() {
-		return Faker.car();
+	public User make() {
+		return Faker.user();
 	}
 
 	@Override
-	public ArrayList<Car> make(int quantity) {
+	public ArrayList<User> make(int quantity) {
 		
-		ArrayList<Car> cars = new ArrayList<>();
+		ArrayList<User> users = new ArrayList<>();
 		
 		for(int i=0; i<quantity; i++)
-			cars.add(Faker.car());
+			users.add(Faker.user());
 
-		return cars;
+		return users;
 	}
 
 }

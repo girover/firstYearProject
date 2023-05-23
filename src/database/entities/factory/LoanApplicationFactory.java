@@ -13,15 +13,17 @@ import faker.Faker;
  *
  */
 public class LoanApplicationFactory implements EntityFactory {
-
+	
 	@Override
-	public Car make() {
-		return null;
+	public LoanApplication make() {
+		return Faker.loanApplication();
 	}
 
 	@Override
 	public ArrayList<LoanApplication> make(int quantity) {
+		
 		ArrayList<LoanApplication> loanApplications = new ArrayList<>();
+		
 		for(int i=0; i<quantity; i++)
 			loanApplications.add(Faker.loanApplication());
 
