@@ -1,13 +1,10 @@
 package test;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import static database.entities.factory.Factory.customerFactory;
 
 import org.junit.jupiter.api.Test;
 
-import database.entities.Car;
 import database.entities.Customer;
-import database.entities.factory.Factory;
 import database.repositories.CustomerRepository;
 
 /**
@@ -23,13 +20,13 @@ class CustomerTest extends BaseTestCase {
 	@Test
 	void itCanAddNewCustomerToDatabase() {
 
-		Customer customer = Factory.customerFactory().make();
+		Customer customer = customerFactory().make();
 		assertTrue(repo.add(customer) > 0);
 	}
 
 	@Test
 	void shouldFindCustomerInDatabaseByItsId() {
-		Customer customer = Factory.customerFactory().make();
+		Customer customer = customerFactory().make();
 
 		assertTrue(repo.add(customer) > 0);
 

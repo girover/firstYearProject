@@ -1,15 +1,10 @@
 package test;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import static database.entities.factory.Factory.carFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import database.entities.Car;
-import database.entities.factory.Factory;
 import database.repositories.CarRepository;
-import faker.Faker;
 
 /**
  * This test case class is responsible for testing methods in "CarRepository" class.
@@ -31,20 +26,20 @@ class CarRepositoryTest extends BaseTestCase {
 	
 	@Test
 	void testAddNewCarToDatabase() {
-		int generatedID = carRepo.add(Faker.unsoldCar());
+		int generatedID = carRepo.add(carFactory().make());
 		assertTrue(generatedID > 0);
 	}
 	
 	@Test
 	void testAddListOfNewCarsToDatabase() {
 		
-		int generatedRows = carRepo.addAll(Factory.carFactory().make(10));
+		int generatedRows = carRepo.addAll(carFactory().make(10));
 		assertTrue(generatedRows == 10);
 	}
 	
 	@Test
 	void shouldUpdateCarInDatabaseWithNewPrice() {
-		Car car = Factory.carFactory().make();
+		Car car = carFactory().make();
 		assertTrue(carRepo.add(car) > 0);
 		
 		car.setPrice(1120000);
@@ -53,7 +48,7 @@ class CarRepositoryTest extends BaseTestCase {
 	
 	@Test
 	void shouldDelteCarFromDatabase() {
-		Car car = Factory.carFactory().make();
+		Car car = carFactory().make();
 		assertTrue(carRepo.add(car) > 0);
 		
 		assertTrue(carRepo.delete(car));
@@ -62,15 +57,15 @@ class CarRepositoryTest extends BaseTestCase {
 	@Test
 	void shouldCountCarsInDatabase() {
 		
-		assertTrue(carRepo.add(Factory.carFactory().make()) > 0);
-		assertTrue(carRepo.add(Factory.carFactory().make()) > 0);
+		assertTrue(carRepo.add(carFactory().make()) > 0);
+		assertTrue(carRepo.add(carFactory().make()) > 0);
 		
 		assertTrue(carRepo.count() == 2);
 	}
 	
 	@Test
 	void shouldFindCarInDatabaseByItsId() {
-		Car car = Factory.carFactory().make();
+		Car car = carFactory().make();
 		
 		assertTrue(carRepo.add(car) > 0);
 		int id = car.getId();

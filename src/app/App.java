@@ -11,14 +11,8 @@ import database.connection.SqlServerDatabaseConnection;
 import database.entities.Employee;
 import database.entities.User;
 import exception.ExceptionHandler;
-import faker.Faker;
-import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import presentation.customer.EditCustomerController;
 import translate.Translator;
-import window.FlashWindow;
 import window.Window;
 
 /**
@@ -167,14 +161,14 @@ public class App {
 
 	public static void showAdminWindow() {
 		Window adminWindow = new Window("admin/AdminDashboard.fxml", "Manager Dashboard");
-		App.getMainStage().setScene(adminWindow.getScene());
-		App.getMainStage().setTitle("Manager Dashboard");
+		getMainStage().setScene(adminWindow.getScene());
+		getMainStage().setTitle("Manager Dashboard");
 	}
 
 	public static void showSellerWindow() {
 		Window adminWindow = new Window("seller/SellerDashboard.fxml", "Seller Dashboard");
-		App.getMainStage().setScene(adminWindow.getScene());
-		App.getMainStage().setTitle("Seller Dashboard");
+		getMainStage().setScene(adminWindow.getScene());
+		getMainStage().setTitle("Seller Dashboard");
 	}
 
 	public static Connection getDBConnection() {

@@ -1,7 +1,6 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.Observer;
 
 import app.FormData;
 import database.entities.Car;
@@ -15,7 +14,6 @@ import database.repositories.CustomerRepository;
 import database.repositories.EmployeeRepository;
 import database.repositories.LoanApplicationRepository;
 import database.repositories.SellerApprovalLimitRepository;
-import exception.LoanException;
 
 /**
  * This class is a part of Service Layer (Business Logic Layer).
@@ -23,13 +21,17 @@ import exception.LoanException;
  * This class provides a set of methods that can be used to deal with
  * loanApplications. such as retrieving all loanApplication, retrieving a set of
  * loanApplications, retrieving a single loanApplication by ID, updating a
- * loanApplication, and deleting a loanApplication.
+ * loanApplication, and deleting a loanApplication etc..
  * 
  * @version 1.0
  * 
  * @author Rasmus Lysgaard Villadsen - <b style="color:red">
  *         mrmaklie@gmail.com</b> -
  *         <a href="https://github.com/MrMaklie">Github</a>
+ *         
+ * @author Majed Hussein Farhan - <b style="color:red">
+ *         girover.mhf@gmail.com</b> -
+ *         <a href="https://github.com/girover">Github</a>
  */
 public class LoanApplicationService extends BaseResourceService {
 	
