@@ -50,9 +50,9 @@ public class UserService extends BaseResourceService {
 	public User create(FormData data) {
 		
 		User user = new User();
-		
+	
 		user.setUserName((String)data.input("userName"));
-		user.setPassword((String)data.input("password"));
+		user.setPassword(HashingService.secureHash((String)data.input("password")));
 		user.setEmployeeId((int)data.input("employeeId"));
 
 		repository.add(user);
@@ -68,6 +68,15 @@ public class UserService extends BaseResourceService {
 	@Override
 	public boolean delete(Entity entity) {
 		return repository.delete((User) entity);
+	}
+	
+	public User findByUsername(String username) {
+		ArrayList<User> users = (ArrayList<User>) repository.getByCondition("userName", "=", username);
+		
+		if(users.size() > 0)
+			return users.get(0);
+		
+		return null;
 	}
 
 	public Employee getAsEmployee(User user) throws SQLException {

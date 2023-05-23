@@ -173,7 +173,7 @@ public class EmployeeRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<Employee> getByCondition(String column, String operation, String value) {
+	public ArrayList<Employee> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 

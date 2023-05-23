@@ -164,6 +164,15 @@ public class CarRepository extends Repository {
 		return mapResultSetToEntityList(result);
 	}
 	
+	public ArrayList<Car> getFreeCarsByModel(String model){
+		String sql = "SELECT * FROM [car] "
+				+ "WHERE [id] NOT IN (SELECT [carID] FROM [loanApplication] WHERE [status] = '"+LoanApplication.PROCESSING+"' or [status] = '"+LoanApplication.APPROVED+"') "
+				+ "AND [model] = ?;";
+		
+		ResultSet result = select(sql, model);
+		return mapResultSetToEntityList(result);
+	}
+	
 	public ArrayList<Car> getByModel(String model){
 		return mapResultSetToEntityList(getRowsByACondition("model", "=", model));
 	}
@@ -184,7 +193,7 @@ public class CarRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<Car> getByCondition(String column, String operation, String value) {
+	public ArrayList<Car> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 

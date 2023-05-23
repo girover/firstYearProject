@@ -68,7 +68,7 @@ public class LogRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<LogEntity> getByCondition(String column, String operation, String value) {
+	public ArrayList<LogEntity> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 

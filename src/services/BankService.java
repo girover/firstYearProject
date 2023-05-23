@@ -12,6 +12,10 @@ public class BankService extends Observable implements Runnable {
 	
 	private double interestRate;
 	
+	/**
+	 * Constructor
+	 * @param observer : Response will be sent to this observer controller.
+	 */
 	public BankService(Observer observer) {
 		addObserver(observer);
 	}

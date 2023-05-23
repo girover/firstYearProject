@@ -140,7 +140,7 @@ public class UserRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<User> getByCondition(String column, String operation, String value) {
+	public ArrayList<User> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 

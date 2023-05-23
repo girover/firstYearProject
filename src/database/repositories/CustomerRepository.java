@@ -54,7 +54,7 @@ public class CustomerRepository extends Repository {
 
 		String sql = "UPDATE [" + table + "] SET " 
 				+ "[CPRHash] = ?," 
-				+ "[nameame] = ?," 
+				+ "[firstName] = ?," 
 				+ "[lastName] = ?," 
 				+ "[email] = ?,"
 				+ "[phone] = ?," 
@@ -158,7 +158,7 @@ public class CustomerRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<Customer> getByCondition(String column, String operation, String value) {
+	public ArrayList<Customer> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 

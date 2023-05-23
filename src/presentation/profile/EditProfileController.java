@@ -16,16 +16,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import services.EmployeeService;
+import services.HashingService;
 import services.UserService;
 
 public class EditProfileController extends ValidatableController {
 
 	@FXML
-	@Rules(field = "first name", rules = "required|alpha")
+	@Rules(field = "first name", rules = "required|alphaSpace")
 	private TextField inputFirstName;
 
 	@FXML
-	@Rules(field = "last name", rules = "required|alpha")
+	@Rules(field = "last name", rules = "required|alphaSpace")
 	private TextField inputLastName;
 
 	@FXML
@@ -34,7 +35,7 @@ public class EditProfileController extends ValidatableController {
 	private TextField inputAddress;
 
 	@FXML
-	@Rules(field = "city", rules = "required| alpha")
+	@Rules(field = "city", rules = "required|alpha")
 	private TextField inputCity;
 
 	@FXML
@@ -46,12 +47,12 @@ public class EditProfileController extends ValidatableController {
 	private TextField inputEmail;
 
 	@FXML
-	@Rules(field = "phone", rules = "required|numeric|min:8|max:10")
+	@Rules(field = "phone", rules = "required|numeric|length_min:8|length_max:12")
 	@Msg(rule = "numeric", message = "Phone number only enter numbers")
 	private TextField inputPhone;
 
 	@FXML
-	@Rules(field = "role", rules = "in:admin,seller")
+	@Rules(field = "role", rules = "in:manager,seller")
 	private TextField inputRole;
 
 	@FXML
@@ -79,10 +80,10 @@ public class EditProfileController extends ValidatableController {
 	@FXML
 	private Button BtnClose;
 
-	private User editUser;
-	private Employee employee;
-	private EmployeeService employeeService = new EmployeeService();
-
+	
+	private User user = App.getAuthenticatedUser();
+	private Employee employee = user.getEmployee();
+	
 	private Employee fillEmployeeWithNewData() {
 		employee.setFirstName(inputFirstName.getText());
 		employee.setLastName(inputLastName.getText());
@@ -113,7 +114,7 @@ public class EditProfileController extends ValidatableController {
 
 	@FXML
 	void handleBtnUpdateEmployeeClick(ActionEvent event) throws ValidationException {
-		validate("first name", "last name");
+		validate("first name", "last name", "address", "city", "zip code", "email", "phone", "role");
 
 		if (!validator.passes()) {
 			showErrorMessage(validator.getErrorMessagesAsString(), "dammit");
@@ -123,53 +124,66 @@ public class EditProfileController extends ValidatableController {
 		EmployeeService employeeService = new EmployeeService();
 
 		if (employeeService.update(fillEmployeeWithNewData())) {
-			showSuccessMessage("Employee has been updated", "succes");
-
-			fire(employee);
+			flashSuccessMessage("Employee has been updated", "succes");
 
 			return;
 		} else {
 			showErrorMessage("Failed to updated employee", "failed");
-
 		}
 	}
 
 	@FXML
 	void handleBtnUpdateUserClick(ActionEvent event) throws ValidationException {
 
-		validate("first name", "last name");
+		validate("username", "password", "new password", "confirm new password");
 
 		if (!validator.passes()) {
 			showErrorMessage(validator.getErrorMessagesAsString(), "dammit");
 			return;
 		}
+		
+		if(usernameFound() && !user.getUserName().equals(inputUsername.getText())) {
+			flashErrorMessage("Username already exists!", "user name");
+			return;
+		}
+		
+		if(!HashingService.verify(inputPassword.getText(), user.getPassword())) {
+			flashErrorMessage("Please type your correct password!", "Password");
+			return;
+		}
+		
 		UserService userService = new UserService();
+		
 		if (userService.update(fillUserWithNewData())) {
-			showSuccessMessage("User has been updated", "succes");
-
-			fire(editUser);
+			flashSuccessMessage("User has been updated", "succes");
 
 			return;
 		} else {
-			showErrorMessage("Failed to updated euser", "failed");
-
+			showErrorMessage("Failed to updated user", "failed");
 		}
 	}
 
+	private boolean usernameFound() {
+		UserService service = new UserService();
+		if(service.findByUsername(inputUsername.getText()) != null)
+			return true;
+		return false;
+	}
+
 	public void setUser(User user) {
-		editUser = user;
-		fillInputsWithUser();
+		this.user = user;
+		fillInputsWithUser(user);
 	}
 
 	private User fillUserWithNewData() {
-		editUser.setUserName(inputUsername.getText());
-		editUser.setPassword(inputNewPassword.getText());
-		return editUser;
+		user.setUserName(inputUsername.getText());
+		user.setPassword(HashingService.secureHash(inputNewPassword.getText()));
+		
+		return user;
 	}
 
-	private void fillInputsWithUser() {
-		inputUsername.setText(editUser.getUserName());
-		inputNewPassword.setText(editUser.getPassword());
+	private void fillInputsWithUser(User user) {
+		inputUsername.setText(user.getUserName());
 	}
 
 	@FXML
@@ -184,11 +198,8 @@ public class EditProfileController extends ValidatableController {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		User user = App.getAuthenticatedUser();
-		int employeeId = user.getEmployeeId();
-		employee = employeeService.find(employeeId);
 		fillInputsWithEmployee(employee);
+		fillInputsWithUser(user);
 	}
 
 }

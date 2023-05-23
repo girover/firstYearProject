@@ -63,7 +63,7 @@ public class FreeCarsController extends BaseController {
 		String model = cbModels.getSelectionModel().getSelectedItem();
 
 		carsList.clear();
-		carsList.addAll(carService.getByModel(model));
+		carsList.addAll(carService.getFreeCarsByModel(model));
 		renderCars();
 	}
 	

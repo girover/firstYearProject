@@ -24,11 +24,11 @@ CREATE TABLE [employee] (
   city nvarchar(50) NOT NULL,
   hireDate datetime NOT NULL,
   department nvarchar(50) NOT NULL CHECK (department IN ('administration', 'sales', 'finance', 'service', 'marketing', 'parts', 'IT')),
-  [role] nvarchar(50) NOT NULL CHECK ([role] IN ('admin', 'seller'))
+  [role] nvarchar(50) NOT NULL CHECK ([role] IN ('manager', 'seller'))
 );
 
 INSERT INTO [employee] ([firstName], lastName, email, phone, [address], [zipCode], [city], [hireDate], [department], [role]) VALUES
-('Majed', 'Farhan', 'girover.mhf@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast', GETDATE(),'IT', 'admin'),
+('Majed', 'Farhan', 'girover.mhf@gmail.com', '12345678', 'Soenderparken 17, 1. th', '7430', 'Ikast', GETDATE(),'IT', 'manager'),
 ('Employee1', 'last name 1', 'employee1@gmail.com', '87654321', 'gade 16, 1. th', '8000', 'Herning', GETDATE(),'finance', 'seller');
 
 -- SellerApprovalLimit
@@ -50,7 +50,7 @@ INSERT INTO [sellerApprovalLimit] ([employeeID], [maxApprovalLimit]) VALUES
 CREATE TABLE [user] (
   id INT PRIMARY KEY IDENTITY(1000,1),
   userName nvarchar(50) NOT NULL UNIQUE,
-  [password] nvarchar(50) NOT NULL,
+  [password] nvarchar(100) NOT NULL,
   employeeId int NOT NULL FOREIGN KEY REFERENCES employee(id) ON DELETE CASCADE ON UPDATE CASCADE
   --CONSTRAINT FK_User_Employee_EmployeeID FOREIGN KEY (employeeId)
   --      REFERENCES employee (id)
@@ -204,6 +204,10 @@ CREATE TABLE [applicationAnswer]
 -- CRUD SECTION
 -- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-select * from [user];
-select * from [employee];
-select * from [log];
+
+-- Get all cars that have no loan application
+
+SELECT * FROM [car]
+WHERE [id] NOT IN (SELECT [carID] FROM [loanApplication] WHERE [status] = 'processing' or [status] = 'approved');
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

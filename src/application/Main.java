@@ -10,8 +10,8 @@ import services.HashingService;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		System.out.println(HashingService.secureHash("1234"));
 		App.run(primaryStage);
-		System.out.println(Helper.formatNumber(1525252.123222));
 	}
 	
 	@Override

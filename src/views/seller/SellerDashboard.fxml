@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="959.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="959.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.admin.DashboardController">
    <children>
       <BorderPane fx:id="mainView" prefHeight="200.0" prefWidth="200.0" styleClass="bg-gray-100" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -43,27 +43,18 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
                            <children>
-                              <FontIcon iconLiteral="fa-user" iconSize="30" />
-                              <Label fx:id="lblUserName" text="user">
+                              <Label fx:id="lblUserName" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="285.0" text="user">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
                               </Label>
-                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="26.0">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                                 <graphic>
-                                    <FontIcon iconColor="#d9d9d9" iconLiteral="fa-sign-out" />
-                                 </graphic>
-                                 <styleClass>
-                                    <String fx:value="bg-danger" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                              </Button>
+                              <FontIcon iconLiteral="fa-user" iconSize="30" />
                            </children>
                            <padding>
                               <Insets left="10.0" right="10.0" />
@@ -85,15 +76,15 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnDashboard" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnDashBoard" prefHeight="35.0" prefWidth="226.0" text="Messages">
+                              <Button fx:id="btnMessages" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnMessagesClick" prefHeight="35.0" prefWidth="226.0" text="Messages">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-400" />
                                     <String fx:value="round" />
+                                    <String fx:value="btn" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -101,22 +92,22 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="round">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconColor="#0d0d0d" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnUsers" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnUsers" prefHeight="35.0" prefWidth="226.0" text="Cars">
+                              <Button fx:id="btnCars" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnCarsClick" prefHeight="35.0" prefWidth="226.0" text="Cars">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
+                                    <String fx:value="btn" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -124,22 +115,22 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-car" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-car" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnAssignments" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnAssignments" prefHeight="35.0" prefWidth="226.0" text="Loan Applications">
+                              <Button fx:id="btnLoanApplications" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnLoanApplicationsClick" prefHeight="35.0" prefWidth="226.0" text="Loan Applications">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
+                                    <String fx:value="btn" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -147,22 +138,22 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-list-alt" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-list-alt" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnTags" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnTags" prefHeight="35.0" prefWidth="226.0" text="Customers">
+                              <Button fx:id="btnCustomers" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnCustomersClick" prefHeight="35.0" prefWidth="226.0" text="Customers">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
+                                    <String fx:value="btn" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -170,22 +161,22 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-tags" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-tags" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnMyProfile" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#showMyProfilePage" prefHeight="35.0" prefWidth="226.0" text="My Profile">
+                              <Button fx:id="btnMyProfile" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnMyProfileClick" prefHeight="35.0" prefWidth="226.0" text="My Profile">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
+                                    <String fx:value="btn" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -193,7 +184,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
@@ -210,13 +201,16 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="243.0">
                            <children>
-                              <Button fx:id="btnLogout" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#onClickBtnLogout" prefHeight="35.0" prefWidth="226.0" text="Logout">
+                              <Button fx:id="btnLogout" contentDisplay="RIGHT" graphicTextGap="40.0" mnemonicParsing="false" onAction="#handleBtnLogout" prefHeight="35.0" prefWidth="226.0" text="Logout" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
                                     <String fx:value="bg-danger" />
                                     <String fx:value="shadow" />
+                                    <String fx:value="round-24" />
+                                    <String fx:value="bold" />
+                                    <String fx:value="btn" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -224,7 +218,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon-danger">
                                  <children>
-                                    <FontIcon iconColor="#333333" iconLiteral="fa-sign-out" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>

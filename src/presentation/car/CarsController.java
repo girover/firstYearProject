@@ -45,9 +45,6 @@ public class CarsController extends BaseController {
 
 	@FXML
 	private BorderPane mainView;
-	
-	@FXML
-    private HBox pagination;
 
 	private ObservableList<Car> carsList = FXCollections.observableArrayList();
 	private ObservableList<String> modelsList = FXCollections.observableArrayList();
@@ -98,13 +95,13 @@ public class CarsController extends BaseController {
 		cbModels.setItems(modelsList);
 	}
 	
-	private void paginate() {
-		Component pagination = new Component("Pagination.fxml");
-		PaginationController controller = (PaginationController)pagination.getController();
-		controller.setTotalPages(10);
-		controller.addObserver(this);
-		this.pagination.getChildren().add((HBox)pagination.get());
-	}
+//	private void paginate() {
+//		Component pagination = new Component("Pagination.fxml");
+//		PaginationController controller = (PaginationController)pagination.getController();
+//		controller.setTotalPages(10);
+//		controller.addObserver(this);
+//		this.pagination.getChildren().add((HBox)pagination.get());
+//	}
 	
 	public void setSelectedCar(Car car) {
 		selectedCar = car;
@@ -135,7 +132,6 @@ public class CarsController extends BaseController {
 			loadCars(1);
 			loadModels();
 			renderCars();
-			paginate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -12,8 +12,7 @@ public class RKIService extends Observable implements Runnable {
 	private String cpr;
 	private String rate;
 	
-	public RKIService(String cpr, Observer observer) {
-		this.cpr = cpr;
+	public RKIService(Observer observer) {
 		addObserver(observer);
 	}
 
@@ -27,7 +26,11 @@ public class RKIService extends Observable implements Runnable {
     	setChanged();
 		notifyObservers();
 	}
-	public void sendRequest() {
+	
+	public void sendRequest(String CPR) {
+		
+		this.cpr = CPR;
+		
 		Thread rkiThread = new Thread(this);
     	rkiThread.start();
 	}

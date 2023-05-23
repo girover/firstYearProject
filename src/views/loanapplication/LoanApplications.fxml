@@ -91,6 +91,18 @@
                         </Button>
                      </children>
                   </HBox>
+                  <Button fx:id="btnShow" layoutX="154.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleBtnShowClick" text="Show" AnchorPane.leftAnchor="155.0">
+                     <graphic>
+                        <FontIcon fill="WHITE" iconLiteral="fa-eye" iconSize="18" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="shadow" />
+                        <String fx:value="bg-green-600" />
+                        <String fx:value="text-white" />
+                        <String fx:value="font-weight-bold" />
+                     </styleClass>
+                  </Button>
                            </children>
                         </AnchorPane>
                      </top>
@@ -117,7 +129,7 @@
                <children>
                   <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="393.0" prefWidth="891.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
-                        <TableView fx:id="tvLoanApplications" prefHeight="394.0" prefWidth="898.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tvLoanApplications" prefHeight="394.0" prefWidth="898.0" stylesheets="@../tableView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="colID" prefWidth="39.99997043609619" text="ID" />
                             <TableColumn fx:id="colCustomerID" prefWidth="111.20000839233398" text="Customer ID" />

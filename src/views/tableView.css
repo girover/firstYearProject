@@ -1,0 +1,83 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.table-view{
+   -fx-background-color: transparent;
+   -fx-border-style:solid;
+   -fx-border-width:1px;
+   -fx-border-color:#d1d5db;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+/** The Top right corner */
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+/** The bottom right corner between the scrollbars  */
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    /*-fx-background-color: linear-gradient(#131313 0%, #424141 100%);*/
+    -fx-background-color: rgb(229, 231, 235);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-pref-height: 40px;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-color:transparent;
+}
+
+.table-row-cell{
+    /*-fx-background-color: -fx-table-cell-border-color, #616161;*/
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-padding: 5px 0; /* 0 */ 
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+    -fx-border-color: rgb(229, 231, 235);
+    -fx-pref-height: 40px;
+    -fx-cursor:hand;
+}
+
+.table-row-cell:odd{
+    /*-fx-background-color: -fx-table-cell-border-color, #424242;*/
+    -fx-background-color:  rgb(249, 250, 251);
+    /*-fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #d4d4d4;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button, 
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}

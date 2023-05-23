@@ -25,7 +25,7 @@ public class LoginController extends ValidatableController {
     private Button btnLogin;
 
     @FXML
-    @Rules(field="user name", rules="required|alpha")
+    @Rules(field="user name", rules="required|alphaNumeric")
     private TextField inputUserID;
 
     @FXML

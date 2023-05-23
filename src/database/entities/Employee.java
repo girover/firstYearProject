@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Employee extends Entity {
+	
+	public static final String MANAGER = "manager";
+	public static final String SELLER = "seller";
 
 	private int id;
 	private String firstName;

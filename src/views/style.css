@@ -295,6 +295,11 @@
 .btn{
 	-fx-cursor:hand;
 }
+.btn:hover{
+	/*-fx-background-color: rgba(0, 0, 0, 0.1);*/
+	-fx-opacity: 0.8;
+	-fx-cursor: hand;
+}
 .btn-login{
 	-fx-background-color:#000;
 	-fx-text-fill:#fff;
@@ -340,6 +345,10 @@
 
 .border-b-3{
 	-fx-border-width: 0 0 3px 0;
+}
+
+.border-t-2{
+	-fx-border-width: 2px 0 0 0;
 }
 
 .border-color-slate-50{

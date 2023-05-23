@@ -40,7 +40,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputCPR" prefHeight="45.0" prefWidth="258.0" promptText="Post number" styleClass="round-32" text="CPR">
+                        <TextField fx:id="inputCPR" disable="true" prefHeight="45.0" prefWidth="258.0" promptText="CPR" styleClass="round-32">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>

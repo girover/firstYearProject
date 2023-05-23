@@ -26,7 +26,7 @@ public class EditCustomerController extends ValidatableController {
     private Button btnCancle;
 
     @FXML
-    @Rules(field = "cpr number", rules = "required|numeric|length:10")
+//    @Rules(field = "cpr number", rules = "required|numeric|length:10")
     private TextField inputCPR;
     
     @FXML
@@ -72,7 +72,7 @@ public class EditCustomerController extends ValidatableController {
     	
     	CustomerService customerService = new CustomerService();
     	if(customerService.update(fillCustomerWithNewData())) {
-    		showSuccessMessage("Customer updated Successfuly", "Created Customer");
+    		flashSuccessMessage("Customer updated Successfuly", "Created Customer");
     		
     		// To inform the observer controller that the wanted customer is updated now
     		fire(customerUnderEditing);
@@ -89,7 +89,7 @@ public class EditCustomerController extends ValidatableController {
     }
     
     private Customer fillCustomerWithNewData() {
-    	customerUnderEditing.setCPRHash(inputCPR.getText());
+    	//customerUnderEditing.setCPRHash(inputCPR.getText());
     	customerUnderEditing.setFirstName(inputFirstName.getText());
     	customerUnderEditing.setLastName(inputLastName.getText());
     	customerUnderEditing.setPhone(inputPhone.getText());
@@ -100,7 +100,7 @@ public class EditCustomerController extends ValidatableController {
     	return customerUnderEditing;
     }
     private void fillInputsWithCustomer() {
-    	inputCPR.setText(customerUnderEditing.getCPRHash());
+    	//inputCPR.setText(customerUnderEditing.getCPRHash());
     	inputFirstName.setText(customerUnderEditing.getFirstName());
     	inputLastName.setText(customerUnderEditing.getLastName());
     	inputPhone.setText(customerUnderEditing.getPhone());

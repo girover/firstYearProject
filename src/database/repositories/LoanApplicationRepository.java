@@ -79,9 +79,9 @@ public class LoanApplicationRepository extends Repository {
 
 		String sql = "UPDATE [" + table + "] SET " 
 				+ "[customerID] = ?," 
-				+ "[salesPersonID] = ?," 
+				+ "[sellerID] = ?," 
 				+ "[carID] = ?,"
-				+ "[applicationDate] = ?," 
+//				+ "[applicationDate] = ?," 
 				+ "[loanAmount] = ?," 
 				+ "[payment] = ?," 
 				+ "[months] = ?,"
@@ -95,7 +95,7 @@ public class LoanApplicationRepository extends Repository {
 				loanApplication.getCustomerID(), 
 				loanApplication.getSellerID(),
 				loanApplication.getCarID(), 
-				loanApplication.getApplicationDate(), 
+//				loanApplication.getApplicationDate(), 
 				loanApplication.getLoanAmount(),
 				loanApplication.getPayment(), 
 				loanApplication.getMonths(), 
@@ -170,7 +170,7 @@ public class LoanApplicationRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<LoanApplication> getByCondition(String column, String operation, String value) {
+	public ArrayList<LoanApplication> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 

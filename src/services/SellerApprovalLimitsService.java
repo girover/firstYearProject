@@ -7,7 +7,7 @@ import app.FormData;
 import database.entities.Car;
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
-import database.repositories.SellerApprovalLimitsRepository;
+import database.repositories.SellerApprovalLimitRepository;
 
 
 /**
@@ -27,7 +27,7 @@ import database.repositories.SellerApprovalLimitsRepository;
 public class SellerApprovalLimitsService extends BaseResourceService {
 
 	public SellerApprovalLimitsService() {
-		repository = new SellerApprovalLimitsRepository();
+		repository = new SellerApprovalLimitRepository();
 //		entityClass = SellerApprovalLimits.class;
 	}
 

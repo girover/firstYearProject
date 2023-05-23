@@ -43,7 +43,7 @@ public interface RepositoryInterface {
 	 * @param id
 	 * @return Entity
 	 */
-	public ArrayList<? extends Entity> getByCondition(String column, String operation, String value);
+	public ArrayList<? extends Entity> getByCondition(String column, String operation, Object value);
 	
 	/**
 	 * 

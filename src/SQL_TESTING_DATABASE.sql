@@ -24,7 +24,7 @@ CREATE TABLE [employee] (
   city nvarchar(50) NOT NULL,
   hireDate datetime NOT NULL,
   department nvarchar(50) NOT NULL CHECK (department IN ('administration', 'sales', 'finance', 'service', 'marketing', 'parts', 'IT')),
-  [role] nvarchar(50) NOT NULL CHECK ([role] IN ('admin', 'seller'))
+  [role] nvarchar(50) NOT NULL CHECK ([role] IN ('manager', 'seller'))
 );
 
 -- SellerApprovalLimit
@@ -45,7 +45,7 @@ CREATE TABLE [sellerApprovalLimit]
 CREATE TABLE [user] (
   id INT PRIMARY KEY IDENTITY(1000,1),
   userName nvarchar(50) NOT NULL UNIQUE,
-  [password] nvarchar(50) NOT NULL,
+  [password] nvarchar(100) NOT NULL,
   employeeID int NOT NULL,-- FOREIGN KEY REFERENCES employee(id) ON DELETE CASCADE ON UPDATE CASCADE
   CONSTRAINT FK_User_EmployeeID_Employee_ID FOREIGN KEY (employeeID)
         REFERENCES employee(id)

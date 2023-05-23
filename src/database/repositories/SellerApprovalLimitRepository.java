@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
 import database.entities.User;
@@ -26,11 +27,11 @@ import database.entities.User;
  *       - <a href="https://github.com/girover">Github</a>
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/SellerApprovalLimitsRepository.java">Class Code On Github</a>
  */
-public class SellerApprovalLimitsRepository extends Repository {
+public class SellerApprovalLimitRepository extends Repository {
 	
 	
-	public SellerApprovalLimitsRepository() {
-		setTable("sellerApprovalLimits");
+	public SellerApprovalLimitRepository() {
+		setTable("sellerApprovalLimit");
 	}
 	
 	@Override
@@ -114,13 +115,19 @@ public class SellerApprovalLimitsRepository extends Repository {
 	}
 
 	@Override
-	public ArrayList<SellerApprovalLimits> getByCondition(String column, String operation, String value) {
+	public ArrayList<SellerApprovalLimits> getByCondition(String column, String operation, Object value) {
 		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
 	}
 
 	@Override
 	public ArrayList<SellerApprovalLimits> getAll() {
 		return mapResultSetToEntityList(getAllRows());
+	}
+	
+	public SellerApprovalLimits getMaxApprovalLimit(Employee employee) {
+		ResultSet reult = getRowsByACondition("employeeID", "=", employee.getId());
+		
+		return mapResultSetToEntity(reult);
 	}
 
 	@Override

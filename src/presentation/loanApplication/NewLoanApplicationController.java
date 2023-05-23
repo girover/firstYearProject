@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import app.App;
 import app.FormData;
-import app.Helper;
 import database.entities.Car;
 import database.entities.Customer;
 import database.entities.LoanApplication;
@@ -22,7 +21,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
-import presentation.car.CarsController;
 import presentation.car.FreeCarsController;
 import presentation.customer.NewCustomerController;
 import services.BankService;
@@ -188,7 +186,7 @@ public class NewLoanApplicationController extends ValidatableController {
 			e.printStackTrace();
 		}
 
-		loanAppService.SendRKIRequest(inputCpr.getText(), this);
+		sendRKIRequest();
 		
 		CustomerService service = new CustomerService();
 		
@@ -201,8 +199,26 @@ public class NewLoanApplicationController extends ValidatableController {
 			customersWindow.show();
 		}else
 			fillCustomerInfo();
-//		RKIService rkiService = new RKIService(inputCpr.getText(), this);
-//		rkiService.sendRequest();
+	}
+
+	/**
+	 * Send request to the RKI API to check to credit rate the sent cpr number.
+	 * 
+	 * Response will be sent to this observer controller.
+	 */
+	private void sendRKIRequest() {
+		RKIService rkiService = new RKIService(this);
+		rkiService.sendRequest(inputCpr.getText());
+	}
+	
+	/**
+	 * Send request to the Bank API to check to get interest rate for today.
+	 * 
+	 * Response will be sent to this observer controller.
+	 */
+	private void sendBankRequest() {
+		BankService bankService = new BankService(this);
+		bankService.sendRequest();
 	}
 
 	@FXML
@@ -215,7 +231,7 @@ public class NewLoanApplicationController extends ValidatableController {
 	
 	@FXML
     void handleBtnBankFetchClick(ActionEvent event) {
-		loanAppService.SendBankRequest(this);
+		sendBankRequest();
     }
 	
 	@FXML
@@ -241,7 +257,7 @@ public class NewLoanApplicationController extends ValidatableController {
 		
 		loanApplication.setLoanAmount(selectedCar.getPrice() - downPayment);
 		
-		lbLoanAmount.setText(Helper.formatCurrency(loanApplication.getLoanAmount()));
+		lbLoanAmount.setText(formatCurrency(loanApplication.getLoanAmount()));
 		
 		calculateTotalInterestRate();
 		calculateMonthlyPayment();
@@ -327,7 +343,7 @@ public class NewLoanApplicationController extends ValidatableController {
 				selectedCar.getPrice(), 
 				loanApplication.getPayment());
 		
-		lbInterestRate.setText(Helper.formatNumber(totalInterestRate));
+		lbInterestRate.setText(formatNumber(totalInterestRate));
 	}
 	
 	private void calculateMonthlyPayment() {
@@ -337,7 +353,7 @@ public class NewLoanApplicationController extends ValidatableController {
 				totalInterestRate
 				);
 		
-		lbMonthlyPayment.setText(Helper.formatCurrency(monthlyPayment));
+		lbMonthlyPayment.setText(formatCurrency(monthlyPayment));
 	}
 	
 	private void openTab(int currentTabIndex) {
@@ -375,7 +391,7 @@ public class NewLoanApplicationController extends ValidatableController {
 		lbModel.setText(selectedCar.getModel());
 		lbYear.setText(Integer.toString(selectedCar.getYear()));
 		lbHorsepower.setText(Integer.toString(selectedCar.getHorsepower()));
-		lbEngineSize.setText(Double.toString(selectedCar.getEngineSize()));
+		lbEngineSize.setText(formatNumber(selectedCar.getEngineSize()));
 		lbTransmission.setText(selectedCar.getTransmission());
 		lbFuelType.setText(selectedCar.getFuelType());
 		lbMileage.setText(Integer.toString(selectedCar.getMileage()));
@@ -383,9 +399,9 @@ public class NewLoanApplicationController extends ValidatableController {
 		lbSeats.setText(Integer.toString(selectedCar.getSeats()));
 		lbDoors.setText(Integer.toString(selectedCar.getDoors()));
 		lbColor.setText(selectedCar.getColor());
-		lbPrice.setText(Helper.formatCurrency(selectedCar.getPrice()));
+		lbPrice.setText(formatCurrency(selectedCar.getPrice()));
 		
-		lbCarPrice.setText(Helper.formatCurrency(selectedCar.getPrice()));
+		lbCarPrice.setText(formatCurrency(selectedCar.getPrice()));
 		
 		completedSteps[0] = true;
 	}
@@ -416,8 +432,8 @@ public class NewLoanApplicationController extends ValidatableController {
 			completedSteps[i] = false;
 		completedSteps[3] = true;
 		
-		inputMonths.setTextFormatter(Helper.allowOnlyDigits());
-		inputDownPayment.setTextFormatter(Helper.allowOnlyDigits());
+		inputMonths.setTextFormatter(allowOnlyDigits());
+		inputDownPayment.setTextFormatter(allowOnlyDigits());
 	}
 
 	public void setRate(String rate) {
@@ -428,7 +444,7 @@ public class NewLoanApplicationController extends ValidatableController {
 	}
 
 	private void setBankInterestRate(double bankInterestRate) {
-		lbBankInterestRate.setText(Helper.formatNumber(bankInterestRate));
+		lbBankInterestRate.setText(formatNumber(bankInterestRate));
 		calculateTotalInterestRate();
 	}
 

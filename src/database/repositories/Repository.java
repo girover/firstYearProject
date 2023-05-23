@@ -271,7 +271,7 @@ public abstract class Repository implements RepositoryInterface {
 		return select(sql);
 	}
 	
-	protected ResultSet getRowsByACondition(String column, String operation, String value) {
+	protected ResultSet getRowsByACondition(String column, String operation, Object value) {
 		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + column + "] " + operation + " ?;";
 
 		return select(sql, value);

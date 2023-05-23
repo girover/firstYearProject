@@ -8,6 +8,7 @@ import configs.Config;
 import configs.XMLConfigsReader;
 import database.connection.DatabaseConnection;
 import database.connection.SqlServerDatabaseConnection;
+import database.entities.Employee;
 import database.entities.User;
 import exception.ExceptionHandler;
 import faker.Faker;
@@ -150,7 +151,7 @@ public class App {
 	}
 
 	public static void showLoginWindow() {
-		Window loginWindow = new Window("Login.fxml", "User Login");
+		Window loginWindow = new Window("Login.fxml", "Login");
 		setMainStage(loginWindow);
 		loginWindow.show();
 	}
@@ -158,20 +159,22 @@ public class App {
 	public static void showUserWindow(User user) {
 		String role = user.getEmployee().getRole();
 		
-		if(role.equals("admin"))
+		if(role.equals(Employee.MANAGER))
 			showAdminWindow();
-		else if(role.equals("seller"))
+		else if(role.equals(Employee.SELLER))
 			showSellerWindow();
 	}
 
 	public static void showAdminWindow() {
-		Window adminWindow = new Window("admin/AdminDashboard.fxml", "Admin Dashboard");
+		Window adminWindow = new Window("admin/AdminDashboard.fxml", "Manager Dashboard");
 		App.getMainStage().setScene(adminWindow.getScene());
+		App.getMainStage().setTitle("Manager Dashboard");
 	}
 
 	public static void showSellerWindow() {
 		Window adminWindow = new Window("seller/SellerDashboard.fxml", "Seller Dashboard");
 		App.getMainStage().setScene(adminWindow.getScene());
+		App.getMainStage().setTitle("Seller Dashboard");
 	}
 
 	public static Connection getDBConnection() {

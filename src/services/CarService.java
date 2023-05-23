@@ -106,6 +106,11 @@ public class CarService extends BaseResourceService {
 		return ((CarRepository)repository).getByModel(model);
 	}
 	
+	public ArrayList<Car> getFreeCarsByModel(String model){
+		
+		return ((CarRepository)repository).getFreeCarsByModel(model);
+	}
+	
 	public ArrayList<Car> getByVIN(String vin){		
 		return (ArrayList<Car>) repository.getByCondition("VIN", "=", vin);
 	}

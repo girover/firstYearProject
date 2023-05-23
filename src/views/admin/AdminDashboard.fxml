@@ -43,15 +43,18 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
                            <children>
-                              <FontIcon iconLiteral="fa-user" iconSize="30" />
-                              <Label fx:id="lblUserName" prefHeight="20.0" prefWidth="129.0" text="user">
+                              <Label fx:id="lblUserName" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="286.0" text="user">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
                               </Label>
+                              <FontIcon iconLiteral="fa-user" iconSize="30" />
                            </children>
                            <padding>
                               <Insets left="10.0" right="10.0" />
@@ -78,9 +81,8 @@
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-400" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
                                  </styleClass>
@@ -90,7 +92,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="round">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
@@ -102,9 +104,8 @@
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
                                  </styleClass>
@@ -114,7 +115,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-car" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-car" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
@@ -126,9 +127,8 @@
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
                                  </styleClass>
@@ -138,7 +138,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-list-alt" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-list-alt" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
@@ -150,9 +150,8 @@
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
                                  </styleClass>
@@ -162,7 +161,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-tags" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-tags" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>
@@ -174,9 +173,8 @@
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-slate-950" />
+                                    <String fx:value="bg-gray-200" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="text-yellow-300" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
                                  </styleClass>
@@ -186,7 +184,7 @@
                               </Button>
                               <Pane prefHeight="42.0" prefWidth="42.0" styleClass="btn-icon">
                                  <children>
-                                    <FontIcon iconColor="#fff600" iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
+                                    <FontIcon iconLiteral="fa-address-card-o" iconSize="18" layoutX="11.0" layoutY="27.0" />
                                  </children>
                               </Pane>
                            </children>

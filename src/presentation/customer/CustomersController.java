@@ -101,8 +101,17 @@ public class CustomersController extends BaseController {
 
     @FXML
     void handleBtnEditCustomerClick(ActionEvent event) {
-    	Window customersWindow = new Window("customer/NewCustomer.fxml", "Customers");
-    	customersWindow.show();
+    	
+    	Customer customer = tvCustomers.getSelectionModel().getSelectedItem();
+    	
+    	if(customer == null) {
+    		flashErrorMessage("Please select a customer.", "Select Customer");
+    		return;
+    	}
+    	Window editCustomersWindow = new Window("customer/EditCustomer.fxml", "Customers");
+    	EditCustomerController controller = (EditCustomerController)editCustomersWindow.getController();
+    	controller.setCustomer(customer);
+    	editCustomersWindow.show();
     }
 
     @FXML

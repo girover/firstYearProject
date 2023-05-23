@@ -15,7 +15,7 @@ import log.Log;
  *
  * @author Majed Hussein Farhan - <b style="color:red">
  *         girover.mhf@gmail.com</b> -
- *         <a href="https://github.com/MrMaklie">Github</a>
+ *         <a href="https://github.com/girover">Github</a>
  */
 public class AuthService {
 
@@ -43,8 +43,11 @@ public class AuthService {
 
 		user = userRepo.getByAuthenticationField(userIdField, (String)formData.input("userId"));
 
-		if (user != null && user.getPassword().equals((String)formData.input("userPassword"))) {
-
+		if (user != null) {
+			
+			if(!verifyHashedPassword((String)formData.input("userPassword"), user.getPassword()))
+				return false;
+			
 			EmployeeRepository employeeRepo = new EmployeeRepository();
 			Employee employee = (Employee) employeeRepo.find(user.getEmployeeId());
 
@@ -60,6 +63,16 @@ public class AuthService {
 		Log.information("Failed to log in to the system with credentials.");
 
 		return false;
+	}
+	
+	/**
+	 * To check if the provided user password matches the hashed password
+	 * @param password
+	 * @param hashedPassword
+	 * @return
+	 */
+	private boolean verifyHashedPassword(String password, String hashedPassword) {
+		return HashingService.verify(password, hashedPassword);
 	}
 
 	/**

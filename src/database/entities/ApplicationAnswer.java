@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
  * 
- * @author Majed Hussen Farhan
+ * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github</a>
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/ApplicationAnswer.java">Class Code On Github</a>

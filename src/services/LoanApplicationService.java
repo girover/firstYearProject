@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.Observer;
 
 import app.FormData;
+import database.entities.Car;
+import database.entities.Customer;
+import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.LoanApplication;
+import database.entities.SellerApprovalLimits;
+import database.repositories.CarRepository;
+import database.repositories.CustomerRepository;
+import database.repositories.EmployeeRepository;
 import database.repositories.LoanApplicationRepository;
+import database.repositories.SellerApprovalLimitRepository;
 import exception.LoanException;
 
 /**
@@ -75,28 +83,6 @@ public class LoanApplicationService extends BaseResourceService {
 		return repository.delete((LoanApplication) entity);
 	}
 
-	/**
-	 * Send request to the RKI API to check to credit rate the sent cpr number.
-	 * 
-	 * @param cpr
-	 * @param controller: Response will be sent to this observer controller.
-	 */
-	public void SendRKIRequest(String cpr, Observer controller) {
-		RKIService rkiService = new RKIService(cpr, controller);
-		rkiService.sendRequest();
-	}
-
-	/**
-	 * Send request to the Bank API to get the today's bank's interest rates.
-	 * 
-	 * @param cpr
-	 * @param controller: Response will be sent to this observer controller.
-	 */
-	public void SendBankRequest(Observer controller) {
-		BankService bankService = new BankService(controller);
-		bankService.sendRequest();
-	}
-
 	public double getCalculatedInterestRate(String cprCreditRate, double bankInteretRate, int months,
 			double totalAmount, double downPaymeny) {
 		
@@ -148,5 +134,50 @@ public class LoanApplicationService extends BaseResourceService {
 		
 		return 0;
 	}
+
+	public Customer getCustomer(LoanApplication loanApplication) {
+		CustomerRepository repo = new CustomerRepository();
+		return repo.find(loanApplication.getCustomerID());
+	}
+
+	public Employee getSeller(LoanApplication loanApplication) {
+		EmployeeRepository repo = new EmployeeRepository();
+		return repo.find(loanApplication.getSellerID());
+	}
+
+	public Car getCar(LoanApplication loanApplication) {
+		CarRepository repo = new CarRepository();
+		return repo.find(loanApplication.getCarID());
+	}
+
+	public boolean approveLoanApplication(LoanApplication loanApplication) {
+		loanApplication.setStatus(LoanApplication.APPROVED);
+		
+		return repository.update(loanApplication);
+	}
+
+	public boolean rejectLoanApplication(LoanApplication loanApplication) {
+		loanApplication.setStatus(LoanApplication.REJECTED);
+		return repository.update(loanApplication);
+	}
+
+	public boolean checkSellerApprovalLimit(Employee employee, double loanAmount) {
+		// if the seller is manager
+		if(employee.getRole().equals(Employee.MANAGER))
+			return true;
+		
+		SellerApprovalLimitRepository repo = new SellerApprovalLimitRepository();
+//		ArrayList<SellerApprovalLimits> sellerLimit = repo.getByCondition("", "=", employee.getId());
+		SellerApprovalLimits sellerLimit = repo.getMaxApprovalLimit(employee);
+		
+		if(sellerLimit == null)
+			return false;
+		
+		int max = sellerLimit.getMaxApprovalLimit();
+		
+		return max >= loanAmount;
+	}
+	
+	
 
 }
