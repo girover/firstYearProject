@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import services.CustomerService;
-import window.Window;
 
 public class NewCustomerController extends ValidatableController {
 

@@ -71,10 +71,8 @@ public class CarsController extends BaseController {
 		renderCars();
     }
 	
-	private void loadCars(int page) {
-		Paginator p = carService.paginate(page);
-		ArrayList<Car> cars = p.castDataTo(Car.class);
-//		ArrayList<Car> cars = carService.getPage(page);
+	private void loadCars() {
+		ArrayList<Car> cars = carService.getAll();
 		carsList.addAll(cars);
 	}
 
@@ -113,10 +111,7 @@ public class CarsController extends BaseController {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(o instanceof PaginationController) {
-			int currentPage = (int) arg;
-			Window.showSuccessMessage(Integer.toString(currentPage), "Majed");
-		}else if(o instanceof CarItemController) {
+		if(o instanceof CarItemController) {
 			setSelectedCar(((CarItemController)o).getCar());
 			fire(null);
 			if(arg instanceof Integer && (int)arg == 2) {
@@ -129,7 +124,7 @@ public class CarsController extends BaseController {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		try {
-			loadCars(1);
+			loadCars();
 			loadModels();
 			renderCars();
 		} catch (SQLException e) {

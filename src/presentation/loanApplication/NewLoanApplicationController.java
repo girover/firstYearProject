@@ -27,7 +27,6 @@ import services.BankService;
 import services.CustomerService;
 import services.LoanApplicationService;
 import services.RKIService;
-import window.Window;
 
 public class NewLoanApplicationController extends ValidatableController {
 
@@ -193,10 +192,8 @@ public class NewLoanApplicationController extends ValidatableController {
 		selectedCustomer = service.findByCPR(inputCpr.getText());
 		
 		if(selectedCustomer == null) {
-			Window customersWindow = new Window("customer/NewCustomer.fxml", "Customer");
-			NewCustomerController controller = (NewCustomerController)customersWindow.getController();
+			NewCustomerController controller = (NewCustomerController)openWindowAndGetController("customer/NewCustomer.fxml", "Customer");
 			controller.addObserver(this);
-			customersWindow.show();
 		}else
 			fillCustomerInfo();
 	}
@@ -223,10 +220,8 @@ public class NewLoanApplicationController extends ValidatableController {
 
 	@FXML
 	void handleBtnSearchCarClick(ActionEvent event) {
-		Window carsWindow = new Window("car/FreeCars.fxml", "Cars");
-		FreeCarsController controller = (FreeCarsController) carsWindow.getController();
+		FreeCarsController controller = (FreeCarsController)openWindowAndGetController("car/FreeCars.fxml", "Cars");
 		controller.addObserver(this);
-		carsWindow.show();
 	}
 	
 	@FXML

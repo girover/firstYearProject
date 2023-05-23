@@ -18,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import presentation.BaseController;
 import services.CustomerService;
-import window.Window;
 
 public class CustomersController extends BaseController {
 
@@ -76,7 +75,7 @@ public class CustomersController extends BaseController {
 
     @FXML
     void handleBtnCancleClick(ActionEvent event) {
-    	Window.closeWindow(event);
+    	closeWindow(event);
     }
 
     @FXML
@@ -108,16 +107,14 @@ public class CustomersController extends BaseController {
     		flashErrorMessage("Please select a customer.", "Select Customer");
     		return;
     	}
-    	Window editCustomersWindow = new Window("customer/EditCustomer.fxml", "Customers");
-    	EditCustomerController controller = (EditCustomerController)editCustomersWindow.getController();
+    	
+    	EditCustomerController controller = (EditCustomerController)openWindowAndGetController("customer/EditCustomer.fxml", "Customers");
     	controller.setCustomer(customer);
-    	editCustomersWindow.show();
     }
 
     @FXML
     void handleBtnNewCustomerClick(ActionEvent event) {
-    	Window customersWindow = new Window("customer/NewCustomer.fxml", "Customers");
-    	customersWindow.show();
+    	openWindow("customer/NewCustomer.fxml", "Customers");
     }
 
 	@Override

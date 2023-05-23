@@ -50,7 +50,7 @@ public class CarItemController extends BaseController {
 
 	@FXML
 	void handleBtnShowClick(ActionEvent event) {
-		Window.showCinformDialog("Title", car.getBrand() + " " + car.getModel());
+		showCinformDialog("Title", car.getBrand() + " " + car.getModel());
 	}
 
 	@FXML

@@ -16,11 +16,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import presentation.BaseController;
 import services.LoanApplicationService;
-import window.Window;
 
 public class LoanApplicationsController extends BaseController {
 
@@ -114,11 +112,9 @@ public class LoanApplicationsController extends BaseController {
     		flashErrorMessage("No loan application is selected", "Select Item");
     		return;
     	}
-    	Window showLoanApplication = new Window("loanApplication/ShowLoanApplication.fxml", "Loan Application");
-    	ShowLoanApplicationController controller = (ShowLoanApplicationController)showLoanApplication.getController();
     	
+    	ShowLoanApplicationController controller = (ShowLoanApplicationController)openWindowAndGetController("loanApplication/ShowLoanApplication.fxml", "Loan Application");
     	controller.setLoanApplication(loan);
-    	showLoanApplication.show();
     }
 
 	@Override

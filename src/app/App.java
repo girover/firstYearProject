@@ -183,22 +183,6 @@ public class App {
 
 		return dbConnection;
 	}
-	
-	public static void flashErrorMessage(String message, String title) {
-		FlashWindow.flashErrorMessage(message, title);
-	}
-	
-	public static void flashSuccessMessage(String message, String title) {
-		FlashWindow.flashSuccessMessage(message, title);
-	}
-	
-	public static void showErrorMessage(String message, String title) {
-		Window.showErrorMessage(message, title);
-	}
-	
-	public static void showSuccessMessage(String message, String title) {
-		Window.showSuccessMessage(message, title);
-	}
 
 	public static Connection db() throws SQLException {
 		return getDBConnection();

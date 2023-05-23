@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextFormatter;
 import translate.Translator;
+import window.FlashWindow;
 import window.Window;
 
 /**
@@ -41,19 +42,19 @@ public abstract class BaseController extends Observable implements Observer, Ini
 	}
 
 	protected void showErrorMessage(String message, String title) {
-		App.showErrorMessage(message, title);
+		Window.showErrorMessage(message, title);
 	}
 
 	protected void showSuccessMessage(String message, String title) {
-		App.showSuccessMessage(message, title);
+		Window.showSuccessMessage(message, title);
 	}
 
 	protected void flashErrorMessage(String message, String title) {
-		App.flashErrorMessage(message, title);
+		FlashWindow.flashErrorMessage(message, title);
 	}
 
 	protected void flashSuccessMessage(String message, String title) {
-		App.flashSuccessMessage(message, title);
+		FlashWindow.flashSuccessMessage(message, title);
 	}
 	
 	protected boolean showCinformDialog(String title, String message) {
@@ -68,6 +69,12 @@ public abstract class BaseController extends Observable implements Observer, Ini
 	protected void openWindow(String fxml, String title) {
 		Window window = new Window(fxml, title);
 		window.show();
+	}
+	
+	protected BaseController openWindowAndGetController(String fxml, String title) {
+		Window window = new Window(fxml, title);
+		window.show();
+		return window.getController();
 	}
 
 	/**
@@ -87,24 +94,24 @@ public abstract class BaseController extends Observable implements Observer, Ini
 			notifyObservers(arg);
 	}
 
-	public static String formatNumber(int number) {
+	public String formatNumber(int number) {
 		return Helper.formatNumber(number);
 	}
 
-	public static String formatNumber(double number) {
+	public String formatNumber(double number) {
 		return Helper.formatNumber(number);
 	}
 
-	public static String formatCurrency(String number) {
+	public String formatCurrency(String number) {
 		return Helper.formatCurrency(number);
 	}
 
-	public static String formatCurrency(double price) {
+	public String formatCurrency(double price) {
 		return Helper.formatCurrency(price);
 
 	}
 
-	public static TextFormatter<String> allowOnlyDigits() {
+	public TextFormatter<String> allowOnlyDigits() {
 		return Helper.allowOnlyDigits();
 	}
 }

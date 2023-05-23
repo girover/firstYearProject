@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import database.entities.Customer;
 import database.entities.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import presentation.BaseController;
 import services.UserService;
-import window.Window;
 
 public class UsersController extends BaseController {
 
@@ -60,7 +58,7 @@ public class UsersController extends BaseController {
 
     @FXML
     void handleBtnCancleClick(ActionEvent event) {
-    	Window.closeWindow(event);
+    	closeWindow(event);
     }
 
     @FXML

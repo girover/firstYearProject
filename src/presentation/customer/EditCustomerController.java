@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import app.FormData;
 import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
@@ -15,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import services.CustomerService;
-import window.Window;
 
 public class EditCustomerController extends ValidatableController {
 
