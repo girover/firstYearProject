@@ -6,6 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import services.HashingService;
 
+/**
+ * 
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
+ *
+ */
 class HashingTest extends BaseTestCase {
 	
 	@Test

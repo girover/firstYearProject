@@ -21,7 +21,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 	private static final int A = 1;
 	private static final int B = 2;
 	private static final int C = 3;
-	private static final int lESS_ThAN_HALF_THE_PRICE = 1;
+	private static final int lESS_THAN_HALF_THE_PRICE = 1;
 	private static final int MORE_THAN_HALF_THE_PRICE = 0;
 	private static final int LESS_THAN_THREE_YEARS = 0;
 	private static final int MORE_THAN_THREE_YEARS = 1;
@@ -44,7 +44,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double expectedInterest = 
 					   BANK_TODAYS_INTEREST_RATE
 					  +A
-					  +lESS_ThAN_HALF_THE_PRICE
+					  +lESS_THAN_HALF_THE_PRICE
 					  +LESS_THAN_THREE_YEARS
 					   ;
 		assertTrue(totalInterestRate == expectedInterest);
@@ -61,7 +61,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
 				+B
-				+lESS_ThAN_HALF_THE_PRICE
+				+lESS_THAN_HALF_THE_PRICE
 				+LESS_THAN_THREE_YEARS
 				;
 		assertTrue(totalInterestRate == expectedInterest);
@@ -78,7 +78,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
 				+C
-				+lESS_ThAN_HALF_THE_PRICE
+				+lESS_THAN_HALF_THE_PRICE
 				+LESS_THAN_THREE_YEARS
 				;
 		assertTrue(totalInterestRate == expectedInterest);
@@ -112,7 +112,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
 				+A
-				+lESS_ThAN_HALF_THE_PRICE
+				+lESS_THAN_HALF_THE_PRICE
 				+LESS_THAN_THREE_YEARS
 				;
 		assertTrue(totalInterestRate == expectedInterest);
@@ -129,7 +129,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
 				+A
-				+lESS_ThAN_HALF_THE_PRICE
+				+lESS_THAN_HALF_THE_PRICE
 				+MORE_THAN_THREE_YEARS
 				;
 		assertTrue(totalInterestRate == expectedInterest);
@@ -144,7 +144,7 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
 				+A
-				+lESS_ThAN_HALF_THE_PRICE
+				+lESS_THAN_HALF_THE_PRICE
 				+LESS_THAN_THREE_YEARS
 				;
 		assertTrue(totalInterestRate == expectedInterest);

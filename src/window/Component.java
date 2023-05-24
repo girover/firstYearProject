@@ -8,7 +8,6 @@ import presentation.BaseController;
 
 public class Component {
 	
-//	private static String pathToComponents = Config.get("gui.path")+"component/";
 	BaseController controller;
 	Object component;
 	

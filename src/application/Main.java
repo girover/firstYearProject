@@ -3,6 +3,7 @@ package application;
 import app.App;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import services.HashingService;
 
 
 public class Main extends Application {

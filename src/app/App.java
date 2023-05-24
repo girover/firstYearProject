@@ -228,18 +228,15 @@ public class App {
 	}
 	
 	/**
-	 * We have implemented a small UnitTest for testing our classes that are
-	 * responsible for dealing with our [data access layer] classes.
+	 * Configuring application to run in test environment.
 	 */
 	public static void test() {
-		//Test test = new Test();
-		//test.run();
 		runInTestEnvironment();
 	}
 
 	/**
-	 * Configure the application for the test environment
-	 * There is no need for launching any graphical objects
+	 * Configure the application for the test environment.
+	 * There is no need for launching any graphical objects.
 	 */
 	public static void runInTestEnvironment() {
 		try {
@@ -248,7 +245,6 @@ public class App {
 			initAuthFields();
 			setTestingDatabaseConnection();
 			
-//			guiPath = Config.get("gui.path");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
