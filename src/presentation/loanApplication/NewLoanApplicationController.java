@@ -1,6 +1,10 @@
 package presentation.loanApplication;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -20,10 +24,12 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import presentation.ValidatableController;
 import presentation.car.FreeCarsController;
 import presentation.customer.NewCustomerController;
 import services.BankService;
+import services.CSVService;
 import services.CustomerService;
 import services.LoanApplicationService;
 import services.RKIService;
@@ -308,6 +314,33 @@ public class NewLoanApplicationController extends ValidatableController {
 		}
 		else
 			flashSuccessMessage("Loan application is created successfuly", "Success");
+	}
+	
+	@FXML
+	void handleBtnExportCsv(ActionEvent event) {
+		FileChooser fileChooser = new FileChooser();
+		
+		FileChooser.ExtensionFilter extFilter =
+	            new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+	    fileChooser.getExtensionFilters().add(extFilter);
+	    
+	    File file = fileChooser.showSaveDialog(null);
+	    
+	    // Example data because I'm confused
+	    List<String[]> data = Arrays.asList(
+                new String[]{"Name,;.:.,", "Age", "Gender"},
+                new String[]{"John21:;.,\n/n", "22", "Male"},
+                new String[]{"Emma", "25", "Female"}
+        );
+	    
+	    if (file != null) {
+	    	try {
+	    		CSVService.writeCSV(data, file.getPath());
+	    	} catch (IOException e) {
+	    		e.printStackTrace();
+	    		showErrorMessage(e.toString(), "Error");
+	    	}
+	    }
 	}
 
 	private boolean isCompleted() {

@@ -988,7 +988,7 @@
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="20" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="106.0" layoutY="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File">
+                              <Button layoutX="106.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnExportCsv" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
