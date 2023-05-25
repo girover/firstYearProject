@@ -1,10 +1,6 @@
 package presentation.loanApplication;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -24,12 +20,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.FileChooser;
 import presentation.ValidatableController;
 import presentation.car.FreeCarsController;
 import presentation.customer.NewCustomerController;
 import services.BankService;
-import services.CSVService;
 import services.CustomerService;
 import services.LoanApplicationService;
 import services.RKIService;

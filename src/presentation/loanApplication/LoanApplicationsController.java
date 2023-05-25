@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 import presentation.BaseController;
+import presentation.TableCellFormatter;
 import services.LoanApplicationService;
 
 public class LoanApplicationsController extends BaseController {
@@ -54,6 +55,9 @@ public class LoanApplicationsController extends BaseController {
 
     @FXML
     private TableColumn<LoanApplication, String> colLoanAmount;
+    
+    @FXML
+    private TableColumn<LoanApplication, String> colDownPayment;
 
     @FXML
     private TableColumn<LoanApplication, String> colMonths;
@@ -92,7 +96,16 @@ public class LoanApplicationsController extends BaseController {
 
     @FXML
     void handleBtnEditCustomerClick(ActionEvent event) {
-
+    	
+    	LoanApplication selectedLoanApplication = tvLoanApplications.getSelectionModel().getSelectedItem();
+    	
+    	if(selectedLoanApplication == null) {
+    		flashErrorMessage("Please choose a loan application to edit.", "Unselected");
+    		return;
+    	}
+    	
+    	UpdateLoanApplicationController controller = (UpdateLoanApplicationController)openWindowAndGetController("loanApplication/UpdateLoanApplication.fxml", "Update Loan Application");
+    	controller.setLoanApplication(selectedLoanApplication);
     }
 
     @FXML
@@ -145,44 +158,13 @@ public class LoanApplicationsController extends BaseController {
 		colCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerID"));
 		colCarID.setCellValueFactory(new PropertyValueFactory<>("carID"));
 		colEmployeeID.setCellValueFactory(new PropertyValueFactory<>("sellerID"));
-		colLoanAmount.setCellValueFactory(new PropertyValueFactory<>("loanAmount"));
-		colMonths.setCellValueFactory(new PropertyValueFactory<>("months"));
+		colLoanAmount.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForLoanAmount(tableColumn));
+		colDownPayment.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForPayment(tableColumn) );
+		colMonths.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForMonths(tableColumn));
 		colDate.setCellValueFactory(new PropertyValueFactory<>("applicationDate"));
 		colRate.setCellValueFactory(new PropertyValueFactory<>("interestRate"));
-//		colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-		
-		colStatus.setCellFactory(new Callback<TableColumn<LoanApplication, String>,
-                TableCell<LoanApplication, String>>()
-        {
-            @Override
-            public TableCell<LoanApplication, String> call(
-                    TableColumn<LoanApplication, String> param) {
-                return new TableCell<LoanApplication, String>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        if (!empty) {
-                            int currentIndex = indexProperty()
-                                    .getValue() < 0 ? 0
-                                    : indexProperty().getValue();
-                            String clmStatus = param
-                                    .getTableView().getItems()
-                                    .get(currentIndex).getStatus();
-                            if (clmStatus.equals("rejected")) {
-                                setStyle("-fx-background-color: red");
-                                
-                            }else
-                            if (clmStatus.equals("processing")) {
-                            	setStyle("-fx-background-color: orange");
-                            }else
-                        	if (clmStatus.equals("approved")) {
-                        		setStyle("-fx-background-color: green");
-                        	}
-                            setText(clmStatus);
-                        }
-                    }
-                };
-            }
-        });
+
+		colStatus.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForStatus(tableColumn));
 	}
 
 }

@@ -36,7 +36,12 @@ import database.repositories.SellerApprovalLimitRepository;
  */
 public class LoanApplicationService extends BaseResourceService {
 	
-	public static final int MONTHS_WITHOUT_INTEREST_RATE = 36;
+	public static final int THREE_YEARS_MONTHS = 36;
+	public static final int A_RKI_INTEREST_RATE = 1;
+	public static final int B_RKI_INTEREST_RATE = 2;
+	public static final int C_RKI_INTEREST_RATE = 3;
+	public static final int LESS_THAT_HALF_PRICE_RATE = 1;
+	public static final int MORE_THAT_THREE_YEARS_RATE = 1;
 
 	public LoanApplicationService() {
 		repository = new LoanApplicationRepository();
@@ -64,7 +69,7 @@ public class LoanApplicationService extends BaseResourceService {
 		loanApplication.setCarID((int) data.input("carID"));
 //		loanApplication.setApplicationDate((String) data.input("applicationDate"));
 		loanApplication.setLoanAmount((int) data.input("loanAmount"));
-		loanApplication.setPayment((double) data.input("payment"));
+		loanApplication.setPayment((int) data.input("payment"));
 		loanApplication.setMonths((int) data.input("months"));
 		loanApplication.setInterestRate((double)data.input("interestRate"));
 		loanApplication.setMonthlyPayment((double)data.input("monthlyPayment"));
@@ -84,6 +89,17 @@ public class LoanApplicationService extends BaseResourceService {
 	@Override
 	public boolean delete(Entity entity) {
 		return repository.delete((LoanApplication) entity);
+	}
+	
+	public double parseBankInterestRateFromTotalRate(LoanApplication loanApplication) {
+		double totalInterestRate = loanApplication.getInterestRate();
+		if(loanApplication.getMonths() < THREE_YEARS_MONTHS)
+			totalInterestRate--;
+		
+		if((loanApplication.getPayment() * 2) < loanApplication.getLoanAmount())
+			totalInterestRate--;
+		
+		return totalInterestRate;
 	}
 
 	public double getCalculatedInterestRate(String cprCreditRate, double bankInteretRate, int months,
@@ -110,13 +126,13 @@ public class LoanApplicationService extends BaseResourceService {
 		
 		switch (RKIRate) {
 			case "A": {
-				return 1;
+				return A_RKI_INTEREST_RATE;
 			}
 			case "B": {
-				return 2;
+				return B_RKI_INTEREST_RATE;
 			}
 			case "C": {
-				return 3;
+				return C_RKI_INTEREST_RATE;
 			}default:
 				return 0;
 		}
@@ -125,15 +141,29 @@ public class LoanApplicationService extends BaseResourceService {
 	private int getInterestRateForDownPayment(double totalAmount, double downPayment) {
 		
 		if((downPayment*2) < totalAmount )
-			return 1;
+			return LESS_THAT_HALF_PRICE_RATE;
+		
+		return 0;
+	}
+	
+	public int getMonthsInterestRate(int months) {
+		if(months > THREE_YEARS_MONTHS)
+			return MORE_THAT_THREE_YEARS_RATE;
+		
+		return 0;
+	}
+	
+	public int getDownPaymentInterestRate(double downPayment, double totalAmount) {
+		if((downPayment * 2)  < totalAmount)
+			return LESS_THAT_HALF_PRICE_RATE;
 		
 		return 0;
 	}
 	
 	private int getInterestRateRepaymentPeriod(int months) {
 		
-		if(months > MONTHS_WITHOUT_INTEREST_RATE)
-			return 1;
+		if(months > THREE_YEARS_MONTHS)
+			return MORE_THAT_THREE_YEARS_RATE;
 		
 		return 0;
 	}
@@ -203,6 +233,17 @@ public class LoanApplicationService extends BaseResourceService {
 		data.addAll(car.getAsCsvList());
 		
 		return data;
+	}
+
+	public int getAddedRateForMonths(LoanApplication loanApplication) {
+		return (loanApplication.getMonths() > THREE_YEARS_MONTHS) ? 1 : 0;
+	}
+
+	public int getAddedRateForPayment(LoanApplication loanApplication, double price) {
+		if(loanApplication.getPayment() * 2 < price)
+			return 1;
+		
+		return 0;
 	}
 
 }

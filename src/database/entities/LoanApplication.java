@@ -30,7 +30,7 @@ public class LoanApplication extends Entity {
 	private int carID;
 	private String applicationDate;
 	private int loanAmount;
-	private double payment;
+	private int payment;
 	private int months;
 	private double interestRate;
 	private double monthlyPayment;
@@ -89,11 +89,11 @@ public class LoanApplication extends Entity {
 		this.loanAmount = loanAmount;
 	}
 
-	public double getPayment() {
+	public int getPayment() {
 		return payment;
 	}
 
-	public void setPayment(double payment) {
+	public void setPayment(int payment) {
 		this.payment = payment;
 	}
 
@@ -146,7 +146,7 @@ public class LoanApplication extends Entity {
 			carID = result.getInt("carID");
 			applicationDate = result.getString("applicationDate");
 			loanAmount = result.getInt("loanAmount");
-			payment = result.getFloat("payment");
+			payment = result.getInt("payment");
 			months = result.getInt("months");
 			interestRate = result.getFloat("interestRate");
 			monthlyPayment = result.getFloat("monthlyPayment");

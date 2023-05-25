@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="608.0" prefWidth="918.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loanApplication.LoanApplicationsController">
+<AnchorPane prefHeight="608.0" prefWidth="1150.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loanApplication.LoanApplicationsController">
                <children>
                   <BorderPane layoutX="85.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
@@ -132,14 +132,15 @@
                         <TableView fx:id="tvLoanApplications" prefHeight="394.0" prefWidth="898.0" stylesheets="@../tableView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="colID" prefWidth="39.99997043609619" text="ID" />
-                            <TableColumn fx:id="colCustomerID" prefWidth="111.20000839233398" text="Customer ID" />
-                              <TableColumn fx:id="colCarID" prefWidth="92.80001831054688" text="Car ID" />
-                              <TableColumn fx:id="colEmployeeID" prefWidth="113.5999755859375" text="Employee ID" />
-                              <TableColumn fx:id="colLoanAmount" prefWidth="168.0" text="Loan Amount" />
-                              <TableColumn fx:id="colMonths" minWidth="5.5999755859375" prefWidth="72.0" text="Months" />
-                              <TableColumn fx:id="colRate" prefWidth="67.199951171875" text="Rate" />
-                              <TableColumn fx:id="colDate" prefWidth="141.60003662109375" text="Date" />
-                              <TableColumn fx:id="colStatus" prefWidth="67.2000732421875" text="Status" />
+                            <TableColumn fx:id="colCustomerID" prefWidth="97.60000228881836" text="Customer ID" />
+                              <TableColumn fx:id="colCarID" prefWidth="90.39999389648438" text="Car ID" />
+                              <TableColumn fx:id="colEmployeeID" prefWidth="100.80000305175781" text="Employee ID" />
+                              <TableColumn fx:id="colLoanAmount" prefWidth="150.39996337890625" text="Loan Amount" />
+                              <TableColumn fx:id="colDownPayment" prefWidth="133.60006713867188" text="Down Payment" />
+                              <TableColumn fx:id="colMonths" minWidth="5.5999755859375" prefWidth="83.199951171875" text="Months" />
+                              <TableColumn fx:id="colRate" prefWidth="75.199951171875" text="Rate" />
+                              <TableColumn fx:id="colDate" prefWidth="177.5999755859375" text="Date" />
+                              <TableColumn fx:id="colStatus" prefWidth="143.199951171875" text="Status" />
                           </columns>
                         </TableView>
                      </children>

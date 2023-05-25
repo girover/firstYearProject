@@ -196,7 +196,7 @@ public class Faker extends Provider {
 		loanApplication.setInterestRate(getRandomFloat(3, 7));
 		loanApplication.setLoanAmount(getRandomThousandBetween(200000, 2000000));
 		loanApplication.setMonths(getRandomInteger(36, 288));
-		loanApplication.setPayment(getRandomFloat(200000, 500000));
+		loanApplication.setPayment(getRandomThousandBetween(200000, 500000));
 		loanApplication.setApplicationDate(DateTime.dateBetween(2021, 2024));
 		loanApplication.setMonthlyPayment(getRandomFloat(3000, 26000));
 		loanApplication.setNote(text(getRandomInteger(100, 200)));
