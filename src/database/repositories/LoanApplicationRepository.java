@@ -160,7 +160,7 @@ public class LoanApplicationRepository extends Repository {
 	}
 
 	@Override
-	public LoanApplication find(int id) {
+	public LoanApplication find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

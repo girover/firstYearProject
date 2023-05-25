@@ -33,12 +33,16 @@
 .table-view .column-header {
     -fx-background-color: transparent;
     -fx-pref-height: 40px;
+    -fx-border-style:solid;
+    -fx-border-width: 0 1px 0 0;
+    -fx-border-color:#cbd5e1;
 }
 
 .table-view .table-cell{
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-border-color:transparent;
+    -fx-alignment: center;
 }
 
 .table-row-cell{
@@ -61,7 +65,7 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #d4d4d4;
+    -fx-background-color: #fde047;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }

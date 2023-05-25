@@ -183,7 +183,7 @@ public class CarRepository extends Repository {
 	}
 
 	@Override
-	public Car find(int id) {
+	public Car find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

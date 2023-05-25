@@ -42,7 +42,7 @@ public interface ResourceServiceInterface {
 	 * @param Id
 	 * @return Entity
 	 */
-	public Entity find(int id);
+	public Entity find(Object id);
 	
 	/**
 	 * This method will create a resource from specified data

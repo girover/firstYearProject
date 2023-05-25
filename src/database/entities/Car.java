@@ -213,6 +213,7 @@ public class Car extends Entity {
 	private String formatString(String key, Object value) {
 		return String.format("%-20s : %-20s\n", key, value);
 	}
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Car:\n");

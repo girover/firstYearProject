@@ -137,12 +137,12 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="City" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="Post nr." textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputCity" prefHeight="45.0" prefWidth="258.0" promptText="City" styleClass="round-32">
+                        <TextField fx:id="inputZipCode" onKeyReleased="#handleInputPostKeyReleased" prefHeight="45.0" prefWidth="258.0" promptText="Post number" styleClass="round-32">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -154,12 +154,12 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="Post nr." textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="City" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputZipCode" prefHeight="45.0" prefWidth="258.0" promptText="Post number" styleClass="round-32">
+                        <TextField fx:id="inputCity" prefHeight="45.0" prefWidth="258.0" promptText="City" styleClass="round-32">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>

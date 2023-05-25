@@ -130,7 +130,7 @@ public class UserRepository extends Repository {
 	}
 
 	@Override
-	public User find(int id) {
+	public User find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

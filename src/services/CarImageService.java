@@ -25,6 +25,10 @@ import database.repositories.CarImageRepository;
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
  */
 public class CarImageService extends BaseResourceService {
 
@@ -34,7 +38,7 @@ public class CarImageService extends BaseResourceService {
 	}
 
 	@Override
-	public CarImage find(int id) {
+	public CarImage find(Object id) {
 		CarImage carImage = (CarImage) repository.find(id);
 		return carImage;
 	}

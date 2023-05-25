@@ -146,7 +146,6 @@ public abstract class Repository implements RepositoryInterface {
 			System.out.println("executeInsert(): Error");
 			e.printStackTrace();
 			throw new RuntimeException("SQLException: "+e.getMessage());
-//			return 0;
 		}
 	}
 
@@ -193,6 +192,46 @@ public abstract class Repository implements RepositoryInterface {
 			return false;
 		}
 	}
+	
+	/**
+	 * This will join current table with specified table using
+	 * specified columns.
+	 * 
+	 * @param joinTable : The desired table to join with
+	 * @param foreignKey : Foreign key in the current table
+	 * @param primaryKey : Primary key of the join table.
+	 * @return
+	 */
+	protected ResultSet join(String joinTable, String foreignKey, String primaryKey) {
+		String sql = "SELECT * FROM [" + table + "] "
+					+ "LEFT JOIN [" + joinTable + "] "
+					+ "ON [" + table + "].[" + foreignKey + "] = "
+					+ "["+joinTable+"].["+primaryKey+"] ";
+		
+		return select(sql);
+	}
+	
+	/**
+	 * This will join current table with specified table using
+	 * specified columns. And it will perform the specified condition.
+	 * 
+	 * @param joinTable : The desired table to join with
+	 * @param foreignKey : Foreign key in the current table
+	 * @param primaryKey : Primary key of the join table.
+	 * @param column : The column to match.
+	 * @param operation
+	 * @param value
+	 * @return
+	 */
+	protected ResultSet joinWhere(String joinTable, String foreignKey, String primaryKey, String column, String operation, Object value) {
+		String sql = "SELECT * FROM [" + table + "] "
+				+ "LEFT JOIN [" + joinTable + "] "
+				+ "ON [" + table + "].[" + foreignKey + "] = "
+				+ "[" + joinTable + "].[" + primaryKey + "] "
+				+ "WHERE [" + table + "].[" + column + "] " + operation + " ?;";
+		
+		return select(sql,value);
+	}
 
 	/**
 	 * Count records in this repository
@@ -216,8 +255,9 @@ public abstract class Repository implements RepositoryInterface {
 
 	
 	
-	protected ResultSet findById(int id) {
-		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + getPrimaryKey() + "] = ?";
+	protected ResultSet findById(Object id) {
+		String sql = "SELECT * FROM [" + table + "] WHERE [" + primaryKey + "] = ?";
+		
 		ResultSet result = select(sql,id);
 		return result;
 	}
@@ -272,7 +312,7 @@ public abstract class Repository implements RepositoryInterface {
 	}
 	
 	protected ResultSet getRowsByACondition(String column, String operation, Object value) {
-		String sql = "SELECT * FROM [" + getTable() + "] WHERE [" + column + "] " + operation + " ?;";
+		String sql = "SELECT * FROM [" + table + "] WHERE [" + column + "] " + operation + " ?;";
 
 		return select(sql, value);
 	}

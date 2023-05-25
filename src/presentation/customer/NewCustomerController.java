@@ -5,7 +5,9 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import app.FormData;
+import database.entities.City;
 import database.entities.Customer;
+import database.repositories.CityRepository;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
 import javaFxValidation.annotations.Rules;
@@ -13,7 +15,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import presentation.ValidatableController;
+import services.CityService;
 import services.CustomerService;
 
 public class NewCustomerController extends ValidatableController {
@@ -97,6 +101,21 @@ public class NewCustomerController extends ValidatableController {
     
     public Customer getCreatedCustomer() {
     	return createdCustomer;
+    }
+    
+    @FXML
+    void handleInputPostKeyReleased(KeyEvent event) {
+    	
+    	CityService service = new CityService();
+    	
+    	String zipCode = inputZipCode.getText();
+    	
+    	City city = service.find(zipCode);
+    	
+    	if(city != null)
+    		inputCity.setText(city.getCity());
+    	else
+    		inputCity.setText("");
     }
 
     @FXML

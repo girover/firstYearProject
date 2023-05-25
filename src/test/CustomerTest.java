@@ -1,10 +1,12 @@
 package test;
 
-import static database.entities.factory.Factory.customerFactory;
+import static database.entities.factory.Factory.*;
 
 import org.junit.jupiter.api.Test;
 
+import database.entities.City;
 import database.entities.Customer;
+import database.repositories.CityRepository;
 import database.repositories.CustomerRepository;
 
 /**
@@ -16,17 +18,28 @@ import database.repositories.CustomerRepository;
 class CustomerTest extends BaseTestCase {
 
 	private CustomerRepository repo = new CustomerRepository();
+	private CityRepository cityRepo = new CityRepository();
 
 	@Test
 	void itCanAddNewCustomerToDatabase() {
 
+		City city = cityFactory().make();
+		assertTrue(cityRepo.add(city) > 0);
+		
 		Customer customer = customerFactory().make();
+		customer.setZipCode(city.getZipCode());
+		
 		assertTrue(repo.add(customer) > 0);
 	}
 
 	@Test
 	void shouldFindCustomerInDatabaseByItsId() {
+		
+		City city = cityFactory().make();
+		cityRepo.add(city);
+		
 		Customer customer = customerFactory().make();
+		customer.setZipCode(city.getZipCode());
 
 		assertTrue(repo.add(customer) > 0);
 

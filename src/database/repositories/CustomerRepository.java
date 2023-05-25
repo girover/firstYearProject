@@ -29,6 +29,10 @@ import database.entities.User;
  */
 public class CustomerRepository extends Repository {
 
+	private final String joinWithCitySql = "SELECT * FROM [" + table + "] "
+										 + "JOIN [city] "
+										 + "ON [" + table + "].[zipCode] = "
+										 + "[city].[zipCode] ";
 	public CustomerRepository() {
 		setTable("customer");
 	}
@@ -59,7 +63,6 @@ public class CustomerRepository extends Repository {
 				+ "[email] = ?,"
 				+ "[phone] = ?," 
 				+ "[address] = ?," 
-				+ "[city] = ?," 
 				+ "[zipCode] = ? " 
 				+ "WHERE [" + primaryKey + "] = ?";
 
@@ -70,7 +73,6 @@ public class CustomerRepository extends Repository {
 				customer.getEmail(), 
 				customer.getPhone(),
 				customer.getAddress(), 
-				customer.getCity(), 
 				customer.getZipCode(), 
 				customer.getId());
 	}
@@ -93,9 +95,8 @@ public class CustomerRepository extends Repository {
 				+ "[email]," 
 				+ "[phone],"
 				+ "[address]," 
-				+ "[city]," 
 				+ "[zipCode]) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?);";
 
 		int id = insertAndGetGeneratedId(sql,
 				customer.getCPRHash(),
@@ -104,7 +105,6 @@ public class CustomerRepository extends Repository {
 				customer.getEmail(),
 				customer.getPhone(), 
 				customer.getAddress(), 
-				customer.getCity(), 
 				customer.getZipCode());
 
 		if (id > 0) {
@@ -118,16 +118,14 @@ public class CustomerRepository extends Repository {
 	}
 	
 	public ResultSet search(String searchKey) {
-		String sql = "SELECT * FROM [" + getTable() + "] WHERE "
-				   + "firstName LIKE ? OR "
-				   + "lastName LIKE ?;";
+		
+		String sql = selectSql("WHERE firstName LIKE ? OR lastName LIKE ?;");
 		
 		return select(sql, "%" + searchKey + "%", "%" + searchKey + "%");
 	}
 	
 	public Customer findByCpr(String hashedCpr) {
-		String sql = "SELECT * FROM [" + getTable() + "] WHERE "
-				   + "CPRHash = ?;";
+		String sql = selectSql("WHERE CPRHash = ?;");
 		
 		ResultSet result = select(sql, hashedCpr);
 		try {
@@ -148,8 +146,8 @@ public class CustomerRepository extends Repository {
 	}
 
 	@Override
-	public Customer find(int id) {
-		return mapResultSetToEntity(findById(id));
+	public Customer find(Object id) {
+		return mapResultSetToEntity(joinWhere("city", "zipCode", "zipCode", primaryKey, "=", id));
 	}
 
 	@Override
@@ -159,12 +157,23 @@ public class CustomerRepository extends Repository {
 
 	@Override
 	public ArrayList<Customer> getByCondition(String column, String operation, Object value) {
-		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
+		return mapResultSetToEntityList(joinWhere("city", "zipCode", "zipCode", column, operation, value));
+	}
+	
+	private String selectSql(String conditionSql) {
+		
+		String joinWithCitySql = "SELECT * FROM [" + table + "] "
+				 + "JOIN [city] "
+				 + "ON [" + table + "].[zipCode] = "
+				 + "[city].[zipCode] ";
+		
+		return joinWithCitySql + conditionSql;
 	}
 
 	@Override
 	public ArrayList<Customer> getAll() {
-		return mapResultSetToEntityList(getAllRows());
+		
+		return mapResultSetToEntityList(join("city", "zipCode", "zipCode"));
 	}
 
 	@Override

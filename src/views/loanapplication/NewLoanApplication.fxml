@@ -76,7 +76,7 @@
                                        <children>
                                           <TabPane fx:id="tabPane" minHeight="700.0" prefWidth="1104.0" styleClass="bg-blue-400" stylesheets="@../tabPane.css" tabClosingPolicy="UNAVAILABLE">
                                             <tabs>
-                                              <Tab fx:id="tabCar" text="1">
+                                              <Tab fx:id="tabCar">
                                                    <content>
                                                       <AnchorPane prefHeight="208.0" prefWidth="1104.0">
                                                          <children>
@@ -458,8 +458,11 @@
                                                          </children>
                                                       </AnchorPane>
                                                    </content>
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fa-car" iconSize="35" />
+                                                   </graphic>
                                                 </Tab>
-                                              <Tab fx:id="tabCustomer" disable="true" text="2">
+                                              <Tab fx:id="tabCustomer" disable="true">
                                                    <content>
                                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                          <children>
@@ -718,8 +721,11 @@
                                                          </children>
                                                       </AnchorPane>
                                                    </content>
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fa-user-circle-o" iconSize="35" />
+                                                   </graphic>
                                                 </Tab>
-                                                <Tab fx:id="tabLoan" disable="true" text="3">
+                                                <Tab fx:id="tabLoan" disable="true">
                                                    <content>
                                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                          <children>
@@ -938,8 +944,11 @@
                                                          </children>
                                                       </AnchorPane>
                                                    </content>
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fa-handshake-o" iconSize="35" />
+                                                   </graphic>
                                                 </Tab>
-                                                <Tab fx:id="tabNote" disable="true" text="4">
+                                                <Tab fx:id="tabNote" disable="true">
                                                    <content>
                                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                          <children>
@@ -951,6 +960,9 @@
                                                             <TextArea fx:id="textAreaNote" prefHeight="390.0" prefWidth="1024.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
                                                          </children></AnchorPane>
                                                    </content>
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fa-pencil-square-o" iconSize="35" />
+                                                   </graphic>
                                                 </Tab>
                                             </tabs>
                                           </TabPane>

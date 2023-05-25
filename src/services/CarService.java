@@ -1,12 +1,9 @@
 package services;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import app.FormData;
-import configs.Config;
 import database.entities.Car;
 import database.entities.CarImage;
 import database.entities.Entity;
@@ -27,6 +24,10 @@ import database.repositories.CarRepository;
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
  */
 public class CarService extends BaseResourceService {
 
@@ -35,7 +36,7 @@ public class CarService extends BaseResourceService {
 	}
 
 	@Override
-	public Car find(int id) {
+	public Car find(Object id) {
 		Car car = (Car) repository.find(id);
 		return car;
 	}

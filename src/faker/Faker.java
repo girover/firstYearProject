@@ -57,27 +57,27 @@ public class Faker extends Provider {
 	 */
 	public static Employee employee() {
 
-		return generateEmployee(Person.firstName(), getOneOf("admin", "seller"));
+		return generateEmployee(Person.firstName(), getOneOf("manager", "seller"));
 	}
 
 	public static Employee employeeMale() {
 
-		return generateEmployee(Person.firstNameMale(), getOneOf("admin", "seller"));
+		return generateEmployee(Person.firstNameMale(), getOneOf("manager", "seller"));
 	}
 
 	public static Employee employeeFemale() {
 
-		return generateEmployee(Person.firstNameFemale(), getOneOf("admin", "seller"));
+		return generateEmployee(Person.firstNameFemale(), getOneOf("manager", "seller"));
 	}
 
 	public static Employee employeeMaleAdmin() {
 
-		return generateEmployee(Person.firstNameMale(), "admin");
+		return generateEmployee(Person.firstNameMale(), "manager");
 	}
 
 	public static Employee employeeFemaleAdmin() {
 
-		return generateEmployee(Person.firstNameFemale(), "admin");
+		return generateEmployee(Person.firstNameFemale(), "manager");
 	}
 
 	private static Employee generateEmployee(String firstName, String role) {
@@ -89,7 +89,6 @@ public class Faker extends Provider {
 		employee.setPhone(Phone.danishPhoneNumber());
 		employee.setEmail(Email.email());
 		employee.setAddress(Address.addressApartment());
-		employee.setCity(City.getCity());
 		employee.setZipCode(City.getZipCode());
 		employee.setHireDate(DateTime.dateBetween(2000, 2023));
 		employee.setDepartment("sales");
@@ -156,7 +155,6 @@ public class Faker extends Provider {
 		customer.setEmail(Email.gmail());
 		customer.setAddress(Address.addressApartment());
 		String zipCode = City.getZipCode();
-		customer.setCity(City.getCity(zipCode));
 		customer.setZipCode(zipCode);
 
 		return customer;
@@ -202,9 +200,22 @@ public class Faker extends Provider {
 		loanApplication.setApplicationDate(DateTime.dateBetween(2021, 2024));
 		loanApplication.setMonthlyPayment(getRandomFloat(3000, 26000));
 		loanApplication.setNote(text(getRandomInteger(100, 200)));
-		loanApplication.setStatus(getOneOf("pending", "processing", "approved", "rejected"));
+		loanApplication.setStatus(getOneOf("processing", "approved", "rejected"));
 		
 		return loanApplication;
+	}
+
+	public static database.entities.City city() {
+		
+		database.entities.City city = new database.entities.City();
+		
+		String zipCode = City.getZipCode();
+		
+		city.setZipCode(zipCode);
+		
+		city.setCity(City.getCity(zipCode));
+		
+		return city;
 	}
 
 }

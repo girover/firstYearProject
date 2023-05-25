@@ -91,6 +91,9 @@ public class ShowLoanApplicationController extends BaseController {
 
     @FXML
     private Label lbTotalInterestRate;
+    
+    @FXML
+    private Label lbDate;
 
     @FXML
     private Label lbTransmission;
@@ -238,6 +241,7 @@ public class ShowLoanApplicationController extends BaseController {
 		lbMonths.setText(Integer.toString(loanApplication.getMonths()));
 		lbTotalInterestRate.setText(formatNumber(loanApplication.getInterestRate()));
 		lbMonthlyPayment.setText(formatCurrency(loanApplication.getMonthlyPayment()));
+		lbDate.setText(loanApplication.getApplicationDate());
 	}
 
 	private void fillCarData(Car car) {
@@ -262,13 +266,13 @@ public class ShowLoanApplicationController extends BaseController {
 
 	private void fillCustomerData(Customer customer) {
 		lbAddress.setText(customer.getAddress());
-		lbCity.setText(customer.getCity());
 		lbCPR.setText(customer.getCPRHash());
 		lbEmail.setText(customer.getEmail());
 		lbFirstName.setText(customer.getFirstName());
 		lbLastName.setText(customer.getLastName());
 		lbPhone.setText(customer.getPhone());
 		lbZipCode.setText(customer.getZipCode());
+		lbCity.setText(customer.getCity());
 	}
 
 	@Override

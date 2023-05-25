@@ -23,6 +23,10 @@ import database.repositories.SellerApprovalLimitRepository;
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
  */
 public class SellerApprovalLimitsService extends BaseResourceService {
 
@@ -32,7 +36,7 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 	}
 
 	@Override
-	public SellerApprovalLimits find(int id) {
+	public SellerApprovalLimits find(Object id) {
 		SellerApprovalLimits sellerApprovalLimits = (SellerApprovalLimits) repository.find(id);
 		return sellerApprovalLimits;
 	}

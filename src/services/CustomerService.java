@@ -25,6 +25,10 @@ import database.repositories.CustomerRepository;
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
  */
 public class CustomerService extends BaseResourceService {
 
@@ -34,7 +38,7 @@ public class CustomerService extends BaseResourceService {
 	}
 
 	@Override
-	public Customer find(int id) {
+	public Customer find(Object id) {
 		Customer customer = (Customer) repository.find(id);
 		return customer;
 	}
@@ -58,9 +62,7 @@ public class CustomerService extends BaseResourceService {
 		customer.setPhone((String)data.input("phone"));
 		customer.setEmail((String)data.input("email"));
 		customer.setAddress((String)data.input("address"));
-		customer.setCity((String)data.input("city"));
 		customer.setZipCode((String)data.input("zipCode"));
-//		customer.setCreditworthiness((String)data.input("creditworthiness"));
 
 		if(repository.add(customer) > 0)
 			return customer;

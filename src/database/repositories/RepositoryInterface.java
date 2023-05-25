@@ -30,7 +30,7 @@ public interface RepositoryInterface {
 	 * @param id
 	 * @return Entity
 	 */
-	public Entity find(int id);
+	public Entity find(Object id);
 	
 	/**
 	 * 

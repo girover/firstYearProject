@@ -95,7 +95,7 @@ public class ApplicationAnswerRepository extends Repository {
 	}
 
 	@Override
-	public ApplicationAnswer find(int id) {
+	public ApplicationAnswer find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

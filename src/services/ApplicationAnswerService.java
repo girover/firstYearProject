@@ -25,6 +25,10 @@ import database.repositories.ApplicationAnswerRepository;
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
  */
 public class ApplicationAnswerService extends BaseResourceService {
 
@@ -34,7 +38,7 @@ public class ApplicationAnswerService extends BaseResourceService {
 	}
 
 	@Override
-	public ApplicationAnswer find(int id) {
+	public ApplicationAnswer find(Object id) {
 		ApplicationAnswer applicationAnswer = (ApplicationAnswer) repository.find(id);
 		return applicationAnswer;
 	}

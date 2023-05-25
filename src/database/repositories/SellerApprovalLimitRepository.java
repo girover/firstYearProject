@@ -105,7 +105,7 @@ public class SellerApprovalLimitRepository extends Repository {
 	}
 
 	@Override
-	public SellerApprovalLimits find(int id) {
+	public SellerApprovalLimits find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

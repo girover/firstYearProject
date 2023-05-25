@@ -93,7 +93,6 @@ public class EditUserController extends ValidatableController {
     	customerUnderEditing.setPhone(inputPhone.getText());
     	customerUnderEditing.setEmail(inputEmail.getText());
     	customerUnderEditing.setAddress(inputAddress.getText());
-    	customerUnderEditing.setCity(inputCity.getText());
     	customerUnderEditing.setZipCode(inputZipCode.getText());
     	return customerUnderEditing;
     }
@@ -104,7 +103,6 @@ public class EditUserController extends ValidatableController {
     	inputPhone.setText(customerUnderEditing.getPhone());
     	inputEmail.setText(customerUnderEditing.getEmail());
     	inputAddress.setText(customerUnderEditing.getAddress());
-    	inputCity.setText(customerUnderEditing.getCity());
     	inputZipCode.setText(customerUnderEditing.getZipCode());
     }
 

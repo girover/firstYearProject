@@ -111,7 +111,7 @@ public class CarImageRepository extends Repository {
 	}
 
 	@Override
-	public CarImage find(int id) {
+	public CarImage find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

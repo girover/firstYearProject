@@ -42,7 +42,7 @@ public class LoanApplicationService extends BaseResourceService {
 	}
 
 	@Override
-	public LoanApplication find(int id) {
+	public LoanApplication find(Object id) {
 		LoanApplication loanApplication = (LoanApplication) repository.find(id);
 		return loanApplication;
 	}

@@ -30,11 +30,10 @@ public class EmployeeService extends BaseResourceService {
 
 	public EmployeeService() {
 		repository = new EmployeeRepository();
-//		entityClass = Employee.class;
 	}
 
 	@Override
-	public Employee find(int id) {
+	public Employee find(Object id) {
 		Employee employee = (Employee) repository.find(id);
 		return employee;
 	}
@@ -55,7 +54,6 @@ public class EmployeeService extends BaseResourceService {
 		employee.setEmail((String)data.input("email"));
 		employee.setPhone((String)data.input("phone"));
 		employee.setAddress((String)data.input("address"));
-		employee.setCity((String)data.input("city"));
 		employee.setZipCode((String)data.input("zipCode"));
 		employee.setHireDate((String)data.input("hireDate"));
 		employee.setDepartment((String)data.input("department"));

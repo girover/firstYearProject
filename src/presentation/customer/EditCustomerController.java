@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import database.entities.City;
 import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
@@ -12,7 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import presentation.ValidatableController;
+import services.CityService;
 import services.CustomerService;
 
 public class EditCustomerController extends ValidatableController {
@@ -95,6 +98,7 @@ public class EditCustomerController extends ValidatableController {
     	customerUnderEditing.setAddress(inputAddress.getText());
     	customerUnderEditing.setCity(inputCity.getText());
     	customerUnderEditing.setZipCode(inputZipCode.getText());
+    	
     	return customerUnderEditing;
     }
     private void fillInputsWithCustomer() {
@@ -111,6 +115,21 @@ public class EditCustomerController extends ValidatableController {
     @FXML
     void handleBtnCancleClick(ActionEvent event) {
     	closeWindow(event);
+    }
+    
+    @FXML
+    void handleInputPostKeyReleased(KeyEvent event) {
+    	
+    	CityService service = new CityService();
+    	
+    	String zipCode = inputZipCode.getText();
+    	
+    	City city = service.find(zipCode);
+    	
+    	if(city != null)
+    		inputCity.setText(city.getCity());
+    	else
+    		inputCity.setText("");
     }
 
 	@Override

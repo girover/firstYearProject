@@ -26,6 +26,7 @@ import database.repositories.UserRepository;
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github</a>
+ *       
  */
 public class UserService extends BaseResourceService {
 
@@ -35,7 +36,7 @@ public class UserService extends BaseResourceService {
 	}
 
 	@Override
-	public User find(int id) {
+	public User find(Object id) {
 		User user = (User) repository.find(id);
 		return user;
 	}

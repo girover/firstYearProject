@@ -31,4 +31,8 @@ public class Factory {
 	public static UserFactory userFactory() {
 		return new UserFactory();
 	}
+	
+	public static CityFactory cityFactory() {
+		return new CityFactory();
+	}
 }

@@ -90,17 +90,20 @@
                                                    <children>
                                                       <AnchorPane prefHeight="514.0" prefWidth="900.0">
                                                          <children>
-                                                            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                <children>
                                                                   <Label text="Car Information">
                                                                      <font>
-                                                                        <Font name="System Bold" size="21.0" />
+                                                                        <Font name="System Bold" size="22.0" />
                                                                      </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="20.0" />
+                                                                     </HBox.margin>
                                                                   </Label>
-                                                                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-car" iconSize="35" />
                                                                </children>
                                                             </HBox>
-                                                            <VBox layoutY="49.0" prefHeight="434.0" prefWidth="671.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <VBox layoutY="49.0" prefHeight="434.0" prefWidth="671.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                                                                <children>
                                                                   <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
                                                                      <children>
@@ -447,20 +450,32 @@
                                                    </children>
                                                 </HBox>
                                              </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+                                             </VBox.margin>
+                                             <styleClass>
+                                                <String fx:value="bg-white" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="round-20" />
+                                             </styleClass>
                                           </AnchorPane>
                                           <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                              <children>
                                                 <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <AnchorPane prefHeight="446.0" prefWidth="677.0">
+                                                      <AnchorPane prefHeight="446.0" prefWidth="900.0">
                                                          <children>
-                                                            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
                                                                   <Label text="Customer Information">
                                                                      <font>
-                                                                        <Font name="System Bold" size="21.0" />
+                                                                        <Font name="System Bold" size="22.0" />
                                                                      </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="20.0" />
+                                                                     </HBox.margin>
                                                                   </Label>
+                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-user-circle-o" iconSize="35" />
                                                                </children>
                                                             </HBox>
                                                             <VBox layoutY="51.0" prefHeight="394.0" prefWidth="546.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
@@ -678,41 +693,38 @@
                                                             </VBox>
                                                          </children>
                                                       </AnchorPane>
-                                                      <Pane prefHeight="626.0" prefWidth="234.0">
-                                                         <children>
-                                                            <Label fx:id="lbRate" alignment="CENTER" layoutX="24.0" layoutY="46.0" prefHeight="186.0" prefWidth="186.0" text="?">
-                                                               <font>
-                                                                  <Font name="System Bold" size="64.0" />
-                                                               </font>
-                                                               <styleClass>
-                                                                  <String fx:value="text-gray-300" />
-                                                                  <String fx:value="round-50" />
-                                                                  <String fx:value="bg-slate-200" />
-                                                                  <String fx:value="shadow-2" />
-                                                               </styleClass>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
                                                    </children>
                                                 </HBox>
                                              </children>
+                                             <styleClass>
+                                                <String fx:value="bg-white" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="round-20" />
+                                             </styleClass>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+                                             </VBox.margin>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                          <AnchorPane prefHeight="306.0" prefWidth="1086.0">
                                              <children>
                                                 <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <AnchorPane prefHeight="446.0" prefWidth="900.0">
                                                          <children>
-                                                            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
                                                                   <Label text="Loan Information">
                                                                      <font>
-                                                                        <Font name="System Bold" size="21.0" />
+                                                                        <Font name="System Bold" size="22.0" />
                                                                      </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="20.0" />
+                                                                     </HBox.margin>
                                                                   </Label>
+                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-handshake-o" iconSize="35" />
                                                                </children>
                                                             </HBox>
-                                                            <VBox layoutY="51.0" prefHeight="203.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <VBox layoutY="51.0" prefHeight="245.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
                                                                   <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
                                                                      <children>
@@ -844,6 +856,32 @@
                                                                         </Label>
                                                                      </children>
                                                                   </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="546.0">
+                                                                     <children>
+                                                                        <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="194.0" text="Date">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <padding>
+                                                                              <Insets right="20.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                        <Label fx:id="lbDate" prefHeight="26.0" prefWidth="338.0">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <padding>
+                                                                              <Insets left="10.0" />
+                                                                           </padding>
+                                                                           <styleClass>
+                                                                              <String fx:value="border-b-2" />
+                                                                              <String fx:value="border-dotted" />
+                                                                              <String fx:value="border-color-slate-400" />
+                                                                              <String fx:value="text-danger" />
+                                                                           </styleClass>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
                                                                </children>
                                                             </VBox>
                                                          </children>
@@ -851,20 +889,32 @@
                                                    </children>
                                                 </HBox>
                                              </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+                                             </VBox.margin>
+                                             <styleClass>
+                                                <String fx:value="bg-white" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="round-20" />
+                                             </styleClass>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="151.0" prefWidth="1160.0">
+                                          <AnchorPane prefHeight="166.0" prefWidth="1160.0">
                                              <children>
                                                 <HBox alignment="TOP_CENTER" prefHeight="152.0" prefWidth="1160.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <AnchorPane prefHeight="144.0" prefWidth="900.0">
                                                          <children>
-                                                            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
                                                                   <Label text="Seller">
                                                                      <font>
-                                                                        <Font name="System Bold" size="21.0" />
+                                                                        <Font name="System Bold" size="22.0" />
                                                                      </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="20.0" />
+                                                                     </HBox.margin>
                                                                   </Label>
+                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-user-md" iconSize="35" />
                                                                </children>
                                                             </HBox>
                                                             <VBox layoutY="51.0" prefHeight="81.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -903,22 +953,31 @@
                                                 </HBox>
                                              </children>
                                              <VBox.margin>
-                                                <Insets top="30.0" />
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
                                              </VBox.margin>
+                                             <styleClass>
+                                                <String fx:value="bg-white" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="round-20" />
+                                             </styleClass>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="151.0" prefWidth="1160.0">
+                                          <AnchorPane prefHeight="183.0" prefWidth="1160.0">
                                              <children>
                                                 <HBox alignment="TOP_CENTER" prefHeight="152.0" prefWidth="1160.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <AnchorPane prefHeight="144.0" prefWidth="900.0">
                                                          <children>
-                                                            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
                                                                   <Label text="Status">
                                                                      <font>
-                                                                        <Font name="System Bold" size="21.0" />
+                                                                        <Font name="System Bold" size="22.0" />
                                                                      </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="20.0" />
+                                                                     </HBox.margin>
                                                                   </Label>
+                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-hourglass-2" iconSize="35" />
                                                                </children>
                                                             </HBox>
                                                             <VBox layoutY="51.0" prefHeight="112.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -949,19 +1008,33 @@
                                                    </children>
                                                 </HBox>
                                              </children>
+                                             <styleClass>
+                                                <String fx:value="bg-white" />
+                                                <String fx:value="round-20" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+                                             </VBox.margin>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                          <AnchorPane prefHeight="457.0" prefWidth="1160.0">
                                              <children>
                                                 <Label text="Note" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0">
                                                    <font>
-                                                      <Font name="System Bold" size="18.0" />
+                                                      <Font name="System Bold" size="22.0" />
                                                    </font>
                                                 </Label>
                                                 <TextArea fx:id="textAreaNote" prefHeight="390.0" prefWidth="1024.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0" />
+                                                <FontIcon iconLiteral="fa-pencil-square-o" iconSize="32" layoutX="163.0" layoutY="40.0" />
                                              </children>
                                              <VBox.margin>
-                                                <Insets />
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
                                              </VBox.margin>
+                                             <styleClass>
+                                                <String fx:value="bg-white" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="round-20" />
+                                             </styleClass>
                                           </AnchorPane>
                                        </children>
                                     </VBox>

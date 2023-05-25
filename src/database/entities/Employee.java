@@ -14,11 +14,13 @@ public class Employee extends Entity {
 	private String email;
 	private String phone;
 	private String address;
-	private String city;
 	private String zipCode;
 	private String hireDate;
 	private String department;
 	private String role;
+	
+	// Relationship attributes
+	private String city;
 	
 	public Employee() {
 		setTable("employee");
@@ -72,20 +74,20 @@ public class Employee extends Entity {
 		this.address = address;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
 	public String getZipCode() {
 		return zipCode;
 	}
 
 	public void setZipCode(String postNumber) {
 		this.zipCode = postNumber;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getHireDate() {
@@ -121,12 +123,17 @@ public class Employee extends Entity {
 			email = result.getString("email");
 			phone = result.getString("phone");
 			address = result.getString("address");
-			city = result.getString("city");
 			zipCode = result.getString("zipCode");
 			hireDate = result.getString("hireDate");
 			department = result.getString("department");
 			role = result.getString("role");
 
+			try {				
+				city = result.getString("city");
+			} catch(SQLException e){
+				city = "";
+			}
+			
 			setExist(true);
 			
 			return true;
@@ -135,6 +142,28 @@ public class Employee extends Entity {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	private String formatString(String key, Object value) {
+		return String.format("%-20s : %-20s\n", key, value);
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Car:\n");
+		sb.append(formatString("id", getId()));
+		sb.append(formatString("first name", getFirstName()));
+		sb.append(formatString("last name", getLastName()));
+		sb.append(formatString("email", getEmail()));
+		sb.append(formatString("phone", getPhone()));
+		sb.append(formatString("address", getAddress()));
+		sb.append(formatString("hire date", getHireDate()));
+		sb.append(formatString("department", getDepartment()));
+		sb.append(formatString("role", getRole()));
+		sb.append(formatString("zip code", getZipCode()));
+		sb.append(formatString("city", getCity()));
+		
+		return sb.toString();
 	}
 
 }

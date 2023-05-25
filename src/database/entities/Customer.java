@@ -26,8 +26,10 @@ public class Customer extends Entity {
 	private String phone;
 	private String email;
 	private String address;
-	private String city;
 	private String zipCode;
+	
+	// Relational properties
+	private String city;
 
 	public Customer() {
 		setTable("customer");
@@ -89,20 +91,20 @@ public class Customer extends Entity {
 		this.address = address;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
 	public String getZipCode() {
 		return zipCode;
 	}
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	@Override
@@ -114,10 +116,15 @@ public class Customer extends Entity {
 			phone = result.getString("phone");
 			email = result.getString("email");
 			address = result.getString("address");
-			city = result.getString("city");
 			zipCode = result.getString("zipCode");
 			CPRHash = result.getString("CPRHash");
-
+			
+			try {				
+				city = result.getString("city");
+			} catch(SQLException e){
+				city = "";
+			}
+			
 			setExist(true);
 			
 			return true;

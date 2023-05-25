@@ -40,7 +40,7 @@ public abstract class BaseTestCase extends TestCase {
 	}
 	
 	/**
-	 * This method is invoked after all methods in test classes.
+	 * This method is invoked after each method in test classes.
 	 */
 	@AfterEach
 	public void tearDown() {		

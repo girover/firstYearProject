@@ -58,7 +58,7 @@ public class LogRepository extends Repository {
 	}
 
 	@Override
-	public LogEntity find(int id) {
+	public LogEntity find(Object id) {
 		return mapResultSetToEntity(findById(id));
 	}
 

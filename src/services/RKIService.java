@@ -7,6 +7,12 @@ import com.ferrari.finances.dk.rki.CreditRator;
 
 import javafx.beans.InvalidationListener;
 
+/**
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ *
+ */
 public class RKIService extends Observable implements Runnable {
 	
 	private String cpr;

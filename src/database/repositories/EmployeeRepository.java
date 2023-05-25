@@ -32,28 +32,6 @@ public class EmployeeRepository extends Repository {
 	public EmployeeRepository() {
 		setTable("employee");
 	}
-	
-	/**
-	 * Get employee by its id from database
-	 * @param id
-	 * @return
-	 */
-//	public Employee getById(int id) {
-//		Employee employee = null;
-//		
-//		try {
-//			ResultSet result = findById(id);
-//			
-//			if(result.next()) {
-//				employee = new Employee();
-//				employee.makeFromResultSet(result);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return employee;
-//	}
 
 	/**
 	 * Delete the specified employee from database table.
@@ -64,7 +42,7 @@ public class EmployeeRepository extends Repository {
 	@Override
 	public boolean delete(Entity entity) {
 
-		String sql = "DELETE FROM [" + entity.getTable() + "] WHERE " + entity.getPrimaryKey() + " = ?";
+		String sql = "DELETE FROM [" + table + "] WHERE " + primaryKey + " = ?";
 
 		return delete(sql, ((Employee) entity).getId());
 	}
@@ -86,7 +64,6 @@ public class EmployeeRepository extends Repository {
 				   + "[email] = ?, "
 				   + "[phone] = ?, "
 				   + "[address] = ?, "
-				   + "[city] = ?, "
 				   + "[zipCode] = ?, "
 				   + "[hireDate] = ?, "
 				   + "[department] = ?, "
@@ -99,7 +76,6 @@ public class EmployeeRepository extends Repository {
 						employee.getEmail(), 
 						employee.getPhone(), 
 						employee.getAddress(), 
-						employee.getCity(), 
 						employee.getZipCode(), 
 						employee.getHireDate(), 
 						employee.getDepartment(), 
@@ -111,7 +87,7 @@ public class EmployeeRepository extends Repository {
 	 * Insert the specified employee into database table.
 	 * 
 	 * @param Entity entity
-	 * @return boolean
+	 * @return int
 	 */
 	@Override
 	public int add(Entity entity) {
@@ -125,11 +101,10 @@ public class EmployeeRepository extends Repository {
 				+ "[email], "
 				+ "[phone], "
 				+ "[address], "
-				+ "[city], "
 				+ "[zipCode], "
 				+ "[hireDate], "
 				+ "[department], "
-				+ "[role], "
+				+ "[role] "
 				+ ") "
 				+ "VALUES "
 				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -140,7 +115,6 @@ public class EmployeeRepository extends Repository {
 						employee.getEmail(),
 						employee.getPhone(),
 						employee.getAddress(),
-						employee.getCity(),
 						employee.getZipCode(),
 						employee.getHireDate(),
 						employee.getDepartment(),
@@ -163,8 +137,8 @@ public class EmployeeRepository extends Repository {
 	}
 
 	@Override
-	public Employee find(int id) {
-		return mapResultSetToEntity(findById(id));
+	public Employee find(Object id) {
+		return mapResultSetToEntity(joinWhere("city", "zipCode", "zipCode", primaryKey, "=", id));
 	}
 
 	@Override
@@ -174,12 +148,12 @@ public class EmployeeRepository extends Repository {
 
 	@Override
 	public ArrayList<Employee> getByCondition(String column, String operation, Object value) {
-		return mapResultSetToEntityList(getRowsByACondition(column, operation, value));
+		return mapResultSetToEntityList(joinWhere("city", "zipCode", "zipCode", column, operation, value));
 	}
 
 	@Override
 	public ArrayList<Employee> getAll() {
-		return mapResultSetToEntityList(getAllRows());
+		return mapResultSetToEntityList(join("city", "zipCode", "zipCode"));
 	}
 
 	@Override
