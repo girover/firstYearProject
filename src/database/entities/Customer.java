@@ -2,6 +2,7 @@ package database.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * This class is a part of Data Access Layer. This class represents a Data
@@ -12,7 +13,7 @@ import java.sql.SQLException;
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
  * 
- * @author Majed Hussen Farhan
+ * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github</a>
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/Customer.java">Class Code On Github</a>
@@ -133,6 +134,45 @@ public class Customer extends Entity {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public ArrayList<String[]> getAsCsvList(){
+		
+		String[] headers = {"ID","First Name","Last Name","Phone","Email","Address","Zip Code","City"};
+		String[] values = {
+							Integer.toString(getId())
+							,getFirstName()
+							,getLastName()
+							,getPhone()
+							,getEmail()
+							,getAddress()
+							,getZipCode()
+							,getCity()
+						  };
+		ArrayList<String[]> data = new ArrayList<>();
+		data.add(headers);
+		data.add(values);
+		
+		return data;
+	}
+	
+	private String formatString(String key, Object value) {
+		return String.format("%-20s : %-20s\n", key, value);
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Car:\n");
+		sb.append(formatString("Id", getId()));
+		sb.append(formatString("First name", getFirstName()));
+		sb.append(formatString("Last name", getLastName()));
+		sb.append(formatString("Phone", getPhone()));
+		sb.append(formatString("Email", getEmail()));
+		sb.append(formatString("Address", getAddress()));
+		sb.append(formatString("Zip code", getZipCode()));
+		sb.append(formatString("City", getCity()));
+		
+		return sb.toString();
 	}
 
 }

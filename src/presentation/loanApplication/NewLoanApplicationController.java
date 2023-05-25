@@ -316,33 +316,6 @@ public class NewLoanApplicationController extends ValidatableController {
 			flashSuccessMessage("Loan application is created successfuly", "Success");
 	}
 	
-	@FXML
-	void handleBtnExportCsv(ActionEvent event) {
-		FileChooser fileChooser = new FileChooser();
-		
-		FileChooser.ExtensionFilter extFilter =
-	            new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
-	    fileChooser.getExtensionFilters().add(extFilter);
-	    
-	    File file = fileChooser.showSaveDialog(null);
-	    
-	    // Example data because I'm confused
-	    List<String[]> data = Arrays.asList(
-                new String[]{"Name,;.:.,", "Age", "Gender"},
-                new String[]{"John21:;.,\n/n", "22", "Male"},
-                new String[]{"Emma", "25", "Female"}
-        );
-	    
-	    if (file != null) {
-	    	try {
-	    		CSVService.writeCSV(data, file.getPath());
-	    	} catch (IOException e) {
-	    		e.printStackTrace();
-	    		showErrorMessage(e.toString(), "Error");
-	    	}
-	    }
-	}
-
 	private boolean isCompleted() {
 		for(int i=0; i<4; i++)
 			if(completedSteps[i] == false)

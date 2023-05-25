@@ -1,6 +1,7 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import app.FormData;
 import database.entities.Car;
@@ -180,6 +181,28 @@ public class LoanApplicationService extends BaseResourceService {
 		return max >= loanAmount;
 	}
 	
-	
+	public ArrayList<String[]> getLoanApplicationDataAsListForCSV(LoanApplication loanApplication){
+		
+		ArrayList<String[]> data = new ArrayList<String[]>();
+		
+		data.add(new String[]{"Loan Application Information\n"});
+		data.addAll(loanApplication.getAsCsvList());
+		data.add(new String[]{"\n"});
+		
+		CustomerRepository customerRepo = new CustomerRepository();
+		Customer customer = customerRepo.find(loanApplication.getCustomerID());
+		
+		data.add(new String[]{"Customer Information\n"});
+		data.addAll(customer.getAsCsvList());
+		data.add(new String[]{"\n"});
+		
+		CarRepository carRepo = new CarRepository();
+		Car car = carRepo.find(loanApplication.getCarID());
+		
+		data.add(new String[]{"Car Information\n"});
+		data.addAll(car.getAsCsvList());
+		
+		return data;
+	}
 
 }

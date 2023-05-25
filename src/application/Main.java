@@ -1,6 +1,7 @@
 package application;
 	
 import app.App;
+import database.entities.factory.Factory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

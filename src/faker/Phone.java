@@ -31,8 +31,8 @@ public class Phone extends Provider {
 		codes.put("nz", "0064");  // New Zealand 
 		codes.put("jp", "0081");  // Japan
 		codes.put("kr", "0082");  // South Korea 
-		codes.put("cn", "0086");  //China 
-		codes.put("in", "0091");  // 
+		codes.put("cn", "0086");  // China 
+		codes.put("in", "0091");  // India
 		codes.put("fi", "00358"); // Finland
 		codes.put("ae", "00971"); // United Arab Emirates	 
 	}

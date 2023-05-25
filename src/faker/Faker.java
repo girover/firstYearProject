@@ -127,7 +127,7 @@ public class Faker extends Provider {
 		car.setHorsepower(getRandomInteger(200, 901));
 		car.setSeats(getOneOf(2, 4));
 		car.setDoors(getOneOf(2, 4));
-		car.setPrice(getRandomInteger(500000, 4000000));
+		car.setPrice(getRandomThousandBetween(500000, 4000000));
 		car.setVin(getAlphaNumericString(17).toUpperCase());
 		car.setSold(sold);
 		car.setDescription(text(getRandomInteger(10, 200)));

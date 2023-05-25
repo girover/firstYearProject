@@ -2,6 +2,7 @@ package database.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * This class is a part of Data Access Layer. This class represents a Data
@@ -162,5 +163,44 @@ public class LoanApplication extends Entity {
 		}
 		return false;
 	}
+	
+	public ArrayList<String[]> getAsCsvList(){
+		
+		String[] headers = {"ID","Loan Ampunt","Down Payment","Months","Interest Rate","Monthly Payment","Status","Note"};
+		String[] values = {
+							Integer.toString(getId())
+							,Double.toString(getLoanAmount())
+							,Double.toString(getPayment())
+							,Integer.toString(getMonths())
+							,Double.toString(getInterestRate())
+							,Double.toString(getMonthlyPayment())
+							,getStatus()
+							,getNote()
+						  };
+		ArrayList<String[]> data = new ArrayList<>();
+		data.add(headers);
+		data.add(values);
+		
+		return data;
+	}
+	
+	private String formatString(String key, Object value) {
+		return String.format("%-20s : %-20s\n", key, value);
+	}
 
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Loan Application:\n");
+		sb.append(formatString("ID", getId()));
+		sb.append(formatString("Loan amount", getLoanAmount()));
+		sb.append(formatString("Down payment", getPayment()));
+		sb.append(formatString("Months", getMonths()));
+		sb.append(formatString("Interest rate", getInterestRate()));
+		sb.append(formatString("Monthly payment", getMonthlyPayment()));
+		sb.append(formatString("Status", getStatus()));
+		sb.append(formatString("Note", getNote()));
+		
+		return sb.toString();
+	}
 }

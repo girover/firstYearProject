@@ -1,6 +1,11 @@
 package presentation.loanApplication;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -15,7 +20,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import presentation.BaseController;
+import services.CSVService;
 import services.LoanApplicationService;
 
 public class ShowLoanApplicationController extends BaseController {
@@ -114,6 +121,9 @@ public class ShowLoanApplicationController extends BaseController {
     private Pane paneStatus;
     
     @FXML
+    private Button btnExportCsv;
+    
+    @FXML
     private Button btnApprove;
     
     @FXML
@@ -126,6 +136,26 @@ public class ShowLoanApplicationController extends BaseController {
 	
 	LoanApplicationService service = new LoanApplicationService();
 
+	@FXML
+	void handleBtnExportCsv(ActionEvent event) {
+		FileChooser fileChooser = new FileChooser();
+		
+		FileChooser.ExtensionFilter extFilter =
+	            new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+	    fileChooser.getExtensionFilters().add(extFilter);
+	    
+	    File file = fileChooser.showSaveDialog(null);
+
+	    if (file != null) {
+	    	try {
+	    		CSVService.writeCSV(service.getLoanApplicationDataAsListForCSV(loanApplication), file.getPath());
+	    	} catch (IOException e) {
+	    		e.printStackTrace();
+	    		showErrorMessage(e.toString(), "Error");
+	    	}
+	    }
+	}
+	
 	@FXML
 	void handleBtnApproveClick(ActionEvent event) {
 		

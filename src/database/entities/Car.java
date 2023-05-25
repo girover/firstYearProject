@@ -2,6 +2,7 @@ package database.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.entities.factory.EntityFactory;
 
@@ -210,6 +211,33 @@ public class Car extends Entity {
 		return false;
 	}
 	
+	public ArrayList<String[]> getAsCsvList(){
+		
+		String[] headers = {"ID","Brand","Model","Year","Color","Transmission","Fuel Type","Engine Size","Km/L","Horsepower","Seats","Doors","Price","VIN","Description"};
+		String[] values = {
+							Integer.toString(getId())
+							,getBrand()
+							,getModel()
+							,Integer.toString(getYear())
+							,getColor()
+							,getTransmission()
+							,getFuelType()
+							,Double.toString(getEngineSize())
+							,Double.toString(getKmPerLiter())
+							,Double.toString(getHorsepower())
+							,Integer.toString(getSeats())
+							,Integer.toString(getDoors())
+							,Double.toString(getPrice())
+							,getVin()
+							,getDescription()
+						  };
+		ArrayList<String[]> data = new ArrayList<>();
+		data.add(headers);
+		data.add(values);
+		
+		return data;
+	}
+	
 	private String formatString(String key, Object value) {
 		return String.format("%-20s : %-20s\n", key, value);
 	}
@@ -217,6 +245,7 @@ public class Car extends Entity {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Car:\n");
+		sb.append(formatString("ID", getId()));
 		sb.append(formatString("brand", getBrand()));
 		sb.append(formatString("model", getModel()));
 		sb.append(formatString("year", getYear()));

@@ -1049,7 +1049,7 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                              <Button fx:id="btnExportCsv" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBtnExportCsv" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
