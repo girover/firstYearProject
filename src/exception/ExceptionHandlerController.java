@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import log.Log;
+import window.Window;
 
 public class ExceptionHandlerController {
 
@@ -19,7 +20,7 @@ public class ExceptionHandlerController {
 
     @FXML
     void onClickBtnClose(ActionEvent event) {
-
+    	Window.closeWindow(event);
     }
 
     @FXML

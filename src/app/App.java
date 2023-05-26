@@ -11,15 +11,21 @@ import database.connection.SqlServerDatabaseConnection;
 import database.entities.Employee;
 import database.entities.User;
 import exception.ExceptionHandler;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import translate.Translator;
 import window.Window;
 
 /**
- * This class is responsible for configuring the application
- * like loading configuration file, generating database instance,
- * setting up the authentication fields,
- * setting up paths for GUI files and components etc..  
+ * This class is responsible for configuring various aspects of the application:
+ * - Loading the configuration file
+ * - Generating the database instance
+ * - Setting up the authentication fields
+ * - Setting up paths for GUI files and components
+ * - etc..
+ * By centralizing these configuration tasks within this class,
+ * the application can easily initialize and set up its components 
+ * and settings in a structured and organized manner.  
  * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
@@ -31,6 +37,7 @@ public class App {
 	private static Auth authenticatedUser;
 	private static Stage mainStage;
 	private static Translator translator;
+	private static boolean booted = false;
 
 	/**
 	 * Start point for the application
@@ -39,11 +46,15 @@ public class App {
 	 */
 	public static void run(Stage primaryStage) throws Exception {
 		
+		if(!isAppLockerReleased())
+			return;
+		
+		
 		mainStage = primaryStage;
-
+		
+		boot();
 		initExceptionHandler();
 		loadConfigs();
-		initOnCloseApplication();
 		initWindowsPath();
 		initAuthFields();
 		initLocaleLanguage();
@@ -54,14 +65,50 @@ public class App {
 		}
 	}
 
+	private static void boot() {
+		booted = true;
+	}
+
+	/**
+	 * We will check if the application is allowed to run.
+	 * If application locker is released then we return true to allow running
+	 * new instance, otherwise false is returned to prevent running other instances.
+	 * @return
+	 */
+	private static boolean isAppLockerReleased() {
+		
+		if(AppLocker.isLocked()) {
+			Platform.exit();
+			return false;
+		}
+		
+		AppLocker.lock();
+		
+		return true;
+	}
+
 	private static void initDatabaseConnection() {
 		dbConnection = getNewDatabaseConnection();
 	}
 
+	/**
+	 * This method loads the translator responsible for translating the GUI 
+	 * into multiple languages.
+	 * Currently, the supported languages are English and Danish.
+ 	 * By calling this method, the translator is initialized, 
+ 	 * enabling the application to display the GUI in the desired language.
+	 */
 	private static void initLocaleLanguage() {
 		translator = new Translator(Config.get("locale"));
 	}
 
+	/**
+	 * This method configures the fields used for authentication in the User Entity.
+	 * The authentication fields can be customized by providing the desired 
+	 * field names as arguments to this method.
+	 * By calling this method and specifying the appropriate field names, 
+	 * the authentication process can be easily adjusted.
+	 */
 	private static void initAuthFields() {
 		Auth.setIdField(Config.get("auth.idField"));
 		Auth.setIdFieldType(Config.get("auth.idFieldType"));
@@ -71,28 +118,17 @@ public class App {
 	private static void initWindowsPath() {
 		Window.setFXMLFolderPath(Config.get("gui.path"));
 	}
-
-	/**
-	 * When closing the application,
-	 * we should close the database connection
-	 */
-	private static void initOnCloseApplication() {
-//			mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-//			mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-//			
-//			@Override
-//			public void handle(WindowEvent arg0) {
-//				try {
-//					getDBConnection().close();
-//					System.out.println("Connection to databsae is closed now.");
-//				} catch (SQLException e) {
-//					System.out.println("Faild to close database connection.");
-//					e.printStackTrace();
-//				}				
-//			}
-//		});
-	}
 	
+	/**
+	 * This statement sets up an ExceptionHandler class to catch any uncaught exceptions 
+	 * that occur in the JavaFX application.
+	 * The ExceptionHandler class is responsible for displaying 
+	 * the exception message in a JavaFX graphical window,
+     * allowing for a user-friendly presentation of the error information.
+ 	 * By configuring this exception handling mechanism, the application ensures that 
+ 	 * any unhandled exceptions are properly captured and presented to the user 
+ 	 * in a convenient manner and will be saved in database.
+	 */
 	private static void initExceptionHandler() {
 		ExceptionHandler.setOwner(mainStage);
 		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler::handleUncaughtException);
@@ -129,13 +165,17 @@ public class App {
 	}
 	
 	/**
-	 * Database that is used in testing is different from the application's database.
-	 * Her we decide to start connecting to testing database
-	 * when calling App.test() method
-	 * @param databaseName
+	 * we configure the application to connect to a separate database 
+	 * specifically used for testing purposes.
+	 * When executing JUnit tests, the application will switch to connecting 
+	 * to the testing database instead of the production database.
+	 * This separation allows for isolated testing and ensures that 
+ 	 * tests do not interfere with the data in the application's main database.
 	 */
 	public static void setTestingDatabaseConnection() {
+		
 		String databaseDriver = Config.get("database.defaultConnection");
+		
 		if(databaseDriver.equals("sqlServer"))
 			Config.set("database.sqlServer.dbName", Config.get("database.sqlServer.testDbName"));
 		else
@@ -151,6 +191,7 @@ public class App {
 	}
 	
 	public static void showUserWindow(User user) {
+		
 		String role = user.getEmployee().getRole();
 		
 		if(role.equals(Employee.MANAGER))
@@ -183,16 +224,12 @@ public class App {
 	}
 
 	/**
-	 * The path to the GUI folder
-	 * @return String
-	 */
-//	public static String getGuiPath() {
-//		return guiPath;
-//	}
-
-	/**
-	 * When a user get logged in, we store this authenticated user
-	 * in the application. 
+	 * This method stores the authenticated user in the application when a user logs in.
+	 * The "user" parameter represents the authenticated user object that will be stored.
+	 * By calling this method after successful authentication, 
+	 * the application keeps track of the currently logged-in user,
+	 * allowing for personalized functionality and access control 
+	 * based on the user's identity. 
 	 * @param user
 	 */
 	public static void setAuthenticatedUser(User user) {
@@ -212,7 +249,7 @@ public class App {
 	}
 	
 	/**
-	 * We can use this method in the Testing to specific window. 
+	 * 
 	 * @param stage
 	 */
 	public static void setMainStage(Stage stage) {
@@ -235,26 +272,36 @@ public class App {
 	}
 
 	/**
-	 * Configure the application for the test environment.
-	 * There is no need for launching any graphical objects.
+	 * This method configures the application for the test environment.
+	 * In the test environment, there is no need to launch any graphical objects 
+ 	 * or initialize the graphical user interface.
 	 */
 	public static void runInTestEnvironment() {
 		try {
 			loadConfigs();
-			initWindowsPath();
 			initAuthFields();
 			setTestingDatabaseConnection();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Terminating the application.
-	 * Closing database connection.
+	 * This method is responsible for terminating 
+	 * the application and closing the database connection.
+	 * When called, it performs the necessary cleanup tasks 
+	 * to gracefully shut down the application and release any resources.
 	 */
 	public static void terminate() {
+		
+		/**
+		 * If application is terminating after is has been booted
+		 * if there is another instance of application running, this instance will
+		 * not be booted, so the AppLocker will not be released.
+		 */
+		if(booted)
+			AppLocker.release();
+		
 		if(dbConnection != null)
 			try {
 				dbConnection.close();

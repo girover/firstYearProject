@@ -1,10 +1,18 @@
 package presentation;
 
+/**
+ * This class is responsible for generating TableCell formatters 
+ * for specific types or objects.
+ * It provides a convenient way to format the content of table cells 
+ * based on the type or properties of the underlying data.
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
 import app.Helper;
 import database.entities.LoanApplication;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.util.Callback;
 
 public class TableCellFormatter {
 
