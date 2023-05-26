@@ -65,9 +65,9 @@
                            </padding>
                         </TextField>
                         <FontIcon iconLiteral="fa-search" iconSize="20" />
-                        <Button fx:id="btnAll" mnemonicParsing="false" onAction="#handleBtnAllClick" text="All">
+                        <Button fx:id="btnAll" mnemonicParsing="false" onAction="#handleBtnAllClick">
                            <graphic>
-                              <FontIcon fill="WHITE" iconLiteral="fa-users" iconSize="18" />
+                              <FontIcon fill="WHITE" iconLiteral="fa-refresh" iconSize="18" />
                            </graphic>
                            <styleClass>
                               <String fx:value="btn" />

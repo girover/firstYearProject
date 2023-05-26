@@ -120,9 +120,9 @@ public class UpdateLoanApplicationController extends ValidatableController {
     	updateLoanApplication();
     	if(service.update(loanApplication)) {
     		flashSuccessMessage("Loan Application was updated successfuly", "Success");
-    	}else {
+    		fire();
+    	}else
     		flashErrorMessage("Failed to update the loan application", "Failed");
-    	}
     }
 
     private void updateLoanApplication() {

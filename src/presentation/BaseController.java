@@ -14,28 +14,16 @@ import window.FlashWindow;
 import window.Window;
 
 /**
- * This class is a part of Presentation Layer. This abstract class provides a
- * set of of methods that can be used in derived classes.
- *
- * 
- * @version 1.0
+ * This abstract class is part of the Presentation Layer and provides a set of methods
+ * that can be utilized by derived classes. It serves as a foundation for implementing
+ * common functionality and behavior in the derived classes.
  * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github</a>
  */
 public abstract class BaseController extends Observable implements Observer, Initializable {
 
-	/**
-	 * The controller that makes request to this controller. It is important for
-	 * transferring data between controllers.
-	 */
-	protected BaseController observerController;
-
-	protected static Translator translator;
-
-	public BaseController() {
-		translator = App.getTranslator();
-	}
+	protected static Translator translator = App.getTranslator();
 
 	protected String translate(String translateableText) {
 		return translator.translate(translateableText);
@@ -59,11 +47,6 @@ public abstract class BaseController extends Observable implements Observer, Ini
 	
 	protected boolean showCinformDialog(String title, String message) {
 		return Window.showCinformDialog(title, message);
-	}
-
-	public void setObserverController(BaseController controller) {
-		observerController = controller;
-		addObserver(controller);
 	}
 
 	protected void openWindow(String fxml, String title) {
@@ -92,6 +75,10 @@ public abstract class BaseController extends Observable implements Observer, Ini
 			notifyObservers();
 		else
 			notifyObservers(arg);
+	}
+	
+	protected void fire() {
+		fire(null);
 	}
 
 	public String formatNumber(int number) {

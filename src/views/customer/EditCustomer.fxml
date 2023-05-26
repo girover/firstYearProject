@@ -179,32 +179,28 @@
       </BorderPane>
       <AnchorPane prefHeight="67.0" prefWidth="598.0" styleClass="bg-gray-200" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnUpdate" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnUpdateClick" prefHeight="38.0" prefWidth="132.0" text="Update" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="btnUpdate" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnUpdateClick" prefHeight="26.0" prefWidth="96.0" text="Update" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="25" />
                </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
                <styleClass>
                   <String fx:value="bg-success" />
                   <String fx:value="text-white" />
-                  <String fx:value="font-weight-bold" />
+                  <String fx:value="bold" />
                   <String fx:value="shadow" />
+                  <String fx:value="btn" />
                </styleClass>
             </Button>
-            <Button fx:id="btnCancle" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" prefHeight="38.0" prefWidth="96.0" text="Cancle" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <Button fx:id="btnCancle" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" prefHeight="26.0" prefWidth="96.0" text="Cancle" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="25" />
                </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
                <styleClass>
                   <String fx:value="text-white" />
                   <String fx:value="bg-danger" />
                   <String fx:value="font-weight-bold" />
                   <String fx:value="shadow" />
+                  <String fx:value="btn" />
                </styleClass>
             </Button>
          </children>

@@ -74,9 +74,9 @@ public class EditCustomerController extends ValidatableController {
     	CustomerService customerService = new CustomerService();
     	if(customerService.update(fillCustomerWithNewData())) {
     		flashSuccessMessage("Customer updated Successfuly", "Created Customer");
-    		
+    		customerUnderEditing.setCity(inputCity.getText());
     		// To inform the observer controller that the wanted customer is updated now
-    		fire(customerUnderEditing);
+    		fire();
     		
     		return;
     	}else
@@ -87,6 +87,10 @@ public class EditCustomerController extends ValidatableController {
     public void setCustomer(Customer customer) {
     	customerUnderEditing = customer;
     	fillInputsWithCustomer();
+    }
+    
+    public Customer getUpdatedCustomer(){
+    	return customerUnderEditing;
     }
     
     private Customer fillCustomerWithNewData() {

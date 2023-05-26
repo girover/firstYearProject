@@ -119,7 +119,7 @@ public class FreeCarsController extends BaseController {
 			Window.showSuccessMessage(Integer.toString(currentPage), "Majed");
 		}else if(o instanceof CarItemController) {
 			setSelectedCar(((CarItemController)o).getCar());
-			fire(null);
+			fire();
 			if(arg instanceof Integer && (int)arg == 2) {
 				btnClose.fire();
 			}

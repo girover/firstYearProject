@@ -15,11 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="743.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.NewCustomerController">
    <children>
-      <AnchorPane prefHeight="70.0" prefWidth="598.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <styleClass>
-            <String fx:value="bg-gray-200" />
-            <String fx:value="shadow" />
-         </styleClass>
+      <AnchorPane prefHeight="70.0" prefWidth="598.0" styleClass="bg-gray-200" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label styleClass="text-gray-800" text="Add New Customer" textFill="#999999" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="16.0">
                <font>
@@ -35,7 +31,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="CPR" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" styleClass="text-gray-700" text="CPR" textFill="#9c9c9c">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -52,7 +48,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" text="First Name" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" styleClass="text-gray-700" text="First Name" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -69,7 +65,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" text="Last Name" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" styleClass="text-gray-700" text="Last Name" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -86,7 +82,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" text="Phone" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" styleClass="text-gray-700" text="Phone" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -103,7 +99,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="Email" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" styleClass="text-gray-700" text="Email" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -120,7 +116,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" text="Address" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="150.0" styleClass="text-gray-700" text="Address" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -137,7 +133,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="Post nr." textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" styleClass="text-gray-700" text="Post nr." textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -154,7 +150,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" text="City" textFill="#a9a9a9">
+                        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="150.0" styleClass="text-gray-700" text="City" textFill="#a9a9a9">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -179,32 +175,29 @@
       </BorderPane>
       <AnchorPane prefHeight="67.0" prefWidth="598.0" styleClass="bg-gray-200" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnAdd" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="38.0" prefWidth="96.0" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="btnAdd" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="22.0" prefWidth="84.0" text="Add" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-user-plus" iconSize="25" />
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-user-plus" iconSize="22" />
                </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
                <styleClass>
                   <String fx:value="bg-success" />
                   <String fx:value="text-white" />
-                  <String fx:value="font-weight-bold" />
+                  <String fx:value="bold" />
                   <String fx:value="shadow" />
+                  <String fx:value="btn" />
+                  <String fx:value="round-2" />
                </styleClass>
             </Button>
-            <Button fx:id="btnCancle" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" prefHeight="38.0" prefWidth="96.0" text="Cancle" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <Button fx:id="btnCancle" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" prefHeight="32.0" prefWidth="98.0" text="Cancle" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="25" />
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="22" />
                </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
                <styleClass>
                   <String fx:value="text-white" />
                   <String fx:value="bg-danger" />
-                  <String fx:value="font-weight-bold" />
+                  <String fx:value="bold" />
                   <String fx:value="shadow" />
+                  <String fx:value="btn" />
                </styleClass>
             </Button>
          </children>

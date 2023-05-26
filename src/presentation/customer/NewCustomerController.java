@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import app.FormData;
 import database.entities.City;
 import database.entities.Customer;
-import database.repositories.CityRepository;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
 import javaFxValidation.annotations.Rules;
@@ -77,7 +76,8 @@ public class NewCustomerController extends ValidatableController {
     	createdCustomer = customerService.create(getFormData());
     	if(createdCustomer != null) {
     		flashSuccessMessage("Customer created Successfuly", "Created Customer");
-    		fire(null);
+    		createdCustomer.setCity(inputCity.getText());
+    		fire();
     		return;
     	}else
     		showErrorMessage("Failed to create new customer", "Creaing Customer failed");
@@ -103,6 +103,10 @@ public class NewCustomerController extends ValidatableController {
     	return createdCustomer;
     }
     
+    public void setCpr(String cpr) {
+    	inputCPR.setText(cpr);
+    }
+    
     @FXML
     void handleInputPostKeyReleased(KeyEvent event) {
     	
@@ -117,6 +121,8 @@ public class NewCustomerController extends ValidatableController {
     	else
     		inputCity.setText("");
     }
+    
+    
 
     @FXML
     void handleBtnCancleClick(ActionEvent event) {

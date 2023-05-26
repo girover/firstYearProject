@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="608.0" prefWidth="918.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.CustomersController">
+<AnchorPane prefHeight="608.0" prefWidth="1100.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.CustomersController">
                <children>
                   <BorderPane layoutX="85.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
@@ -61,14 +61,14 @@
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="shadow" />
-                        <String fx:value="bg-green-600" />
-                        <String fx:value="text-white" />
+                        <String fx:value="bg-yellow-500" />
+                        <String fx:value="text-gray-900" />
                         <String fx:value="font-weight-bold" />
                      </styleClass>
                   </Button>
-                  <HBox alignment="CENTER_RIGHT" layoutX="504.0" layoutY="96.0" prefHeight="36.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="446.79999999999995" layoutY="100.4" prefHeight="36.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="10.0">
                      <children>
-                        <TextField fx:id="inputSearch" onKeyReleased="#handleInputSearchOnKeyReleased" prefHeight="28.0" prefWidth="255.0" promptText="CPR" styleClass="form-control">
+                        <TextField fx:id="inputSearch" onKeyReleased="#handleInputSearchOnKeyReleased" prefHeight="28.0" prefWidth="255.0" promptText="First name Or Last name" styleClass="form-control">
                            <HBox.margin>
                               <Insets right="-46.0" />
                            </HBox.margin>
@@ -77,19 +77,19 @@
                            </padding>
                         </TextField>
                         <FontIcon iconLiteral="fa-search" iconSize="20" />
-                        <Button fx:id="btnAll" mnemonicParsing="false" onAction="#handleBtnAllClick" text="All">
+                        <Button fx:id="btnRefresh" mnemonicParsing="false" onAction="#handleBtnRefreshClick">
                            <graphic>
-                              <FontIcon fill="WHITE" iconLiteral="fa-users" iconSize="18" />
+                              <FontIcon fill="WHITE" iconLiteral="fa-refresh" iconSize="18" />
                            </graphic>
                            <styleClass>
                               <String fx:value="btn" />
                               <String fx:value="shadow" />
-                              <String fx:value="bg-blue-900" />
+                              <String fx:value="bg-green-600" />
                               <String fx:value="bold" />
                               <String fx:value="text-white" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="btnDelete1" mnemonicParsing="false" onAction="#handleBtnDeleteClick" text="Delete">
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleBtnDeleteClick" text="Delete">
                            <graphic>
                               <FontIcon fill="WHITE" iconLiteral="fa-trash" iconSize="18" />
                            </graphic>
@@ -129,16 +129,16 @@
                <children>
                   <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="393.0" prefWidth="891.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
-                        <TableView fx:id="tvCustomers" prefHeight="394.0" prefWidth="898.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tvCustomers" prefHeight="394.0" prefWidth="898.0" stylesheets="@../tableView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="colID" prefWidth="39.99997043609619" text="ID" />
-                            <TableColumn fx:id="colFirstName" prefWidth="111.20000839233398" text="First name" />
-                              <TableColumn fx:id="colLastName" prefWidth="146.40000915527344" text="Last name" />
-                              <TableColumn fx:id="colPhone" prefWidth="132.0" text="Phone" />
-                              <TableColumn fx:id="colEmail" prefWidth="126.39996337890625" text="Email" />
-                              <TableColumn fx:id="colAddress" minWidth="5.5999755859375" prefWidth="112.00006103515625" text="Address" />
-                              <TableColumn fx:id="colZipCode" prefWidth="67.2000732421875" text="Post Code" />
-                              <TableColumn fx:id="colCity" prefWidth="67.2000732421875" text="City" />
+                            <TableColumn fx:id="colFirstName" prefWidth="131.20000839233398" text="First name" />
+                              <TableColumn fx:id="colLastName" prefWidth="152.00001525878906" text="Last name" />
+                              <TableColumn fx:id="colPhone" prefWidth="134.39996337890625" text="Phone" />
+                              <TableColumn fx:id="colEmail" prefWidth="170.39996337890625" text="Email" />
+                              <TableColumn fx:id="colAddress" minWidth="5.5999755859375" prefWidth="175.20001220703125" text="Address" />
+                              <TableColumn fx:id="colZipCode" minWidth="0.0" prefWidth="65.5999755859375" text="Post Code" />
+                              <TableColumn fx:id="colCity" prefWidth="177.60009765625" text="City" />
                           </columns>
                         </TableView>
                      </children>

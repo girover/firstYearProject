@@ -120,7 +120,7 @@ public class App {
 	}
 	
 	/**
-	 * This methos sets up an ExceptionHandler class to catch any uncaught exceptions 
+	 * This method sets up an ExceptionHandler class to catch any uncaught exceptions 
 	 * that occur in the JavaFX application.
 	 * The ExceptionHandler class is responsible for displaying 
 	 * the exception message in a JavaFX graphical window,

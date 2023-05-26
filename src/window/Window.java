@@ -62,12 +62,7 @@ public class Window extends Stage {
 	
 	public BaseController getController() {
 		return controller;
-	}
-	
-	public void setSenderController(BaseController controller) {
-		getController().setObserverController(controller);
-	}
-	
+	}	
 
 	/**
 	 * When clicking close button of a stage we get an event,

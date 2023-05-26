@@ -173,6 +173,26 @@ public class NewLoanApplicationController extends ValidatableController {
 	private int currentTabIndex = 0;
 	private boolean[] completedSteps = new boolean[4];
 
+	/**
+	 * Send request to the RKI API to check to credit rate the sent cpr number.
+	 * 
+	 * Response will be sent to this observer controller.
+	 */
+	private void sendRKIRequest() {
+		RKIService rkiService = new RKIService(this);
+		rkiService.sendRequest(inputCpr.getText());
+	}
+
+	/**
+	 * Send request to the Bank API to check to get interest rate for today.
+	 * 
+	 * Response will be sent to this observer controller.
+	 */
+	private void sendBankRequest() {
+		BankService bankService = new BankService(this);
+		bankService.sendRequest();
+	}
+
 	@FXML
 	void handleBtnCheckRKIClick(ActionEvent event) {
 		try {
@@ -194,28 +214,9 @@ public class NewLoanApplicationController extends ValidatableController {
 		if(selectedCustomer == null) {
 			NewCustomerController controller = (NewCustomerController)openWindowAndGetController("customer/NewCustomer.fxml", "Customer");
 			controller.addObserver(this);
+			controller.setCpr(inputCpr.getText());
 		}else
 			fillCustomerInfo();
-	}
-
-	/**
-	 * Send request to the RKI API to check to credit rate the sent cpr number.
-	 * 
-	 * Response will be sent to this observer controller.
-	 */
-	private void sendRKIRequest() {
-		RKIService rkiService = new RKIService(this);
-		rkiService.sendRequest(inputCpr.getText());
-	}
-	
-	/**
-	 * Send request to the Bank API to check to get interest rate for today.
-	 * 
-	 * Response will be sent to this observer controller.
-	 */
-	private void sendBankRequest() {
-		BankService bankService = new BankService(this);
-		bankService.sendRequest();
 	}
 
 	@FXML
@@ -301,13 +302,19 @@ public class NewLoanApplicationController extends ValidatableController {
 		data.setData("status", LoanApplication.PROCESSING);
 		data.setData("note", textAreaNote.getText());
 
-		LoanApplication loanApp = loanAppService.create(data);
-		if(loanApp == null) {
+		loanApplication = loanAppService.create(data);
+		if(loanApplication == null) {
 			showErrorMessage("Failed to create new loan application", "Creating Failed");
 			return;
 		}
-		else
+		else {
 			flashSuccessMessage("Loan application is created successfuly", "Success");
+			fire();
+		}
+	}
+	
+	public LoanApplication getCreatedLoanApplication() {
+		return loanApplication;
 	}
 	
 	private boolean isCompleted() {

@@ -110,7 +110,8 @@ public class LoanApplicationsController extends BaseController {
 
     @FXML
     void handleBtnNewLoanApplicationClick(ActionEvent event) {
-    	openWindow("loanApplication/NewLoanApplication.fxml", "New Loan Application");
+    	NewLoanApplicationController controller = (NewLoanApplicationController) openWindowAndGetController("loanApplication/NewLoanApplication.fxml", "New Loan Application");
+    	controller.addObserver(this);
     }
 
     @FXML
@@ -128,11 +129,18 @@ public class LoanApplicationsController extends BaseController {
     	
     	ShowLoanApplicationController controller = (ShowLoanApplicationController)openWindowAndGetController("loanApplication/ShowLoanApplication.fxml", "Loan Application");
     	controller.setLoanApplication(loan);
+    	controller.addObserver(this);
     }
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
+		if(o instanceof NewLoanApplicationController) {
+			LoanApplication loanApplication = ((NewLoanApplicationController)o).getCreatedLoanApplication();
+			if(loanApplication != null)
+				loanApplications.add(loanApplication);
+		}else if(o instanceof ShowLoanApplicationController || o instanceof UpdateLoanApplicationController) {
+			tvLoanApplications.refresh();
+		}
 	}
 
 	@Override

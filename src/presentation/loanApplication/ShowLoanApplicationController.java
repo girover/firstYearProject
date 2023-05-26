@@ -25,6 +25,15 @@ import presentation.BaseController;
 import services.CSVService;
 import services.LoanApplicationService;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ * 
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
+ */
 public class ShowLoanApplicationController extends BaseController {
 
     @FXML
@@ -153,7 +162,8 @@ public class ShowLoanApplicationController extends BaseController {
 	    		e.printStackTrace();
 	    		showErrorMessage(e.toString(), "Error");
 	    	}
-	    }
+	    }else
+	    	flashErrorMessage("Somthing went wrong!!!", "Warning");
 	}
 	
 	@FXML
@@ -170,6 +180,7 @@ public class ShowLoanApplicationController extends BaseController {
 		if(service.approveLoanApplication(loanApplication)) {
 			flashSuccessMessage("Loan Application approved successfully.", "Approved");
 			updateData();
+			fire();
 		}
 		else
 			flashErrorMessage("Failed to approve loan application.", "Failed");
@@ -189,6 +200,7 @@ public class ShowLoanApplicationController extends BaseController {
 		if(service.rejectLoanApplication(loanApplication)) {
 			flashSuccessMessage("Loan Application rejected successfully.", "Rejected");
 			updateData();
+			fire();
 		}
 		else
 			flashErrorMessage("Failed to reject loan application.", "Failed");
@@ -240,28 +252,19 @@ public class ShowLoanApplicationController extends BaseController {
 
 	private void styleRejectedStatus() {
 		paneStatus.getStyleClass().clear();
-		paneStatus.getStyleClass().add("bg-red-500");
-		paneStatus.getStyleClass().add("round-50");
-		paneStatus.getStyleClass().add("shadow");
-		paneStatus.getStyleClass().add("text-white");
+		paneStatus.getStyleClass().addAll("bg-red-500","round-50","shadow","text-white");
 		lbStatus.setText(LoanApplication.REJECTED);
 	}
 
 	private void styleApprovedStatus() {
 		paneStatus.getStyleClass().clear();
-		paneStatus.getStyleClass().add("bg-green-500");
-		paneStatus.getStyleClass().add("round-50");
-		paneStatus.getStyleClass().add("shadow");
-		paneStatus.getStyleClass().add("text-white");
+		paneStatus.getStyleClass().addAll("bg-green-500", "round-50", "shadow", "text-white");
 		lbStatus.setText(LoanApplication.APPROVED);
 	}
 
 	private void styleProcessingStatus() {
 		paneStatus.getStyleClass().clear();
-		paneStatus.getStyleClass().add("bg-yellow-500");
-		paneStatus.getStyleClass().add("round-50");
-		paneStatus.getStyleClass().add("shadow");
-		paneStatus.getStyleClass().add("text-white");
+		paneStatus.getStyleClass().addAll("bg-yellow-500", "round-50", "shadow", "text-white");
 		lbStatus.setText(LoanApplication.PROCESSING);
 	}
 
@@ -296,7 +299,7 @@ public class ShowLoanApplicationController extends BaseController {
 
 	private void fillCustomerData(Customer customer) {
 		lbAddress.setText(customer.getAddress());
-		lbCPR.setText(customer.getCPRHash());
+		lbCPR.setText("xxxxxx-xxxx");
 		lbEmail.setText(customer.getEmail());
 		lbFirstName.setText(customer.getFirstName());
 		lbLastName.setText(customer.getLastName());

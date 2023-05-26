@@ -37,7 +37,7 @@ public class CustomersController extends BaseController {
     private Button btnLoanApplication;
     
     @FXML
-    private Button btnAll;
+    private Button btnRefresh;
     
     @FXML
     private TextField inputSearch;
@@ -80,12 +80,14 @@ public class CustomersController extends BaseController {
 
     @FXML
     void handleBtnDeleteClick(ActionEvent event) {
-
+    	
+    		
     }
     
     @FXML
-    void handleBtnAllClick(ActionEvent event) {
-    	
+    void handleBtnRefreshClick(ActionEvent event) {
+    	customers.clear();
+    	customers.addAll(customerService.getAll());
     }
     
     @FXML
@@ -110,16 +112,24 @@ public class CustomersController extends BaseController {
     	
     	EditCustomerController controller = (EditCustomerController)openWindowAndGetController("customer/EditCustomer.fxml", "Customers");
     	controller.setCustomer(customer);
+    	controller.addObserver(this);
     }
 
     @FXML
     void handleBtnNewCustomerClick(ActionEvent event) {
-    	openWindow("customer/NewCustomer.fxml", "Customers");
+    	NewCustomerController controller = (NewCustomerController) openWindowAndGetController("customer/NewCustomer.fxml", "Customers");
+    	controller.addObserver(this);
     }
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
+		if(o instanceof NewCustomerController) {
+			Customer newCustomer = ((NewCustomerController)o).getCreatedCustomer();
+			if(newCustomer != null)
+				customers.add(newCustomer);
+		}else if(o instanceof EditCustomerController) {
+			tvCustomers.refresh();
+		}
 	}
 
 	@Override

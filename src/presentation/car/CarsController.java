@@ -113,7 +113,7 @@ public class CarsController extends BaseController {
 	public void update(Observable o, Object arg) {
 		if(o instanceof CarItemController) {
 			setSelectedCar(((CarItemController)o).getCar());
-			fire(null);
+			fire();
 			if(arg instanceof Integer && (int)arg == 2) {
 				btnClose.fire();
 			}

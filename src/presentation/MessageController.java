@@ -21,8 +21,6 @@ public class MessageController extends BaseController {
 
 	@FXML
 	void handleLblClick(MouseEvent event) {
-		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiii");
-		fire("Hiiiiiiiiiiiiiiiiiiiiiiiiiii");
 	}
 
 	@Override
