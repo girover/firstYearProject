@@ -120,7 +120,7 @@ public class App {
 	}
 	
 	/**
-	 * This statement sets up an ExceptionHandler class to catch any uncaught exceptions 
+	 * This methos sets up an ExceptionHandler class to catch any uncaught exceptions 
 	 * that occur in the JavaFX application.
 	 * The ExceptionHandler class is responsible for displaying 
 	 * the exception message in a JavaFX graphical window,
@@ -130,7 +130,6 @@ public class App {
  	 * in a convenient manner and will be saved in database.
 	 */
 	private static void initExceptionHandler() {
-		ExceptionHandler.setOwner(mainStage);
 		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler::handleUncaughtException);
 	}
 	

@@ -5,9 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import log.Log;
+import presentation.MessageController;
 import window.Window;
 
-public class ExceptionHandlerController {
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ *
+ */
+public class ExceptionHandlerController extends MessageController {
 
     @FXML
     private Button btnClose;
@@ -30,6 +37,8 @@ public class ExceptionHandlerController {
     
     public void writeExceptionDeatails(String text) {
     	textArea.setText(text);
+    	
+    	// Here we store the exception message in the database or a file to check it later.
     	Log.debugging(text);
     }
 
