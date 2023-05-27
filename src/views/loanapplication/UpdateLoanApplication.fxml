@@ -292,9 +292,10 @@
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="bg-gray-600" />
+                                    <String fx:value="bg-green-500" />
                                     <String fx:value="text-white" />
                                     <String fx:value="font-weight-bold" />
+                                    <String fx:value="hover-green" />
                                  </styleClass>
                                  <graphic>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="20" />
@@ -304,9 +305,10 @@
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="bg-red-600" />
+                                    <String fx:value="bg-red-500" />
                                     <String fx:value="text-white" />
                                     <String fx:value="font-weight-bold" />
+                                    <String fx:value="hover-red" />
                                  </styleClass>
                                  <graphic>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />

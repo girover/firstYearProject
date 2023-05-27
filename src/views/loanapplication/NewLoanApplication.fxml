@@ -46,7 +46,7 @@
 						</Pane>
 						<Pane layoutX="349.0" prefHeight="70.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 							<children>
-								<HBox alignment="CENTER_RIGHT" layoutX="9.0" layoutY="24.0" prefHeight="32.0" prefWidth="320.0">
+								<HBox alignment="CENTER_RIGHT" layoutX="7.0" layoutY="9.0" prefHeight="32.0" prefWidth="320.0">
 									<children>
 										<FontIcon iconLiteral="fa-car" iconSize="30" />
 									</children>
@@ -123,10 +123,11 @@
                                                                                     <Button fx:id="btnSearchCar" mnemonicParsing="false" onAction="#handleBtnSearchCarClick" prefHeight="28.0" prefWidth="24.0">
                                                                                        <styleClass>
                                                                                           <String fx:value="btn" />
-                                                                                          <String fx:value="bg-yellow-400" />
+                                                                                          <String fx:value="bg-yellow-300" />
                                                                                           <String fx:value="shadow" />
                                                                                           <String fx:value="bold" />
                                                                                           <String fx:value="text-danger" />
+                                                                                          <String fx:value="hover-yellow" />
                                                                                        </styleClass>
                                                                                        <HBox.margin>
                                                                                           <Insets left="10.0" />
@@ -980,9 +981,10 @@
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="bg-gray-600" />
+                                    <String fx:value="bg-gray-500" />
                                     <String fx:value="text-white" />
                                     <String fx:value="font-weight-bold" />
+                                    <String fx:value="hover-gray" />
                                  </styleClass>
                                  <graphic>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="20" />
@@ -992,9 +994,10 @@
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="bg-red-600" />
+                                    <String fx:value="bg-red-500" />
                                     <String fx:value="text-white" />
                                     <String fx:value="font-weight-bold" />
+                                    <String fx:value="hover-red" />
                                  </styleClass>
                                  <graphic>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
@@ -1004,9 +1007,10 @@
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="bg-green-600" />
+                                    <String fx:value="bg-green-500" />
                                     <String fx:value="bold" />
                                     <String fx:value="text-white" />
+                                    <String fx:value="hover-green" />
                                  </styleClass>
                                  <graphic>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-arrow-right" iconSize="20" />

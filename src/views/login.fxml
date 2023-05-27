@@ -71,6 +71,8 @@
          <styleClass>
             <String fx:value="bg-yellow-300" />
             <String fx:value="shadow" />
+            <String fx:value="btn" />
+            <String fx:value="hover-yellow" />
          </styleClass>
          <font>
             <Font name="System Bold" size="12.0" />

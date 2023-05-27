@@ -85,6 +85,7 @@
                                     <String fx:value="shadow" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
+                                    <String fx:value="hover-light" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -108,6 +109,7 @@
                                     <String fx:value="shadow" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
+                                    <String fx:value="hover-light" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -131,6 +133,7 @@
                                     <String fx:value="shadow" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
+                                    <String fx:value="hover-light" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -154,6 +157,7 @@
                                     <String fx:value="shadow" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
+                                    <String fx:value="hover-light" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -177,6 +181,7 @@
                                     <String fx:value="shadow" />
                                     <String fx:value="round" />
                                     <String fx:value="btn" />
+                                    <String fx:value="hover-light" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -206,10 +211,11 @@
                                     <Insets right="-43.0" />
                                  </HBox.margin>
                                  <styleClass>
-                                    <String fx:value="bg-danger" />
+                                    <String fx:value="bg-red-500" />
                                     <String fx:value="shadow" />
                                     <String fx:value="round-32" />
                                     <String fx:value="btn" />
+                                    <String fx:value="hover-red" />
                                  </styleClass>
                                  <font>
                                     <Font name="System Bold" size="12.0" />

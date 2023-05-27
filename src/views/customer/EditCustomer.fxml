@@ -184,11 +184,12 @@
                   <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="25" />
                </graphic>
                <styleClass>
-                  <String fx:value="bg-success" />
+                  <String fx:value="bg-green-500" />
                   <String fx:value="text-white" />
                   <String fx:value="bold" />
                   <String fx:value="shadow" />
                   <String fx:value="btn" />
+                  <String fx:value="hover-green" />
                </styleClass>
             </Button>
             <Button fx:id="btnCancle" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" prefHeight="26.0" prefWidth="96.0" text="Cancle" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
@@ -197,10 +198,11 @@
                </graphic>
                <styleClass>
                   <String fx:value="text-white" />
-                  <String fx:value="bg-danger" />
+                  <String fx:value="bg-red-500" />
                   <String fx:value="font-weight-bold" />
                   <String fx:value="shadow" />
                   <String fx:value="btn" />
+                  <String fx:value="hover-red" />
                </styleClass>
             </Button>
          </children>

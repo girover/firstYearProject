@@ -31,10 +31,11 @@
                      </graphic>
                      <styleClass>
                         <String fx:value="btn" />
-                        <String fx:value="bg-blue-700" />
+                        <String fx:value="bg-blue-500" />
                         <String fx:value="text-white" />
                         <String fx:value="font-weight-bold" />
                         <String fx:value="shadow" />
+                        <String fx:value="hover-blue" />
                      </styleClass>
                   </Button>
                   <Label layoutX="20.0" layoutY="62.0" text="Assignment : " textFill="#efefef">
@@ -49,9 +50,10 @@
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="shadow" />
-                        <String fx:value="bg-gray-600" />
+                        <String fx:value="bg-gray-500" />
                         <String fx:value="text-white" />
                         <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-gray" />
                      </styleClass>
                   </Button>
                   <HBox alignment="CENTER_RIGHT" layoutX="504.0" layoutY="96.0" prefHeight="36.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0">
@@ -72,9 +74,10 @@
                            <styleClass>
                               <String fx:value="btn" />
                               <String fx:value="shadow" />
-                              <String fx:value="bg-blue-900" />
+                              <String fx:value="bg-blue-500" />
                               <String fx:value="bold" />
                               <String fx:value="text-white" />
+                              <String fx:value="hover-blue" />
                            </styleClass>
                         </Button>
                         <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleBtnDeleteClick" text="Delete">
@@ -84,9 +87,10 @@
                            <styleClass>
                               <String fx:value="btn" />
                               <String fx:value="shadow" />
-                              <String fx:value="bg-danger" />
+                              <String fx:value="bg-red-500" />
                               <String fx:value="bold" />
                               <String fx:value="text-white" />
+                              <String fx:value="hover-red" />
                            </styleClass>
                         </Button>
                      </children>
@@ -98,9 +102,10 @@
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="shadow" />
-                        <String fx:value="bg-green-600" />
+                        <String fx:value="bg-green-500" />
                         <String fx:value="text-white" />
                         <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-green" />
                      </styleClass>
                   </Button>
                            </children>
@@ -116,9 +121,10 @@
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="shadow" />
-                        <String fx:value="bg-danger" />
+                        <String fx:value="bg-red-500" />
                         <String fx:value="text-white" />
                         <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-red" />
                      </styleClass>
                   </Button>
                </children>

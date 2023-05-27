@@ -71,6 +71,7 @@
                         <String fx:value="text-white" />
                         <String fx:value="bold" />
                         <String fx:value="round-16" />
+                        <String fx:value="hover-red" />
                      </styleClass>
                   </Button>
                </children>

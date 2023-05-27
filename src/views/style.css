@@ -295,11 +295,7 @@
 .btn{
 	-fx-cursor:hand;
 }
-.btn:hover{
-	-fx-background-color: #facc15;
-	/*-fx-opacity: 0.8;*/
-	-fx-cursor: hand;
-}
+
 .btn-login{
 	-fx-background-color:#000;
 	-fx-text-fill:#fff;
@@ -307,6 +303,57 @@
 .btn-login:hover{
 	-fx-background-color:#950500;
 	-fx-text-fill:#fff;
+}
+
+.hover-light{}
+.hover-light:hover{
+	-fx-background-color: #d1d5db;	
+}
+
+.hover-green{}
+.hover-green:hover{
+	-fx-background-color: #15803d;	
+}
+.hover-red{}
+.hover-red:hover{
+	-fx-background-color: #b91c1c;
+}
+.hover-blue{}
+.hover-blue:hover{
+	-fx-background-color: #1e40af;
+}
+.hover-gray{}
+.hover-gray:hover{
+	-fx-background-color: #1f2937;
+}
+.hover-yellow{}
+.hover-yellow:hover{
+	-fx-background-color: #f59e0b;
+}
+
+.focused-yellow{}
+.focused-yellow:focused {
+	-fx-border-color: #f59e0b;
+}
+.focused-green{}
+.focused-green:focused {
+	-fx-border-color: #16a34a;
+}
+.focused-blue{}
+.focused-blue:focused {
+	-fx-border-color: #2563eb;
+}
+.focused-red{}
+.focused-red:focused {
+	-fx-border-color: #dc2626;
+}
+.focused-gray{}
+.focused-gray:focused {
+	-fx-border-color: #4b5563;
+}
+.focused-light{}
+.focused-light:focused {
+	-fx-border-color: #94a3b8;
 }
 
 .form-control{

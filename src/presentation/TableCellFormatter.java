@@ -42,22 +42,24 @@ public class TableCellFormatter {
                 }
             }
 	        private String processingStyle() {
-				return "-fx-background-color: #fbbf24; "
-					 + "-fx-background-radius:8px; "
-					 + "-fx-border-radius:8px";
+				return "-fx-background-color: #fdba74; "
+						+ "-fx-text-fill: #92400e;"
+					 + "-fx-background-radius:16px;"
+					 + "-fx-border-radius:16px";
 			}
 			
 			private String approvedStyle() {
-				return "-fx-background-color: #22c55e; "
-					 + "-fx-background-radius:8px; "
-					 + "-fx-border-radius:8px";
+				return "-fx-background-color: #86efac; "
+					 + "-fx-text-fill: #166534; "
+					 + "-fx-background-radius:16px; "
+					 + "-fx-border-radius:16px";
 			}
 			
 			private String rejectedStyle() {
-				return "-fx-background-color: #ef4444; "
-					 + "-fx-background-radius:8px; "
-					 + "-fx-text-fill:white; "
-					 + "-fx-border-radius:8px";
+				return "-fx-background-color: #fca5a5; "
+					 + "-fx-text-fill:#991b1b; "
+					 + "-fx-background-radius:16px; "
+					 + "-fx-border-radius:16px";
 			}
 	    };
 	}

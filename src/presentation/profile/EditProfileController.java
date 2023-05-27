@@ -13,6 +13,7 @@ import javaFxValidation.annotations.Rules;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import services.EmployeeService;
@@ -61,15 +62,15 @@ public class EditProfileController extends ValidatableController {
 
 	@FXML
 	@Rules(field = "password", rules = "required|alphaNumeric")
-	private TextField inputPassword;
+	private PasswordField inputPassword;
 
 	@FXML
 	@Rules(field = "new password", rules = "required|alphaNumeric")
-	private TextField inputNewPassword;
+	private PasswordField inputNewPassword;
 
 	@FXML
 	@Rules(field = "confirm new password", rules = "same:new password")
-	private TextField inputConfirmNewPassword;
+	private PasswordField inputConfirmNewPassword;
 
 	@FXML
 	private Button btnUpdateUser;

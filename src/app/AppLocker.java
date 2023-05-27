@@ -14,7 +14,7 @@ import java.io.IOException;
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
  */
-public class AppLocker {
+public abstract class AppLocker {
 
 	private static final String lockFile = ".application.lock";
 	private static File file;
