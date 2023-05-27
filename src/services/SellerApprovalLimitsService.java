@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import app.FormData;
 import database.entities.Car;
+import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
 import database.repositories.SellerApprovalLimitRepository;
@@ -32,7 +33,6 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 
 	public SellerApprovalLimitsService() {
 		repository = new SellerApprovalLimitRepository();
-//		entityClass = SellerApprovalLimits.class;
 	}
 
 	@Override
@@ -68,6 +68,15 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 	@Override
 	public boolean delete(Entity entity) {
 		return repository.delete((SellerApprovalLimits) entity);
+	}
+	
+	public int getSellerMaxApprovalLimit(Employee seller) {
+		ArrayList<SellerApprovalLimits> limits = (ArrayList<SellerApprovalLimits>) repository.getByCondition("employeeID", "=", seller.getId());
+		
+		if(limits.size() > 0)
+			return limits.get(0).getMaxApprovalLimit();
+		
+		return 0;
 	}
 
 }

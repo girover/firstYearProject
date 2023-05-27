@@ -4,8 +4,10 @@ import app.App;
 import app.FormData;
 import authentication.Auth;
 import database.entities.Employee;
+import database.entities.SellerApprovalLimits;
 import database.entities.User;
 import database.repositories.EmployeeRepository;
+import database.repositories.SellerApprovalLimitRepository;
 import database.repositories.UserRepository;
 import log.Log;
 
@@ -52,6 +54,9 @@ public class AuthService {
 			Employee employee = (Employee) employeeRepo.find(user.getEmployeeId());
 
 			user.setEmployee(employee);
+			
+			SellerApprovalLimitsService sellerService = new SellerApprovalLimitsService();
+			user.setMaxApprovalLimit(sellerService.getSellerMaxApprovalLimit(employee));
 
 			App.setAuthenticatedUser(user);
 			

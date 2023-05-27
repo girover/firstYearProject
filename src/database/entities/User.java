@@ -18,7 +18,9 @@ public class User extends Auth implements Authenticatable {
 	private int employeeId;
 	private String userName;
 	private String password;
+	// Relationship attributes
 	private Employee employee;
+	private int maxApprovalLimit;
 
 	public int getId() {
 		return id;
@@ -58,6 +60,14 @@ public class User extends Auth implements Authenticatable {
 
 	public Employee getEmployee() {
 		return employee;
+	}
+
+	public int getMaxApprovalLimit() {
+		return maxApprovalLimit;
+	}
+
+	public void setMaxApprovalLimit(int maxApprovalLimit) {
+		this.maxApprovalLimit = maxApprovalLimit;
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.LoanApplication;
 import database.entities.SellerApprovalLimits;
+import database.entities.User;
 import database.repositories.CarRepository;
 import database.repositories.CustomerRepository;
 import database.repositories.EmployeeRepository;
@@ -198,21 +199,22 @@ public class LoanApplicationService extends BaseResourceService {
 		return repository.update(loanApplication);
 	}
 
-	public boolean checkSellerApprovalLimit(Employee employee, double loanAmount) {
+	public boolean checkSellerApprovalLimit(User user, double loanAmount) {
 		// if the seller is manager
-		if(employee.getRole().equals(Employee.MANAGER))
+		if(user.getEmployee().getRole().equals(Employee.MANAGER))
 			return true;
 		
-		SellerApprovalLimitRepository repo = new SellerApprovalLimitRepository();
-//		ArrayList<SellerApprovalLimits> sellerLimit = repo.getByCondition("", "=", employee.getId());
-		SellerApprovalLimits sellerLimit = repo.getMaxApprovalLimit(employee);
+//		SellerApprovalLimitRepository repo = new SellerApprovalLimitRepository();
+
+//		SellerApprovalLimits sellerLimit = repo.getMaxApprovalLimit(user);
+		int sellerLimit = user.getMaxApprovalLimit();
 		
-		if(sellerLimit == null)
+		if(sellerLimit == 0)
 			return false;
 		
-		int max = sellerLimit.getMaxApprovalLimit();
+//		int max = sellerLimit.getMaxApprovalLimit();
 		
-		return max >= loanAmount;
+		return sellerLimit >= loanAmount;
 	}
 	
 	public ArrayList<String[]> getLoanApplicationDataAsListForCSV(LoanApplication loanApplication){

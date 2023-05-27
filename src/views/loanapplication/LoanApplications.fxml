@@ -43,7 +43,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnEditLoanApplication" layoutX="83.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleBtnEditCustomerClick" text="Edit">
+                  <Button fx:id="btnEditLoanApplication" layoutX="83.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleBtnEditClick" text="Edit">
                      <graphic>
                         <FontIcon fill="WHITE" iconLiteral="fa-edit" iconSize="18" />
                      </graphic>

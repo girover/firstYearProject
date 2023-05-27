@@ -40,7 +40,7 @@ CREATE TABLE [sellerApprovalLimit]
 (
 	[id] int PRIMARY KEY IDENTITY(1000,1),
 	[employeeID] int FOREIGN KEY REFERENCES employee(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	[maxApprovalLimit] decimal(10,2) NOT NULL
+	[maxApprovalLimit] int NOT NULL
 );
 
 -- User Table

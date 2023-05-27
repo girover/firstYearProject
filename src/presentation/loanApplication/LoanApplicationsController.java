@@ -95,7 +95,7 @@ public class LoanApplicationsController extends BaseController {
     }
 
     @FXML
-    void handleBtnEditCustomerClick(ActionEvent event) {
+    void handleBtnEditClick(ActionEvent event) {
     	
     	LoanApplication selectedLoanApplication = tvLoanApplications.getSelectionModel().getSelectedItem();
     	
@@ -106,6 +106,7 @@ public class LoanApplicationsController extends BaseController {
     	
     	UpdateLoanApplicationController controller = (UpdateLoanApplicationController)openWindowAndGetController("loanApplication/UpdateLoanApplication.fxml", "Update Loan Application");
     	controller.setLoanApplication(selectedLoanApplication);
+    	controller.addObserver(this);
     }
 
     @FXML
@@ -138,7 +139,8 @@ public class LoanApplicationsController extends BaseController {
 			LoanApplication loanApplication = ((NewLoanApplicationController)o).getCreatedLoanApplication();
 			if(loanApplication != null)
 				loanApplications.add(loanApplication);
-		}else if(o instanceof ShowLoanApplicationController || o instanceof UpdateLoanApplicationController) {
+		}else if(o instanceof ShowLoanApplicationController 
+				|| o instanceof UpdateLoanApplicationController) {
 			tvLoanApplications.refresh();
 		}
 	}
