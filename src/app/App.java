@@ -38,6 +38,7 @@ public class App {
 	private static Stage mainStage;
 	private static Translator translator;
 	private static boolean booted = false;
+	private static AppLocker appLocker;
 
 	/**
 	 * Start point for the application
@@ -46,7 +47,7 @@ public class App {
 	 */
 	public static void run(Stage primaryStage) throws Exception {
 		
-		if(!isAppLockerReleased())
+		if(!initAppLocker())
 			return;
 		
 		
@@ -75,14 +76,15 @@ public class App {
 	 * new instance, otherwise false is returned to prevent running other instances.
 	 * @return
 	 */
-	private static boolean isAppLockerReleased() {
+	private static boolean initAppLocker() {
+		appLocker = new AppLocker();
 		
-		if(AppLocker.isLocked()) {
+		if(appLocker.isLocked()) {
 			Platform.exit();
 			return false;
 		}
 		
-		AppLocker.lock();
+		appLocker.lock();
 		
 		return true;
 	}
@@ -299,7 +301,7 @@ public class App {
 		 * not be booted, so the AppLocker will not be released.
 		 */
 		if(booted)
-			AppLocker.release();
+			appLocker.release();
 		
 		if(dbConnection != null)
 			try {

@@ -14,23 +14,21 @@ import java.io.IOException;
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
  */
-public abstract class AppLocker {
+public class AppLocker {
 
 	private static final String lockFile = ".application.lock";
-	private static File file;
+	private File file;
+	
+	public AppLocker(){
+		file = new File(lockFile);
+	}
 	
 	/**
 	 * This method checks if there is an instance of application running.
 	 * 
 	 * @return boolean
 	 */
-	public static boolean isLocked() {
-		
-		return lockFileExists();
-	}
-	
-	private static boolean lockFileExists() {
-		file = new File(lockFile);
+	public boolean isLocked() {
 		
 		return file.exists();
 	}
@@ -38,12 +36,13 @@ public abstract class AppLocker {
 	/**
 	 * Here we create a lock file to prevent the application to run multiple.
 	 */
-	public static void lock() {
-		file = new File(lockFile);
+	public void lock() {
 		try {
 			boolean created = file.createNewFile();
-			if(created)
+			if(created) {
 				System.out.println("lock file is created.");
+				file.deleteOnExit();
+			}
 			else
 				System.out.println("lock file already exists.");
 		} catch (IOException e) {
@@ -54,10 +53,7 @@ public abstract class AppLocker {
 	/**
 	 * Here we delete the lock file to allow the next running.
 	 */
-	public static void release() {
-		
-		file = new File(lockFile);
-		
+	public void release() {
 		if(file.exists())
 			file.delete();
 	}
