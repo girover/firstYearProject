@@ -174,7 +174,7 @@ public class ShowLoanApplicationController extends BaseController {
 			return;
 		}
 		
-		if(!showCinformDialog("Approving", "Are you sure for approving the loan application?"))
+		if(!showConfirmDialog("Approving", "Are you sure for approving the loan application?"))
 			return;
 		
 		if(service.approveLoanApplication(loanApplication)) {
@@ -194,7 +194,7 @@ public class ShowLoanApplicationController extends BaseController {
 			return;
 		}
 		
-		if(!showCinformDialog("Rejecting", "Are you sure for rejecting the loan application?"))
+		if(!showConfirmDialog("Rejecting", "Are you sure for rejecting the loan application?"))
 			return;
 		
 		if(service.rejectLoanApplication(loanApplication)) {

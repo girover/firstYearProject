@@ -63,9 +63,10 @@
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="shadow" />
-                        <String fx:value="bg-yellow-500" />
+                        <String fx:value="bg-yellow-400" />
                         <String fx:value="text-gray-900" />
                         <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-yellow" />
                      </styleClass>
                   </Button>
                   <HBox alignment="CENTER_RIGHT" layoutX="446.79999999999995" layoutY="100.4" prefHeight="36.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="10.0">

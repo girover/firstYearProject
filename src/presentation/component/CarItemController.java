@@ -45,12 +45,12 @@ public class CarItemController extends BaseController {
 		carName.setText(car.getModel());
 		mileage.setText(Integer.toString(car.getMileage()) + " km.");
 		modelYear.setText(Integer.toString(car.getYear()));
-		price.setText(Helper.formatCurrency(car.getPrice()));
+		price.setText(formatCurrency(car.getPrice()));
 	}
 
 	@FXML
 	void handleBtnShowClick(ActionEvent event) {
-		showCinformDialog("Title", car.getBrand() + " " + car.getModel());
+		showConfirmDialog("Title", car.getBrand() + " " + car.getModel());
 	}
 
 	@FXML

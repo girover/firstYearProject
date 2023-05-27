@@ -182,6 +182,10 @@ public class LoanApplicationService extends BaseResourceService {
 		CarRepository repo = new CarRepository();
 		return repo.find(loanApplication.getCarID());
 	}
+	
+	public ArrayList<LoanApplication> getCustomerLoanApplications(Customer customer){
+		return (ArrayList<LoanApplication>) repository.getByCondition("customerID", "=", customer.getId());
+	}
 
 	public boolean approveLoanApplication(LoanApplication loanApplication) {
 		loanApplication.setStatus(LoanApplication.APPROVED);

@@ -1,15 +1,14 @@
 package services;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import app.FormData;
-import database.entities.Car;
 import database.entities.Customer;
 import database.entities.Entity;
+import database.entities.LoanApplication;
 import database.repositories.CustomerRepository;
+import database.repositories.LoanApplicationRepository;
 
 
 /**

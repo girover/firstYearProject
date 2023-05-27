@@ -45,7 +45,7 @@ public abstract class BaseController extends Observable implements Observer, Ini
 		FlashWindow.flashSuccessMessage(message, title);
 	}
 	
-	protected boolean showCinformDialog(String title, String message) {
+	protected boolean showConfirmDialog(String title, String message) {
 		return Window.showCinformDialog(title, message);
 	}
 

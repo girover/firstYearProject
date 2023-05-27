@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="608.0" prefWidth="1150.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loanApplication.CustomerLoanApplicationsController">
+               <children>
+                  <BorderPane layoutX="85.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <AnchorPane prefHeight="142.0" prefWidth="918.0" styleClass="bg-gray-200" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="12.0" layoutY="15.0" styleClass="font-weight-bold" text="Customer Loan Applications">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <FontIcon iconLiteral="fa-handshake-o" iconSize="30" layoutX="577.0" layoutY="36.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="16.0" />
+                  <Label layoutX="20.0" layoutY="62.0" text="Assignment : " textFill="#efefef">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnEditLoanApplication" layoutX="10.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleBtnEditLoanApplicationClick" prefHeight="26.0" prefWidth="80.0" text="Edit">
+                     <graphic>
+                        <FontIcon fill="WHITE" iconLiteral="fa-edit" iconSize="18" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="shadow" />
+                        <String fx:value="bg-gray-500" />
+                        <String fx:value="text-white" />
+                        <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-gray" />
+                     </styleClass>
+                  </Button>
+                  <HBox alignment="CENTER_RIGHT" layoutX="504.0" layoutY="96.0" prefHeight="36.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0">
+                     <children>
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleBtnDeleteClick" text="Delete">
+                           <graphic>
+                              <FontIcon fill="WHITE" iconLiteral="fa-trash" iconSize="18" />
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="shadow" />
+                              <String fx:value="bg-red-500" />
+                              <String fx:value="bold" />
+                              <String fx:value="text-white" />
+                              <String fx:value="hover-red" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnShow" layoutX="103.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleBtnShowClick" prefHeight="26.0" prefWidth="80.0" text="Show" AnchorPane.leftAnchor="103.0">
+                     <graphic>
+                        <FontIcon fill="WHITE" iconLiteral="fa-eye" iconSize="18" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="shadow" />
+                        <String fx:value="bg-green-500" />
+                        <String fx:value="text-white" />
+                        <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-green" />
+                     </styleClass>
+                  </Button>
+                  <Label layoutX="266.0" layoutY="111.0" text="Customer">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbCustomerName" layoutX="351.0" layoutY="110.0" prefHeight="26.0" prefWidth="414.0" text="Majed Hussein Farhan" textFill="#a60000">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <bottom>
+                        <AnchorPane prefHeight="46.0" prefWidth="918.0" styleClass="bg-dark" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnCancle" layoutX="824.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" text="Cancle" AnchorPane.rightAnchor="10.0">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-times" iconSize="18" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="shadow" />
+                        <String fx:value="bg-red-500" />
+                        <String fx:value="text-white" />
+                        <String fx:value="font-weight-bold" />
+                        <String fx:value="hover-red" />
+                     </styleClass>
+                  </Button>
+               </children>
+                        </AnchorPane>
+                     </bottom>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="393.0" prefWidth="891.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TableView fx:id="tvLoanApplications" prefHeight="394.0" prefWidth="898.0" stylesheets="@../tableView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="colID" prefWidth="39.99997043609619" text="ID" />
+                            <TableColumn fx:id="colCustomerID" prefWidth="97.60000228881836" text="Customer ID" />
+                              <TableColumn fx:id="colCarID" prefWidth="90.39999389648438" text="Car ID" />
+                              <TableColumn fx:id="colEmployeeID" prefWidth="100.80000305175781" text="Employee ID" />
+                              <TableColumn fx:id="colLoanAmount" prefWidth="150.39996337890625" text="Loan Amount" />
+                              <TableColumn fx:id="colDownPayment" prefWidth="133.60006713867188" text="Down Payment" />
+                              <TableColumn fx:id="colMonths" minWidth="5.5999755859375" prefWidth="83.199951171875" text="Months" />
+                              <TableColumn fx:id="colRate" prefWidth="75.199951171875" text="Rate" />
+                              <TableColumn fx:id="colDate" prefWidth="177.5999755859375" text="Date" />
+                              <TableColumn fx:id="colStatus" prefWidth="143.199951171875" text="Status" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
