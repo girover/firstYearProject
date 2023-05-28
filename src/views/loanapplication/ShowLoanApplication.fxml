@@ -100,8 +100,14 @@
                                                                         <Insets right="20.0" />
                                                                      </HBox.margin>
                                                                   </Label>
-                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-car" iconSize="35" />
+                                                                  <FontIcon iconColor="#303030" iconLiteral="fa-car" iconSize="35">
+                                                                     <HBox.margin>
+                                                                        <Insets />
+                                                                     </HBox.margin></FontIcon>
                                                                </children>
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
                                                             </HBox>
                                                             <VBox layoutY="49.0" prefHeight="434.0" prefWidth="671.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                                                                <children>
@@ -477,6 +483,9 @@
                                                                   </Label>
                                                                   <FontIcon iconColor="#303030" iconLiteral="fa-user-circle-o" iconSize="35" />
                                                                </children>
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
                                                             </HBox>
                                                             <VBox layoutY="51.0" prefHeight="394.0" prefWidth="546.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                                                                <children>
@@ -723,6 +732,9 @@
                                                                   </Label>
                                                                   <FontIcon iconColor="#303030" iconLiteral="fa-handshake-o" iconSize="35" />
                                                                </children>
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
                                                             </HBox>
                                                             <VBox layoutY="51.0" prefHeight="245.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
@@ -916,6 +928,9 @@
                                                                   </Label>
                                                                   <FontIcon iconColor="#303030" iconLiteral="fa-user-md" iconSize="35" />
                                                                </children>
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
                                                             </HBox>
                                                             <VBox layoutY="51.0" prefHeight="81.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
@@ -961,13 +976,13 @@
                                                 <String fx:value="round-20" />
                                              </styleClass>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="183.0" prefWidth="1160.0">
+                                          <AnchorPane prefHeight="228.0" prefWidth="1086.0">
                                              <children>
                                                 <HBox alignment="TOP_CENTER" prefHeight="152.0" prefWidth="1160.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <AnchorPane prefHeight="144.0" prefWidth="900.0">
+                                                      <AnchorPane prefHeight="222.0" prefWidth="900.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="546.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
                                                                   <Label text="Status">
                                                                      <font>
@@ -979,10 +994,13 @@
                                                                   </Label>
                                                                   <FontIcon iconColor="#303030" iconLiteral="fa-hourglass-2" iconSize="35" />
                                                                </children>
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
                                                             </HBox>
-                                                            <VBox layoutY="51.0" prefHeight="112.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                            <VBox alignment="CENTER" layoutY="51.0" prefHeight="177.0" prefWidth="900.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                <children>
-                                                                  <HBox alignment="CENTER" prefHeight="121.0" prefWidth="900.0">
+                                                                  <HBox alignment="CENTER" prefHeight="111.0" prefWidth="900.0">
                                                                      <children>
                                                                         <Pane fx:id="paneStatus" prefHeight="112.0" prefWidth="112.0">
                                                                            <children>

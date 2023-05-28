@@ -1,16 +1,12 @@
 package services;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import app.FormData;
-import database.entities.Car;
 import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.User;
 import database.repositories.EmployeeRepository;
-import database.repositories.RepositoryInterface;
 import database.repositories.UserRepository;
 
 /**
@@ -48,14 +44,12 @@ public class UserService extends BaseResourceService {
 	}
 
 	@Override
-	public User create(FormData data) {
+	public User create(Entity entity) {
 		
-		User user = new User();
-	
-		user.setUserName((String)data.input("userName"));
-		user.setPassword(HashingService.secureHash((String)data.input("password")));
-		user.setEmployeeId((int)data.input("employeeId"));
-
+		User user = (User) entity;
+		
+		user.setPassword(HashingService.secureHash(user.getPassword()));
+		
 		repository.add(user);
 
 		return user;

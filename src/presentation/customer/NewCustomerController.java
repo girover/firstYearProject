@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import app.FormData;
 import database.entities.City;
 import database.entities.Customer;
 import javaFxValidation.ValidationException;
@@ -53,14 +52,14 @@ public class NewCustomerController extends ValidatableController {
     private TextField inputAddress;
 
     @FXML
-    @Rules(field="city", rules="required|alpha")
+    @Rules(field="city", rules="required|alphaSpace")
     private TextField inputCity;
 
     @FXML
     @Rules(field="zip code", rules="required|numeric")
     private TextField inputZipCode;
     
-    private Customer createdCustomer;
+    private Customer customer = new Customer();
 
     @FXML
     void handleBtnAddClick(ActionEvent event) throws ValidationException {
@@ -72,11 +71,15 @@ public class NewCustomerController extends ValidatableController {
     		return;
     	}
     	
+    	fillCustomerWithData();
+    	
     	CustomerService customerService = new CustomerService();
-    	createdCustomer = customerService.create(getFormData());
-    	if(createdCustomer != null) {
+    	
+    	customer = customerService.create(customer);
+    	
+    	if(customer != null) {
     		flashSuccessMessage("Customer created Successfuly", "Created Customer");
-    		createdCustomer.setCity(inputCity.getText());
+    		customer.setCity(inputCity.getText());
     		fire();
     		return;
     	}else
@@ -84,23 +87,20 @@ public class NewCustomerController extends ValidatableController {
     		
     }
     
-    private FormData getFormData() {
-    	FormData formData = new FormData();
+    private void fillCustomerWithData() {
     	
-    	formData.setData("cpr", inputCPR.getText());
-    	formData.setData("firstName", inputFirstName.getText());
-    	formData.setData("lastName", inputLastName.getText());
-    	formData.setData("phone", inputPhone.getText());
-    	formData.setData("email", inputEmail.getText());
-    	formData.setData("address", inputAddress.getText());
-    	formData.setData("city", inputCity.getText());
-    	formData.setData("zipCode", inputZipCode.getText());
-    	
-    	return formData;
+    	customer.setCPRHash(inputCPR.getText());
+    	customer.setFirstName(inputFirstName.getText());
+    	customer.setLastName(inputLastName.getText());
+    	customer.setPhone(inputPhone.getText());
+    	customer.setEmail(inputEmail.getText());
+    	customer.setAddress(inputAddress.getText());
+    	customer.setCity(inputCity.getText());
+    	customer.setZipCode(inputZipCode.getText());
     }
     
     public Customer getCreatedCustomer() {
-    	return createdCustomer;
+    	return customer;
     }
     
     public void setCpr(String cpr) {

@@ -1,13 +1,10 @@
 package services;
 
 import app.App;
-import app.FormData;
 import authentication.Auth;
 import database.entities.Employee;
-import database.entities.SellerApprovalLimits;
 import database.entities.User;
 import database.repositories.EmployeeRepository;
-import database.repositories.SellerApprovalLimitRepository;
 import database.repositories.UserRepository;
 import log.Log;
 
@@ -38,16 +35,16 @@ public class AuthService {
 	 * @param userPassowrd
 	 * @return
 	 */
-	public boolean login(FormData formData) {
+	public boolean login(User authenticatable) {
 
 		UserRepository userRepo = new UserRepository();
 		User user = null;
 
-		user = userRepo.getByAuthenticationField(userIdField, (String)formData.input("userId"));
+		user = userRepo.getByAuthenticationField(userIdField, authenticatable.getUserName());
 
 		if (user != null) {
 			
-			if(!verifyHashedPassword((String)formData.input("userPassword"), user.getPassword()))
+			if(!verifyHashedPassword(authenticatable.getPassword(), user.getPassword()))
 				return false;
 			
 			EmployeeRepository employeeRepo = new EmployeeRepository();

@@ -1,21 +1,17 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import app.FormData;
 import database.entities.Car;
 import database.entities.Customer;
 import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.LoanApplication;
-import database.entities.SellerApprovalLimits;
 import database.entities.User;
 import database.repositories.CarRepository;
 import database.repositories.CustomerRepository;
 import database.repositories.EmployeeRepository;
 import database.repositories.LoanApplicationRepository;
-import database.repositories.SellerApprovalLimitRepository;
 
 /**
  * This class is a part of Service Layer (Business Logic Layer).
@@ -61,21 +57,9 @@ public class LoanApplicationService extends BaseResourceService {
 	}
 
 	@Override
-	public LoanApplication create(FormData data) {
+	public LoanApplication create(Entity entity) {
 
-		LoanApplication loanApplication = new LoanApplication();
-
-		loanApplication.setCustomerID((int) data.input("customerID"));
-		loanApplication.setSellerID((int) data.input("sellerID"));
-		loanApplication.setCarID((int) data.input("carID"));
-//		loanApplication.setApplicationDate((String) data.input("applicationDate"));
-		loanApplication.setLoanAmount((int) data.input("loanAmount"));
-		loanApplication.setPayment((int) data.input("payment"));
-		loanApplication.setMonths((int) data.input("months"));
-		loanApplication.setInterestRate((double)data.input("interestRate"));
-		loanApplication.setMonthlyPayment((double)data.input("monthlyPayment"));
-		loanApplication.setStatus((String) data.input("status"));
-		loanApplication.setNote((String) data.input("note"));
+		LoanApplication loanApplication = (LoanApplication)entity;
 
 		repository.add(loanApplication);
 

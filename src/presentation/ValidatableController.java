@@ -1,6 +1,5 @@
 package presentation;
 
-import app.FormData;
 import javaFxValidation.ValidationException;
 import javaFxValidation.Validator;
 

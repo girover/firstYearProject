@@ -194,23 +194,28 @@ public class App {
 	public static void showUserWindow(User user) {
 		
 		String role = user.getEmployee().getRole();
+		Window userWindow;
+		String title;
 		
-		if(role.equals(Employee.MANAGER))
-			showAdminWindow();
-		else if(role.equals(Employee.SELLER))
-			showSellerWindow();
+		if(role.equals(Employee.MANAGER)) {
+			userWindow = getManagerWindow();
+			title = "Manager Dashboard";
+		}
+		else {
+			userWindow = getSellerWindow();
+			title = "Seller Dashboard";
+		}
+		getMainStage().setTitle(title);
+		getMainStage().setScene(userWindow.getScene());
+		getMainStage().setMaximized(true);
 	}
 
-	public static void showAdminWindow() {
-		Window adminWindow = new Window("admin/AdminDashboard.fxml", "Manager Dashboard");
-		getMainStage().setScene(adminWindow.getScene());
-		getMainStage().setTitle("Manager Dashboard");
+	private static Window getManagerWindow() {
+		return new Window("admin/AdminDashboard.fxml", "Manager Dashboard");
 	}
 
-	public static void showSellerWindow() {
-		Window adminWindow = new Window("seller/SellerDashboard.fxml", "Seller Dashboard");
-		getMainStage().setScene(adminWindow.getScene());
-		getMainStage().setTitle("Seller Dashboard");
+	private static Window getSellerWindow() {
+		return new Window("seller/SellerDashboard.fxml", "Seller Dashboard");
 	}
 
 	public static Connection getDBConnection() {

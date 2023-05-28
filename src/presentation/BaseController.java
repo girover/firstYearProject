@@ -4,7 +4,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import app.App;
-import app.FormData;
 import app.Helper;
 import database.entities.User;
 import javafx.event.ActionEvent;

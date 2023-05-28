@@ -5,7 +5,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import app.App;
-import app.FormData;
+import database.entities.User;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Rules;
 import javafx.event.ActionEvent;
@@ -15,9 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import log.Log;
 import services.AuthService;
-import window.Window;
 
 public class LoginController extends ValidatableController {
 
@@ -56,13 +54,12 @@ public class LoginController extends ValidatableController {
 			return;
 		}
 		
-		FormData fromData = new FormData();
+		User user = new User();
+		user.setUserName(inputUserID.getText());
+		user.setPassword(inputPassword.getText());
 		
-		fromData.setData("userId", inputUserID.getText())
-				.setData("userPassword", inputPassword.getText());
-		
-    	if(authService.login(fromData)) {
-    		App.showUserWindow(App.getAuthenticatedUser());
+    	if(authService.login(user)) {
+    		App.showUserWindow(getAuthenticatedUser());
     	}else {
     		flashErrorMessage("Please provide correct data.", "validation error");
     	}

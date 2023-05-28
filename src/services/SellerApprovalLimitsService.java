@@ -1,10 +1,7 @@
 package services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import app.FormData;
-import database.entities.Car;
+
 import database.entities.Employee;
 import database.entities.Entity;
 import database.entities.SellerApprovalLimits;
@@ -48,12 +45,9 @@ public class SellerApprovalLimitsService extends BaseResourceService {
 	}
 
 	@Override
-	public SellerApprovalLimits create(FormData data) {
+	public SellerApprovalLimits create(Entity entity) {
 		
-		SellerApprovalLimits sellerApprovalLimits = new SellerApprovalLimits();
-		
-		sellerApprovalLimits.setEmployeeID((int)data.input("employeeId"));
-		sellerApprovalLimits.setMaxApprovalLimit((int)data.input("maxApprovalLimit"));
+		SellerApprovalLimits sellerApprovalLimits = (SellerApprovalLimits)entity;
 
 		repository.add(sellerApprovalLimits);
 

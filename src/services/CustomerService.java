@@ -3,12 +3,9 @@ package services;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import app.FormData;
 import database.entities.Customer;
 import database.entities.Entity;
-import database.entities.LoanApplication;
 import database.repositories.CustomerRepository;
-import database.repositories.LoanApplicationRepository;
 
 
 /**
@@ -49,19 +46,13 @@ public class CustomerService extends BaseResourceService {
 	}
 
 	@Override
-	public Customer create(FormData data) {
+	public Customer create(Entity entity) {
 		
-		Customer customer = new Customer();
+		Customer customer = (Customer) entity;
 		// Hashing password
-		String hashedPassword = HashingService.deterministicHash((String)data.input("cpr"));
+		String hashedPassword = HashingService.deterministicHash(customer.getCPRHash());
 		
 		customer.setCPRHash(hashedPassword);
-		customer.setFirstName((String)data.input("firstName"));
-		customer.setLastName((String)data.input("lastName"));
-		customer.setPhone((String)data.input("phone"));
-		customer.setEmail((String)data.input("email"));
-		customer.setAddress((String)data.input("address"));
-		customer.setZipCode((String)data.input("zipCode"));
 
 		if(repository.add(customer) > 0)
 			return customer;

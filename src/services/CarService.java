@@ -3,7 +3,6 @@ package services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import app.FormData;
 import database.entities.Car;
 import database.entities.CarImage;
 import database.entities.Entity;
@@ -48,23 +47,9 @@ public class CarService extends BaseResourceService {
 	}
 
 	@Override
-	public Car create(FormData data) {
+	public Car create(Entity entity) {
 		
-		Car car = new Car();
-		
-		car.setBrand((String)data.input("brand"));
-		car.setModel((String)data.input("model"));
-		car.setYear((int)data.input("year"));
-		car.setColor((String)data.input("color"));
-		car.setMileage((int)data.input("mileage"));
-		car.setTransmission((String)data.input("transmission"));
-		car.setFuelType((String)data.input("fuelType"));
-		car.setEngineSize((float)data.input("engineSize"));
-		car.setHorsepower((int)data.input("horsepower"));
-		car.setSeats((int)data.input("seats"));
-		car.setDoors((int)data.input("doors"));
-		car.setPrice((int)data.input("price"));
-		car.setDescription((String)data.input("description"));
+		Car car = (Car) entity;
 
 		repository.add(car);
 

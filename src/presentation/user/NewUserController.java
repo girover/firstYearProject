@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import app.FormData;
+import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
 import javaFxValidation.annotations.Rules;
@@ -55,6 +55,8 @@ public class NewUserController extends ValidatableController {
     @FXML
     @Rules(field="zip code", rules="required|numeric")
     private TextField inputZipCode;
+    
+    private Customer customer;
 
     @FXML
     void handleBtnAddClick(ActionEvent event) throws ValidationException {
@@ -66,27 +68,32 @@ public class NewUserController extends ValidatableController {
     		return;
     	}
     	
+    	fillCustomerWithData();
+    	
     	CustomerService customerService = new CustomerService();
-    	if(customerService.create(getFormData()) != null) {
-    		showSuccessMessage("Customer created Successfuly", "Created Customer");
+    	
+    	customer = customerService.create(customer);
+    	
+    	if(customer != null) {
+    		flashSuccessMessage("Customer created Successfuly", "Created Customer");
+    		customer.setCity(inputCity.getText());
+    		fire();
     		return;
     	}else
     		showErrorMessage("Failed to create new customer", "Creaing Customer failed");
-    		
+    			
     }
     
-    private FormData getFormData() {
-    	FormData formData = new FormData();
+    private void fillCustomerWithData() {
     	
-    	formData.setData("firstName", inputFirstName.getText());
-    	formData.setData("lastName", inputLastName.getText());
-    	formData.setData("phone", inputPhone.getText());
-    	formData.setData("email", inputEmail.getText());
-    	formData.setData("address", inputAddress.getText());
-    	formData.setData("city", inputCity.getText());
-    	formData.setData("zipCode", inputZipCode.getText());
-    	
-    	return formData;
+    	customer.setCPRHash(inputCPR.getText());
+    	customer.setFirstName(inputFirstName.getText());
+    	customer.setLastName(inputLastName.getText());
+    	customer.setPhone(inputPhone.getText());
+    	customer.setEmail(inputEmail.getText());
+    	customer.setAddress(inputAddress.getText());
+    	customer.setCity(inputCity.getText());
+    	customer.setZipCode(inputZipCode.getText());
     }
 
     @FXML

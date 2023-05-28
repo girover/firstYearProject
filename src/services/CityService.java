@@ -2,9 +2,7 @@ package services;
 
 import java.util.ArrayList;
 
-import app.FormData;
 import database.entities.City;
-import database.entities.Customer;
 import database.entities.Entity;
 import database.repositories.CityRepository;
 
@@ -24,8 +22,13 @@ public class CityService extends BaseResourceService {
 	}
 
 	@Override
-	public City create(FormData data) {
-		return null;
+	public City create(Entity entity) {
+		
+		City city = (City) entity;
+		
+		repo.add(city);
+		
+		return city;
 	}
 
 	@Override

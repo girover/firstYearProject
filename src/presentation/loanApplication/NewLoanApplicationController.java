@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import app.App;
-import app.FormData;
 import database.entities.Car;
 import database.entities.Customer;
 import database.entities.LoanApplication;
@@ -174,7 +172,7 @@ public class NewLoanApplicationController extends ValidatableController {
 	private boolean[] completedSteps = new boolean[4];
 
 	/**
-	 * Send request to the RKI API to check to credit rate the sent cpr number.
+	 * Send request to the RKI API to check to credit rate of the sent CPR number.
 	 * 
 	 * Response will be sent to this observer controller.
 	 */
@@ -211,6 +209,10 @@ public class NewLoanApplicationController extends ValidatableController {
 		
 		selectedCustomer = service.findByCPR(inputCpr.getText());
 		
+		/**
+		 * If customer not found then open window for adding new customer
+		 * with the specified CPR number.
+		 */
 		if(selectedCustomer == null) {
 			NewCustomerController controller = (NewCustomerController)openWindowAndGetController("customer/NewCustomer.fxml", "Customer");
 			controller.addObserver(this);
@@ -290,20 +292,11 @@ public class NewLoanApplicationController extends ValidatableController {
 			return;
 		}
 		
-		FormData data = new FormData();
-		data.setData("carID", selectedCar.getId());
-		data.setData("customerID", selectedCustomer.getId());
-		data.setData("sellerID", App.getAuthenticatedUser().getEmployee().getId());
-		data.setData("loanAmount", loanApplication.getLoanAmount());
-		data.setData("payment", loanApplication.getPayment());
-		data.setData("months", loanApplication.getMonths());
-		data.setData("interestRate", totalInterestRate);
-		data.setData("monthlyPayment", monthlyPayment);
-		data.setData("status", LoanApplication.PROCESSING);
-		data.setData("note", textAreaNote.getText());
-
-		loanApplication = loanAppService.create(data);
-		if(loanApplication == null) {
+		fillLoanApplicationWithData();
+		
+		LoanApplication loan = loanAppService.create(loanApplication);
+		
+		if(loan == null) {
 			showErrorMessage("Failed to create new loan application", "Creating Failed");
 			return;
 		}
@@ -386,6 +379,20 @@ public class NewLoanApplicationController extends ValidatableController {
 			fillCustomerInfo();
 		}
 
+	}
+	
+	private void fillLoanApplicationWithData() {
+		
+		loanApplication.setCarID(selectedCar.getId());
+		loanApplication.setCustomerID(selectedCustomer.getId());
+		loanApplication.setSellerID(getAuthenticatedUser().getEmployee().getId());
+		loanApplication.setLoanAmount(loanApplication.getLoanAmount());
+		loanApplication.setPayment(loanApplication.getPayment());
+		loanApplication.setMonths(loanApplication.getMonths());
+		loanApplication.setInterestRate(totalInterestRate);
+		loanApplication.setMonthlyPayment(monthlyPayment);
+		loanApplication.setStatus(LoanApplication.PROCESSING);
+		loanApplication.setNote(textAreaNote.getText());
 	}
 
 	private void fillCarInformation() {

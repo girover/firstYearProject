@@ -2,7 +2,6 @@ package services;
 
 import java.util.ArrayList;
 
-import app.FormData;
 import database.entities.Entity;
 
 /**
@@ -47,10 +46,10 @@ public interface ResourceServiceInterface {
 	/**
 	 * This method will create a resource from specified data
 	 * 
-	 * @param FormData data
+	 * @param Entity entity
 	 * @return Entity
 	 */
-	public Entity create(FormData data);
+	public Entity create(Entity entity);
 	
 	/**
 	 * Updating the specified resource with its updated data.

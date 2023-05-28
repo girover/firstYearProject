@@ -1,10 +1,7 @@
 package services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import app.FormData;
-import database.entities.Car;
+
 import database.entities.Employee;
 import database.entities.Entity;
 import database.repositories.EmployeeRepository;
@@ -45,19 +42,9 @@ public class EmployeeService extends BaseResourceService {
 	}
 
 	@Override
-	public Employee create(FormData data) {
+	public Employee create(Entity entity) {
 		
-		Employee employee = new Employee();
-		
-		employee.setFirstName((String)data.input("firstName"));
-		employee.setLastName((String)data.input("lastName"));
-		employee.setEmail((String)data.input("email"));
-		employee.setPhone((String)data.input("phone"));
-		employee.setAddress((String)data.input("address"));
-		employee.setZipCode((String)data.input("zipCode"));
-		employee.setHireDate((String)data.input("hireDate"));
-		employee.setDepartment((String)data.input("department"));
-		employee.setRole((String)data.input("role"));
+		Employee employee = (Employee)entity;
 
 		repository.add(employee);
 

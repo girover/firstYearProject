@@ -1,11 +1,6 @@
 package services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import app.FormData;
 
 import database.entities.CarImage;
 import database.entities.Entity;
@@ -50,13 +45,10 @@ public class CarImageService extends BaseResourceService {
 	}
 
 	@Override
-	public CarImage create(FormData data) {
+	public CarImage create(Entity entity) {
 		
-		CarImage carImage = new CarImage();
+		CarImage carImage = (CarImage) entity;
 		
-		carImage.setCarID((int)data.input("carId"));
-		carImage.setImage((String)data.input("image"));
-
 		repository.add(carImage);
 
 		return carImage;
