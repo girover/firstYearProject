@@ -83,6 +83,10 @@ public class UpdateLoanApplicationController extends ValidatableController {
     	
     	fillDataWithLoanApplication();
     }
+    
+    public LoanApplication getLoanApplication() {
+    	return loanApplication;
+    }
 
     private void extractLoanInfo() {
     	totalPrice = loanApplication.getPayment() + loanApplication.getLoanAmount();

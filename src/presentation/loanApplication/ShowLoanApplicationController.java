@@ -133,6 +133,9 @@ public class ShowLoanApplicationController extends BaseController {
     private Button btnExportCsv;
     
     @FXML
+    private Button btnEdit;
+    
+    @FXML
     private Button btnApprove;
     
     @FXML
@@ -164,6 +167,13 @@ public class ShowLoanApplicationController extends BaseController {
 	    	}
 	    }else
 	    	flashErrorMessage("Somthing went wrong!!!", "Warning");
+	}
+	
+	@FXML
+	void handleBtnEditClick(ActionEvent event) {
+		UpdateLoanApplicationController controller = (UpdateLoanApplicationController)openWindowAndGetController("loanapplication/UpdateLoanApplication.fxml", "Edit Loan Application");
+		controller.addObserver(this);
+		controller.setLoanApplication(loanApplication);
 	}
 	
 	@FXML
@@ -310,7 +320,9 @@ public class ShowLoanApplicationController extends BaseController {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
+		if(o instanceof UpdateLoanApplicationController) {
+			setLoanApplication(((UpdateLoanApplicationController)o).getLoanApplication());
+		}
 	}
 
 	@Override

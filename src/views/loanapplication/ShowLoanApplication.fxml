@@ -1062,63 +1062,81 @@
                               <Insets bottom="20.0" />
                            </padding>
 								</ScrollPane>
-                        <AnchorPane prefHeight="46.0" prefWidth="1118.0">
+                        <AnchorPane prefHeight="22.0" prefWidth="1160.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="btnExportCsv" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBtnExportCsv" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-gray-500" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="font-weight-bold" />
-                                    <String fx:value="hover-gray" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-file" iconSize="20" />
-                                 </graphic>
-                              </Button>
-                              <Button layoutX="271.0" layoutY="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="104.0" text="Cancel" AnchorPane.rightAnchor="10.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-red-500" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="font-weight-bold" />
-                                    <String fx:value="hover-red" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="btnApprove" layoutX="279.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnApproveClick" prefHeight="28.0" prefWidth="150.0" text="Approve" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="171.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-green-500" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="font-weight-bold" />
-                                    <String fx:value="hover-green" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-handshake-o" iconSize="20" />
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="btnReject" layoutX="289.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnRejectClick" prefHeight="28.0" prefWidth="150.0" text="Reject" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="331.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-red-500" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="font-weight-bold" />
-                                    <String fx:value="hover-red" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-minus-circle" iconSize="20" />
-                                 </graphic>
-                              </Button>
+                              <HBox layoutX="14.0" layoutY="22.0" spacing="12.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                 <children>
+                                    <Button fx:id="btnExportCsv" mnemonicParsing="false" onAction="#handleBtnExportCsv" prefHeight="28.0" prefWidth="150.0" text="Export to CSV File">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-gray-600" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-gray" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-file" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handleBtnEditClick" prefHeight="28.0" prefWidth="80.0" text="Edit">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-gray-600" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-gray" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnApprove" mnemonicParsing="false" onAction="#handleBtnApproveClick" prefHeight="28.0" prefWidth="102.0" text="Approve">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-green-600" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-green" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-handshake-o" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnReject" mnemonicParsing="false" onAction="#handleBtnRejectClick" prefHeight="28.0" prefWidth="80.0" text="Reject">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-red-500" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-red" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-minus-circle" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                    <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="80.0" text="Cancel">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-red-500" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-red" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
                            </children>
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
