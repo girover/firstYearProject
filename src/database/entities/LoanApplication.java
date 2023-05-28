@@ -61,7 +61,7 @@ public class LoanApplication extends Entity {
 		return sellerID;
 	}
 
-	public void sellerID(int salesPersonID) {
+	public void setSellerID(int salesPersonID) {
 		this.sellerID = salesPersonID;
 	}
 

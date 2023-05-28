@@ -22,12 +22,26 @@ public class CityFactory implements EntityFactory {
 	@Override
 	public ArrayList<City> make(int quantity) {
 		
-		ArrayList<City> cars = new ArrayList<>();
+		ArrayList<City> cities = new ArrayList<>();
 		
-		for(int i=0; i<quantity; i++)
-			cars.add(Faker.city());
+		for(int i=0; i<quantity; i++) {
+			City city = Faker.city();
+			while(contains(cities, city)) {
+				city = Faker.city();
+			}
+			cities.add(city);
+		}
 
-		return cars;
+		return cities;
+	}
+	
+	private boolean contains(ArrayList<City> cities, City city) {
+		for (City c : cities) {
+			if(c.getZipCode().equals(city.getZipCode()))
+				return true;
+		}
+		
+		return false;
 	}
 
 }

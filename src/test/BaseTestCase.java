@@ -2,9 +2,10 @@ package test;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+
 import app.App;
 import junit.framework.TestCase;
 
@@ -30,14 +31,6 @@ public abstract class BaseTestCase extends TestCase {
 		App.runInTestEnvironment();
 		System.out.println("Testing environment ready.");
 	};
-
-	/**
-	 * This method is invoked before every method in the test is invoked.
-	 */
-	@BeforeEach
-	public void setUp() {
-		System.out.println("BeforeEach is called");
-	}
 	
 	/**
 	 * This method is invoked after each method in test classes.

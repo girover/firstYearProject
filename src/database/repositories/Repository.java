@@ -459,7 +459,7 @@ public abstract class Repository implements RepositoryInterface {
 			for (Entity entity : entities) {
 				if(add(cls.cast(entity)) == 0) {
 					dbConnection.rollback();
-					throw new SQLException(getClass().getName() + " . addAll() method. Failed to create Car.");
+					throw new SQLException(getClass().getName() + " . addAll() method. Failed to add entities.");
 				}
 			}
 			

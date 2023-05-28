@@ -66,7 +66,7 @@ public class LoanApplicationService extends BaseResourceService {
 		LoanApplication loanApplication = new LoanApplication();
 
 		loanApplication.setCustomerID((int) data.input("customerID"));
-		loanApplication.sellerID((int) data.input("sellerID"));
+		loanApplication.setSellerID((int) data.input("sellerID"));
 		loanApplication.setCarID((int) data.input("carID"));
 //		loanApplication.setApplicationDate((String) data.input("applicationDate"));
 		loanApplication.setLoanAmount((int) data.input("loanAmount"));

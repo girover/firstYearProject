@@ -65,10 +65,7 @@ public class CityRepository extends Repository {
 
 		City city = (City) entity;
 
-		String sql = "INSERT INTO [" + table + "] (" 
-				+ "[zipCode],"
-				+ "[city]) " 
-				+ "VALUES (?, ?);";
+		String sql = "INSERT INTO [" + table + "] ([zipCode], [city]) VALUES (?, ?);";
 
 		boolean affectedRows = insert(sql,
 				city.getZipCode(),

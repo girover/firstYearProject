@@ -134,6 +134,25 @@ class LoanApplicationServiceTest extends BaseTestCase {
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
+	
+	@Test
+	void itShouldCalculateCorrectInterestRateIfRepaymentIsLessThanThreeYears() {
+		String rkiResult = "A";
+		double downPayment = CAR_PRICE/2 - 1; // less that half the price
+		int months = THREE_YEARS - 1; // more that 3 years
+		
+		double totalInterestRate = service.getCalculatedInterestRate(rkiResult, BANK_TODAYS_INTEREST_RATE, months, CAR_PRICE, downPayment);
+		
+		double expectedInterest = 
+				BANK_TODAYS_INTEREST_RATE
+				+A
+				+lESS_THAN_HALF_THE_PRICE
+				+LESS_THAN_THREE_YEARS
+				;
+		assertTrue(totalInterestRate == expectedInterest);
+	}
+	
+	@Test
 	void itShouldCalculateCorrectInterestRateIfRepaymentIsExactlyThreeYears() {
 		String rkiResult = "A";
 		double downPayment = CAR_PRICE / 2 - 1; // less that half the price

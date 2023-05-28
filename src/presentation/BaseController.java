@@ -6,6 +6,7 @@ import java.util.Observer;
 import app.App;
 import app.FormData;
 import app.Helper;
+import database.entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextFormatter;
@@ -79,6 +80,10 @@ public abstract class BaseController extends Observable implements Observer, Ini
 	
 	protected void fire() {
 		fire(null);
+	}
+	
+	protected User getAuthenticatedUser() {
+		return App.getAuthenticatedUser();
 	}
 
 	public String formatNumber(int number) {

@@ -209,10 +209,10 @@ public class ShowLoanApplicationController extends BaseController {
     public void setLoanApplication(LoanApplication loanApplication) {
     	this.loanApplication = loanApplication;
     	updateData();
-    	checkPermissions();
+    	checkApprovalPermissions();
     }
     
-	private void checkPermissions() {
+	private void checkApprovalPermissions() {
 		if(!service.checkSellerApprovalLimit(App.getAuthenticatedUser(), loanApplication.getLoanAmount())) {
 			btnApprove.setDisable(true);
 			btnReject.setDisable(true);

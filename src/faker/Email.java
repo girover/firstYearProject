@@ -1,8 +1,5 @@
 package faker;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
@@ -36,7 +33,13 @@ public class Email extends Provider {
 		return generateEmail(getRandomElementFromArray(Person.names()), "yahoo.com");
 	}
 	
+	/**
+	 * We add
+	 * @param name
+	 * @param domain
+	 * @return
+	 */
 	private static String generateEmail(String name, String domain) {
-		return name + "@" + domain; 
+		return name + getRandomInteger(1000, 9999) + "@" + domain; 
 	}
 }
