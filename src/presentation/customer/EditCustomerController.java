@@ -47,12 +47,12 @@ public class EditCustomerController extends ValidatableController {
     private TextField inputEmail;
     
     @FXML
-    @Rules(field="persons address", rules="required|regex:^[\\p{L}\\p{M}\\p{N}\\s\\.]+$")
+    @Rules(field="persons address", rules="required|regex:[\\p{L}\\p{M}\\p{N}\\s.,]+")
     @Msg(rule="regex", message="Please provide a valid address.")
     private TextField inputAddress;
 
     @FXML
-    @Rules(field="city", rules="required|alpha")
+    @Rules(field="city", rules="required|alphaSpace")
     private TextField inputCity;
 
     @FXML

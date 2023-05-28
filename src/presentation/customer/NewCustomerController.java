@@ -18,6 +18,11 @@ import presentation.ValidatableController;
 import services.CityService;
 import services.CustomerService;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
 public class NewCustomerController extends ValidatableController {
 
     @FXML
@@ -47,7 +52,7 @@ public class NewCustomerController extends ValidatableController {
     private TextField inputEmail;
     
     @FXML
-    @Rules(field="persons address", rules="required|regex:^[\\p{L}\\p{M}\\p{N}\\s\\.]+$")
+    @Rules(field="persons address", rules="required|regex:[\\p{L}\\p{M}\\p{N}\\s,.]+")
     @Msg(rule="regex", message="Please provide a valid address.")
     private TextField inputAddress;
 
@@ -73,9 +78,7 @@ public class NewCustomerController extends ValidatableController {
     	
     	fillCustomerWithData();
     	
-    	CustomerService customerService = new CustomerService();
-    	
-    	customer = customerService.create(customer);
+    	customer = (new CustomerService()).create(customer);
     	
     	if(customer != null) {
     		flashSuccessMessage("Customer created Successfuly", "Created Customer");
@@ -110,19 +113,13 @@ public class NewCustomerController extends ValidatableController {
     @FXML
     void handleInputPostKeyReleased(KeyEvent event) {
     	
-    	CityService service = new CityService();
-    	
-    	String zipCode = inputZipCode.getText();
-    	
-    	City city = service.find(zipCode);
+    	City city = (new CityService()).find(inputZipCode.getText());
     	
     	if(city != null)
     		inputCity.setText(city.getCity());
     	else
     		inputCity.setText("");
     }
-    
-    
 
     @FXML
     void handleBtnCancleClick(ActionEvent event) {

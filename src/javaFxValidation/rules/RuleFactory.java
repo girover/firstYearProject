@@ -127,7 +127,7 @@ public class RuleFactory {
 		if(ruleWithParams[0].equals("required"))
 			field.setRequired();
 		
-		ParameterizedRule paramRule = new ParameterizedRule(ruleWithParams[0], parseParameters(ruleWithParams[1]));
+		ParameterizedRule paramRule = new ParameterizedRule(ruleWithParams[0], parseParameters(ruleWithParams));
 
 		return paramRule;
 	}
@@ -135,14 +135,20 @@ public class RuleFactory {
 	
 	/**
 	 * Make the parameters part as an arrayList
-	 * @param parameters
+	 * @param ruleWithParameters
 	 * @return
 	 */
-	private ArrayList<String> parseParameters(String parameters) {
+	private ArrayList<String> parseParameters(String[] ruleWithParameters) {
 		
 		ArrayList<String> params = new ArrayList<>();
 		
-		for (String string : parameters.split(PARAMS_SEPARATOR)) {
+		// regex maybe contains comma, which is PARAM_SEPARATOR
+		if(ruleWithParameters[0].equals("regex")) {
+			params.add(ruleWithParameters[1]);
+			return params;
+		}
+		
+		for (String string : ruleWithParameters[1].split(PARAMS_SEPARATOR)) {
 			params.add(string);
 		}
 		return params;

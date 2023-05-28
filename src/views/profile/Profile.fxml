@@ -276,7 +276,7 @@
                                                                               <Insets right="20.0" />
                                                                            </padding>
                                                                         </Label>
-                                                                        <TextField fx:id="inputZipCode" prefHeight="44.0" prefWidth="479.0">
+                                                                        <TextField fx:id="inputZipCode" onKeyReleased="#handleInputZipCodeKeyReleased" prefHeight="44.0" prefWidth="479.0">
                                                                            <styleClass>
                                                                               <String fx:value="bg-transparent" />
                                                                               <String fx:value="border-color-slate-200" />

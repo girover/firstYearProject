@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import app.App;
+import database.entities.City;
 import database.entities.Employee;
 import database.entities.User;
 import javaFxValidation.ValidationException;
@@ -15,11 +16,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import presentation.ValidatableController;
+import services.CityService;
 import services.EmployeeService;
 import services.HashingService;
 import services.UserService;
 
+/**
+ * 
+ * @author Rasmus Lysgaard Villadsen
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ */
 public class EditProfileController extends ValidatableController {
 
 	@FXML
@@ -31,7 +44,7 @@ public class EditProfileController extends ValidatableController {
 	private TextField inputLastName;
 
 	@FXML
-	@Rules(field = "address", rules = "required|regex:^[\\p{L}\\p{M}\\p{N}\\s\\.]+$")
+	@Rules(field = "address", rules = "required|regex:[\\p{L}\\p{M}\\p{N}\\s.,]+")
 	@Msg(rule = "regex", message = "Please provide a valid address.")
 	private TextField inputAddress;
 
@@ -111,6 +124,17 @@ public class EditProfileController extends ValidatableController {
 		this.employee = employee;
 		fillInputsWithEmployee(employee);
 	}
+	
+	@FXML
+    void handleInputZipCodeKeyReleased(KeyEvent event) {
+    	
+    	City city = (new CityService()).find(inputZipCode.getText());
+    	
+    	if(city != null)
+    		inputCity.setText(city.getCity());
+    	else
+    		inputCity.setText("");
+    }
 
 	@FXML
 	void handleBtnUpdateEmployeeClick(ActionEvent event) throws ValidationException {
@@ -124,9 +148,10 @@ public class EditProfileController extends ValidatableController {
 		EmployeeService employeeService = new EmployeeService();
 
 		if (employeeService.update(fillEmployeeWithNewData())) {
-			flashSuccessMessage("Employee has been updated", "succes");
-
-			return;
+			
+			getAuthenticatedUser().getEmployee().setCity(inputCity.getText());
+			
+			flashSuccessMessage("Employee has been updated", "success");
 		} else {
 			showErrorMessage("Failed to updated employee", "failed");
 		}
