@@ -13,10 +13,6 @@ public abstract class BaseLog {
 	public static final String WARNING = "Warning";
 	public static final String DEBUGGING = "Debugging";
 	
-	protected User getAuthenticatedUser() {
-		return App.getAuthenticatedUser();
-	}
-	
 	protected String getCurrentDateTime() {
 
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

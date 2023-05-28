@@ -44,7 +44,7 @@ public class DatabaseLog extends BaseLog implements Logger {
 	private void register(String type, String message) {
 
 		try {
-			User user = getAuthenticatedUser();
+			User user = App.getAuthenticatedUser();
 			int userId = user != null ? user.getId() : 0;
 			
 			LogEntity logEntity = new LogEntity();

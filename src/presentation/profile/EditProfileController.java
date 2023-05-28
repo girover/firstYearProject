@@ -82,7 +82,7 @@ public class EditProfileController extends ValidatableController {
 	private Button BtnClose;
 
 	
-	private User user = App.getAuthenticatedUser();
+	private User user = getAuthenticatedUser();
 	private Employee employee = user.getEmployee();
 	
 	private Employee fillEmployeeWithNewData() {

@@ -78,7 +78,7 @@ public class DashboardController extends BaseController {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		lblUserName.setText(App.getAuthenticatedUser().getUserName());
+		lblUserName.setText(getAuthenticatedUser().getUserName());
 	}
 
 }

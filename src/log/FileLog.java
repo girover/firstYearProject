@@ -55,7 +55,7 @@ public class FileLog extends BaseLog implements Logger {
 	private void register(String type, String message) {
 
 		try {
-			String user = getAuthenticatedUser() == null ? "unknown" : getAuthenticatedUser().getUserName();
+			String user = App.getAuthenticatedUser() == null ? "unknown" : App.getAuthenticatedUser().getUserName();
 			String msg = String.format("%s : %s : %s : User = %s\n", 
 								type,
 								getCurrentDateTime(),
