@@ -246,7 +246,7 @@ public class NewLoanApplicationController extends ValidatableController {
 		else
 			downPayment = Integer.parseInt(inputDownPayment.getText());
 		
-		if(downPayment >= selectedCar.getPrice()) {
+		if(downPayment > selectedCar.getPrice()) {
 			showErrorMessage("Down payment can not be more than total price.", "Error");
 			return;
 		}

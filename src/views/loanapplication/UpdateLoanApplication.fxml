@@ -140,7 +140,7 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputDownPayment" onAction="#handleInputDownPaymentOnAction" prefHeight="28.0" prefWidth="339.0" promptText="Down Payment">
+                                                                                    <TextField fx:id="inputDownPayment" onKeyReleased="#handleInputDownPaymentKeyReleased" prefHeight="28.0" prefWidth="339.0" promptText="Down Payment">
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
@@ -190,7 +190,7 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputMonths" onAction="#handleInputMonthsOnAction" prefHeight="28.0" prefWidth="339.0" promptText="Months">
+                                                                                    <TextField fx:id="inputMonths" onKeyReleased="#handleInputMonthsKeyReleased" prefHeight="28.0" prefWidth="339.0" promptText="Months">
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
