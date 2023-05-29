@@ -156,6 +156,9 @@ public class NewLoanApplicationController extends ValidatableController {
     
     @FXML
     private Button btnNext;
+    
+    @FXML
+    private Button btnCancel;
 
 	private Car selectedCar;
 	private Customer selectedCustomer;
@@ -303,7 +306,13 @@ public class NewLoanApplicationController extends ValidatableController {
 		else {
 			flashSuccessMessage("Loan application is created successfuly", "Success");
 			fire();
+			btnCancel.fire();
 		}
+	}
+	
+	@FXML
+	void handleBtnCancelClick(ActionEvent event) {
+		closeWindow(event);
 	}
 	
 	public LoanApplication getCreatedLoanApplication() {
@@ -375,7 +384,7 @@ public class NewLoanApplicationController extends ValidatableController {
 			fillCarInformation();
 		} else if (o instanceof NewCustomerController) {
 
-			selectedCustomer = ((NewCustomerController) o).getCreatedCustomer();
+			selectedCustomer = ((NewCustomerController) o).getCustomer();
 			fillCustomerInfo();
 		}
 

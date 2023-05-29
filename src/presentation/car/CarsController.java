@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 
 import database.entities.Car;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,38 +16,34 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import presentation.BaseController;
 import presentation.component.CarItemController;
-import presentation.component.PaginationController;
 import services.CarService;
-import services.Paginator;
 import window.Component;
-import window.Window;
 
 public class CarsController extends BaseController {
 
-	private CarService carService = new CarService();
+	protected CarService carService = new CarService();
 
 	@FXML
-	private Button btnClose;
+	protected Button btnClose;
 
 	@FXML
-	private FlowPane carsContainer;
+	protected FlowPane carsContainer;
 
 	@FXML
-	private ComboBox<String> cbModels;
+	protected ComboBox<String> cbModels;
 	
 	@FXML
-    private TextField inputSearchVIN;
+	protected TextField inputSearchVIN;
 
 	@FXML
-	private BorderPane mainView;
+	protected BorderPane mainView;
 
-	private ObservableList<Car> carsList = FXCollections.observableArrayList();
-	private ObservableList<String> modelsList = FXCollections.observableArrayList();
-	private Car selectedCar;
+	protected ObservableList<Car> carsList = FXCollections.observableArrayList();
+	protected ObservableList<String> modelsList = FXCollections.observableArrayList();
+	protected Car selectedCar;
 
 	@FXML
 	void handleBtnCloseClick(ActionEvent event) {
@@ -71,12 +66,12 @@ public class CarsController extends BaseController {
 		renderCars();
     }
 	
-	private void loadCars() {
+	protected void loadCars() {
 		ArrayList<Car> cars = carService.getAll();
 		carsList.addAll(cars);
 	}
 
-	private void renderCars() {
+	protected void renderCars() {
 		carsContainer.getChildren().clear();
 		for (Car car : carsList) {
 			Component component = new Component("CarItem.fxml");
@@ -87,7 +82,7 @@ public class CarsController extends BaseController {
 		}
 	}
 
-	private void loadModels() throws SQLException {
+	protected void loadModels() throws SQLException {
 		ArrayList<String> models = carService.getDistintModels();
 		modelsList.addAll(models);
 		cbModels.setItems(modelsList);

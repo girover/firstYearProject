@@ -93,10 +93,10 @@
                           <columns>
                             <TableColumn fx:id="colID" prefWidth="39.99997043609619" text="ID" />
                             <TableColumn fx:id="colUserame" prefWidth="111.20000839233398" text="Username" />
-                              <TableColumn fx:id="colLastName" prefWidth="146.40000915527344" text="First name" />
-                              <TableColumn fx:id="colLastName1" prefWidth="105.5999755859375" text="Last Name" />
-                              <TableColumn fx:id="colLastName11" prefWidth="105.5999755859375" text="Phone" />
-                              <TableColumn fx:id="colLastName111" prefWidth="105.5999755859375" text="Email" />
+                              <TableColumn fx:id="colFirstName" prefWidth="146.40000915527344" text="First name" />
+                              <TableColumn fx:id="colLastName" prefWidth="105.5999755859375" text="Last Name" />
+                              <TableColumn fx:id="colPhone" prefWidth="105.5999755859375" text="Phone" />
+                              <TableColumn fx:id="colEmail" prefWidth="105.5999755859375" text="Email" />
                           </columns>
                         </TableView>
                      </children>

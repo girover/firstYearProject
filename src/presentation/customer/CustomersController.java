@@ -123,8 +123,8 @@ public class CustomersController extends BaseController {
 
 		EditCustomerController controller = (EditCustomerController) openWindowAndGetController(
 				"customer/EditCustomer.fxml", "Customers");
-		controller.setCustomer(customer);
 		controller.addObserver(this);
+		controller.setCustomer(customer);
 	}
 
 	@FXML
@@ -136,12 +136,14 @@ public class CustomersController extends BaseController {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if (o instanceof NewCustomerController) {
-			Customer newCustomer = ((NewCustomerController) o).getCreatedCustomer();
-			if (newCustomer != null)
-				customers.add(newCustomer);
-		} else if (o instanceof EditCustomerController) {
+		if (o instanceof EditCustomerController) {
 			tvCustomers.refresh();
+		}else if (o instanceof NewCustomerController) {
+			Customer newCustomer = ((NewCustomerController) o).getCustomer();
+			if (newCustomer != null) {
+				customers.add(0,newCustomer);
+				tvCustomers.getSelectionModel().select(newCustomer);
+			}
 		}
 	}
 

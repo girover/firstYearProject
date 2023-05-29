@@ -85,11 +85,11 @@ public class TableCellFormatter {
 				}
 			}
 			private String moreThanThreeYearsStyle() {
-				return "-fx-text-fill: red;";
+				return "-fx-text-fill: #dc2626;";
 			}
 			
 			private String lessThatThreeYearsStyle() {
-				return "-fx-text-fill: black;";
+				return "-fx-text-fill: #15803d;;";
 			}
 		};
 	}

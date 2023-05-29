@@ -1,10 +1,5 @@
 package presentation.customer;
 
-import java.net.URL;
-import java.util.Observable;
-import java.util.ResourceBundle;
-
-import database.entities.City;
 import database.entities.Customer;
 import javaFxValidation.ValidationException;
 import javaFxValidation.annotations.Msg;
@@ -13,18 +8,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-import presentation.ValidatableController;
-import services.CityService;
 import services.CustomerService;
 
-public class EditCustomerController extends ValidatableController {
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
+public class EditCustomerController extends NewCustomerController {
 
     @FXML
     private Button btnUpdate;
-
-    @FXML
-    private Button btnCancle;
 
     @FXML
 //    @Rules(field = "cpr number", rules = "required|numeric|length:10")
@@ -47,7 +41,7 @@ public class EditCustomerController extends ValidatableController {
     private TextField inputEmail;
     
     @FXML
-    @Rules(field="persons address", rules="required|regex:[\\p{L}\\p{M}\\p{N}\\s.,]+")
+    @Rules(field="persons address", rules="required|regex:[\\p{L}\\p{M}\\p{N}\\s,.]+")
     @Msg(rule="regex", message="Please provide a valid address.")
     private TextField inputAddress;
 
@@ -58,8 +52,7 @@ public class EditCustomerController extends ValidatableController {
     @FXML
     @Rules(field="zip code", rules="required|numeric")
     private TextField inputZipCode;
-    
-    private Customer customerUnderEditing;
+
 
     @FXML
     void handleBtnUpdateClick(ActionEvent event) throws ValidationException {
@@ -71,13 +64,16 @@ public class EditCustomerController extends ValidatableController {
     		return;
     	}
     	
+    	fillCustomerWithData();
+    	
     	CustomerService customerService = new CustomerService();
-    	if(customerService.update(fillCustomerWithNewData())) {
+    	
+    	if(customerService.update(customer)) {
     		flashSuccessMessage("Customer updated Successfuly", "Created Customer");
-    		customerUnderEditing.setCity(inputCity.getText());
+    		customer.setCity(inputCity.getText());
     		// To inform the observer controller that the wanted customer is updated now
     		fire();
-    		
+    		btnCancle.fire();
     		return;
     	}else
     		showErrorMessage("Failed to update the customer", "Creaing Customer failed");
@@ -85,65 +81,26 @@ public class EditCustomerController extends ValidatableController {
     }
     
     public void setCustomer(Customer customer) {
-    	customerUnderEditing = customer;
+    	this.customer = customer;
     	fillInputsWithCustomer();
     }
     
-    public Customer getUpdatedCustomer(){
-    	return customerUnderEditing;
+    @Override
+    protected void fillCustomerWithData() {
+    	//customerUnderEditing.setCPRHash(inputCPR.getText());
+    	super.fillCustomerWithData();
+    	customer.setCPRHash("");
     }
     
-    private Customer fillCustomerWithNewData() {
-    	//customerUnderEditing.setCPRHash(inputCPR.getText());
-    	customerUnderEditing.setFirstName(inputFirstName.getText());
-    	customerUnderEditing.setLastName(inputLastName.getText());
-    	customerUnderEditing.setPhone(inputPhone.getText());
-    	customerUnderEditing.setEmail(inputEmail.getText());
-    	customerUnderEditing.setAddress(inputAddress.getText());
-    	customerUnderEditing.setCity(inputCity.getText());
-    	customerUnderEditing.setZipCode(inputZipCode.getText());
-    	
-    	return customerUnderEditing;
-    }
     private void fillInputsWithCustomer() {
     	//inputCPR.setText(customerUnderEditing.getCPRHash());
-    	inputFirstName.setText(customerUnderEditing.getFirstName());
-    	inputLastName.setText(customerUnderEditing.getLastName());
-    	inputPhone.setText(customerUnderEditing.getPhone());
-    	inputEmail.setText(customerUnderEditing.getEmail());
-    	inputAddress.setText(customerUnderEditing.getAddress());
-    	inputCity.setText(customerUnderEditing.getCity());
-    	inputZipCode.setText(customerUnderEditing.getZipCode());
+    	inputFirstName.setText(customer.getFirstName());
+    	inputLastName.setText(customer.getLastName());
+    	inputPhone.setText(customer.getPhone());
+    	inputEmail.setText(customer.getEmail());
+    	inputAddress.setText(customer.getAddress());
+    	inputCity.setText(customer.getCity());
+    	inputZipCode.setText(customer.getZipCode());
     }
-
-    @FXML
-    void handleBtnCancleClick(ActionEvent event) {
-    	closeWindow(event);
-    }
-    
-    @FXML
-    void handleInputPostKeyReleased(KeyEvent event) {
-    	
-    	CityService service = new CityService();
-    	
-    	String zipCode = inputZipCode.getText();
-    	
-    	City city = service.find(zipCode);
-    	
-    	if(city != null)
-    		inputCity.setText(city.getCity());
-    	else
-    		inputCity.setText("");
-    }
-
-	@Override
-	public void update(Observable o, Object arg) {
-		
-	}
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-	}
 
 }

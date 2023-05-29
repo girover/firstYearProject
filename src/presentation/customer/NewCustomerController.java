@@ -29,7 +29,7 @@ public class NewCustomerController extends ValidatableController {
     private Button btnAdd;
 
     @FXML
-    private Button btnCancle;
+    protected Button btnCancle;
 
     @FXML
     @Rules(field = "cpr number", rules = "required|numeric|length:10")
@@ -64,7 +64,7 @@ public class NewCustomerController extends ValidatableController {
     @Rules(field="zip code", rules="required|numeric")
     private TextField inputZipCode;
     
-    private Customer customer = new Customer();
+    protected Customer customer = new Customer();
 
     @FXML
     void handleBtnAddClick(ActionEvent event) throws ValidationException {
@@ -84,13 +84,14 @@ public class NewCustomerController extends ValidatableController {
     		flashSuccessMessage("Customer created Successfuly", "Created Customer");
     		customer.setCity(inputCity.getText());
     		fire();
+    		btnCancle.fire();
     		return;
     	}else
     		showErrorMessage("Failed to create new customer", "Creaing Customer failed");
     		
     }
     
-    private void fillCustomerWithData() {
+    protected void fillCustomerWithData() {
     	
     	customer.setCPRHash(inputCPR.getText());
     	customer.setFirstName(inputFirstName.getText());
@@ -102,7 +103,7 @@ public class NewCustomerController extends ValidatableController {
     	customer.setZipCode(inputZipCode.getText());
     }
     
-    public Customer getCreatedCustomer() {
+    public Customer getCustomer() {
     	return customer;
     }
     
@@ -111,7 +112,7 @@ public class NewCustomerController extends ValidatableController {
     }
     
     @FXML
-    void handleInputPostKeyReleased(KeyEvent event) {
+    protected void handleInputPostKeyReleased(KeyEvent event) {
     	
     	City city = (new CityService()).find(inputZipCode.getText());
     	
@@ -122,7 +123,7 @@ public class NewCustomerController extends ValidatableController {
     }
 
     @FXML
-    void handleBtnCancleClick(ActionEvent event) {
+    protected void handleBtnCancleClick(ActionEvent event) {
     	closeWindow(event);
     }
 

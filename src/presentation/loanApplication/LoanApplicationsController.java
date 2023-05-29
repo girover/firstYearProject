@@ -137,8 +137,10 @@ public class LoanApplicationsController extends BaseController {
 	public void update(Observable o, Object arg) {
 		if(o instanceof NewLoanApplicationController) {
 			LoanApplication loanApplication = ((NewLoanApplicationController)o).getCreatedLoanApplication();
-			if(loanApplication != null)
-				loanApplications.add(loanApplication);
+			if(loanApplication != null) {
+				loanApplications.add(0, loanApplication);
+				tvLoanApplications.getSelectionModel().select(loanApplication);
+			}
 		}else if(o instanceof ShowLoanApplicationController 
 				|| o instanceof UpdateLoanApplicationController) {
 			tvLoanApplications.refresh();
