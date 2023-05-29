@@ -17,6 +17,12 @@ import javafx.scene.control.TextField;
 import presentation.ValidatableController;
 import services.LoanApplicationService;
 
+/**
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ */
 public class UpdateLoanApplicationController extends ValidatableController {
 
     @FXML

@@ -14,6 +14,11 @@ import javafx.beans.InvalidationListener;
  *
  */
 public class RKIService extends Observable implements Runnable {
+
+	public static final String A_RKI_RATE = "A";
+	public static final String B_RKI_RATE = "B";
+	public static final String C_RKI_RATE = "C";
+	public static final String D_RKI_RATE = "D";
 	
 	private String cpr;
 	private String rate;

@@ -21,6 +21,12 @@ import presentation.BaseController;
 import presentation.TableCellFormatter;
 import services.LoanApplicationService;
 
+/**
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github</a>
+ */
 public class LoanApplicationsController extends BaseController {
 
     @FXML

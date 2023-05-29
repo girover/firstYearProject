@@ -156,7 +156,7 @@ public class CarRepository extends Repository {
 		return carsModels;
 	}
 	
-	public ArrayList<Car> getFreeCars(){
+	public ArrayList<Car> getAvailableCars(){
 		String sql = "SELECT * FROM [car] "
 				+ "WHERE [id] NOT IN (SELECT [carID] FROM [loanApplication] WHERE [status] = '"+LoanApplication.PROCESSING+"' or [status] = '"+LoanApplication.APPROVED+"');";
 		
@@ -164,12 +164,21 @@ public class CarRepository extends Repository {
 		return mapResultSetToEntityList(result);
 	}
 	
-	public ArrayList<Car> getFreeCarsByModel(String model){
+	public ArrayList<Car> getAvailableCarsByModel(String model){
 		String sql = "SELECT * FROM [car] "
 				+ "WHERE [id] NOT IN (SELECT [carID] FROM [loanApplication] WHERE [status] = '"+LoanApplication.PROCESSING+"' or [status] = '"+LoanApplication.APPROVED+"') "
 				+ "AND [model] = ?;";
 		
 		ResultSet result = select(sql, model);
+		return mapResultSetToEntityList(result);
+	}
+	
+	public ArrayList<Car> getAvailableCarsByVIN(String vin){
+		String sql = "SELECT * FROM [car] "
+				+ "WHERE [id] NOT IN (SELECT [carID] FROM [loanApplication] WHERE [status] = '"+LoanApplication.PROCESSING+"' or [status] = '"+LoanApplication.APPROVED+"') "
+				+ "AND [VIN] = ?;";
+		
+		ResultSet result = select(sql, vin);
 		return mapResultSetToEntityList(result);
 	}
 	

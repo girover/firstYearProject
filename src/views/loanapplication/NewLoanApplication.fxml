@@ -492,7 +492,7 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputCpr" prefHeight="34.0" prefWidth="257.0" promptText="CPR">
+                                                                                    <TextField fx:id="inputCpr" onAction="#handleInuputCPRAction" prefHeight="34.0" prefWidth="257.0" promptText="CPR">
                                                                                        <font>
                                                                                           <Font size="14.0" />
                                                                                        </font>
@@ -818,7 +818,7 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputDownPayment" onAction="#handleInputDownPaymentAction" prefHeight="28.0" prefWidth="339.0">
+                                                                                    <TextField fx:id="inputDownPayment" onKeyReleased="#handleInputDownPaymentKeyReleased" prefHeight="28.0" prefWidth="339.0">
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
@@ -868,7 +868,7 @@
                                                                                           <Insets right="20.0" />
                                                                                        </padding>
                                                                                     </Label>
-                                                                                    <TextField fx:id="inputMonths" onAction="#handleInputMonthsOnAction" prefHeight="28.0" prefWidth="339.0">
+                                                                                    <TextField fx:id="inputMonths" onKeyReleased="#handleInputMonthsKeyReleased" prefHeight="28.0" prefWidth="339.0">
                                                                                        <styleClass>
                                                                                           <String fx:value="border-b-2" />
                                                                                           <String fx:value="border-color-slate-500" />
@@ -972,50 +972,58 @@
                                  </children></AnchorPane>
 									</content>
 								</ScrollPane>
-                        <AnchorPane prefHeight="46.0" prefWidth="1118.0">
+                        <AnchorPane prefHeight="25.0" prefWidth="1118.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="28.0" prefWidth="95.0" text="Add" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-gray-500" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="font-weight-bold" />
-                                    <String fx:value="hover-gray" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="20" />
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="btnCancel" layoutX="271.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnCancelClick" prefHeight="28.0" prefWidth="104.0" text="Cancel" AnchorPane.rightAnchor="10.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-red-500" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="font-weight-bold" />
-                                    <String fx:value="hover-red" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="btnNext" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnNextClick" prefHeight="28.0" prefWidth="97.0" text="Next" AnchorPane.rightAnchor="160.0">
-                                 <styleClass>
-                                    <String fx:value="btn" />
-                                    <String fx:value="shadow" />
-                                    <String fx:value="bg-green-500" />
-                                    <String fx:value="bold" />
-                                    <String fx:value="text-white" />
-                                    <String fx:value="hover-green" />
-                                 </styleClass>
-                                 <graphic>
-                                    <FontIcon iconColor="WHITE" iconLiteral="fa-arrow-right" iconSize="20" />
-                                 </graphic>
-                              </Button>
+                              <HBox alignment="CENTER_LEFT" layoutX="-6.0" layoutY="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="28.0" prefWidth="95.0" text="Add">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-gray-500" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-gray" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                    <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Button fx:id="btnNext" mnemonicParsing="false" onAction="#handleBtnNextClick" prefHeight="28.0" prefWidth="65.0" text="Next">
+                                             <styleClass>
+                                                <String fx:value="btn" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="bg-green-600" />
+                                                <String fx:value="bold" />
+                                                <String fx:value="text-white" />
+                                                <String fx:value="hover-green" />
+                                             </styleClass>
+                                             <graphic>
+                                                <FontIcon iconColor="WHITE" iconLiteral="fa-arrow-circle-right" iconSize="20" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleBtnCancelClick" prefHeight="28.0" prefWidth="104.0" text="Cancel">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-red-500" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="font-weight-bold" />
+                                          <String fx:value="hover-red" />
+                                       </styleClass>
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
                            </children>
                         </AnchorPane>
 							</children>

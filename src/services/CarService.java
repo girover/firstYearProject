@@ -83,8 +83,8 @@ public class CarService extends BaseResourceService {
 		return models;
 	}
 	
-	public ArrayList<Car> getFreeCars(){
-		return ((CarRepository)repository).getFreeCars();
+	public ArrayList<Car> getAvailableCars(){
+		return ((CarRepository)repository).getAvailableCars();
 	}
 	
 	public ArrayList<Car> getByModel(String model){
@@ -92,13 +92,17 @@ public class CarService extends BaseResourceService {
 		return ((CarRepository)repository).getByModel(model);
 	}
 	
-	public ArrayList<Car> getFreeCarsByModel(String model){
+	public ArrayList<Car> getAvailableCarsByModel(String model){
 		
-		return ((CarRepository)repository).getFreeCarsByModel(model);
+		return ((CarRepository)repository).getAvailableCarsByModel(model);
 	}
 	
 	public ArrayList<Car> getByVIN(String vin){		
 		return (ArrayList<Car>) repository.getByCondition("VIN", "=", vin);
+	}
+	
+	public ArrayList<Car> getAvailableCarsByVIN(String vin){		
+		return (ArrayList<Car>) ((CarRepository)repository).getAvailableCarsByVIN(vin);
 	}
 	
 
