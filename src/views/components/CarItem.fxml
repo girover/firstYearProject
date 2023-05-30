@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox fx:id="carItem" alignment="TOP_CENTER" onMouseClicked="#handleVBoxOnMouseClicked" onMouseEntered="#handleOnMouseEntered" onMouseExited="#handleOnMouseExited" prefHeight="306.0" prefWidth="204.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.component.CarItemController">
    <children>
       <ImageView fitHeight="130.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">

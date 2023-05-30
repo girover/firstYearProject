@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextFormatter;
 import presentation.window.FlashWindow;
 import presentation.window.Window;
-import translate.Translator;
 
 /**
  * This abstract class is part of the Presentation Layer and provides a set of methods
@@ -25,8 +24,6 @@ import translate.Translator;
  */
 public abstract class BaseController extends Observable implements Observer, Initializable {
 
-	protected static Translator translator = App.getTranslator();
-	
 	@FXML
 	protected Button btnCancel;
 	
@@ -36,10 +33,6 @@ public abstract class BaseController extends Observable implements Observer, Ini
 	@FXML
 	void handleBtnCloseAndCancelOnAction(ActionEvent event) {
 		closeWindow(event);
-	}
-
-	protected String translate(String translateableText) {
-		return translator.translate(translateableText);
 	}
 
 	protected void showErrorMessage(String message, String title) {

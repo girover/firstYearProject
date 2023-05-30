@@ -13,8 +13,6 @@ public abstract class Provider {
 
 	private static String alphaString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvxyz";
 	private static String alphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz";
-	private static String uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	private static String lowercaseString = "abcdefghijklmnopqrstuvxyz";
 	private static String numericString = "0123456789";
 	private static String oddDigitString = "13579";
 	private static String evenDigitString = "02468";

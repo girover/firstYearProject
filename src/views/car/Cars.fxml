@@ -133,6 +133,5 @@
             </AnchorPane>
          </center>
       </BorderPane>
-      <Button mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

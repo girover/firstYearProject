@@ -1,4 +1,4 @@
-package presentation.admin;
+package presentation.manager;
 
 import java.net.URL;
 import java.util.Observable;

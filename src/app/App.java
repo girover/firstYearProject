@@ -14,7 +14,6 @@ import exception.ExceptionHandler;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import presentation.window.Window;
-import translate.Translator;
 
 /**
  * This class is responsible for configuring various aspects of the application:
@@ -36,7 +35,6 @@ public class App {
 	private static Connection dbConnection;
 	private static Auth authenticatedUser;
 	private static Stage mainStage;
-	private static Translator translator;
 	private static boolean booted = false;
 	private static AppLocker appLocker;
 
@@ -57,7 +55,6 @@ public class App {
 		loadConfigs();
 		initWindowsPath();
 		initAuthFields();
-		initLocaleLanguage();
 		initDatabaseConnection();
 		
 		if (authenticatedUser == null) {
@@ -90,17 +87,6 @@ public class App {
 
 	private static void initDatabaseConnection() {
 		dbConnection = getNewDatabaseConnection();
-	}
-
-	/**
-	 * This method loads the translator responsible for translating the GUI 
-	 * into multiple languages.
-	 * Currently, the supported languages are English and Danish.
- 	 * By calling this method, the translator is initialized, 
- 	 * enabling the application to display the GUI in the desired language.
-	 */
-	private static void initLocaleLanguage() {
-		translator = new Translator(Config.get("locale"));
 	}
 
 	/**
@@ -210,7 +196,7 @@ public class App {
 	}
 
 	private static Window getManagerWindow() {
-		return new Window("admin/AdminDashboard.fxml", "Manager Dashboard");
+		return new Window("manager/ManagerDashboard.fxml", "Manager Dashboard");
 	}
 
 	private static Window getSellerWindow() {
@@ -259,14 +245,6 @@ public class App {
 	 */
 	public static void setMainStage(Stage stage) {
 		mainStage = stage;
-	}
-	
-	public static void setTranslator(Translator translatorInstance) {
-		translator = translatorInstance;
-	}
-	
-	public static Translator getTranslator() {
-		return translator;
 	}
 	
 	/**

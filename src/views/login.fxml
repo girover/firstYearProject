@@ -21,7 +21,7 @@
          <children>
             <ImageView fitHeight="361.0" fitWidth="292.0" layoutX="74.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/app/ferrariLogo.png" />
+                  <Image url="@../resources/images/app/ferrariLogo2.png" />
                </image>
             </ImageView>
          </children></Pane>
