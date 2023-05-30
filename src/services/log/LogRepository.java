@@ -1,4 +1,4 @@
-package log;
+package services.log;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

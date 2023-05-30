@@ -19,8 +19,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import presentation.BaseController;
 import presentation.component.CarItemController;
+import presentation.window.Component;
 import services.CarService;
-import window.Component;
 /**
  * @author Shahana Thirukumar
  * 		- <b style="color:red">shahana2@hotmail.dk</b>

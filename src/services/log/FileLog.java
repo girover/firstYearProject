@@ -1,10 +1,10 @@
-package log;
+package services.log;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 import app.App;
-import configs.Config;
+import app.configs.Config;
 
 public class FileLog extends BaseLog implements Logger {
 

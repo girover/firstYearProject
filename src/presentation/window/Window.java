@@ -1,4 +1,4 @@
-package window;
+package presentation.window;
 
 import app.App;
 import javafx.event.ActionEvent;

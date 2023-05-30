@@ -1,6 +1,6 @@
-package log;
+package services.log;
 
-import configs.Config;
+import app.configs.Config;
 
 public class Log {
 

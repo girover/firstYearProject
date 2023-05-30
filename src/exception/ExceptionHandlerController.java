@@ -4,9 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import log.Log;
 import presentation.MessageController;
-import window.Window;
+import presentation.window.Window;
+import services.log.Log;
 
 /**
  * 

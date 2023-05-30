@@ -11,8 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import presentation.BaseController;
+import presentation.window.Window;
 import services.AuthService;
-import window.Window;
 /**
  * @author Shahana Thirukumar
  * 		- <b style="color:red">shahana2@hotmail.dk</b>

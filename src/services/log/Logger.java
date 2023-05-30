@@ -1,4 +1,4 @@
-package log;
+package services.log;
 
 public interface Logger {
 	

@@ -1,8 +1,13 @@
-package configs;
+package app.configs;
 
 import java.util.HashMap;
 
-public class Config {
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
+public abstract class Config {
 
 	private static HashMap<String, String> configs = new HashMap<>();
 	

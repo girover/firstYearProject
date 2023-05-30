@@ -2,7 +2,6 @@ package app;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-
 import javafx.scene.control.TextFormatter;
 
 /**

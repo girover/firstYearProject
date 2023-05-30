@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import presentation.BaseController;
-import window.Window;
+import presentation.window.Window;
 
 public class CarItemController extends BaseController {
 

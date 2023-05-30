@@ -1,4 +1,4 @@
-package window;
+package presentation.window;
 
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;

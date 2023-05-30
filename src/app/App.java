@@ -3,9 +3,9 @@ package app;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import app.configs.Config;
+import app.configs.XMLConfigsReader;
 import authentication.Auth;
-import configs.Config;
-import configs.XMLConfigsReader;
 import database.connection.DatabaseConnection;
 import database.connection.SqlServerDatabaseConnection;
 import database.entities.Employee;
@@ -13,8 +13,8 @@ import database.entities.User;
 import exception.ExceptionHandler;
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import presentation.window.Window;
 import translate.Translator;
-import window.Window;
 
 /**
  * This class is responsible for configuring various aspects of the application:
@@ -50,7 +50,6 @@ public class App {
 		if(!initAppLocker())
 			return;
 		
-		
 		mainStage = primaryStage;
 		
 		boot();
@@ -74,7 +73,7 @@ public class App {
 	 * We will check if the application is allowed to run.
 	 * If application locker is released then we return true to allow running
 	 * new instance, otherwise false is returned to prevent running other instances.
-	 * @return
+	 * @return boolean
 	 */
 	private static boolean initAppLocker() {
 		appLocker = new AppLocker();
@@ -136,7 +135,7 @@ public class App {
 	}
 	
 	private static void loadConfigs() throws Exception {
-		Config.addAll(XMLConfigsReader.parse("src/configs/configs.xml"));
+		Config.addAll(XMLConfigsReader.parse("src/app/configs/configs.xml"));
 	}
 
 	/**

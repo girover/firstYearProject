@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import presentation.BaseController;
-import window.Component;
+import presentation.window.Component;
 
 public class PaginationController extends BaseController {
 

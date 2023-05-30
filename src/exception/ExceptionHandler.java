@@ -3,7 +3,7 @@ package exception;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import window.Window;
+import presentation.window.Window;
 
 /**
  * This class used to catch any uncaught exceptions 

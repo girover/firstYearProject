@@ -1,4 +1,4 @@
-package log;
+package services.log;
 
 import app.App;
 import database.entities.User;

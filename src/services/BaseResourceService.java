@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import javax.management.RuntimeErrorException;
 
-import configs.Config;
+import app.configs.Config;
 import database.entities.Entity;
 import database.repositories.Repository;
 import database.repositories.RepositoryInterface;

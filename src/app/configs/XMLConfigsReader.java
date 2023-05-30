@@ -1,4 +1,4 @@
-package configs;
+package app.configs;
 
 import java.io.File;
 import java.util.HashMap;
@@ -8,6 +8,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
 public class XMLConfigsReader {
 
 	public static HashMap<String, String> parse(String XMLFile) throws Exception {

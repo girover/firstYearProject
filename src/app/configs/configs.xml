@@ -50,7 +50,7 @@
 	</auth>
 	<log>
 		<driver>database</driver><!-- file|database -->
-		<file>src/log/log.txt</file>
+		<file>src/services/log/log.txt</file>
 	</log>
 	<locale>dk</locale> <!-- en|dk -->
 </configs>

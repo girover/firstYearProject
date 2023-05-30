@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import app.App;
-import configs.Config;
+import app.configs.Config;
 import database.entities.Entity;
 
 /**

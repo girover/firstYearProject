@@ -3,7 +3,7 @@ package presentation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import window.Window;
+import presentation.window.Window;
 
 /**
  * @author Shahana Thirukumar

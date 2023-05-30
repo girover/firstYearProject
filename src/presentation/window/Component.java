@@ -1,8 +1,8 @@
-package window;
+package presentation.window;
 
 import java.io.IOException;
 
-import configs.Config;
+import app.configs.Config;
 import javafx.fxml.FXMLLoader;
 import presentation.BaseController;
 

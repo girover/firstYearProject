@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import configs.Config;
+import app.configs.Config;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
 public class SqlServerDatabaseConnection implements DatabaseConnection {
 
 	private Connection connection;
@@ -50,12 +55,6 @@ public class SqlServerDatabaseConnection implements DatabaseConnection {
 	}
 	
 	private String connectionString() {
-//	    String connectionString =
-//        "jdbc:sqlserver://localhost:1433;" +
-//        "instanceName=SQLEXPRESS;" +
-//        "databaseName=" + databaseName + ";" +
-//        "trustServerCertificate=true;" +
-//        "integratedSecurity=true;";
 		
 	    StringBuilder sb = new StringBuilder();
 		

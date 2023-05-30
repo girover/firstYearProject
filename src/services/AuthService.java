@@ -6,7 +6,7 @@ import database.entities.Employee;
 import database.entities.User;
 import database.repositories.EmployeeRepository;
 import database.repositories.UserRepository;
-import log.Log;
+import services.log.Log;
 
 /**
  * This class is a part of Service Layer (Business Logic Layer). It is

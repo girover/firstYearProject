@@ -11,9 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextFormatter;
+import presentation.window.FlashWindow;
+import presentation.window.Window;
 import translate.Translator;
-import window.FlashWindow;
-import window.Window;
 
 /**
  * This abstract class is part of the Presentation Layer and provides a set of methods
