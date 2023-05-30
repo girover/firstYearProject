@@ -7,9 +7,9 @@ import database.entities.SellerApprovalLimits;
 import faker.Faker;
 
 /**
- * @author Majed Hussein Farhan 
- * 		- <b style="color:red">girover.mhf@gmail.com</b>
- *      - <a href="https://github.com/girover">Github Profile</a>
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
  *
  */
 public class SellerApprovalLimitFactory implements EntityFactory {

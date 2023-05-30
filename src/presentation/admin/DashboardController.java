@@ -13,7 +13,12 @@ import javafx.scene.layout.BorderPane;
 import presentation.BaseController;
 import services.AuthService;
 import window.Window;
-
+/**
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
+ *
+ */
 public class DashboardController extends BaseController {
 
     @FXML

@@ -11,6 +11,13 @@ import javafx.stage.Stage;
 import presentation.BaseController;
 import presentation.ConfirmDialogController;
 
+/**
+ *      
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ *
+ */
+
 public class Window extends Stage {
 
 	protected Scene scene;
@@ -103,21 +110,5 @@ public class Window extends Stage {
 		w.showAndWait();
 		return controller.getUserAction();
 	}
-	
-//	public void show() {
-//		stage.show();
-//	}
-//	
-//	public void showAndWait() {
-//		stage.showAndWait();
-//	}
-//	
-//	public void hide() {
-//		stage.hide();
-//	}
-//	
-//	public void close() {
-//		stage.close();
-//	}
 }
 

@@ -9,13 +9,11 @@ import java.util.ArrayList;
  * Access Object for the Customer table in the database.
  *
  * @version 1.0
- * @author Rasmus Lysgaard Villadsen
- * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
- * 		 - <a href="https://github.com/MrMaklie">Github</a>
  * 
- * @author Majed Hussein Farhan
- * 		 - <b style="color:red">girover.mhf@gmail.com</b>
- *       - <a href="https://github.com/girover">Github</a>
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
+ * 
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/Customer.java">Class Code On Github</a>
  */
 public class Customer extends Entity {

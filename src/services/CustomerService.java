@@ -66,11 +66,10 @@ public class CustomerService extends BaseResourceService {
 		
 		ResultSet result = ((CustomerRepository)repository).search(searchKey);
 		
-		if(result.next()) {
+		while(result.next()) {
 			Customer customer = new Customer();
 			customer.mapFromResultSet(result);
 			customers.add(customer);
-			
 		}
 		
 		return customers;

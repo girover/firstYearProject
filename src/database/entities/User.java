@@ -6,6 +6,18 @@ import java.sql.SQLException;
 import authentication.Auth;
 import authentication.Authenticatable;
 
+/**
+ * This class is a part of Data Access Layer. This class represents a Data
+ * Access Object for the Customer table in the database.
+ *
+ * @version 1.0
+ * 
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
+ *
+ * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/Customer.java">Class Code On Github</a>
+ */
 public class User extends Auth implements Authenticatable {
 
 	public User() {

@@ -5,6 +5,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+/**
+ * 
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ * 
+ */
 public class CSVService {
 
     public static void writeCSV(List<String[]> data, String filePath) throws IOException {

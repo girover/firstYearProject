@@ -35,26 +35,6 @@ public class UserRepository extends Repository {
 	/**
 	 * Get user by its primaryKey's value
 	 * 
-	 * @param id : the id of the user
-	 * @return User entity
-	 */
-	public User getById(int id) {
-		return mapResultSetToEntity(findById(id));
-	}
-
-	/**
-	 * Get user by its primaryKey's value
-	 * 
-	 * @param id : the id of the user
-	 * @return User entity
-	 */
-	public User getById(String id) {
-		return mapResultSetToEntity(getRowsByACondition(primaryKey, "=", id));
-	}
-
-	/**
-	 * Get user by its primaryKey's value
-	 * 
 	 * @param value : the id of the user
 	 * @return User entity
 	 */

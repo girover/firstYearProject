@@ -4,6 +4,12 @@ import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 import presentation.MessageController;
 
+/**     
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ *
+ */
+
 public class FlashWindow extends Window{
 
 	public FlashWindow(String fxml, String title) {

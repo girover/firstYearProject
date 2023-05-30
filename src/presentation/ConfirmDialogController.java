@@ -6,15 +6,13 @@ import javafx.scene.control.Button;
 import window.Window;
 
 /**
- * This class is a part of Presentation Layer. 
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
  *
- * This class is responsible for showing confirmation dialog box to the user
- * 
- * @version 1.0
- * 
- * @author Majed Hussein Farhan
- * 		 - <b style="color:red">girover.mhf@gmail.com</b>
- *       - <a href="https://github.com/girover">Github</a>
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github</a>
+ *         
  */
 public class ConfirmDialogController extends MessageController {
 

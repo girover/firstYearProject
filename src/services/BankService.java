@@ -9,11 +9,14 @@ import com.ferrari.finances.dk.rki.CreditRator;
 import javafx.beans.InvalidationListener;
 
 /**
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
  * 
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github</a>
- *
+ *       
  */
 public class BankService extends Observable implements Runnable {
 	

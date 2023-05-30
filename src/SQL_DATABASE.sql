@@ -621,10 +621,10 @@ CREATE TABLE [employee] (
 
 INSERT INTO [employee] ([firstName], [lastName], [email], [phone], [address], [zipCode], [hireDate], [department], [role])
 VALUES 
-	('Majed Hussein', 'Farhan', 'majed@gmail.com', '12345678', 'Soenderparken 17 1. th', '7430', '2023-01-01', 'IT', 'manager'),
-    ('Rasmus', 'V', 'rasmv@example.com', '1234567890', 'islandsgade 15 1. th', '1000', '2023-01-01', 'administration', 'seller'),
-    ('Rasmus', 'K', 'rasmk@example.com', '9876543210', 'villavej 23 2. tv', '8000', '2023-02-01', 'sales', 'seller'),
-    ('Shahana', 'T', 'shahana@example.com', '5551234567', 'herningsvej 25 3. th', '5000', '2023-03-01', 'finance', 'seller'),
+	('Majed Hussein', 'Farhan', 'majed@gmail.com', '12345678', 'Sønderparken 17 1. th', '7430', '2023-01-01', 'IT', 'manager'),
+    ('Rasmus Lysgaard', 'V', 'rasmv@example.com', '1234567890', 'Solparken 1', '6900', '2023-01-01', 'administration', 'manager'),
+    ('Rasmus Kortsen', 'K', 'rasmk@example.com', '9876543210', 'Nørregade 9B, 1. 3', '7400', '2023-02-01', 'sales', 'manager'),
+    ('Shahana Thirukumar', 'T', 'shahana@example.com', '5551234567', 'Tietgensgade 4, 1. 11', '7400', '2023-03-01', 'sales', 'manager'),
     ('Sarah', 'Williams', 'sarahwilliams@example.com', '1112223333', '321 Pine St', '9000', '2023-04-01', 'service', 'seller'),
     ('Emily', 'Brown', 'emilybrown@example.com', '9998887777', '654 Cedar St', '6700', '2023-05-01', 'marketing', 'seller'),
     ('Daniel', 'Taylor', 'danieltaylor@example.com', '4445556666', '987 Maple St', '8900', '2023-06-01', 'parts', 'seller'),

@@ -20,6 +20,15 @@ import presentation.BaseController;
 import presentation.loanApplication.CustomerLoanApplicationsController;
 import services.CustomerService;
 
+/**
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
+ *
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github</a>
+ *         
+ */
 public class CustomersController extends BaseController {
 
 	@FXML
@@ -175,15 +184,18 @@ public class CustomersController extends BaseController {
 	}
 
 	private void searchCustomers() throws Exception {
+		
 		String searchKey = inputSearch.getText();
+		
 		if (searchKey == null || searchKey.isBlank())
 			return;
+		
 		customers.clear();
 
 		ArrayList<Customer> foundCustomers = customerService.search(searchKey);
 
-		if (foundCustomers.size() > 0)
-			customers.addAll(customerService.search(searchKey));
+		if (foundCustomers.size() > 0) 
+			customers.addAll(foundCustomers);
 	}
 
 }

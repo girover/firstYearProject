@@ -123,12 +123,6 @@ public class SellerApprovalLimitRepository extends Repository {
 	public ArrayList<SellerApprovalLimits> getAll() {
 		return mapResultSetToEntityList(getAllRows());
 	}
-	
-	public SellerApprovalLimits getMaxApprovalLimit(Employee employee) {
-		ResultSet reult = getRowsByACondition("employeeID", "=", employee.getId());
-		
-		return mapResultSetToEntity(reult);
-	}
 
 	@Override
 	public ArrayList<SellerApprovalLimits> paginate(int pageNumber) {

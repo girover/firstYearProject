@@ -14,6 +14,10 @@ import database.entities.Entity;
  * 
  * @version 1.0
  * 
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
+ * 
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github</a>
@@ -26,14 +30,6 @@ public interface ResourceServiceInterface {
 	 * @return ArrayList<Entity>
 	 */
 	public <T extends Entity> ArrayList<T> getAll();
-	
-	/**
-	 * Get a specified number of resources as a list.
-	 * 
-	 * @param int : current page number
-	 * @return services.Paginator
-	 */
-	public Paginator paginate(int currentPage);
 
 	/**
 	 * Getting the resource with specified id

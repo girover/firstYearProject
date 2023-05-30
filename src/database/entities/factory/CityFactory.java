@@ -7,9 +7,9 @@ import database.entities.City;
 import faker.Faker;
 
 /**
- * @author Majed Hussein Farhan 
- * 		- <b style="color:red">girover.mhf@gmail.com</b>
- *      - <a href="https://github.com/girover">Github Profile</a>
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
  *
  */
 public class CityFactory implements EntityFactory {

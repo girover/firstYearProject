@@ -3,6 +3,12 @@ package database.entities;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
+ *
+ */
 public class City extends Entity {
 
 	private String zipCode;

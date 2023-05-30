@@ -6,10 +6,6 @@ public class Config {
 
 	private static HashMap<String, String> configs = new HashMap<>();
 	
-//	public Config(){ 
-//		configs = new HashMap<>();
-//	}
-	
 	public static String get(String key) {
 		return configs.get(key);
 	}

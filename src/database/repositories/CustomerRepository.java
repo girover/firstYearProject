@@ -29,10 +29,6 @@ import database.entities.User;
  */
 public class CustomerRepository extends Repository {
 
-	private final String joinWithCitySql = "SELECT * FROM [" + table + "] "
-										 + "JOIN [city] "
-										 + "ON [" + table + "].[zipCode] = "
-										 + "[city].[zipCode] ";
 	public CustomerRepository() {
 		setTable("customer");
 	}
@@ -125,6 +121,7 @@ public class CustomerRepository extends Repository {
 	}
 	
 	public Customer findByCpr(String hashedCpr) {
+		
 		String sql = selectSql("WHERE CPRHash = ?;");
 		
 		ResultSet result = select(sql, hashedCpr);
@@ -163,7 +160,7 @@ public class CustomerRepository extends Repository {
 	private String selectSql(String conditionSql) {
 		
 		String joinWithCitySql = "SELECT * FROM [" + table + "] "
-				 + "JOIN [city] "
+				 + "LEFT JOIN [city] "
 				 + "ON [" + table + "].[zipCode] = "
 				 + "[city].[zipCode] ";
 		

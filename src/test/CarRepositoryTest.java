@@ -12,9 +12,9 @@ import database.repositories.CarRepository;
 /**
  * This test case class is responsible for testing methods in "CarRepository" class.
  * 
- * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
- *         - <a href="https://github.com/girover">Github Profile</a>
- *
+ * @author Rasmus Lysgaard Villadsen
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
  */
 class CarRepositoryTest extends BaseTestCase {
 

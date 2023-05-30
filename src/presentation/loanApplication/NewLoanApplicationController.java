@@ -32,6 +32,10 @@ import services.RKIService;
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
  *       - <a href="https://github.com/girover">Github</a>
+ *       
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
  */
 public class NewLoanApplicationController extends ValidatableController {
 

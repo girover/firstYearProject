@@ -6,6 +6,13 @@ import configs.Config;
 import javafx.fxml.FXMLLoader;
 import presentation.BaseController;
 
+/**
+ *      
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ *
+ */
+
 public class Component {
 	
 	BaseController controller;

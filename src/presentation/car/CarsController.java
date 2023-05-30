@@ -21,7 +21,12 @@ import presentation.BaseController;
 import presentation.component.CarItemController;
 import services.CarService;
 import window.Component;
-
+/**
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
+ *
+ */
 public class CarsController extends BaseController {
 
 	protected CarService carService = new CarService();
@@ -87,14 +92,6 @@ public class CarsController extends BaseController {
 		modelsList.addAll(models);
 		cbModels.setItems(modelsList);
 	}
-	
-//	private void paginate() {
-//		Component pagination = new Component("Pagination.fxml");
-//		PaginationController controller = (PaginationController)pagination.getController();
-//		controller.setTotalPages(10);
-//		controller.addObserver(this);
-//		this.pagination.getChildren().add((HBox)pagination.get());
-//	}
 	
 	public void setSelectedCar(Car car) {
 		selectedCar = car;

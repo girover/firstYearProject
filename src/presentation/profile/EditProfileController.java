@@ -29,9 +29,6 @@ import services.UserService;
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
  * 
- * @author Majed Hussein Farhan
- * 		 - <b style="color:red">girover.mhf@gmail.com</b>
- *       - <a href="https://github.com/girover">Github</a>
  */
 public class EditProfileController extends ValidatableController {
 
