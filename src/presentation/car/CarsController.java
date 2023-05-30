@@ -25,15 +25,18 @@ import window.Component;
  * @author Shahana Thirukumar
  * 		- <b style="color:red">shahana2@hotmail.dk</b>
  *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
- *
+ *	
+ * @author Majed Hussein Farhan
+ * 		- <b style="color:red">girover.mhf@gmail.com</b>
+ *      - <a href="https://github.com/girover">Github Profile</a>
  */
 public class CarsController extends BaseController {
 
 	protected CarService carService = new CarService();
 
 	@FXML
-	protected Button btnClose;
-
+	protected Button btnAll;
+	
 	@FXML
 	protected FlowPane carsContainer;
 
@@ -48,32 +51,30 @@ public class CarsController extends BaseController {
 
 	protected ObservableList<Car> carsList = FXCollections.observableArrayList();
 	protected ObservableList<String> modelsList = FXCollections.observableArrayList();
+	
 	protected Car selectedCar;
-
-	@FXML
-	void handleBtnCloseClick(ActionEvent event) {
-		closeWindow(event);
-	}
 
 	@FXML
 	void handleSearch(ActionEvent event) {
 		String model = cbModels.getSelectionModel().getSelectedItem();
 
-		carsList.clear();
-		carsList.addAll(carService.getByModel(model));
-		renderCars();
+		loadCars(carService.getByModel(model));
 	}
 	
 	@FXML
     void handleInputSearchVINOnAction(ActionEvent event) {
-		carsList.clear();
-		carsList.addAll(carService.getByVIN(inputSearchVIN.getText()));
-		renderCars();
+		loadCars(carService.getByVIN(inputSearchVIN.getText()));
     }
 	
-	protected void loadCars() {
-		ArrayList<Car> cars = carService.getAll();
+	@FXML
+	void handleBtnAllClick(ActionEvent event) {
+		loadCars(carService.getAll());
+	}
+	
+	protected void loadCars(ArrayList<Car> cars) {
+		carsList.clear();
 		carsList.addAll(cars);
+		renderCars();
 	}
 
 	protected void renderCars() {
@@ -116,9 +117,8 @@ public class CarsController extends BaseController {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		try {
-			loadCars();
+			loadCars(carService.getAll());
 			loadModels();
-			renderCars();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

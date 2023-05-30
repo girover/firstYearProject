@@ -40,9 +40,6 @@ public class CustomerLoanApplicationsController extends BaseController {
     private Button btnShow;
 
     @FXML
-    private Button btnCancle;
-
-    @FXML
     private Button btnDelete;
 
     @FXML
@@ -97,11 +94,6 @@ public class CustomerLoanApplicationsController extends BaseController {
 		lbCustomerName.setText(customer.getFirstName()+" "+customer.getLastName());
 		loadData();
 	}
-    
-    @FXML
-    void handleBtnCancleClick(ActionEvent event) {
-    	closeWindow(event);
-    }
 
     @FXML
     void handleBtnDeleteClick(ActionEvent event) {

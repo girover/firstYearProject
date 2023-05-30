@@ -40,9 +40,6 @@ public class LoanApplicationsController extends BaseController {
     private Button btnShow;
 
     @FXML
-    private Button btnCancle;
-
-    @FXML
     private Button btnDelete;
 
     @FXML
@@ -91,11 +88,6 @@ public class LoanApplicationsController extends BaseController {
 
     @FXML
     void handleBtnAllClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleBtnCancleClick(ActionEvent event) {
 
     }
 

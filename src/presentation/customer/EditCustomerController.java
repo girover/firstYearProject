@@ -77,7 +77,7 @@ public class EditCustomerController extends NewCustomerController {
     		customer.setCity(inputCity.getText());
     		// To inform the observer controller that the wanted customer is updated now
     		fire();
-    		btnCancle.fire();
+    		btnCancel.fire();
     		return;
     	}else
     		showErrorMessage("Failed to update the customer", "Creaing Customer failed");
@@ -91,8 +91,9 @@ public class EditCustomerController extends NewCustomerController {
     
     @Override
     protected void fillCustomerWithData() {
-    	//customerUnderEditing.setCPRHash(inputCPR.getText());
+    	
     	super.fillCustomerWithData();
+    	
     	customer.setCPRHash("");
     }
     

@@ -7,7 +7,9 @@ import app.App;
 import app.Helper;
 import database.entities.User;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextFormatter;
 import translate.Translator;
 import window.FlashWindow;
@@ -24,6 +26,17 @@ import window.Window;
 public abstract class BaseController extends Observable implements Observer, Initializable {
 
 	protected static Translator translator = App.getTranslator();
+	
+	@FXML
+	protected Button btnCancel;
+	
+	@FXML
+	protected Button btnClose;
+	
+	@FXML
+	void handleBtnCloseAndCancelOnAction(ActionEvent event) {
+		closeWindow(event);
+	}
 
 	protected String translate(String translateableText) {
 		return translator.translate(translateableText);

@@ -12,17 +12,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1160.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.car.AvailableCarsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1200.0" styleClass="bg-first" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.car.AvailableCarsController">
    <children>
       <BorderPane fx:id="mainView" prefHeight="200.0" prefWidth="200.0" styleClass="bg-gray-100" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="70.0" prefWidth="959.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="122.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="261.0">
                            <children>
@@ -39,11 +38,38 @@
                               <Insets left="30.0" />
                            </padding>
                         </HBox>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="349.0" prefHeight="70.0" prefWidth="201.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" layoutX="7.0" layoutY="24.0" prefHeight="32.0" prefWidth="184.0">
+                        <HBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ComboBox fx:id="cbModels" onAction="#handleSearch" prefHeight="38.0" prefWidth="219.0" promptText="Ferrari Model" styleClass="form-control" />
+                              <TextField fx:id="inputSearchVIN" onAction="#handleInputSearchVINOnAction" prefHeight="38.0" prefWidth="355.0" promptText="Search VIN" styleClass="form-control">
+                                 <padding>
+                                    <Insets left="5.0" right="40.0" />
+                                 </padding>
+                              </TextField>
+                              <FontIcon iconLiteral="fa-search" iconSize="22">
+                                 <HBox.margin>
+                                    <Insets left="-54.0" />
+                                 </HBox.margin>
+                              </FontIcon>
+                              <Button fx:id="btnAll" mnemonicParsing="false" onAction="#handleBtnAllClick" prefHeight="30.0" text="All">
+                                 <graphic>
+                                    <FontIcon fill="WHITE" iconLiteral="fa-refresh" iconSize="18" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="bg-gray-600" />
+                                    <String fx:value="text-white" />
+                                    <String fx:value="bold" />
+                                    <String fx:value="hover-gray" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="184.0">
                            <children>
                               <FontIcon iconLiteral="fa-car" iconSize="30" />
                            </children>
@@ -52,28 +78,7 @@
                            </padding>
                         </HBox>
                      </children>
-                  </Pane>
-                  <ComboBox fx:id="cbModels" layoutX="284.0" layoutY="27.0" onAction="#handleSearch" prefHeight="38.0" prefWidth="219.0" promptText="Ferrari Model" styleClass="form-control" />
-                  <TextField fx:id="inputSearchVIN" layoutX="519.0" layoutY="26.0" onAction="#handleInputSearchVINOnAction" prefHeight="38.0" prefWidth="355.0" promptText="Search VIN" styleClass="form-control">
-                     <padding>
-                        <Insets left="5.0" right="40.0" />
-                     </padding>
-                  </TextField>
-                  <FontIcon iconLiteral="fa-search" iconSize="22" layoutX="842.0" layoutY="51.0" />
-                  <Button fx:id="btnClose" layoutX="888.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleBtnCloseClick" prefHeight="34.0" prefWidth="63.0" text="Close">
-                     <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="btn" />
-                        <String fx:value="shadow" />
-                        <String fx:value="bg-red-500" />
-                        <String fx:value="text-white" />
-                        <String fx:value="bold" />
-                        <String fx:value="round-16" />
-                        <String fx:value="hover-red" />
-                     </styleClass>
-                  </Button>
+                  </HBox>
                </children>
                <styleClass>
                   <String fx:value="bg-white" />
@@ -102,6 +107,26 @@
                               <String fx:value="bg-white" />
                               <String fx:value="shadow-b" />
                            </styleClass>
+                           <children>
+                              <HBox alignment="CENTER_RIGHT" layoutY="23.0" prefHeight="50.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button fx:id="btnClose" mnemonicParsing="false" onAction="#handleBtnCloseAndCancelOnAction" prefHeight="30.0" prefWidth="79.0" text="Close">
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="18" />
+                                       </graphic>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="bg-red-500" />
+                                          <String fx:value="text-white" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="round-2" />
+                                          <String fx:value="hover-red" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
                         </AnchorPane>
                      </children>
                   </VBox>

@@ -12,7 +12,6 @@ import presentation.BaseController;
  *         - <a href="https://github.com/girover">Github Profile</a>
  *
  */
-
 public class Component {
 	
 	BaseController controller;

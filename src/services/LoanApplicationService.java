@@ -188,15 +188,10 @@ public class LoanApplicationService extends BaseResourceService {
 		if(user.getEmployee().getRole().equals(Employee.MANAGER))
 			return true;
 		
-//		SellerApprovalLimitRepository repo = new SellerApprovalLimitRepository();
-
-//		SellerApprovalLimits sellerLimit = repo.getMaxApprovalLimit(user);
 		int sellerLimit = user.getMaxApprovalLimit();
 		
 		if(sellerLimit == 0)
 			return false;
-		
-//		int max = sellerLimit.getMaxApprovalLimit();
 		
 		return sellerLimit >= loanAmount;
 	}

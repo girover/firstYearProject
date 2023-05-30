@@ -167,9 +167,6 @@ public class NewLoanApplicationController extends ValidatableController {
     
     @FXML
     private Button btnNext;
-    
-    @FXML
-    private Button btnCancel;
 
 	private Car selectedCar;
 	private Customer selectedCustomer;
@@ -322,11 +319,6 @@ public class NewLoanApplicationController extends ValidatableController {
 			fire();
 			btnCancel.fire();
 		}
-	}
-
-	@FXML
-	void handleBtnCancelClick(ActionEvent event) {
-		closeWindow(event);
 	}
 
 	/**

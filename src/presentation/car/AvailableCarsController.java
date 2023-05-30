@@ -1,8 +1,9 @@
 package presentation.car;
 
-import java.util.ArrayList;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-import database.entities.Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -12,21 +13,26 @@ public class AvailableCarsController extends CarsController {
 	void handleSearch(ActionEvent event) {
 		String model = cbModels.getSelectionModel().getSelectedItem();
 
-		carsList.clear();
-		carsList.addAll(carService.getAvailableCarsByModel(model));
-		renderCars();
+		loadCars(carService.getAvailableCarsByModel(model));
 	}
 	
 	@FXML
     void handleInputSearchVINOnAction(ActionEvent event) {
-		carsList.clear();
-		carsList.addAll(carService.getAvailableCarsByVIN(inputSearchVIN.getText()));
-		renderCars();
+		loadCars(carService.getAvailableCarsByVIN(inputSearchVIN.getText()));
     }
 	
+	@FXML
+	void handleBtnAllClick(ActionEvent event) {
+		loadCars(carService.getAvailableCars());
+	}
+	
 	@Override
-	protected void loadCars() {
-		ArrayList<Car> cars = carService.getAvailableCars();
-		carsList.addAll(cars);
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		try {
+			loadCars(carService.getAvailableCars());
+			loadModels();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

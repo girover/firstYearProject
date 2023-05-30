@@ -87,10 +87,6 @@ public class EditProfileController extends ValidatableController {
 
 	@FXML
 	private Button btnUpdateEmployee;
-
-	@FXML
-	private Button BtnClose;
-
 	
 	private User user = getAuthenticatedUser();
 	private Employee employee = user.getEmployee();
@@ -206,11 +202,6 @@ public class EditProfileController extends ValidatableController {
 
 	private void fillInputsWithUser(User user) {
 		inputUsername.setText(user.getUserName());
-	}
-
-	@FXML
-	void handleBtnCloseClick(ActionEvent event) {
-		closeWindow(event);
 	}
 
 	@Override

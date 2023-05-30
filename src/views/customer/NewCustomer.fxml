@@ -175,9 +175,9 @@
       </BorderPane>
       <AnchorPane prefHeight="67.0" prefWidth="598.0" styleClass="bg-gray-200" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnAdd" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="22.0" prefWidth="84.0" text="Add" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0">
+            <Button fx:id="btnAdd" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnAddClick" prefHeight="30.0" prefWidth="84.0" text="Add" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-user-plus" iconSize="22" />
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-user-plus" iconSize="18" />
                </graphic>
                <styleClass>
                   <String fx:value="bg-green-500" />
@@ -189,9 +189,9 @@
                   <String fx:value="hover-green" />
                </styleClass>
             </Button>
-            <Button fx:id="btnCancle" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" prefHeight="32.0" prefWidth="98.0" text="Cancle" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
+            <Button fx:id="btnCancel" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleBtnCloseAndCancelOnAction" prefHeight="30.0" prefWidth="84.0" text="Cancle" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="22" />
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="18" />
                </graphic>
                <styleClass>
                   <String fx:value="text-white" />

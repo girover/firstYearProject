@@ -591,7 +591,7 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="BtnClose" layoutX="271.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnCloseClick" prefHeight="28.0" prefWidth="104.0" text="Close" AnchorPane.rightAnchor="10.0">
+                              <Button fx:id="BtnClose" layoutX="271.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnCloseAndCancelOnAction" prefHeight="28.0" prefWidth="83.0" text="Close" AnchorPane.rightAnchor="20.0">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="shadow" />

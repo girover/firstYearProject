@@ -34,9 +34,6 @@ import services.LoanApplicationService;
 public class UpdateLoanApplicationController extends ValidatableController {
 
 	@FXML
-	private Button btnCancel;
-
-	@FXML
 	private Button btnUpdate;
 
 	@FXML
@@ -107,11 +104,6 @@ public class UpdateLoanApplicationController extends ValidatableController {
 		lbMonthlyPayment.setText(formatCurrency(loanApplication.getMonthlyPayment()));
 		inputDownPayment.setText(Integer.toString(loanApplication.getPayment()));
 		inputMonths.setText(Integer.toString(loanApplication.getMonths()));
-	}
-
-	@FXML
-	void handleBtnCancelClick(ActionEvent event) {
-		closeWindow(event);
 	}
 
 	@FXML

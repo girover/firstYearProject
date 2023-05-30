@@ -18,13 +18,13 @@ class LoanApplicationServiceTest extends BaseTestCase {
 	 * Additional Interest Rates
 	 * ------------------------------------
 	 */
-	private static final int A = 1;
-	private static final int B = 2;
-	private static final int C = 3;
-	private static final int lESS_THAN_HALF_THE_PRICE = 1;
-	private static final int MORE_THAN_HALF_THE_PRICE = 0;
-	private static final int LESS_THAN_THREE_YEARS = 0;
-	private static final int MORE_THAN_THREE_YEARS = 1;
+	private static final int A_RATE = 1;
+	private static final int B_RATE = 2;
+	private static final int C_RATE = 3;
+	private static final int LESS_THAN_HALF_THE_PRICE_RATE = 1;
+	private static final int MORE_THAN_HALF_THE_PRICE_RATE = 0;
+	private static final int LESS_THAN_THREE_YEARS_RATE = 0;
+	private static final int MORE_THAN_THREE_YEARS_RATE = 1;
 	/*
 	 * -------------------------------------
 	 */
@@ -43,9 +43,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double totalInterestRate = service.getCalculatedInterestRate(rkiResult, BANK_TODAYS_INTEREST_RATE, months, CAR_PRICE, downPayment);
 		double expectedInterest = 
 					   BANK_TODAYS_INTEREST_RATE
-					  +A
-					  +lESS_THAN_HALF_THE_PRICE
-					  +LESS_THAN_THREE_YEARS
+					  +A_RATE
+					  +LESS_THAN_HALF_THE_PRICE_RATE
+					  +LESS_THAN_THREE_YEARS_RATE
 					   ;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -60,9 +60,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double totalInterestRate = service.getCalculatedInterestRate(rkiResult, BANK_TODAYS_INTEREST_RATE, months, CAR_PRICE, downPayment);
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+B
-				+lESS_THAN_HALF_THE_PRICE
-				+LESS_THAN_THREE_YEARS
+				+B_RATE
+				+LESS_THAN_HALF_THE_PRICE_RATE
+				+LESS_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -77,9 +77,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double totalInterestRate = service.getCalculatedInterestRate(rkiResult, BANK_TODAYS_INTEREST_RATE, months, CAR_PRICE, downPayment);
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+C
-				+lESS_THAN_HALF_THE_PRICE
-				+LESS_THAN_THREE_YEARS
+				+C_RATE
+				+LESS_THAN_HALF_THE_PRICE_RATE
+				+LESS_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -94,9 +94,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double totalInterestRate = service.getCalculatedInterestRate(rkiResult, BANK_TODAYS_INTEREST_RATE, months, CAR_PRICE, downPayment);
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+A
-				+MORE_THAN_HALF_THE_PRICE
-				+LESS_THAN_THREE_YEARS
+				+A_RATE
+				+MORE_THAN_HALF_THE_PRICE_RATE
+				+LESS_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -111,9 +111,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		double totalInterestRate = service.getCalculatedInterestRate(rkiResult, BANK_TODAYS_INTEREST_RATE, months, CAR_PRICE, downPayment);
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+A
-				+lESS_THAN_HALF_THE_PRICE
-				+LESS_THAN_THREE_YEARS
+				+A_RATE
+				+LESS_THAN_HALF_THE_PRICE_RATE
+				+LESS_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -128,9 +128,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+A
-				+lESS_THAN_HALF_THE_PRICE
-				+MORE_THAN_THREE_YEARS
+				+A_RATE
+				+LESS_THAN_HALF_THE_PRICE_RATE
+				+MORE_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -145,9 +145,9 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+A
-				+lESS_THAN_HALF_THE_PRICE
-				+LESS_THAN_THREE_YEARS
+				+A_RATE
+				+LESS_THAN_HALF_THE_PRICE_RATE
+				+LESS_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
 	}
@@ -162,11 +162,43 @@ class LoanApplicationServiceTest extends BaseTestCase {
 		
 		double expectedInterest = 
 				BANK_TODAYS_INTEREST_RATE
-				+A
-				+lESS_THAN_HALF_THE_PRICE
-				+LESS_THAN_THREE_YEARS
+				+A_RATE
+				+LESS_THAN_HALF_THE_PRICE_RATE
+				+LESS_THAN_THREE_YEARS_RATE
 				;
 		assertTrue(totalInterestRate == expectedInterest);
+	}
+	
+	@Test
+	void itShouldGetCorrectRateForMonthsIfMonthesIsLessThanThreeYears() {
+		int months = THREE_YEARS - 1;
+		int monthsRate = service.getMonthsInterestRate(months);
+		assertTrue(monthsRate == LESS_THAN_THREE_YEARS_RATE);
+	}
+	
+	@Test
+	void itShouldGetCorrectRateForMonthsIfMonthesIsMoreThanThreeYears() {
+		int months = THREE_YEARS + 1;
+		int monthsRate = service.getMonthsInterestRate(months);
+		assertTrue(monthsRate == MORE_THAN_THREE_YEARS_RATE);
+	}
+	
+	@Test
+	void itShouldGetCorrectRateForDownPaymentIfDownPaymentIsMoreThanHalfThePrice() {
+		double downPayment = (CAR_PRICE / 2) + 1000;
+		double totalPrice = CAR_PRICE;
+		int downPaymentRate  = service.getDownPaymentInterestRate(downPayment, totalPrice);
+		
+		assertTrue(downPaymentRate == MORE_THAN_HALF_THE_PRICE_RATE);
+	}
+	
+	@Test
+	void itShouldGetCorrectRateForDownPaymentIfDownPaymentIsLessThanHalfThePrice() {
+		double downPayment = (CAR_PRICE / 2) - 1;
+		double totalPrice = CAR_PRICE;
+		int downPaymentRate  = service.getDownPaymentInterestRate(downPayment, totalPrice);
+		
+		assertTrue(downPaymentRate == LESS_THAN_HALF_THE_PRICE_RATE);
 	}
 
 }

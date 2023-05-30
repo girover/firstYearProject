@@ -114,9 +114,9 @@
                      <bottom>
                         <AnchorPane prefHeight="46.0" prefWidth="918.0" styleClass="bg-dark" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnCancle" layoutX="824.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBtnCancleClick" text="Cancle" AnchorPane.rightAnchor="10.0">
+                  <Button fx:id="btnClose" layoutX="824.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBtnCloseAndCancelOnAction" text="Close" AnchorPane.rightAnchor="10.0">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fa-times" iconSize="18" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="18" />
                      </graphic>
                      <styleClass>
                         <String fx:value="btn" />

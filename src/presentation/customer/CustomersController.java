@@ -32,9 +32,6 @@ import services.CustomerService;
 public class CustomersController extends BaseController {
 
 	@FXML
-	private Button btnCancle;
-
-	@FXML
 	private Button btnDelete;
 
 	@FXML
@@ -82,11 +79,6 @@ public class CustomersController extends BaseController {
 	private ObservableList<Customer> customers = FXCollections.observableArrayList();
 
 	private CustomerService customerService = new CustomerService();
-
-	@FXML
-	void handleBtnCancleClick(ActionEvent event) {
-		closeWindow(event);
-	}
 
 	@FXML
 	void handleBtnDeleteClick(ActionEvent event) {

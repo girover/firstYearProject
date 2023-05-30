@@ -32,9 +32,6 @@ public class NewCustomerController extends ValidatableController {
     private Button btnAdd;
 
     @FXML
-    protected Button btnCancle;
-
-    @FXML
     @Rules(field = "cpr number", rules = "required|numeric|length:10")
     private TextField inputCPR;
     
@@ -87,7 +84,7 @@ public class NewCustomerController extends ValidatableController {
     		flashSuccessMessage("Customer created Successfuly", "Created Customer");
     		customer.setCity(inputCity.getText());
     		fire();
-    		btnCancle.fire();
+    		btnCancel.fire();
     		return;
     	}else
     		showErrorMessage("Failed to create new customer", "Creaing Customer failed");

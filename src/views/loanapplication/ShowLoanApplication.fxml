@@ -1125,7 +1125,7 @@
                                        </graphic>
                                     </Button>
                                     <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="80.0" text="Cancel">
+                                    <Button fx:id="btnClose" mnemonicParsing="false" onAction="#handleBtnCloseAndCancelOnAction" prefHeight="28.0" prefWidth="80.0" text="Close">
                                        <styleClass>
                                           <String fx:value="btn" />
                                           <String fx:value="shadow" />
@@ -1135,7 +1135,7 @@
                                           <String fx:value="hover-red" />
                                        </styleClass>
                                        <graphic>
-                                          <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="20" />
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-times-circle" iconSize="20" />
                                        </graphic>
                                     </Button>
                                  </children>
