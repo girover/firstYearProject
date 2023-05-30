@@ -15,4 +15,8 @@ public class CPR extends Provider {
 	public static String femaleCPR() {
 		return getNumericString(9)+getEvenDigit();
 	}
+	
+	public static String cpr() {
+		return getRandomInteger(0, 2) == 0 ? maleCPR() : femaleCPR();
+	}
 }

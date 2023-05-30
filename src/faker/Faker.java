@@ -6,6 +6,7 @@ import database.entities.Employee;
 import database.entities.LoanApplication;
 import database.entities.SellerApprovalLimits;
 import database.entities.User;
+import services.HashingService;
 
 /**
  * This static class is responsible for generating fake data.
@@ -147,8 +148,10 @@ public class Faker extends Provider {
 	private static Customer generateCustomer() {
 
 		Customer customer = new Customer();
-
-		customer.setCPRHash(getAlphaNumericString(64));
+		
+		String hashedCpr = HashingService.deterministicHash(CPR.cpr());
+		
+		customer.setCPRHash(hashedCpr);
 		customer.setFirstName(Person.firstName());
 		customer.setLastName(Person.lastName());
 		customer.setPhone(Phone.danishPhoneNumber());
