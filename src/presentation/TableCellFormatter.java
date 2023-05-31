@@ -1,5 +1,10 @@
 package presentation;
 
+import app.Helper;
+import entities.LoanApplication;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+
 /**
  * This class is responsible for generating TableCell formatters 
  * for specific types or objects.
@@ -8,16 +13,6 @@ package presentation;
  * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
- */
-import app.Helper;
-import entities.LoanApplication;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-
-/**
- * 
- * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
- *         - <a href="https://github.com/girover">Github</a>
  */
 public class TableCellFormatter {
 

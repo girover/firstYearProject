@@ -9,6 +9,11 @@ import entities.Employee;
 import entities.Entity;
 import entities.User;
 
+/**
+ * @author Majed Hussein Farhan - <b style="color:red">
+ *         girover.mhf@gmail.com</b> -
+ *         <a href="https://github.com/girover">Github</a>
+ */
 public class LogRepository extends Repository {
 
 	public LogRepository() {

@@ -7,7 +7,6 @@ import entities.Employee;
 import entities.Entity;
 import entities.SellerApprovalLimits;
 
-
 /**
  * This class is a part of Service Layer (Business Logic Layer). 
  *
@@ -15,8 +14,6 @@ import entities.SellerApprovalLimits;
  * such as retrieving all sellerApprovalLimits's, retrieving a set of sellerApprovalLimits's, 
  * retrieving a single sellerApprovalLimits by ID, updating a sellerApprovalLimits, 
  * and deleting a sellerApprovalLimits.
- * 
- * @version 1.0
  * 
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>

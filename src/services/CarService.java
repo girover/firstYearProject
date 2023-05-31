@@ -18,7 +18,6 @@ import entities.Entity;
  * retrieving a single car by ID, updating a car, 
  * and deleting a car.
  * 
- * @version 1.0
  * 
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>

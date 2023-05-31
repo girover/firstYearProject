@@ -9,7 +9,6 @@ import presentation.controllers.MessageController;
  *         - <a href="https://github.com/girover">Github Profile</a>
  *
  */
-
 public class FlashWindow extends Window{
 
 	public FlashWindow(String fxml, String title) {

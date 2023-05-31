@@ -17,7 +17,6 @@ import presentation.controllers.ConfirmDialogController;
  *         - <a href="https://github.com/girover">Github Profile</a>
  *
  */
-
 public class Window extends Stage {
 
 	protected Scene scene;

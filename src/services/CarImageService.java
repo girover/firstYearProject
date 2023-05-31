@@ -15,7 +15,6 @@ import entities.Entity;
  * retrieving a single carImage by ID, updating a carImage, 
  * and deleting a carImage.
  * 
- * @version 1.0
  * 
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>

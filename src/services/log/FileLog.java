@@ -6,6 +6,11 @@ import java.io.IOException;
 import app.App;
 import app.configs.Config;
 
+/**
+ * @author Majed Hussein Farhan - <b style="color:red">
+ *         girover.mhf@gmail.com</b> -
+ *         <a href="https://github.com/girover">Github</a>
+ */
 public class FileLog extends BaseLog implements Logger {
 
 	private String filePath;

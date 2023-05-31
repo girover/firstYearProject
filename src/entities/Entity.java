@@ -2,9 +2,12 @@ package entities;
 
 import java.sql.ResultSet;
 
-import entities.factory.EntityFactory;
-import entities.factory.Factory;
-
+/**
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github Profile</a>
+ */
 public abstract class Entity {
 
 	protected String table;

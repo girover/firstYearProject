@@ -15,7 +15,6 @@ import java.util.HashMap;
  * @see <a href = "https://en.youbianku.com/Denmark">Data are from</a>
  *
  */
-
 public class City extends Provider {
 
 	private static String[] zipCodes = { "1000", "1500", "1800", "2000", "2100", "2200", "2300",

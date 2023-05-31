@@ -736,7 +736,7 @@ CREATE TABLE car (
   horsePower int NOT NULL,
   seats int NOT NULL,
   doors int NOT NULL,
-  VIN nvarchar(20) NOT NULL,
+  VIN nvarchar(20) NOT NULL UNIQUE,
   sold tinyint NOT NULL DEFAULT 0 CHECK(sold IN(0, 1)),
   price decimal(10,2) NOT NULL,
   [description] text
@@ -744,25 +744,25 @@ CREATE TABLE car (
 
 INSERT INTO car (brand, model, [year], color, [mileage], transmission, fuelType, engineSize, kmPerLiter, horsePower, seats, doors, VIN, sold, price, [description])
 VALUES 
-('Ferrari', '488 GTB', 2022, 'Red', 0, 'Automatic', 'benzin', 3.9, 12, 660, 2, 2, 'HFHFHFHDJSK454DDDD', 0, 700000.00, 'New Ferrari 488 GTB for sale.'),
-('Ferrari', '488 GTB', 2019, 'Red', 5000, 'automatic', 'benzin', 3.9, 13, 661, 2, 2, 'HFSSSSFHDJSK454DDDD', 0, 800000.00, 'Beautiful car in excellent condition.'),
-('Ferrari', '812 Superfast', 2022, 'Red', 5000, 'automatic', 'benzin', 6.5, 14, 789, 2, 2, 'AAAAFHFHDJSK454DDDD', 0, 900000.00, 'Brand new car'),
-('Ferrari', 'SF90 Stradale', 2021, 'Yellow', 8000, 'automatic', 'hybrid', 4.0, 10, 986, 2, 2, 'NBBBBFHFHDJSK454DDDD', 0, 700000.00, 'Like-new car'),
-('Ferrari', 'Roma', 2021, 'White', 3000, 'automatic', 'benzin', 3.9, 20, 612, 2, 2, 'XXXXCCFHDJSK454DDDD', 0, 650000.00, 'Used car in excellent condition'),
-('Ferrari', 'Portofino', 2020, 'Black', 12000, 'automatic', 'benzin', 3.9, 15, 592, 2, 2, 'VVVVVVHFHDJSK454DDDD', 0, 700000, 'Pre-owned car with low mileage'),
-('Ferrari', '488 Pista', 2019, 'Blue', 15000, 'manual', 'benzin', 3.9, 16, 711, 2, 2, 'MMMMMMMHDJSK454DDDD', 0, 850000, 'Rare supercar'),
-('Ferrari', 'LaFerrari', 2016, 'Red', 20000, 'automatic', 'hybrid', 6.3, 17, 950, 2, 2, 'DDDDDDDJSK454DDDD', 0, 9000000, 'Limited edition hypercar'),
+('Ferrari', '488 GTB', 2022, 'Red', 0, 'Automatic', 'benzin', 3.9, 12, 660, 2, 2, 'TWPRKIGQZAJU4IYX7', 0, 700000.00, 'New Ferrari 488 GTB for sale.'),
+('Ferrari', '488 GTB', 2019, 'Red', 5000, 'automatic', 'benzin', 3.9, 13, 661, 2, 2, 'PCCFTGHN0CRMVDN7K', 0, 800000.00, 'Beautiful car in excellent condition.'),
+('Ferrari', '812 Superfast', 2022, 'Red', 5000, 'automatic', 'benzin', 6.5, 14, 789, 2, 2, 'I4KRYDILIQJK0M2BJ', 0, 900000.00, 'Brand new car'),
+('Ferrari', 'SF90 Stradale', 2021, 'Yellow', 8000, 'automatic', 'hybrid', 4.0, 10, 986, 2, 2, 'ZMOJWSMPW4UVEWCB3', 0, 700000.00, 'Like-new car'),
+('Ferrari', 'Roma', 2021, 'White', 3000, 'automatic', 'benzin', 3.9, 20, 612, 2, 2, 'Y28MP11T37SI1ISMR', 0, 650000.00, 'Used car in excellent condition'),
+('Ferrari', 'Portofino', 2020, 'Black', 12000, 'automatic', 'benzin', 3.9, 15, 592, 2, 2, 'XRIAPZDSMCPGQWZXK', 0, 700000, 'Pre-owned car with low mileage'),
+('Ferrari', '488 Pista', 2019, 'Blue', 15000, 'manual', 'benzin', 3.9, 16, 711, 2, 2, 'V3ZJ8RBXOOTLAO9VX', 0, 850000, 'Rare supercar'),
+('Ferrari', 'LaFerrari', 2016, 'Red', 20000, 'automatic', 'hybrid', 6.3, 17, 950, 2, 2, 'FVFO8RRHF6IP5ZCAS', 0, 9000000, 'Limited edition hypercar'),
 
-('Ferrari', 'F8 Tributo', 2020, 'Red', 5000, 'automatic', 'benzin', 3.9, 12, 710, 2, 2, 'AASDA4A3ASD47DAS', 0, 950000.00, 'Powerful sports car'),
-('Ferrari', '812 Superfast', 2021, 'Yellow', 3000, 'automatic', 'benzin', 6.5, 8, 800, 2, 2, 'CV4F7ERSADSW3R78', 0, 850000.00, 'Exhilarating performance'),
-('Ferrari', 'SF90 Stradale', 2022, 'Black', 1000, 'automatic', 'hybrid', 4.0, 20, 1000, 2, 2, 'SDFWE854WER5FSD', 0, 750000.00, 'Cutting-edge hybrid technology'),
-('Ferrari', 'Portofino', 2019, 'White', 8000, 'automatic', 'benzin', 3.9, 10, 600, 2, 2, 'VCSDF45S3DF4WR5DF', 0, 600000.00, 'Elegant and versatile'),
-('Ferrari', 'Roma', 2021, 'Blue', 4000, 'automatic', 'benzin', 3.9, 11, 620, 2, 2, 'FSDFSDFSDF4WERSD', 0, 780000.00, 'Sophisticated grand tourer'),
-('Ferrari', '488 GTB', 2018, 'Red', 12000, 'automatic', 'benzin', 3.9, 9, 670, 2, 2, 'GFDGDRTER54ERTERT', 0, 920000.00, 'Iconic mid-engine supercar'),
-('Ferrari', '488 Spider', 2020, 'Yellow', 6000, 'automatic', 'benzin', 3.9, 9, 670, 2, 2, 'UOIUIO1UO2T4YUR2E', 0, 640000.00, 'Open-top driving experience'),
-('Ferrari', '458 Italia', 2016, 'Red', 15000, 'automatic', 'benzin', 4.5, 7, 570, 2, 2, 'ZXCSDWE54W82QWE1', 0, 880000.00, 'Legendary V8 engine'),
-('Ferrari', 'California T', 2017, 'Black', 10000, 'automatic', 'benzin', 3.9, 10, 560, 2, 2, 'RTTWW1H1D9WER453', 0, 690000.00, 'Stylish and versatile convertible'),
-('Ferrari', 'LaFerrari', 2015, 'Red', 2000, 'automatic', 'hybrid', 6.3, 12, 963, 2, 2, 'R96W1ER64321WER231', 0, 1500000.00, 'Limited edition hybrid hypercar');;
+('Ferrari', 'F8 Tributo', 2020, 'Red', 5000, 'automatic', 'benzin', 3.9, 12, 710, 2, 2, 'FXFR0QDSZBL4THZNC', 0, 950000.00, 'Powerful sports car'),
+('Ferrari', '812 Superfast', 2021, 'Yellow', 3000, 'automatic', 'benzin', 6.5, 8, 800, 2, 2, 'NR6EUDZIJZ8TBC4BQ', 0, 850000.00, 'Exhilarating performance'),
+('Ferrari', 'SF90 Stradale', 2022, 'Black', 1000, 'automatic', 'hybrid', 4.0, 20, 1000, 2, 2, 'C7NABZLO9R2E2OKVE', 0, 750000.00, 'Cutting-edge hybrid technology'),
+('Ferrari', 'Portofino', 2019, 'White', 8000, 'automatic', 'benzin', 3.9, 10, 600, 2, 2, '27UDAKJG6HGHPPBVX', 0, 600000.00, 'Elegant and versatile'),
+('Ferrari', 'Roma', 2021, 'Blue', 4000, 'automatic', 'benzin', 3.9, 11, 620, 2, 2, '43JOFJOQHBAICNAMV', 0, 780000.00, 'Sophisticated grand tourer'),
+('Ferrari', '488 GTB', 2018, 'Red', 12000, 'automatic', 'benzin', 3.9, 9, 670, 2, 2, 'OBB2BHJPZXSD7O1OU', 0, 920000.00, 'Iconic mid-engine supercar'),
+('Ferrari', '488 Spider', 2020, 'Yellow', 6000, 'automatic', 'benzin', 3.9, 9, 670, 2, 2, '93IUJOB6U17IPJCM4', 0, 640000.00, 'Open-top driving experience'),
+('Ferrari', '458 Italia', 2016, 'Red', 15000, 'automatic', 'benzin', 4.5, 7, 570, 2, 2, 'YCTETPZQGE6BVOQIN', 0, 880000.00, 'Legendary V8 engine'),
+('Ferrari', 'California T', 2017, 'Black', 10000, 'automatic', 'benzin', 3.9, 10, 560, 2, 2, '6U4HFXN5MEXSLPT1M', 0, 690000.00, 'Stylish and versatile convertible'),
+('Ferrari', 'LaFerrari', 2015, 'Red', 2000, 'automatic', 'hybrid', 6.3, 12, 963, 2, 2, '6DBTEOPPYPHI3ZRXN', 0, 1500000.00, 'Limited edition hybrid hypercar');;
 
 
 -- CarImage Table

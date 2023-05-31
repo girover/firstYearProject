@@ -12,8 +12,6 @@ import entities.Entity;
  * such as retrieving all resources, retrieving a set of resources, 
  * retrieving a single resource by ID, updating a resource, and deleting a resource.
  * 
- * @version 1.0
- * 
  * @author Rasmus Kortsen
  *         - Email: Rasmus.kortsen1@gmail.com
  *         - Github: https://github.com/rasm685p

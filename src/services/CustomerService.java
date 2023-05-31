@@ -16,8 +16,6 @@ import entities.Entity;
  * retrieving a single customer by ID, updating a customer, 
  * and deleting a customer.
  * 
- * @version 1.0
- * 
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>

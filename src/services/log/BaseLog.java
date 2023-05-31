@@ -6,6 +6,12 @@ import java.time.format.DateTimeFormatter;
 import app.App;
 import entities.User;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">
+ *         girover.mhf@gmail.com</b> -
+ *         <a href="https://github.com/girover">Github</a>
+ */
 public abstract class BaseLog {
 	
 	public static final String INFORMATION = "Infromation";

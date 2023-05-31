@@ -17,8 +17,6 @@ import entities.User;
  * retrieving a single user by ID, updating a user, 
  * and deleting a user.
  * 
- * @version 1.0
- * 
  * @author Shahana Thirukumar
  * 		- <b style="color:red">shahana2@hotmail.dk</b>
  *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>

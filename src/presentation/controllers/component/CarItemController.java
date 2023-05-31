@@ -17,6 +17,11 @@ import javafx.scene.layout.VBox;
 import presentation.controllers.BaseController;
 import presentation.window.Window;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github Profile</a>
+ */
 public class CarItemController extends BaseController {
 
 	private Car car;

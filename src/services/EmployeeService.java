@@ -6,9 +6,6 @@ import database.repositories.EmployeeRepository;
 import entities.Employee;
 import entities.Entity;
 
-
-
-
 /**
  * This class is a part of Service Layer (Business Logic Layer). 
  *
@@ -16,8 +13,6 @@ import entities.Entity;
  * such as retrieving all employees, retrieving a set of employees, 
  * retrieving a single employee by ID, updating a employee, 
  * and deleting a employee.
- * 
- * @version 1.0
  * 
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>

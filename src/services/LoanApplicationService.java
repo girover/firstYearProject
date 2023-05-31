@@ -21,7 +21,6 @@ import entities.User;
  * loanApplications, retrieving a single loanApplication by ID, updating a
  * loanApplication, and deleting a loanApplication etc..
  * 
- * @version 1.0
  * 
  * @author Rasmus Lysgaard Villadsen - <b style="color:red">
  *         mrmaklie@gmail.com</b> -

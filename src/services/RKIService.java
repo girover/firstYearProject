@@ -5,8 +5,6 @@ import java.util.Observer;
 
 import com.ferrari.finances.dk.rki.CreditRator;
 
-import javafx.beans.InvalidationListener;
-
 /**
  * @author Rasmus Kortsen
  *         - Email: Rasmus.kortsen1@gmail.com

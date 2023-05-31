@@ -14,8 +14,6 @@ import java.util.Base64;
  * - Hashing a string without a salt, using the `deterministicHash` method.
  * - Verifying a string against a given hash using the `verify` method.
  *
- * @version 1.0
- *
  * @author Rasmus Kortsen
  *         - Email: Rasmus.kortsen1@gmail.com
  *         - Github: https://github.com/rasm685p

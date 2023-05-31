@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import entities.Entity;
 
+/**
+ * 
+ * @author Majed Hussein Farhan
+ * 		 - <b style="color:red">girover.mhf@gmail.com</b>
+ *       - <a href="https://github.com/girover">Github Profile</a>
+ */
 public interface RepositoryInterface {
 	
 	

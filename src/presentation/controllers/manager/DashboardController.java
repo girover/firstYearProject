@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import presentation.controllers.BaseController;
 import presentation.window.Window;
 import services.AuthService;
+
 /**
  * @author Shahana Thirukumar
  * 		- <b style="color:red">shahana2@hotmail.dk</b>
@@ -73,7 +74,6 @@ public class DashboardController extends BaseController {
     @FXML
     void handleBtnMyProfileClick(ActionEvent event) {
     	openWindow("profile/Profile.fxml", "My Profile");
-
     }
 
 	@Override

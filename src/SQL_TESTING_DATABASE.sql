@@ -90,7 +90,7 @@ CREATE TABLE car (
   horsePower int NOT NULL,
   seats int NOT NULL,
   doors int NOT NULL,
-  VIN nvarchar(20) NOT NULL,
+  VIN nvarchar(20) NOT NULL UNIQUE,
   sold tinyint NOT NULL DEFAULT 0 CHECK(sold IN(0, 1)),
   price decimal(10,2) NOT NULL,
   [description] text

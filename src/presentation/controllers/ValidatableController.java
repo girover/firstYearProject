@@ -10,8 +10,6 @@ import javaFxValidation.Validator;
  * This class is useful for controllers that provide validation for user inputs.
  *
  * 
- * @version 1.0
- * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github</a>
  */

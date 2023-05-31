@@ -1,5 +1,10 @@
 package services.log;
 
+/**
+ * @author Majed Hussein Farhan - <b style="color:red">
+ *         girover.mhf@gmail.com</b> -
+ *         <a href="https://github.com/girover">Github</a>
+ */
 public interface Logger {
 	
 	public void error(String message);
