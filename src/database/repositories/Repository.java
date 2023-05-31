@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-
 import app.App;
 import app.configs.Config;
 import entities.Entity;
@@ -21,7 +20,6 @@ import entities.Entity;
  * record. Concrete repository classes can extend this class and provide their own implementation of
  * the abstract methods to interact with a specific database.
  *
- * @version 1.0
  * 
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>
