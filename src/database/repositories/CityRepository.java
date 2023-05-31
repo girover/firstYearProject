@@ -4,10 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import database.entities.City;
-import database.entities.Customer;
-import database.entities.Entity;
-import database.entities.User;
+import entities.City;
+import entities.Customer;
+import entities.Entity;
+import entities.User;
 
 /**
  * This class provides a set of methods that can be used to perform common database operations,

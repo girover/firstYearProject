@@ -3,11 +3,11 @@ package services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import database.entities.Employee;
-import database.entities.Entity;
-import database.entities.User;
 import database.repositories.EmployeeRepository;
 import database.repositories.UserRepository;
+import entities.Employee;
+import entities.Entity;
+import entities.User;
 
 /**
  * This class is a part of Service Layer (Business Logic Layer). 

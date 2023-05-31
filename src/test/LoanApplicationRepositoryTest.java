@@ -1,22 +1,22 @@
 package test;
 
-import static database.entities.factory.Factory.*;
+import static entities.factory.Factory.*;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import database.entities.Car;
-import database.entities.City;
-import database.entities.Customer;
-import database.entities.Employee;
-import database.entities.LoanApplication;
 import database.repositories.CarRepository;
 import database.repositories.CityRepository;
 import database.repositories.CustomerRepository;
 import database.repositories.EmployeeRepository;
 import database.repositories.LoanApplicationRepository;
+import entities.Car;
+import entities.City;
+import entities.Customer;
+import entities.Employee;
+import entities.LoanApplication;
 
 /**
  * This test case class is responsible for testing methods in "CarRepository" class.

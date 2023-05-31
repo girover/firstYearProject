@@ -3,11 +3,11 @@ package services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import database.entities.Car;
-import database.entities.CarImage;
-import database.entities.Entity;
 import database.repositories.CarImageRepository;
 import database.repositories.CarRepository;
+import entities.Car;
+import entities.CarImage;
+import entities.Entity;
 
 
 /**

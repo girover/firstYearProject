@@ -2,7 +2,7 @@ package services;
 
 import java.util.ArrayList;
 
-import database.entities.Entity;
+import entities.Entity;
 
 /**
  * This interface is a part of Service Layer (Business Logic Layer). 

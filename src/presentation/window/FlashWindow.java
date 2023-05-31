@@ -2,7 +2,7 @@ package presentation.window;
 
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
-import presentation.MessageController;
+import presentation.controllers.MessageController;
 
 /**     
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>

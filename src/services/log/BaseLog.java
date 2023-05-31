@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import app.App;
-import database.entities.User;
+import entities.User;
 
 public abstract class BaseLog {
 	

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="743.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.NewCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="743.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.customer.NewCustomerController">
    <children>
       <AnchorPane prefHeight="70.0" prefWidth="598.0" styleClass="bg-gray-200" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -36,14 +36,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputCPR" prefHeight="45.0" prefWidth="258.0" promptText="CPR" styleClass="round-32">
+                        <TextField fx:id="inputCPR" prefHeight="45.0" prefWidth="350.0" promptText="CPR">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-key" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -53,14 +67,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputFirstName" prefHeight="50.0" prefWidth="258.0" promptText="First Name" styleClass="round-32">
+                        <TextField fx:id="inputFirstName" prefHeight="50.0" prefWidth="350.0" promptText="First Name">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-address-book" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -70,14 +98,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputLastName" prefHeight="45.0" prefWidth="258.0" promptText="Last name" styleClass="round-32">
+                        <TextField fx:id="inputLastName" prefHeight="45.0" prefWidth="350.0" promptText="Last name">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-address-book-o" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -87,14 +129,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputPhone" prefHeight="45.0" prefWidth="258.0" promptText="Phone" styleClass="round-32">
+                        <TextField fx:id="inputPhone" prefHeight="45.0" prefWidth="350.0" promptText="Phone">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-phone" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -104,14 +160,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputEmail" prefHeight="45.0" prefWidth="258.0" promptText="E-mail" styleClass="round-32">
+                        <TextField fx:id="inputEmail" prefHeight="45.0" prefWidth="350.0" promptText="E-mail">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-internet-explorer" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -121,14 +191,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputAddress" prefHeight="45.0" prefWidth="258.0" promptText="address" styleClass="round-32">
+                        <TextField fx:id="inputAddress" prefHeight="45.0" prefWidth="350.0" promptText="address">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-map-marker" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -138,14 +222,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputZipCode" onKeyReleased="#handleInputPostKeyReleased" prefHeight="45.0" prefWidth="258.0" promptText="Post number" styleClass="round-32">
+                        <TextField fx:id="inputZipCode" onKeyReleased="#handleInputPostKeyReleased" prefHeight="45.0" prefWidth="350.0" promptText="Post number">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-envelope-o" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="90.0" prefWidth="410.0">
@@ -155,14 +253,28 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="inputCity" prefHeight="45.0" prefWidth="258.0" promptText="City" styleClass="round-32">
+                        <TextField fx:id="inputCity" prefHeight="45.0" prefWidth="350.0" promptText="City">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="round-32" />
+                              <String fx:value="bg-transparent" />
+                              <String fx:value="border-color-slate-300" />
+                              <String fx:value="focused-yellow" />
+                           </styleClass>
                         </TextField>
+                        <FontIcon iconLiteral="fa-road" iconSize="24">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                        </FontIcon>
                      </children>
                   </HBox>
                   <Pane prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />

@@ -3,7 +3,7 @@ package services.log;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import database.entities.Entity;
+import entities.Entity;
 
 public class LogEntity extends Entity {
 	

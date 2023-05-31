@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="526.0" styleClass="bg-green-400" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MessageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="526.0" styleClass="bg-green-400" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.MessageController">
    <children>
       <FontIcon iconColor="#0b6118" iconLiteral="fa-check" iconSize="75" layoutX="9.0" layoutY="74.79999999999998" AnchorPane.bottomAnchor="10.485713195800798" AnchorPane.leftAnchor="9.0" />
       <Label fx:id="lblMessage" layoutX="110.0" layoutY="6.0" onDragDetected="#handleLblClick" prefHeight="96.0" prefWidth="441.0" textFill="#005b21" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

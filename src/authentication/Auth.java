@@ -1,6 +1,6 @@
 package authentication;
 
-import database.entities.Entity;
+import entities.Entity;
 
 /**
  * 

@@ -2,7 +2,7 @@ package database.repositories;
 
 import java.util.ArrayList;
 
-import database.entities.Entity;
+import entities.Entity;
 
 public interface RepositoryInterface {
 	

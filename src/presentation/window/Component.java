@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import app.configs.Config;
 import javafx.fxml.FXMLLoader;
-import presentation.BaseController;
+import presentation.controllers.BaseController;
 
 /**
  *      

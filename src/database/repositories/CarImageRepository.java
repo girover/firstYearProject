@@ -4,10 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import database.entities.Car;
-import database.entities.CarImage;
-import database.entities.Entity;
-import database.entities.User;
+import entities.Car;
+import entities.CarImage;
+import entities.Entity;
+import entities.User;
 
 /**
  * This class is a part of Data Access Layer. 

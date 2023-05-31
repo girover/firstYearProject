@@ -2,9 +2,9 @@ package services;
 
 import java.util.ArrayList;
 
-import database.entities.Employee;
-import database.entities.Entity;
 import database.repositories.EmployeeRepository;
+import entities.Employee;
+import entities.Entity;
 
 
 

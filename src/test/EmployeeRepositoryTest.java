@@ -1,13 +1,13 @@
 package test;
 
-import static database.entities.factory.Factory.employeeFactory;
+import static entities.factory.Factory.employeeFactory;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import database.entities.Employee;
 import database.repositories.EmployeeRepository;
+import entities.Employee;
 
 /**
  * 

@@ -9,9 +9,9 @@ import java.util.HashMap;
 import javax.management.RuntimeErrorException;
 
 import app.configs.Config;
-import database.entities.Entity;
 import database.repositories.Repository;
 import database.repositories.RepositoryInterface;
+import entities.Entity;
 
 /**
  * This abstract class is a part of Service Layer (Business Logic Layer).

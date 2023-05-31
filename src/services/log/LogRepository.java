@@ -4,10 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import database.entities.Employee;
-import database.entities.Entity;
-import database.entities.User;
 import database.repositories.Repository;
+import entities.Employee;
+import entities.Entity;
+import entities.User;
 
 public class LogRepository extends Repository {
 

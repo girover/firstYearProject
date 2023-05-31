@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import presentation.MessageController;
+import presentation.controllers.MessageController;
 import presentation.window.Window;
 import services.log.Log;
 

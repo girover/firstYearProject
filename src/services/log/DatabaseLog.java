@@ -1,7 +1,7 @@
 package services.log;
 
 import app.App;
-import database.entities.User;
+import entities.User;
 
 public class DatabaseLog extends BaseLog implements Logger {
 

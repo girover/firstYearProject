@@ -2,10 +2,10 @@ package services;
 
 import java.util.ArrayList;
 
-import database.entities.Employee;
-import database.entities.Entity;
-import database.entities.SellerApprovalLimits;
 import database.repositories.SellerApprovalLimitRepository;
+import entities.Employee;
+import entities.Entity;
+import entities.SellerApprovalLimits;
 
 
 /**

@@ -3,9 +3,9 @@ package services;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import database.entities.Customer;
-import database.entities.Entity;
 import database.repositories.CustomerRepository;
+import entities.Customer;
+import entities.Entity;
 
 
 /**

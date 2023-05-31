@@ -1,13 +1,13 @@
 package test;
 
-import static database.entities.factory.Factory.carFactory;
+import static entities.factory.Factory.carFactory;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import database.entities.Car;
 import database.repositories.CarRepository;
+import entities.Car;
 
 /**
  * This test case class is responsible for testing methods in "CarRepository" class.

@@ -2,10 +2,10 @@ package services;
 
 import app.App;
 import authentication.Auth;
-import database.entities.Employee;
-import database.entities.User;
 import database.repositories.EmployeeRepository;
 import database.repositories.UserRepository;
+import entities.Employee;
+import entities.User;
 import services.log.Log;
 
 /**

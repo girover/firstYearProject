@@ -4,9 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import database.entities.Customer;
-import database.entities.Entity;
-import database.entities.User;
+import entities.Customer;
+import entities.Entity;
+import entities.User;
 
 /**
  * This class is a part of Data Access Layer. 

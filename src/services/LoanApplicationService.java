@@ -2,16 +2,16 @@ package services;
 
 import java.util.ArrayList;
 
-import database.entities.Car;
-import database.entities.Customer;
-import database.entities.Employee;
-import database.entities.Entity;
-import database.entities.LoanApplication;
-import database.entities.User;
 import database.repositories.CarRepository;
 import database.repositories.CustomerRepository;
 import database.repositories.EmployeeRepository;
 import database.repositories.LoanApplicationRepository;
+import entities.Car;
+import entities.Customer;
+import entities.Employee;
+import entities.Entity;
+import entities.LoanApplication;
+import entities.User;
 
 /**
  * This class is a part of Service Layer (Business Logic Layer).

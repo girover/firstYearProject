@@ -10,7 +10,7 @@ package presentation;
  *         - <a href="https://github.com/girover">Github Profile</a>
  */
 import app.Helper;
-import database.entities.LoanApplication;
+import entities.LoanApplication;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 

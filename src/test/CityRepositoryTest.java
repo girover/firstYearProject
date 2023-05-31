@@ -1,13 +1,13 @@
 package test;
 
-import static database.entities.factory.Factory.cityFactory;
+import static entities.factory.Factory.cityFactory;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import database.entities.City;
 import database.repositories.CityRepository;
+import entities.City;
 
 /**
  *  @author Shahana Thirukumar

@@ -1,11 +1,11 @@
 package faker;
 
-import database.entities.Car;
-import database.entities.Customer;
-import database.entities.Employee;
-import database.entities.LoanApplication;
-import database.entities.SellerApprovalLimits;
-import database.entities.User;
+import entities.Car;
+import entities.Customer;
+import entities.Employee;
+import entities.LoanApplication;
+import entities.SellerApprovalLimits;
+import entities.User;
 import services.HashingService;
 
 /**
@@ -208,9 +208,9 @@ public class Faker extends Provider {
 		return loanApplication;
 	}
 
-	public static database.entities.City city() {
+	public static entities.City city() {
 		
-		database.entities.City city = new database.entities.City();
+		entities.City city = new entities.City();
 		
 		String zipCode = City.getZipCode();
 		

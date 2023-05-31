@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import presentation.BaseController;
-import presentation.ConfirmDialogController;
+import presentation.controllers.BaseController;
+import presentation.controllers.ConfirmDialogController;
 
 /**
  *      

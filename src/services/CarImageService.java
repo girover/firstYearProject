@@ -2,9 +2,9 @@ package services;
 
 import java.util.ArrayList;
 
-import database.entities.CarImage;
-import database.entities.Entity;
 import database.repositories.CarImageRepository;
+import entities.CarImage;
+import entities.Entity;
 
 
 /**

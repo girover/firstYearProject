@@ -1,17 +1,17 @@
 package test;
 
-import static database.entities.factory.Factory.cityFactory;
-import static database.entities.factory.Factory.customerFactory;
+import static entities.factory.Factory.cityFactory;
+import static entities.factory.Factory.customerFactory;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import database.entities.City;
-import database.entities.Customer;
 import database.repositories.CityRepository;
 import database.repositories.CustomerRepository;
+import entities.City;
+import entities.Customer;
 
 /**
  * @author Rasmus Lysgaard Villadsen

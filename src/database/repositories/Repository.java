@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import app.App;
 import app.configs.Config;
-import database.entities.Entity;
+import entities.Entity;
 
 /**
  * An abstract class that represents a repository responsible for basic CRUD (Create, Read, Update,

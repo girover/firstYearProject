@@ -2,9 +2,9 @@ package services;
 
 import java.util.ArrayList;
 
-import database.entities.City;
-import database.entities.Entity;
 import database.repositories.CityRepository;
+import entities.City;
+import entities.Entity;
 /**
  * @author Shahana Thirukumar
  * 		- <b style="color:red">shahana2@hotmail.dk</b>
