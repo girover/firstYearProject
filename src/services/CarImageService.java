@@ -21,15 +21,14 @@ import database.repositories.CarImageRepository;
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>
  * 
- * @author Majed Hussein Farhan
- * 		 - <b style="color:red">girover.mhf@gmail.com</b>
- *       - <a href="https://github.com/girover">Github</a>
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
  */
 public class CarImageService extends BaseResourceService {
 
 	public CarImageService() {
 		repository = new CarImageRepository();
-//		entityClass = CarImage.class;
 	}
 
 	@Override

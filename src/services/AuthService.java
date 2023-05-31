@@ -19,13 +19,9 @@ import services.log.Log;
 public class AuthService {
 
 	private String userIdField;
-	private String userIdFieldType;
-	private String userPasswordField;
 
 	public AuthService() {
 		userIdField = Auth.getIdField();
-		userIdFieldType = Auth.getIdFieldType();
-		userPasswordField = Auth.getPasswordField();
 	}
 
 	/**

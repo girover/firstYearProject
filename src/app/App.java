@@ -28,6 +28,18 @@ import presentation.window.Window;
  * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
+ *         
+ * @author Rasmus Lysgaard Villadsen
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
+ * @author Rasmus Kortsen
+ *         - Email: Rasmus.kortsen1@gmail.com
+ *         - Github: https://github.com/rasm685p
+ *         
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
  *
  */
 public class App {

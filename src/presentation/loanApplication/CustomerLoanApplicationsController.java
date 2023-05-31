@@ -72,6 +72,9 @@ public class CustomerLoanApplicationsController extends BaseController {
     private TableColumn<LoanApplication, String> colRate;
     
     @FXML
+    private TableColumn<LoanApplication, String> colMonthlyPayment;
+    
+    @FXML
     private TableColumn<LoanApplication, String> colDate;
 
     @FXML
@@ -161,7 +164,8 @@ public class CustomerLoanApplicationsController extends BaseController {
 		colDownPayment.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForPayment(tableColumn) );
 		colMonths.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForMonths(tableColumn));
 		colDate.setCellValueFactory(new PropertyValueFactory<>("applicationDate"));
-		colRate.setCellValueFactory(new PropertyValueFactory<>("interestRate"));
+		colRate.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForRate(tableColumn));
+		colMonthlyPayment.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForMonthlyPayment(tableColumn));
 
 		colStatus.setCellFactory(tableColumn -> TableCellFormatter.getTableCellFormatterForStatus(tableColumn));
 	}

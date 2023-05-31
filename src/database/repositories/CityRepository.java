@@ -14,9 +14,14 @@ import database.entities.User;
  * such as retrieving all records, retrieving a single record by ID, updating a record, and deleting a
  * record.
 
- * @author Majed Hussein Farhan
- * 		 - <b style="color:red">girover.mhf@gmail.com</b>
- *       - <a href="https://github.com/girover">Github</a>
+ * @author Shahana Thirukumar
+ * 		- <b style="color:red">shahana2@hotmail.dk</b>
+ *      - <a href="https://github.com/ShahanaT2000">Github Profile</a>
+ *      
+ * @author Rasmus Lysgaard Villadsen
+ * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
+ * 		 - <a href="https://github.com/MrMaklie">Github</a>
+ * 
  * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/repositories/CustomerRepository.java">Class Code On Github</a>
  */
 public class CityRepository extends Repository {

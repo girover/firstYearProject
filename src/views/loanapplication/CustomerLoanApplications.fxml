@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="608.0" prefWidth="1150.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loanApplication.CustomerLoanApplicationsController">
+<AnchorPane prefHeight="608.0" prefWidth="1220.0" styleClass="bg-first" stylesheets="@../style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loanApplication.CustomerLoanApplicationsController">
                <children>
                   <BorderPane layoutX="85.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
@@ -118,7 +118,8 @@
                               <TableColumn fx:id="colDownPayment" prefWidth="133.60006713867188" text="Down Payment" />
                               <TableColumn fx:id="colMonths" minWidth="5.5999755859375" prefWidth="83.199951171875" text="Months" />
                               <TableColumn fx:id="colRate" prefWidth="75.199951171875" text="Rate" />
-                              <TableColumn fx:id="colDate" prefWidth="177.5999755859375" text="Date" />
+                              <TableColumn fx:id="colMonthlyPayment" prefWidth="116.00006103515625" text="Monthly Paymeny" />
+                              <TableColumn fx:id="colDate" prefWidth="136.79998779296875" text="Date" />
                               <TableColumn fx:id="colStatus" prefWidth="143.199951171875" text="Status" />
                           </columns>
                         </TableView>

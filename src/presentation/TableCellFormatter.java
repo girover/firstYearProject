@@ -14,6 +14,11 @@ import database.entities.LoanApplication;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 
+/**
+ * 
+ * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
+ *         - <a href="https://github.com/girover">Github</a>
+ */
 public class TableCellFormatter {
 
 	public static TableCell<LoanApplication, String> getTableCellFormatterForStatus(TableColumn<LoanApplication, String> param){
@@ -144,6 +149,54 @@ public class TableCellFormatter {
 							.get(currentIndex).getLoanAmount();
 					
 					setText(Helper.formatCurrency(loanAmount));
+				}
+				else {
+					setText(null);
+				}
+			}
+		};
+	}
+	
+	public static TableCell<LoanApplication, String> getTableCellFormatterForMonthlyPayment(TableColumn<LoanApplication, String> param){
+		return new TableCell<LoanApplication, String>() {
+			
+			@Override
+			protected void updateItem(String item, boolean empty) {
+				super.updateItem(item, empty);
+				
+				if(!empty) {
+					int currentIndex = indexProperty()
+							.getValue() < 0 ? 0
+									: indexProperty().getValue();
+					double monthlyPayment = param
+							.getTableView().getItems()
+							.get(currentIndex).getMonthlyPayment();
+					
+					setText(Helper.formatCurrency(monthlyPayment));
+				}
+				else {
+					setText(null);
+				}
+			}
+		};
+	}
+	
+	public static TableCell<LoanApplication, String> getTableCellFormatterForRate(TableColumn<LoanApplication, String> param){
+		return new TableCell<LoanApplication, String>() {
+			
+			@Override
+			protected void updateItem(String item, boolean empty) {
+				super.updateItem(item, empty);
+				
+				if(!empty) {
+					int currentIndex = indexProperty()
+							.getValue() < 0 ? 0
+									: indexProperty().getValue();
+					double rate = param
+							.getTableView().getItems()
+							.get(currentIndex).getInterestRate();
+					
+					setText(String.format("%.3f", rate));
 				}
 				else {
 					setText(null);

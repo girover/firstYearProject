@@ -6,7 +6,7 @@ package database.entities.factory;
  *      - <a href="https://github.com/girover">Github Profile</a>
  *
  */
-public class Factory {
+public abstract class Factory {
 	
 	public static CarFactory carFactory() {
 		return new CarFactory();
