@@ -103,10 +103,14 @@ public class Window extends Stage {
 	 * @return boolean
 	 */
 	public static boolean showCinformDialog(String title, String message) {
-		Window w = new Window("messages/ConfirmationDialog.fxml", title);
-		ConfirmDialogController controller = (ConfirmDialogController)w.getController();
+		
+		Window confirmDialog = new Window("messages/ConfirmationDialog.fxml", title);
+		
+		ConfirmDialogController controller = (ConfirmDialogController)confirmDialog.getController();
+		
 		controller.setMessage(message);
-		w.showAndWait();
+		confirmDialog.showAndWait();
+		
 		return controller.getUserAction();
 	}
 }

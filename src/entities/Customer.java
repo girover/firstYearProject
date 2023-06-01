@@ -5,11 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * This class is a part of Data Access Layer. This class represents a Data
- * Access Object for the Customer table in the database.
+ * This class represents data for the Customer table in the database.
  *
- * @version 1.0
- * 
  * @author Rasmus Kortsen
  *         - Email: Rasmus.kortsen1@gmail.com
  *         - Github: https://github.com/rasm685p

@@ -3,6 +3,8 @@ package authentication;
 import entities.Entity;
 
 /**
+ * This abstract class is used to determine which columns of User table
+ * should be used for authentication.
  * 
  * @author Majed Hussein Farhan - <b style="color:red">girover.mhf@gmail.com</b>
  *         - <a href="https://github.com/girover">Github Profile</a>
@@ -36,7 +38,4 @@ public abstract class Auth extends Entity {
 	public static void setPasswordField(String _passwordField) {
 		passwordField = _passwordField;
 	}
-
-	public abstract boolean login(String firstCredential, String secondCredential);
-	
 }

@@ -133,9 +133,8 @@ public class CustomerLoanApplicationsController extends BaseController {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(o instanceof ShowLoanApplicationController || o instanceof UpdateLoanApplicationController) {
+		if(o instanceof ShowLoanApplicationController || o instanceof UpdateLoanApplicationController)
 			tvLoanApplications.refresh();
-		}
 	}
 
 	@Override

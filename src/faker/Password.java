@@ -10,7 +10,7 @@ import services.HashingService;
  */
 public class Password extends Provider {
 	
-	private static final String defaultPassword = "1234";
+	private static final String DEFAULT_PASSWORD = "1234";
 
 	public static String stringPassword(int length) {
 		return getAlphaString(length);
@@ -21,6 +21,6 @@ public class Password extends Provider {
 	}
 	
 	public static String hashedPassword() {
-		return HashingService.secureHash(defaultPassword);
+		return HashingService.secureHash(DEFAULT_PASSWORD);
 	}
 }

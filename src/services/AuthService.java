@@ -78,18 +78,5 @@ public class AuthService {
 	 */
 	public static void logout() {
 		App.setAuthenticatedUser(null);
-		App.getMainStage().close();
-		App.showLoginWindow();
-	}
-
-	/**
-	 * Redirects the authenticated user to the appropriate dashboard based on their
-	 * assigned role.
-	 * 
-	 * @param String fxml
-	 * @param String title
-	 */
-	private void redirectTo(String fxml, String title) {
-
 	}
 }

@@ -16,11 +16,11 @@ import java.io.IOException;
  */
 public class AppLocker {
 
-	private static final String lockFile = ".application.lock";
+	private static final String LOCK_FILE = ".application.lock";
 	private File file;
 	
 	public AppLocker(){
-		file = new File(lockFile);
+		file = new File(LOCK_FILE);
 	}
 	
 	/**

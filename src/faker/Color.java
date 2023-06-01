@@ -34,7 +34,7 @@ public final class Color extends Provider {
 
 
 	/**
-	 * @example "NavajoWhite"
+	 * @example "YellowGreen"
 	 */
 	public static String color() {
 		

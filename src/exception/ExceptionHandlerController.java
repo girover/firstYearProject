@@ -27,7 +27,7 @@ public class ExceptionHandlerController extends MessageController {
 
     @FXML
     void onClickBtnClose(ActionEvent event) {
-    	Window.closeWindow(event);
+    	closeWindow(event);
     }
 
     @FXML

@@ -70,16 +70,6 @@ public class LoginController extends ValidatableController {
     	}
     }
 
-    @FXML
-    void onKeyReleasedInputEmail(KeyEvent event) {
-
-    }
-
-    @FXML
-    void onKeyReleasedInputPassword(KeyEvent event) {
-
-    }
-
 	@Override
 	public void update(Observable o, Object arg) {
 		

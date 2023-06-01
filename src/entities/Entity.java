@@ -3,6 +3,7 @@ package entities;
 import java.sql.ResultSet;
 
 /**
+ * This is the base class for all Entities.
  * 
  * @author Majed Hussein Farhan
  * 		 - <b style="color:red">girover.mhf@gmail.com</b>

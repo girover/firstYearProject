@@ -7,11 +7,8 @@ import java.util.ArrayList;
 import entities.factory.EntityFactory;
 
 /**
- * This class is a part of Data Access Layer. This class represents a Data
- * Access Object for the Car table in the database.
+ * This class represents data for the Car table in the database.
  *
- * @version 1.0
- * 
  * @author Rasmus Kortsen
  *         - Email: Rasmus.kortsen1@gmail.com
  *         - Github: https://github.com/rasm685p

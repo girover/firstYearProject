@@ -24,10 +24,6 @@ public class MessageController extends BaseController {
 		lblMessage.setText(message);
 	}
 
-	@FXML
-	void handleLblClick(MouseEvent event) {
-	}
-
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -35,6 +31,6 @@ public class MessageController extends BaseController {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
 	}
 }

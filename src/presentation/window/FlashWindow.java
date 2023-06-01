@@ -15,10 +15,9 @@ public class FlashWindow extends Window{
 		super(fxml, title);
 	}
 	
-	
 	/**
-	 * Used for showing Success or Error messages
-	 * Those messages will disappear automatically after given seconds. 
+	 * Used for showing Success or Error flash messages
+	 * Those messages will disappear automatically after the given seconds. 
 	 * @param stage
 	 * @param miliseconds
 	 */

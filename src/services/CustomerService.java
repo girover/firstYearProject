@@ -76,9 +76,7 @@ public class CustomerService extends BaseResourceService {
 	@Override
 	public boolean update(Entity entity) {
 		Customer customer = (Customer)entity;
-		// Expecting hashing CPR number here
-		// .....   code ....
-//		customer.setCPRHash(null);
+		
 		return repository.update(customer);
 	}
 

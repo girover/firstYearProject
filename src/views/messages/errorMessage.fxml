@@ -19,7 +19,7 @@
             </HBox>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblMessage" alignment="TOP_LEFT" onDragDetected="#handleLblClick" prefHeight="114.0" prefWidth="344.0" textFill="#510000" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label fx:id="lblMessage" alignment="TOP_LEFT" prefHeight="114.0" prefWidth="344.0" textFill="#510000" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font size="16.0" />
                      </font>

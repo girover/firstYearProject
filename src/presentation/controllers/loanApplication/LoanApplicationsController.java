@@ -144,9 +144,8 @@ public class LoanApplicationsController extends BaseController {
 				tvLoanApplications.getSelectionModel().select(loanApplication);
 			}
 		}else if(o instanceof ShowLoanApplicationController 
-				|| o instanceof UpdateLoanApplicationController) {
+				|| o instanceof UpdateLoanApplicationController)
 			tvLoanApplications.refresh();
-		}
 	}
 
 	@Override

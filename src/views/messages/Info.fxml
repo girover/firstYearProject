@@ -19,7 +19,7 @@
             </FontIcon>
             <AnchorPane prefHeight="363.0" prefWidth="406.0" styleClass="bg-gray-100" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblMessage" alignment="TOP_CENTER" onDragDetected="#handleLblClick" prefHeight="262.0" prefWidth="418.0" textFill="#7b0404" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label fx:id="lblMessage" alignment="TOP_CENTER" prefHeight="262.0" prefWidth="418.0" textFill="#7b0404" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font size="16.0" />
                      </font>

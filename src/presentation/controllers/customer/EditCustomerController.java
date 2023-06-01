@@ -25,7 +25,6 @@ public class EditCustomerController extends NewCustomerController {
     private Button btnUpdate;
 
     @FXML
-//    @Rules(field = "cpr number", rules = "required|numeric|length:10")
     private TextField inputCPR;
     
     @FXML
@@ -98,7 +97,6 @@ public class EditCustomerController extends NewCustomerController {
     }
     
     private void fillInputsWithCustomer() {
-    	//inputCPR.setText(customerUnderEditing.getCPRHash());
     	inputFirstName.setText(customer.getFirstName());
     	inputLastName.setText(customer.getLastName());
     	inputPhone.setText(customer.getPhone());

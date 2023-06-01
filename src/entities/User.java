@@ -2,14 +2,12 @@ package entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import authentication.Auth;
 
 /**
- * This class is a part of Data Access Layer. This class represents a Data
- * Access Object for the User table in the database.
+ * This class represents data for the User table in the database.
  *
- * @version 1.0
- * 
  * @author Rasmus Kortsen
  *         - Email: Rasmus.kortsen1@gmail.com
  *         - Github: https://github.com/rasm685p
@@ -21,7 +19,6 @@ public class User extends Auth {
 	public User() {
 		super();
 		setTable("user");
-		setPrimaryKey("id");
 	}
 
 	private int id;
@@ -78,12 +75,6 @@ public class User extends Auth {
 
 	public void setMaxApprovalLimit(int maxApprovalLimit) {
 		this.maxApprovalLimit = maxApprovalLimit;
-	}
-
-	@Override
-	public boolean login(String firstCredential, String secondCredential) {
-
-		return false;
 	}
 
 	@Override

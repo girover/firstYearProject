@@ -5,10 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * This class is a part of Data Access Layer. This class represents a Data
- * Access Object for the LoanApplication table in the database.
+ * This class represents data for the LoanApplication table in the database.
  *
- * @version 1.0
  * @author Rasmus Lysgaard Villadsen
  * 		 - <b style="color:red"> mrmaklie@gmail.com</b>
  * 		 - <a href="https://github.com/MrMaklie">Github</a>

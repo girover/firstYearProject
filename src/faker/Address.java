@@ -28,15 +28,14 @@ public class Address extends Provider {
 	};
 	
 	private static String[] apartmentPositions = {"Th", "Tv", "St"};
-	private static String[] haousePositions = {"A", "B", "C", "D", "E", "F", "G"};
 	
 	public static String addressApartment() {
 		
 		String street = getRandomElementFromArray(streets);
 		int buildingNumber = getRandomInteger(1, 100);
 		int floor = getRandomInteger(0, 6);
-		int door  = getRandomInteger(1, 3);
 		String position;
+		
 		if(floor == 0)
 			position = "St";
 		else

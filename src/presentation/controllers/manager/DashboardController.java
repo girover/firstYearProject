@@ -64,6 +64,8 @@ public class DashboardController extends BaseController {
     @FXML
     void handleBtnLogout(ActionEvent event) {
     	AuthService.logout();
+    	closeWindow(event);
+    	App.showLoginWindow();
     }
 
     @FXML
