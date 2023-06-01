@@ -117,7 +117,6 @@ public class Faker extends Provider {
 
 	private static Car generateCar(byte sold) {
 		Car car = new Car();
-		car.setBrand("ferrari");
 		car.setModel(getRandomElementFromArray(Ferrari.getModels()));
 		car.setYear(getRandomInteger(2000, 2022));
 		car.setColor(Color.color());

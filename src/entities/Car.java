@@ -16,12 +16,11 @@ import entities.factory.EntityFactory;
  *         - Email: Rasmus.kortsen1@gmail.com
  *         - Github: https://github.com/rasm685p
  * 
- * @see <a href="https://github.com/girover/firstYearProject/blob/main/src/database/entities/Car.java">Class Code On Github</a>
  */
 public class Car extends Entity {
 
 	private int id;
-	private String brand;
+	private static final String BRAND = "Ferrari";
 	private String model;
 	private int year;
 	private String color;
@@ -49,13 +48,9 @@ public class Car extends Entity {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
+		return BRAND;
 	}
 
 	public String getModel() {
@@ -183,7 +178,6 @@ public class Car extends Entity {
 
 		try {
 			id = result.getInt("id");
-			brand = result.getString("brand");
 			model = result.getString("model");
 			year = result.getInt("year");
 			color = result.getString("color");

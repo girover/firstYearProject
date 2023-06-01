@@ -78,7 +78,6 @@ CREATE TABLE [customer] (
 -- Car Table
 CREATE TABLE car (
   id INT PRIMARY KEY IDENTITY(1000,1),
-  brand nvarchar(100) NOT NULL,
   model nvarchar(100) NOT NULL,
   [year] int NOT NULL,
   color nvarchar(50) NOT NULL,

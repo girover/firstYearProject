@@ -55,7 +55,6 @@ public class CarRepository extends Repository {
 		Car car = (Car) entity;
 
 		String sql = "UPDATE [" + table + "] SET " 
-				+ "[brand] = ?,"
 				+ "[model] = ?,"
 				+ "[year] = ?,"
 				+ "[color] = ?,"
@@ -70,7 +69,6 @@ public class CarRepository extends Repository {
 				+ "WHERE [" + primaryKey + "] = ?";
 
 		return update(sql, 
-				car.getBrand(), 
 				car.getModel(), 
 				car.getYear(), 
 				car.getColor(), 
@@ -97,7 +95,6 @@ public class CarRepository extends Repository {
 		Car car = (Car) entity;
 
 		String sql = "INSERT INTO [" + table + "] (" 
-				+ "[brand]," 
 				+ "[model]," 
 				+ "[year],"
 				+ "[color]," 
@@ -112,10 +109,9 @@ public class CarRepository extends Repository {
 				+ "[VIN]," 
 				+ "[price],"
 				+ "[description]"
-				+ ") VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ ") VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		int id = insertAndGetGeneratedId(sql, 
-				car.getBrand(), 
 				car.getModel(), 
 				car.getYear(), 
 				car.getColor(),
