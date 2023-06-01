@@ -29,7 +29,7 @@ public class Employee extends Entity {
 	private String email;
 	private String phone;
 	private String address;
-	private String zipCode;
+	private int zipCode;
 	private String hireDate;
 	private String department;
 	private String role;
@@ -89,11 +89,11 @@ public class Employee extends Entity {
 		this.address = address;
 	}
 
-	public String getZipCode() {
+	public int getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String postNumber) {
+	public void setZipCode(int postNumber) {
 		this.zipCode = postNumber;
 	}
 
@@ -138,7 +138,7 @@ public class Employee extends Entity {
 			email = result.getString("email");
 			phone = result.getString("phone");
 			address = result.getString("address");
-			zipCode = result.getString("zipCode");
+			zipCode = result.getInt("zipCode");
 			hireDate = result.getString("hireDate");
 			department = result.getString("department");
 			role = result.getString("role");

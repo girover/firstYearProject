@@ -11,14 +11,14 @@ import java.sql.SQLException;
  */
 public class City extends Entity {
 
-	private String zipCode;
+	private int zipCode;
 	private String city;
 
-	public String getZipCode() {
+	public int getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
 
@@ -34,7 +34,7 @@ public class City extends Entity {
 	public boolean mapFromResultSet(ResultSet result) {
 	
 		try {
-			zipCode = result.getString("zipCode");
+			zipCode = result.getInt("zipCode");
 			city = result.getString("city");
 
 			setExist(true);

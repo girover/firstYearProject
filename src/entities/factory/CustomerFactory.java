@@ -30,7 +30,7 @@ public class CustomerFactory implements EntityFactory {
 		return customers;
 	}
 
-	public ArrayList<Customer> makeAndSetZipCode(int quantity, String zipCode){
+	public ArrayList<Customer> makeAndSetZipCode(int quantity, int zipCode){
 		ArrayList<Customer> customers = make(quantity);
 		for (Customer customer : customers) {
 			customer.setZipCode(zipCode);

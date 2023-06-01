@@ -314,7 +314,7 @@ public class ShowLoanApplicationController extends BaseController {
 		lbFirstName.setText(customer.getFirstName());
 		lbLastName.setText(customer.getLastName());
 		lbPhone.setText(customer.getPhone());
-		lbZipCode.setText(customer.getZipCode());
+		lbZipCode.setText(Integer.toString(customer.getZipCode()));
 		lbCity.setText(customer.getCity());
 	}
 

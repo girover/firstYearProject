@@ -95,7 +95,7 @@ public class EditProfileController extends ValidatableController {
 		employee.setFirstName(inputFirstName.getText());
 		employee.setLastName(inputLastName.getText());
 		employee.setAddress(inputAddress.getText());
-		employee.setZipCode(inputZipCode.getText());
+		employee.setZipCode(Integer.parseInt(inputZipCode.getText()));
 		employee.setEmail(inputEmail.getText());
 		employee.setPhone(inputPhone.getText());
 		employee.setRole(inputRole.getText());
@@ -106,7 +106,7 @@ public class EditProfileController extends ValidatableController {
 		inputFirstName.setText(employee.getFirstName());
 		inputLastName.setText(employee.getLastName());
 		inputAddress.setText(employee.getAddress());
-		inputZipCode.setText(employee.getZipCode());
+		inputZipCode.setText(Integer.toString(employee.getZipCode()));
 		inputCity.setText(employee.getCity());
 		inputEmail.setText(employee.getEmail());
 		inputPhone.setText(employee.getPhone());

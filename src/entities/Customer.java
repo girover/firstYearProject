@@ -25,7 +25,7 @@ public class Customer extends Entity {
 	private String phone;
 	private String email;
 	private String address;
-	private String zipCode;
+	private int zipCode;
 	
 	// Relational properties
 	private String city;
@@ -90,11 +90,11 @@ public class Customer extends Entity {
 		this.address = address;
 	}
 
-	public String getZipCode() {
+	public int getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
 
@@ -115,7 +115,7 @@ public class Customer extends Entity {
 			phone = result.getString("phone");
 			email = result.getString("email");
 			address = result.getString("address");
-			zipCode = result.getString("zipCode");
+			zipCode = result.getInt("zipCode");
 			CPRHash = result.getString("CPRHash");
 			
 			try {				
@@ -144,7 +144,7 @@ public class Customer extends Entity {
 							,getPhone()
 							,getEmail()
 							,getAddress()
-							,getZipCode()
+							,Integer.toString(getZipCode())
 							,getCity()
 						  };
 		ArrayList<String[]> data = new ArrayList<>();

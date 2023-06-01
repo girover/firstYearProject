@@ -100,7 +100,7 @@ public class NewCustomerController extends ValidatableController {
     	customer.setEmail(inputEmail.getText());
     	customer.setAddress(inputAddress.getText());
     	customer.setCity(inputCity.getText());
-    	customer.setZipCode(inputZipCode.getText());
+    	customer.setZipCode(Integer.parseInt(inputZipCode.getText()));
     }
     
     public Customer getCustomer() {

@@ -37,7 +37,7 @@ public class CityFactory implements EntityFactory {
 	
 	private boolean contains(ArrayList<City> cities, City city) {
 		for (City c : cities) {
-			if(c.getZipCode().equals(city.getZipCode()))
+			if(c.getZipCode()== city.getZipCode())
 				return true;
 		}
 		

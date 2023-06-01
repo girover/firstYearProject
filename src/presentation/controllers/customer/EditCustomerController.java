@@ -105,7 +105,7 @@ public class EditCustomerController extends NewCustomerController {
     	inputEmail.setText(customer.getEmail());
     	inputAddress.setText(customer.getAddress());
     	inputCity.setText(customer.getCity());
-    	inputZipCode.setText(customer.getZipCode());
+    	inputZipCode.setText(Integer.toString(customer.getZipCode()));
     }
 
 }

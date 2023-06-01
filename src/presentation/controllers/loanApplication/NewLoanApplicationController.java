@@ -489,7 +489,7 @@ public class NewLoanApplicationController extends ValidatableController {
 		lbLastName.setText(selectedCustomer.getLastName());
 		lbEmail.setText(selectedCustomer.getEmail());
 		lbPhone.setText(selectedCustomer.getPhone());
-		lbZipCode.setText(selectedCustomer.getZipCode());
+		lbZipCode.setText(Integer.toString(selectedCustomer.getZipCode()));
 		lbCity.setText(selectedCustomer.getCity());
 		
 	}

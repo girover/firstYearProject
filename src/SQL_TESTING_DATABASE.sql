@@ -14,7 +14,7 @@ USE ferrari_testing;
 -- City Table
 
 CREATE TABLE [city] (
-	zipCode nvarchar(6) PRIMARY KEY,
+	zipCode int PRIMARY KEY,
 	city nvarchar(50) NOT NULL,
 	CONSTRAINT City_Unique_ZipCode_City UNIQUE (zipCode, city)
 );
@@ -28,7 +28,7 @@ CREATE TABLE [employee] (
   email nvarchar(100) NOT NULL UNIQUE,
   phone nvarchar(20) NOT NULL,
   [address] nvarchar(255) NOT NULL,
-  zipCode nvarchar(6) NOT NULL,
+  zipCode int NOT NULL,
   hireDate datetime NOT NULL,
   department nvarchar(50) NOT NULL CHECK (department IN ('administration', 'sales', 'finance', 'service', 'marketing', 'parts', 'IT')),
   [role] nvarchar(50) NOT NULL CHECK ([role] IN ('manager', 'seller'))
@@ -72,7 +72,7 @@ CREATE TABLE [customer] (
   phone nvarchar(20) NOT NULL,
   [address] nvarchar(255) NOT NULL,
   CPRHash nvarchar(100) NOT NULL,
-  zipCode nvarchar(6) NOT NULL FOREIGN KEY REFERENCES city(zipCode) ON DELETE NO ACTION ON UPDATE CASCADE
+  zipCode int NOT NULL FOREIGN KEY REFERENCES city(zipCode) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 -- Car Table

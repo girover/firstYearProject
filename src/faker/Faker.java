@@ -90,7 +90,7 @@ public class Faker extends Provider {
 		employee.setPhone(Phone.danishPhoneNumber());
 		employee.setEmail(Email.email());
 		employee.setAddress(Address.addressApartment());
-		employee.setZipCode(City.getZipCode());
+		employee.setZipCode(Integer.parseInt(City.getZipCode()));
 		employee.setHireDate(DateTime.dateBetween(2000, 2023));
 		employee.setDepartment("sales");
 		employee.setRole(role);
@@ -158,7 +158,7 @@ public class Faker extends Provider {
 		customer.setEmail(Email.gmail());
 		customer.setAddress(Address.addressApartment());
 		String zipCode = City.getZipCode();
-		customer.setZipCode(zipCode);
+		customer.setZipCode(Integer.parseInt(zipCode));
 
 		return customer;
 	}
@@ -214,7 +214,7 @@ public class Faker extends Provider {
 		
 		String zipCode = City.getZipCode();
 		
-		city.setZipCode(zipCode);
+		city.setZipCode(Integer.parseInt(zipCode));
 		
 		city.setCity(City.getCity(zipCode));
 		

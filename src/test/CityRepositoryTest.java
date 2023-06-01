@@ -50,7 +50,7 @@ class CityRepositoryTest extends BaseTestCase {
 		City retievedCity = repo.find(city.getZipCode());
 
 		assertTrue(retievedCity != null);
-		assertTrue(retievedCity.getZipCode().equals(city.getZipCode()));
+		assertTrue(retievedCity.getZipCode() == city.getZipCode());
 	}
 
 	@Test
